@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="bhtId" v-on:change="btChange()">
+    <select class="form-control" v-model="bhtId" v-on:change="bhtChange()">
         <option value="0">--未选择--</option>
-		<option v-for="(item,index) in bhtList" :key="index" v-bind:value="item.bhtId">{{item.btName}}</option>
+		<option v-for="(item,index) in bhtList" :key="index" v-bind:value="item.bhtId">{{item.bhtName}}</option>
     </select>
 </template>
 
@@ -17,25 +17,21 @@
             
             bhtChange: function() {
                 for (var i = 0; i < this.bhtList.length; i++) {
-                    if(this.bhtId == 0){
-                         this.$emit('btChange', null)
+                    if(this.bhtId === 0){
+                         this.$emit('bhtChange', null)
                          return
                     }else{
-                        if (this.bhtList[i].colId == this.bhtId) {
-                            this.$emit('btChange', this.bhtList[i])
+                        if (this.bhtList[i].bhtId === this.bhtId) {
+                            this.$emit('bhtChange',this.bhtList[i].bhtId)
                             return
                         }
                     }
                 }
             },
-            setBhtId: function(bhtId) {
-                this.bhtId = bhtId
-                this.queryData()
-            },
             async queryData() {
                 var url = this.url + '/buildingHorseTypeBean/getAllHorseType'
                 this.$ajax({
-                    method: 'POST',
+                    method: 'GET',
                     url: url,
                     headers: {
                         'Content-Type': this.contentType,
@@ -45,7 +41,7 @@
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data
-                    if (res.retCode == '0000') {
+                    if (res.retCode === '0000') {
                         this.bhtList = res.retData
                     } else {
                         alert(res.retMsg)

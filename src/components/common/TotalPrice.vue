@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="btId" v-on:change="btChange()">
+    <select class="form-control" v-model="totalId" v-on:change="totalChange()">
         <option value="0">--未选择--</option>
-		<option v-for="(item,index) in buildTypeList" :key="index" v-bind:value="item.btId">{{item.btName}}</option>
+        <option v-for="(item,index) in totalIdList" :key="index" v-bind:value="item.tpId">{{item.begPrice}}-{{item.endPrice}}</option>
     </select>
 </template>
 
@@ -9,28 +9,32 @@
     export default {
         data() {
             return {
-                btId: '0',
-                buildTypeList: []
+                totalId: '0',
+                totalIdList: []
             };
         },
         methods: {
-            
-            btChange: function() {
-                for (var i = 0; i < this.buildTypeList.length; i++) {
-                    if(this.btId === 0){
-                         this.$emit('btChange', null)
-                         return
+
+            totalChange: function() {
+                for (var i = 0; i < this.totalIdList.length; i++) {
+                    if(this.totalId === 0){
+                        this.$emit('totalChange', null)
+                        return
                     }else{
-                        if (this.buildTypeList[i].btId === this.btId) {
-                            this.$emit('btChange', this.buildTypeList[i].btId)
-                            console.log('子数据',this.buildTypeList[i].btId);
+                        if (this.totalIdList[i].tpId === this.totalId) {
+
+                            this.$emit('totalChange', this.totalIdList[i])
                             return
                         }
                     }
                 }
             },
+            setBtId: function(tpId) {
+                this.tpId = tpId
+                this.queryData()
+            },
             async queryData() {
-                var url = this.url + '/buildingTypeBean/getAllBuildingType'
+                var url = this.url + '/totlePriceTypeBean/getAllTotalPrice'
                 this.$ajax({
                     method: 'GET',
                     url: url,
@@ -43,12 +47,12 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.buildTypeList = res.retData
+                        this.totalIdList = res.retData
                     } else {
                         alert(res.retMsg)
                     }
                 }).catch((error) => {
-                    console.log('数据请求失败处理')
+                    console.log('数据请求失败处理'+ error)
                 });
             },
         },
@@ -58,6 +62,6 @@
     }
 </script>
 
-<style>
+<style scoped>
 
 </style>
