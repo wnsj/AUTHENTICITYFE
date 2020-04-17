@@ -89,6 +89,7 @@
         },
         created() {
             this.queryData()
+            this.locationTypeChange()
         },
     }
 </script>
