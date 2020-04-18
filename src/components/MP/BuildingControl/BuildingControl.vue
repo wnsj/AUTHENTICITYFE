@@ -148,7 +148,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="(item,index) in tableData" :key="index">
+                        <tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
                             <td class="text-center" style="line-height:33px;">{{item.htName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.saleLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.adress}}</td>
@@ -160,8 +160,6 @@
                             <td class="text-center" style="line-height:33px;">{{item.minUnitPrice}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.minTitlePrice}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.couName}}</td>
-                           <!-- <td class="text-center" style="line-height:33px;"><button type="button" class="btn btn-warning"
-                                                                                      v-on:click="selectRule('3',item)">修改</button></td>-->
                         </tr>
                         </tbody>
                     </table>
