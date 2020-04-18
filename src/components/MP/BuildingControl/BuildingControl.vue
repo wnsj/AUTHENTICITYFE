@@ -119,9 +119,9 @@
             </div>
         </div>
 
-        <div class="row newRow" style="padding-bottom:15px;">
-            <!--   <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-                       v-on:click="selectRule('1')">添加</button>-->
+        <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
+               <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+                       v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
                     v-on:click="queryData">查询
@@ -142,8 +142,8 @@
                             <th class="text-center">类型</th>
                             <th class="text-center">特色</th>
                             <th class="text-center">开盘时间</th>
-                            <th class="text-center">参考单价(最小)</th>
-                            <th class="text-center">参考总价(最小)</th>
+                            <th class="text-center">参考单价(万)</th>
+                            <th class="text-center">参考总价(万)</th>
                             <th class="text-center">咨询师</th>
                         </tr>
                         </thead>
@@ -157,14 +157,21 @@
                             <td class="text-center" style="line-height:33px;">{{item.btName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.chaName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.openDateTime}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.unitPrice}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.titlePrice}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.minUnitPrice}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.minTitlePrice}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.couName}}</td>
                            <!-- <td class="text-center" style="line-height:33px;"><button type="button" class="btn btn-warning"
                                                                                       v-on:click="selectRule('3',item)">修改</button></td>-->
                         </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="row row_edit">
+                    <div class="modal fade" id="buildDialog">
+                        <div class="modal-dialog">
+                            <build-dialog ref='buildDialog' @certainAction='feedBack'></build-dialog>
+                        </div>
+                    </div>
                 </div>
                 <!--分页插件-->
                 <div class="page">
@@ -188,6 +195,7 @@
     import dev from '../../common/Dev.vue'
     import chara from '../../common/Chara.vue'
     import Paging from '../../common/Paging.vue'
+    import buildDialog from '../../common/BuildDialog.vue'
     export default {
         components: {
             datePicker,
@@ -200,7 +208,8 @@
             to,
             dev,
             chara,
-            Paging
+            Paging,
+            buildDialog
         },
         data() {
             return {
@@ -231,7 +240,6 @@
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
-                console.log('page',page);
                 this.queryData(page)
             },
             fatherBhtReceive(data) {
@@ -264,8 +272,8 @@
                 this.unSon = []
                 if (null != data) {
                     let unParam = {
-                        startUnitPrice:data.begPrice,
-                        endUnitPrice:data.endPrice
+                        minUnitPrice:data.begPrice,
+                        maxUnitPrice:data.endPrice
                     }
                     this.unSon.push(unParam)
                 }
@@ -274,8 +282,8 @@
                 this.toSon = []
                 if (null != data) {
                     let toParam = {
-                        startTitlePrice:data.begPrice,
-                        endTitlePrice:data.endPrice
+                        minTitlePrice:data.begPrice,
+                        maxTitlePrice:data.endPrice
                     }
                     this.toSon.push(toParam)
                 }
@@ -329,6 +337,20 @@
                     console.log('数据请求失败处理')
                 });
             },
+            selectRule(param, item) {
+                if (param === "1") {
+                    this.$refs.buildDialog.initData('add')
+                    $("#buildDialog").modal('show')
+                } else if (param === "3") {
+                    this.$refs.buildDialog.initData('modify', item)
+                    $("#buildDialog").modal('show')
+                }
+
+            },
+            feedBack() {
+                this.queryData(1)
+                $("#buildDialog").modal('hide')
+            }
         },
         created: function () {
             this.queryData()
