@@ -47,10 +47,12 @@
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
 
-                                <input type="text" class="form-control" v-model="addParam.minTitlePrice" style="width: 40%"/>
+                            <input type="text" class="form-control" v-model="addParam.minTitlePrice"
+                                   style="width: 40%"/>
 
 
-                                <input type="text" class="form-control" v-model="addParam.maxTitlePrice" style="width: 40%"/>
+                            <input type="text" class="form-control" v-model="addParam.maxTitlePrice"
+                                   style="width: 40%"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -77,7 +79,8 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开盘时间</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <datePicker v-model="addParam.openDate" type="date" value-type="format" style="width: 97%"></datePicker>
+                            <datePicker v-model="addParam.openDate" type="date" value-type="format"
+                                        style="width: 97%"></datePicker>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -91,7 +94,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <dev @devChange = 'fatherDevReceive'></dev>
+                            <dev @devChange='fatherDevReceive'></dev>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -126,50 +129,68 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">加推时间</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <datePicker v-model="addParam.createDate" type="date" value-type="format" style="width: 97%"></datePicker>
+                            <datePicker v-model="addParam.createDate" type="date" value-type="format"
+                                        style="width: 97%"></datePicker>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">预交房时间</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <datePicker v-model="addParam.proDate" type="date" value-type="format" style="width: 97%"></datePicker>
+                            <datePicker v-model="addParam.proDate" type="date" value-type="format"
+                                        style="width: 97%"></datePicker>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">效果图</label><span
-                            class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="effectImg" />
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">环境规划</label><span
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">效果图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="enPlanImg" />
+                            <input type="file" id="effectImg" @change="effectImgChange" accept="image/*"
+                                   multiple="multiple"/>
+                            <div id="effectImgOutDiv"></div>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">楼盘实景</label><span
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">环境规划</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="buildRealImg" />
+                            <input type="file" id="enPlanImg" @change="enPlanImgChange" accept="image/*"
+                                   multiple="multiple"/>
+                            <div id="enPlanImgOutDiv"></div>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">配套实景</label><span
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">楼盘实景</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="matchingRealImg" />
+                            <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
+                                   multiple="multiple"/>
+                            <div id="buildRealImgOutDiv"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">配套实景</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="file" id="matchingRealImg" @change="matchingRealImgChange" accept="image/*"
+                                   multiple="multiple"/>
+                            <div id="matchingRealImgOutDiv"></div>
                         </div>
                     </div>
                     <div class="form-group clearfix">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-                            v-on:click="closeCurrentPage()">返回</button>
-                            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-                            v-on:click="certainAction()">确认</button>
+                            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
+                                    data-toggle="modal"
+                                    v-on:click="closeCurrentPage()">返回
+                            </button>
+                            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                                    data-toggle="modal"
+                                    v-on:click="certainAction()">确认
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -179,12 +200,6 @@
 
     </div>
 </template>
-
-
-
-
-
-
 
 
 <script>
@@ -197,6 +212,7 @@
     import chara from '../common/Chara.vue'
     import cou from '../common/Counselor.vue'
     import pro from '../common/Province.vue'
+
     export default {
         components: {
             datePicker,
@@ -213,45 +229,50 @@
             return {
                 addParam: {
                     // 楼盘名称
-                    htName:'',
+                    htName: '',
                     // 区域位置
-                    ldId:'',
+                    ldId: '',
                     // 类型
-                    btId:'',
+                    btId: '',
                     // 户型
-                    bhtId:'',
+                    bhtId: '',
                     // 最小总价
-                    minTitlePrice:'',
+                    minTitlePrice: '',
                     // 最大总价
-                    maxTitlePrice:'',
+                    maxTitlePrice: '',
                     // 最小单价
-                    minUnitPrice:'',
+                    minUnitPrice: '',
                     // 最大单价
-                    maxUnitPrice:'',
+                    maxUnitPrice: '',
                     // 面积（小）
-                    minArea:'',
+                    minArea: '',
                     // 面积(大)
-                    maxArea:'',
+                    maxArea: '',
                     // 开盘时间
-                    openDate:'',
+                    openDate: '',
                     // 销售情况
-                    isSale:'',
+                    isSale: '',
                     // 品牌开发商
-                    devId:'',
+                    devId: '',
                     // 特色
-                    chaId:'',
+                    chaId: '',
                     // 地址
-                    adress:'',
+                    adress: '',
                     // 省份
-                    proId:'',
+                    proId: '',
                     // 简称
-                    alias:'',
+                    alias: '',
                     // 加推时间
-                    createDate:'',
+                    createDate: '',
                     // 预交房时间
-                    proDate:''
+                    proDate: ''
                 },
-                title:''
+                title: '',
+                imgList: [],
+                size: 0,
+                imgData: {
+                    accept: 'image/gif, image/jpeg, image/png, image/jpg',
+                }
             };
         },
         methods: {
@@ -262,48 +283,63 @@
                     this.title = '新增'
                     this.addParam = {
                         // 楼盘名称
-                        htName:'',
+                        htName: '',
                         // 区域位置
-                        ldId:'',
+                        ldId: '',
                         // 类型
-                        btId:'',
+                        btId: '',
                         // 户型
-                        bhtId:'',
+                        bhtId: '',
                         // 最小总价
-                        minTitlePrice:'',
+                        minTitlePrice: '',
                         // 最大总价
-                        maxTitlePrice:'',
+                        maxTitlePrice: '',
                         // 最小单价
-                        minUnitPrice:'',
+                        minUnitPrice: '',
                         // 最大单价
-                        maxUnitPrice:'',
+                        maxUnitPrice: '',
                         // 面积（小）
-                        minArea:'',
+                        minArea: '',
                         // 面积(大)
-                        maxArea:'',
+                        maxArea: '',
                         // 开盘时间
-                        openDate:'',
+                        openDate: '',
                         // 销售情况
-                        isSale:'',
+                        isSale: '',
                         // 品牌开发商
-                        devId:'',
+                        devId: '',
                         // 特色
-                        chaId:'',
+                        chaId: '',
                         // 地址
-                        adress:'',
+                        adress: '',
                         // 省份
-                        proId:'',
+                        proId: '',
                         // 简称
-                        alias:'',
+                        alias: '',
                         // 加推时间
-                        createDate:'',
+                        createDate: '',
                         // 预交房时间
-                        proDate:''
+                        proDate: ''
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
                     Object.assign(this.addParam, addParam)
+
+                    if (!this.isBlank(addParam.htName)) {
+                        var dataUrl = this.addTimesParam(this.url + project.couImg);
+                        if ($("#pingZhengDiv").length <= 0) $("#pingZheng").html(
+                            "<div id='pingZhengDiv' ><img class='my-img' src='#' style='width:100%' /></div>"
+                        );
+                        $(".my-img").attr("src", dataUrl);
+                    }
+                    if (!this.isBlank(project.infoImg)) {
+                        var dataUrl = this.addTimesParam(this.url + project.infoImg);
+                        if ($("#infoImgInnDiv").length <= 0) $("#infoImgOutDiv").html(
+                            "<div id='infoImgInnDiv' ><img id='infoImg' src='#' style='width:100%' /></div>"
+                        );
+                        $("#infoImg").attr("src", dataUrl);
+                    }
                 }
             },
 
@@ -311,17 +347,26 @@
             certainAction() {
                 const fd = new FormData();
                 // 效果图
-                const effectImg = $("#effectImg")[0].files[0];
-                fd.append("effectImg", effectImg);
+                const effectImg = $("#effectImg")[0].files;
+                for (let i = 0; i < effectImg.length; i++) {
+                    fd.append("effectImg", effectImg[i]);
+                }
+
                 // 环境规划
-                const enPlanImg = $("#enPlanImg")[0].files[0];
-                fd.append("enPlanImg", enPlanImg);
+                const enPlanImg = $("#enPlanImg")[0].files;
+                for (let i = 0; i < enPlanImg.length; i++) {
+                    fd.append("enPlanImg", enPlanImg[i]);
+                }
                 // 楼盘实景
-                const buildRealImg = $("#buildRealImg")[0].files[0];
-                fd.append("buildRealImg",buildRealImg);
+                const buildRealImg = $("#buildRealImg")[0].files;
+                for (let i = 0; i < buildRealImg.length; i++) {
+                    fd.append("buildRealImg", buildRealImg[i]);
+                }
                 // 配套实景
-                const matchingRealImg = $("#matchingRealImg")[0].files[0];
-                fd.append("matchingRealImg",matchingRealImg);
+                const matchingRealImg = $("#matchingRealImg")[0].files;
+                for (let i = 0; i < matchingRealImg.length; i++) {
+                    fd.append("matchingRealImg", matchingRealImg[i]);
+                }
                 fd.append("addParam", JSON.stringify(this.addParam));
 
                 let url = '';
@@ -334,7 +379,6 @@
                         break;
                 }
 
-                console.log('数据============',this.addParam);
                 this.$ajax({
                     method: 'POST',
                     url: url,
@@ -351,7 +395,7 @@
                         this.$emit('certainAction')
                     }
                 }).catch((error) => {
-                    console.log('课程信息请提交失败')
+                    console.log('楼盘信息提交失败')
                 });
             },
             closeCurrentPage() {
@@ -438,15 +482,7 @@
                 }
                 return this.formatFileSize(fileSize / 1024, ++idx);
             },
-            checkFileType: function (fileType) {
-                const acceptTypes = ['png', 'jpg', 'jpeg'];
-                for (var i = 0; i < acceptTypes.length; i++) {
-                    if (fileType === acceptTypes[i]) {
-                        return true;
-                    }
-                }
-                return false;
-            },
+
             checkFileSize: function (fileSize) {
                 //2M
                 const MAX_SIZE = 2 * 1024 * 1024;
@@ -455,9 +491,7 @@
                 }
                 return true;
             },
-            myFile: function (param) {
-                $("#imgFile").click();
-            },
+
             fatherBhtReceive(data) {
                 this.addParam.bhtId = ''
                 this.addParam.bhtId = data
@@ -489,13 +523,102 @@
             fatherProReceive(data) {
                 this.addParam.proId = ''
                 this.addParam.proId = data
+            },
+            //预览图
+            effectImgChange() {
+
+                var files = $("#effectImg")[0].files; //获取file对象
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file, i, 1)
+                }
+            },
+            enPlanImgChange() {
+
+                var files = $("#enPlanImg")[0].files; //获取file对象
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file, i, 2)
+                }
+            },
+            buildRealImgChange() {
+
+                var files = $("#buildRealImg")[0].files; //获取file对象
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file, i, 3)
+                }
+            },
+            matchingRealImgChange() {
+
+                var files = $("#matchingRealImg")[0].files; //获取file对象
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file, i, 4)
+                }
+            },
+            fileAdd(file, i, pictureType) {
+                let type = file.type;//文件的类型，判断是否是图片
+                let size = file.size;//文件的大小，判断图片的大小
+                if (this.imgData.accept.indexOf(type) === -1) {
+                    alert('请选择我们支持的图片格式！');
+                    return false;
+                }
+                if (size > 3145728) {
+                    alert('请选择3M以内的图片！');
+                    return false;
+                }
+                let that = this;
+                // 总大小
+                this.size = this.size + file.size;
+                let reader = new FileReader();
+                // 调用reader.readAsDataURL()方法，把图片转成base64
+                reader.readAsDataURL(file);
+
+                // 监听reader对象的onload事件，当图片加载完成时，把base64编码賦值给预览图片
+                reader.onload = function () {
+                    var dataUrl = reader.result;
+                    if (pictureType === 1) {
+                        if ($("#effectImgInnDiv_" + i).length <= 0) $("#effectImgOutDiv").append(
+                            "<div id='effectImgInnDiv_" + i + "' ><img id='effectImg_" + i + "' src='#' style='width: 100%' /></div>"
+                        );
+                        $("#effectImg_" + i).attr("src", dataUrl);
+                    } else if (pictureType === 2) {
+                        if ($("#enPlanImgInnDiv_" + i).length <= 0) $("#enPlanImgOutDiv").append(
+                            "<div id='enPlanImgInnDiv_" + i + "' ><img id='enPlanImg_" + i + "' src='#' style='width: 100%' /></div>"
+                        );
+                        $("#enPlanImg_" + i).attr("src", dataUrl);
+                    } else if (pictureType === 3) {
+                        if ($("#buildRealImgInnDiv_" + i).length <= 0) $("#buildRealImgOutDiv").append(
+                            "<div id='buildRealImgInnDiv_" + i + "' ><img id='buildRealImg_" + i + "' src='#' style='width: 100%' /></div>"
+                        );
+                        $("#buildRealImg_" + i).attr("src", dataUrl);
+                    } else if (pictureType === 4) {
+                        if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
+                            "<div id='matchingRealImgInnDiv_" + i + "' ><img id='matchingRealImg_" + i + "' src='#' style='width: 100%' /></div>"
+                        );
+                        $("#matchingRealImg_" + i).attr("src", dataUrl);
+                    }
+
+
+                    file.src = this.result;
+                    // console.log(this); 这里的this是FileReader对象
+                    // 再把file对象添加到imgList数组
+                    that.imgList.push(
+                        file
+                    );
+                }
             }
-        },
-        computed: {
-            editor() {
-                return this.$refs.myQuillEditor.quill
-            }
-        },
+        // etChange(retObj){
+        //     if(retObj == null)this.project.ttId = '';
+        //     else this.project.ttId = retObj.ttId;
+        // }
+    },
+    computed: {
+        editor() {
+            return this.$refs.myQuillEditor.quill
+        }
+    },
 
     }
 </script>
