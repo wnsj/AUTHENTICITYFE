@@ -124,7 +124,7 @@
                        v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
-                    v-on:click="queryData">查询
+                    v-on:click="queryData(1)">查询
             </button>
         </div>
 
@@ -192,7 +192,7 @@
     import to from '../../common/TotalPrice.vue'
     import dev from '../../common/Dev.vue'
     import chara from '../../common/Chara.vue'
-    import Paging from '../../common/Paging.vue'
+    import paging from '../../common/Paging.vue'
     import buildDialog from '../../common/BuildDialog.vue'
     export default {
         components: {
@@ -206,7 +206,7 @@
             to,
             dev,
             chara,
-            Paging,
+            paging,
             buildDialog
         },
         data() {
@@ -237,6 +237,7 @@
 
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
+                console.log('yema=========',page);
                 this.current = page
                 this.queryData(page)
             },
@@ -315,7 +316,7 @@
                         unitPriceList:this.unSon,
                         devIdList:this.devSon,
                         chaIdList:this.charaSon,
-                        pageNum: page,
+                        current: page,
                         pageSize: this.pageSize
                     },
                     dataType: 'json',

@@ -580,7 +580,9 @@
                     var dataUrl = reader.result;
                     if (pictureType === 1) {
                         if ($("#effectImgInnDiv_" + i).length <= 0) $("#effectImgOutDiv").append(
-                            "<div id='effectImgInnDiv_" + i + "' ><img id='effectImg_" + i + "' src='#' style='width: 100%' /></div>"
+                            "<div id='effectImgInnDiv_" + i + "' >" +
+                            "<img id='effectImg_" + i + "' src='#' style='width: 100%' />" +
+                            "</div>"
                         );
                         $("#effectImg_" + i).attr("src", dataUrl);
                     } else if (pictureType === 2) {
@@ -595,12 +597,12 @@
                         $("#buildRealImg_" + i).attr("src", dataUrl);
                     } else if (pictureType === 4) {
                         if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
-                            "<div id='matchingRealImgInnDiv_" + i + "' ><img id='matchingRealImg_" + i + "' src='#' style='width: 100%' /></div>"
+                            "<div id='matchingRealImgInnDiv_" + i + "' >" +
+                            "<img id='matchingRealImg_" + i + "' src='#' style='width: 100%' />" +
+                            "</div>"
                         );
                         $("#matchingRealImg_" + i).attr("src", dataUrl);
                     }
-
-
                     file.src = this.result;
                     // console.log(this); 这里的this是FileReader对象
                     // 再把file对象添加到imgList数组
@@ -609,10 +611,9 @@
                     );
                 }
             }
-        // etChange(retObj){
-        //     if(retObj == null)this.project.ttId = '';
-        //     else this.project.ttId = retObj.ttId;
-        // }
+            // fileDel(index) {
+            //     this.imgList.splice(index, 1);
+            // }
     },
     computed: {
         editor() {
@@ -624,5 +625,17 @@
 </script>
 
 <style>
-
+    .remove_logo {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        background: red;
+        border-radius: 25px;
+        top: 5px;
+        right: 5px;
+        text-align: center;
+        line-height: 0.4rem;
+        font-size: 0.5rem;
+        color: #777777;
+    }
 </style>
