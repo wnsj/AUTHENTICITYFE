@@ -35,13 +35,13 @@
                             <bt @btChange='fatherBtReceive'></bt>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                   <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">户型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <bht @bhtChange='fatherBhtReceive'></bht>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
@@ -104,13 +104,13 @@
                             <chara @charaChange='fatherChReceive'></chara>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                   <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">咨询师</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <cou @couChange="fatherCouReceive"></cou>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">地址</label><span class="sign-left">:</span>
