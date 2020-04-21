@@ -148,7 +148,12 @@
                         <div class="col-md-8">
                             <input type="file" id="effectImg" @change="effectImgChange" accept="image/*"
                                    multiple="multiple"/>
-                            <div id="effectImgOutDiv"></div>
+                            <div id="effectImgOutDiv">
+                                <div v-for="(item,index) of effectImgList" :key="index" v-show="effectImgList.length!==0">
+                                    <div @click="fileDel(index,1)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -158,7 +163,12 @@
                         <div class="col-md-8">
                             <input type="file" id="enPlanImg" @change="enPlanImgChange" accept="image/*"
                                    multiple="multiple"/>
-                            <div id="enPlanImgOutDiv"></div>
+                            <div id="enPlanImgOutDiv">
+                                <div v-for="(item,index) of enPlanImgList" :key="index" v-show="enPlanImgList.length!==0">
+                                    <div @click="fileDel(index,2)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -168,7 +178,12 @@
                         <div class="col-md-8">
                             <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
                                    multiple="multiple"/>
-                            <div id="buildRealImgOutDiv"></div>
+                            <div id="buildRealImgOutDiv">
+                                <div v-for="(item,index) of buildRealImgList" :key="index" v-show="buildRealImgList.length!==0">
+                                    <div @click="fileDel(index,3)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -178,7 +193,12 @@
                         <div class="col-md-8">
                             <input type="file" id="matchingRealImg" @change="matchingRealImgChange" accept="image/*"
                                    multiple="multiple"/>
-                            <div id="matchingRealImgOutDiv"></div>
+                            <div id="matchingRealImgOutDiv">
+                                <div v-for="(item,index) of matchingRealImgList" :key="index" v-show="matchingRealImgList.length!==0">
+                                    <div @click="fileDel(index,4)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group clearfix">
@@ -212,6 +232,19 @@
     import chara from '../common/Chara.vue'
     import cou from '../common/Counselor.vue'
     import pro from '../common/Province.vue'
+
+    var that = null
+    // $(function () {
+    //     function testFun() {
+    //         alert("88")
+    //     }
+    // })
+
+
+    // $(document).on('click', '#remove_logo', function (e) {
+    //     alert("hahhsah")
+    //     that.fileDel(0)
+    // });
 
     export default {
         components: {
@@ -268,7 +301,14 @@
                     proDate: ''
                 },
                 title: '',
-                imgList: [],
+                effectImgList: [],
+                effectImgFileList: [],
+                enPlanImgList: [],
+                enPlanImgFileList: [],
+                buildRealImgList: [],
+                buildRealImgFileList: [],
+                matchingRealImgList: [],
+                matchingRealImgFileList: [],
                 size: 0,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
@@ -325,21 +365,6 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
                     Object.assign(this.addParam, addParam)
-
-                    if (!this.isBlank(addParam.htName)) {
-                        var dataUrl = this.addTimesParam(this.url + project.couImg);
-                        if ($("#pingZhengDiv").length <= 0) $("#pingZheng").html(
-                            "<div id='pingZhengDiv' ><img class='my-img' src='#' style='width:100%' /></div>"
-                        );
-                        $(".my-img").attr("src", dataUrl);
-                    }
-                    if (!this.isBlank(project.infoImg)) {
-                        var dataUrl = this.addTimesParam(this.url + project.infoImg);
-                        if ($("#infoImgInnDiv").length <= 0) $("#infoImgOutDiv").html(
-                            "<div id='infoImgInnDiv' ><img id='infoImg' src='#' style='width:100%' /></div>"
-                        );
-                        $("#infoImg").attr("src", dataUrl);
-                    }
                 }
             },
 
@@ -347,25 +372,25 @@
             certainAction() {
                 const fd = new FormData();
                 // 效果图
-                const effectImg = $("#effectImg")[0].files;
-                for (let i = 0; i < effectImg.length; i++) {
-                    fd.append("effectImg", effectImg[i]);
+                // const effectImg = $("#effectImg")[0].files;
+                for (let i = 0; i < this.effectImgFileList.length; i++) {
+                    fd.append("effectImg", this.effectImgFileList[i]);
                 }
 
                 // 环境规划
-                const enPlanImg = $("#enPlanImg")[0].files;
-                for (let i = 0; i < enPlanImg.length; i++) {
-                    fd.append("enPlanImg", enPlanImg[i]);
+                // const enPlanImg = $("#enPlanImg")[0].files;
+                for (let i = 0; i < this.enPlanImgFileList.length; i++) {
+                    fd.append("enPlanImg", this.enPlanImgFileList[i]);
                 }
                 // 楼盘实景
-                const buildRealImg = $("#buildRealImg")[0].files;
-                for (let i = 0; i < buildRealImg.length; i++) {
-                    fd.append("buildRealImg", buildRealImg[i]);
+                // const buildRealImg = $("#buildRealImg")[0].files;
+                for (let i = 0; i < this.buildRealImgFileList.length; i++) {
+                    fd.append("buildRealImg", this.buildRealImgFileList[i]);
                 }
                 // 配套实景
-                const matchingRealImg = $("#matchingRealImg")[0].files;
-                for (let i = 0; i < matchingRealImg.length; i++) {
-                    fd.append("matchingRealImg", matchingRealImg[i]);
+                // const matchingRealImg = $("#matchingRealImg")[0].files;
+                for (let i = 0; i < this.matchingRealImgFileList.length; i++) {
+                    fd.append("matchingRealImg", this.matchingRealImgFileList[i]);
                 }
                 fd.append("addParam", JSON.stringify(this.addParam));
 
@@ -375,7 +400,7 @@
                         url = this.url + '/buildingBean/addBuilding'
                         break;
                     case '修改':
-                        url = this.url + '/testProblemBase/updateTestProblemBase'
+                        url = this.url + '/buildingBean/patchById'
                         break;
                 }
 
@@ -401,79 +426,7 @@
             closeCurrentPage() {
                 $("#buildDialog").modal("hide")
             },
-            handlerUpload1: function (e, paramUrl) {
-                //获取选定的文件
-                this.tFiles = e.target.files;
-            },
-            handlerUpload: function (e, paramUrl) {
-                //获取选定的文件
-                // let tFiles = e.target.files;
-                let len = this.tFiles.length;
-                for (var i = 0; i < len; i++) {
-                    //开始上传每一个文件
-                    var item = {
-                        name: this.tFiles[i].name,
-                        uploadPercentage: 1,
-                        size: this.formatFileSize(this.tFiles[i].size, 0),
-                        uploadStatus: 0
-                    }
-                    console.log(item)
-                    // this.files.push(item);
-                    //开始上传文件 新建一个formData
-                    let param = new FormData();
-                    param.append("name", this.tFiles[i].name);
-                    //登录客户端账户ID
-                    param.append("evaluationData", JSON.stringify(this.evaluation));
-                    //通过append向form对象添加数据
-                    param.append("file", this.tFiles[i]);
-                    //FormData私有类对象，访问不到，可以通过get判断值是否传进去
-                    console.log('数据：' + JSON.stringify(this.evaluation))
-                    console.log(param.get("file"));
-// 					//判断大小
-// 					if (!this.checkFileSize(tFiles[i].size)) {
-// 						item.uploadStatus = -3;
-// 						alert("文件大于2M!");
-// 						return false;
-// 					}
-// 					if (!this.checkFileType(tFiles[i].name.split('.')[1])) {
-// 						item.uploadStatus = -2;
-// 						alert("文件类型错误!")
-// 						return false;
-// 					}
-                    //通过axios上传文件
-                    //配置
-                    let config = {
-                        //添加请求头
-                        headers: {
-                            "Content-Type": "multipart/form-data"
-                        },
-                        //添加上传进度监听事件
-                        onUploadProgress: e => {
-                            var completeProgress = ((e.loaded / e.total * 100) | 0) + "%";
-                            //console.log(this.files)
-                            item.uploadPercentage = completeProgress;
-                        }
-                    };
 
-                    var url = this.url + paramUrl;
-                    axios.post(url, param, config).then(function (response) {
-                        console.log(response);
-                        item.uploadStatus = 2;
-                        if (response.data.retCode == '0000') {
-                            if (response.data.retData.length > 0) {
-                                vm.patientList = response.data.retData
-                            } else {
-                                alert("上传成功!")
-                            }
-                        } else {
-                            alert(response.data.retMsg)
-                        }
-                    }).catch(function (error) {
-                        console.log(error);
-                        item.uploadStatus = -1;
-                    });
-                }
-            },
             formatFileSize: function (fileSize, idx) {
                 var units = ["B", "KB", "MB", "GB"];
                 idx = idx || 0;
@@ -481,15 +434,6 @@
                     return fileSize.toFixed(1) + units[idx];
                 }
                 return this.formatFileSize(fileSize / 1024, ++idx);
-            },
-
-            checkFileSize: function (fileSize) {
-                //2M
-                const MAX_SIZE = 2 * 1024 * 1024;
-                if (fileSize > MAX_SIZE) {
-                    return false;
-                }
-                return true;
             },
 
             fatherBhtReceive(data) {
@@ -578,63 +522,66 @@
                 // 监听reader对象的onload事件，当图片加载完成时，把base64编码賦值给预览图片
                 reader.onload = function () {
                     var dataUrl = reader.result;
-                    if (pictureType === 1) {
-                        if ($("#effectImgInnDiv_" + i).length <= 0) $("#effectImgOutDiv").append(
-                            "<div id='effectImgInnDiv_" + i + "' >" +
-                            "<img id='effectImg_" + i + "' src='#' style='width: 100%' />" +
-                            "</div>"
-                        );
-                        $("#effectImg_" + i).attr("src", dataUrl);
-                    } else if (pictureType === 2) {
-                        if ($("#enPlanImgInnDiv_" + i).length <= 0) $("#enPlanImgOutDiv").append(
-                            "<div id='enPlanImgInnDiv_" + i + "' ><img id='enPlanImg_" + i + "' src='#' style='width: 100%' /></div>"
-                        );
-                        $("#enPlanImg_" + i).attr("src", dataUrl);
-                    } else if (pictureType === 3) {
-                        if ($("#buildRealImgInnDiv_" + i).length <= 0) $("#buildRealImgOutDiv").append(
-                            "<div id='buildRealImgInnDiv_" + i + "' ><img id='buildRealImg_" + i + "' src='#' style='width: 100%' /></div>"
-                        );
-                        $("#buildRealImg_" + i).attr("src", dataUrl);
-                    } else if (pictureType === 4) {
-                        if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
-                            "<div id='matchingRealImgInnDiv_" + i + "' >" +
-                            "<img id='matchingRealImg_" + i + "' src='#' style='width: 100%' />" +
-                            "</div>"
-                        );
-                        $("#matchingRealImg_" + i).attr("src", dataUrl);
-                    }
+
                     file.src = this.result;
-                    // console.log(this); 这里的this是FileReader对象
-                    // 再把file对象添加到imgList数组
-                    that.imgList.push(
-                        file
-                    );
+                    if (pictureType === 1) {
+                        that.effectImgFileList.push(file)
+                        that.effectImgList.push(dataUrl)
+
+                    } else if (pictureType === 2) {
+                        that.enPlanImgFileList.push(file)
+                        that.enPlanImgList.push(dataUrl)
+
+                    } else if (pictureType === 3) {
+                        that.buildRealImgFileList.push(file)
+                        that.buildRealImgList.push(dataUrl)
+                    } else if (pictureType === 4) {
+                        that.matchingRealImgFileList.push(file)
+                        that.matchingRealImgList.push(dataUrl)
+
+                        // if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
+                        //     "<div id='matchingRealImgInnDiv_" + i + "' >" +
+                        //     "<img id='matchingRealImg_" + i + "' src='#' style='width: 100%' />" +
+                        //     "</div>"
+                        // );
+                        // $("#matchingRealImg_" + i).attr("src", dataUrl);
+                    }
+
+                }
+            },
+            fileDel(index,type) {
+                if (type === 1) {
+                    this.effectImgList.splice(index, 1);
+                    this.effectImgFileList.splice(index, 1)
+                } else if (type === 2) {
+                    this.enPlanImgList.splice(index,1)
+                    this.enPlanImgFileList.splice(index,1)
+                } else if (type === 3) {
+                    this.buildRealImgList.splice(index,1)
+                    this.buildRealImgFileList.splice(index,1)
+                } else if (type === 4) {
+                    this.matchingRealImgList.splice(index,1)
+                    this.matchingRealImgFileList.splice(index,1)
                 }
             }
-            // fileDel(index) {
-            //     this.imgList.splice(index, 1);
-            // }
-    },
-    computed: {
-        editor() {
-            return this.$refs.myQuillEditor.quill
+        },
+        computed: {
+            editor() {
+                return this.$refs.myQuillEditor.quill
+            }
         }
-    },
-
     }
 </script>
 
 <style>
     .remove_logo {
-        position: absolute;
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         background: red;
         border-radius: 25px;
-        top: 5px;
-        right: 5px;
+
         text-align: center;
-        line-height: 0.4rem;
+        line-height: 1rem;
         font-size: 0.5rem;
         color: #777777;
     }
