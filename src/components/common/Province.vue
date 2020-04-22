@@ -17,7 +17,7 @@
 
             proChange: function() {
                 for (var i = 0; i < this.proIdList.length; i++) {
-                    if(this.proId === 0){
+                    if(this.proId === '0'){
                         this.$emit('proChange', null)
                         return
                     }else{

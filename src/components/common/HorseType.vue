@@ -17,7 +17,7 @@
 
             htChange: function() {
                 for (var i = 0; i < this.htList.length; i++) {
-                    if(this.htId === 0){
+                    if(this.htId === '0'){
                         this.$emit('htChange', null)
                         return
                     }else{

@@ -47,7 +47,7 @@
             },
             ldtChange: function() {
                 for (var i = 0; i < this.ldtList.length; i++) {
-                    if(this.ldId === 0){
+                    if(this.ldId === '0'){
                         this.$emit('ldtChange', null)
                         return
                     }else{

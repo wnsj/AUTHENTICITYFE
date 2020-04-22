@@ -17,7 +17,7 @@
 
             couChange: function() {
                 for (var i = 0; i < this.couIdList.length; i++) {
-                    if(this.couId === 0){
+                    if(this.couId === '0'){
                         this.$emit('couChange', null)
                         return
                     }else{

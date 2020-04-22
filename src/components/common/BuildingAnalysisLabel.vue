@@ -17,7 +17,7 @@
 
             balChange: function() {
                 for (var i = 0; i < this.balList.length; i++) {
-                    if(this.balId === 0){
+                    if(this.balId === '0'){
                         this.$emit('balChange', null)
                         return
                     }else{

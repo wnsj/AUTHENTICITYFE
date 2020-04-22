@@ -17,7 +17,7 @@
 
             totalChange: function() {
                 for (var i = 0; i < this.totalIdList.length; i++) {
-                    if(this.totalId === 0){
+                    if(this.totalId === '0'){
                         this.$emit('totalChange', null)
                         return
                     }else{

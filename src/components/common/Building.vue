@@ -17,7 +17,7 @@
 
             buildChange: function() {
                 for (var i = 0; i < this.buildList.length; i++) {
-                    if(this.bid === 0){
+                    if(this.bid === '0'){
                         this.$emit('buildChange', null)
                         return
                     }else{

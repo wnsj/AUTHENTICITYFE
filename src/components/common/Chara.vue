@@ -17,7 +17,7 @@
 
             charaChange: function() {
                 for (var i = 0; i < this.charaIdList.length; i++) {
-                    if(this.charaId === 0){
+                    if(this.charaId === '0'){
                         this.$emit('charaChange', null)
                         return
                     }else{

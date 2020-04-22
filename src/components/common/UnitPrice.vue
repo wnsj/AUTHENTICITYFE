@@ -17,7 +17,7 @@
 
             unitChange: function() {
                 for (var i = 0; i < this.unitIdList.length; i++) {
-                    if(this.unitId === 0){
+                    if(this.unitId === '0'){
                         this.$emit('unitChange', null)
                         return
                     }else{

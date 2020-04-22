@@ -17,7 +17,7 @@
             
             bhtChange: function() {
                 for (var i = 0; i < this.bhtList.length; i++) {
-                    if(this.bhtId === 0){
+                    if(this.bhtId === '0'){
                          this.$emit('bhtChange', null)
                          return
                     }else{

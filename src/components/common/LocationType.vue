@@ -22,7 +22,7 @@
             },
             ltChange() {
                 for (var i = 0; i < this.locationTypeList.length; i++) {
-                    if(this.ltId === 0){
+                    if(this.ltId === '0'){
                         this.$emit('ltChange', null)
                         return
                     }else{

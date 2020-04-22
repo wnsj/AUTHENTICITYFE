@@ -17,7 +17,7 @@
 
             isSaleChange: function() {
                 for (var i = 0; i < this.isSaleList.length; i++) {
-                    if(this.isSale === 0){
+                    if(this.isSale === '0'){
                         this.$emit('isSaleChange', null)
                         return
                     }else{

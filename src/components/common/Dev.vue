@@ -17,7 +17,7 @@
 
             devChange: function() {
                 for (var i = 0; i < this.devIdList.length; i++) {
-                    if(this.devId === 0){
+                    if(this.devId === '0'){
                         this.$emit('devChange', null)
                         return
                     }else{

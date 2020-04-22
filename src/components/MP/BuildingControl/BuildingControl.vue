@@ -254,7 +254,9 @@
             },
             fatherBhtReceive(data) {
                 this.bhtSon = []
-                this.bhtSon.push(data)
+                if (null !== data) {
+                    this.bhtSon.push(data.bhtId)
+                }
             },
             fatherBtReceive(data) {
                 this.btSon = []
