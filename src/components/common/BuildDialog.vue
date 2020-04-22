@@ -23,6 +23,20 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">位置类型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <lt @ltChange='fatherLtReceive'></lt>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">位置</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">位置</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <lt @locationTypeChange='fatherLtReceive' ref="lt"></lt>
@@ -44,35 +58,44 @@
                     </div>-->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最小总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-
-                            <input type="text" class="form-control" v-model="addParam.minTitlePrice"
-                                   style="width: 40%"/>
-
-
-                            <input type="text" class="form-control" v-model="addParam.maxTitlePrice"
-                                   style="width: 40%"/>
+                            <input type="text" class="form-control" v-model="addParam.minTitlePrice"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">单价</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最大总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minUnitPrice" style="width: 40%"/>
-
-
-                            <input type="text" class="form-control" v-model="addParam.maxUnitPrice" style="width: 40%"/>
+                            <input type="text" class="form-control" v-model="addParam.maxTitlePrice"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">面积</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最小单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minArea" style="width: 40%"/>
-
-
-                            <input type="text" class="form-control" v-model="addParam.maxArea" style="width: 40%"/>
+                            <input type="text" class="form-control" v-model="addParam.minUnitPrice"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">最大单价</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.maxUnitPrice"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">最小面积</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.minArea"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">最大面积</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.maxArea"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -228,6 +251,7 @@
     import bht from '../common/BuildHorseType.vue'
     import isSale from '../common/IsSale.vue'
     import lt from '../common/LocationType.vue'
+    import ldt from '../common/LocationDType.vue'
     import dev from '../common/Dev.vue'
     import chara from '../common/Chara.vue'
     import cou from '../common/Counselor.vue'
@@ -253,6 +277,7 @@
             bht,
             isSale,
             lt,
+            ldt,
             dev,
             chara,
             cou,
@@ -450,6 +475,9 @@
                 this.addParam.isSale = data
             },
             fatherLtReceive(data) {
+                this.$refs.ldt.locationTypeChange(data)
+            },
+            fatherLdtReceive(data) {
                 this.addParam.ldId = ''
                 this.addParam.ldId = data
             },
