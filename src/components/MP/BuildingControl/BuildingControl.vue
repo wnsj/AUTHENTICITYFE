@@ -47,40 +47,6 @@
         </div>
 
         <div class="row newRow" style="margin-top: 1%">
-
-            <!--位置-->
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">位置</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <lt @locationTypeChange='fatherLtReceive'></lt>
-                </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <datePicker v-model="openTime" type="date" value-type="format"
-                                 range></datePicker>
-                </div>
-            </div>
-            <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">结束时间</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <datePicker v-model="endTime" type="datetime" value-type="format"
-                                format="YYYY-MM-DD HH:mm:ss"></datePicker>
-                </div>
-            </div>-->
-        </div>
-
-        <div class="row newRow" style="margin-top: 1%">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
                     <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">面积</p><span
@@ -119,6 +85,49 @@
             </div>
         </div>
 
+        <div class="row newRow" style="margin-top: 1%">
+
+            <!--位置-->
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">位置类型</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <lt @ltChange='fatherLtReceive'></lt>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">位置</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
+                </div>
+            </div>
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <datePicker v-model="openTime" type="date" value-type="format"
+                                range></datePicker>
+                </div>
+            </div>
+            <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">结束时间</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <datePicker v-model="endTime" type="datetime" value-type="format"
+                                format="YYYY-MM-DD HH:mm:ss"></datePicker>
+                </div>
+            </div>-->
+        </div>
         <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
                <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                        v-on:click="selectRule('1')">添加</button>
@@ -187,6 +196,7 @@
     import bht from '../../common/BuildHorseType.vue'
     import isSale from '../../common/IsSale.vue'
     import lt from '../../common/LocationType.vue'
+    import ldt from '../../common/LocationDType.vue'
     import ar from '../../common/Area.vue'
     import un from '../../common/UnitPrice.vue'
     import to from '../../common/TotalPrice.vue'
@@ -201,6 +211,7 @@
             bht,
             isSale,
             lt,
+            ldt,
             ar,
             un,
             to,
@@ -219,6 +230,7 @@
                 btSon: [],
                 isSaleSon: [],
                 ltSon: [],
+                locationType:'',
                 areaSon:[],
                 unSon:[],
                 toSon:[],
@@ -253,6 +265,9 @@
                 this.isSaleSon.push(data)
             },
             fatherLtReceive(data) {
+                this.$refs.ldt.locationTypeChange(data)
+            },
+            fatherLdtReceive(data) {
                 this.ltSon = []
                 this.ltSon.push(data)
             },
