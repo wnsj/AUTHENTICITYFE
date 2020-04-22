@@ -237,7 +237,6 @@
 
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
-                console.log('yema=========',page);
                 this.current = page
                 this.queryData(page)
             },

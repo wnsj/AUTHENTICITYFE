@@ -25,14 +25,14 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">位置</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <lt @locationTypeChange='fatherLtReceive'></lt>
+                            <lt @locationTypeChange='fatherLtReceive' ref="lt"></lt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <bt @btChange='fatherBtReceive'></bt>
+                            <bt @btChange='fatherBtReceive' ref="bt"></bt>
                         </div>
                     </div>
                    <!-- <div class="col-md-6 form-group clearfix">
@@ -87,21 +87,21 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">销售情况</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <is-sale @isSaleChange='fatherIsSaleReceive'></is-sale>
+                            <is-sale @isSaleChange='fatherIsSaleReceive' ref="sale"></is-sale>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <dev @devChange='fatherDevReceive'></dev>
+                            <dev @devChange='fatherDevReceive' ref="dev"></dev>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特色</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <chara @charaChange='fatherChReceive'></chara>
+                            <chara @charaChange='fatherChReceive' ref="chara"></chara>
                         </div>
                     </div>
                    <!-- <div class="col-md-6 form-group clearfix">
@@ -122,7 +122,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">省份</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <pro @proChange="fatherProReceive"></pro>
+                            <pro @proChange="fatherProReceive" ref="pro"></pro>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -364,6 +364,7 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
+
                     Object.assign(this.addParam, addParam)
                 }
             },

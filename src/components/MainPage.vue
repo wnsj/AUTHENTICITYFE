@@ -29,6 +29,9 @@
                             <dd @click="addCheck('BuildingControl')" v-bind:class="{'li-active':onString=='BuildingControl'}">
                                 <router-link to="/MP/BuildingControl/BuildingControl"><i class="fa" aria-hidden="true">楼盘管理</i></router-link>
                             </dd>
+                            <dd @click="addCheck('BuildingAnalysis')" v-bind:class="{'li-active':onString=='BuildingAnalysis'}">
+                                <router-link to="/MP/BuildingAnalysis/BuildingAnalysis"><i class="fa" aria-hidden="true">户型分析管理</i></router-link>
+                            </dd>
                         </dl>
                     </div>
                 </div>

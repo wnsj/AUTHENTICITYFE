@@ -4,7 +4,7 @@ import login from '@/components/login.vue'
 import MainPage from '@/components/MainPage.vue'
 /*------------*/
 import BuildingControl from '../components/MP/BuildingControl/BuildingControl.vue'
-
+import BuildingAnalysis from '../components/MP/BuildingAnalysis/BuildingAnalysis.vue'
 
 Vue.use(Router)
 
@@ -29,6 +29,11 @@ export default new Router({
                     path: '/MP/BuildingControl/BuildingControl',
                     name: 'BuildingControl',
                     component: BuildingControl,
+                },
+                {
+                    path: '/MP/BuildingAnalysis/BuildingAnalysis',
+                    name: 'BuildingAnalysis',
+                    component: BuildingAnalysis,
                 },
             ],
             redirect: '/MP/BuildingControl/BuildingControl'
