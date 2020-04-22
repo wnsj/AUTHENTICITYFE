@@ -1,0 +1,331 @@
+<!-- add and modify position -->
+<template>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 id="myModalLabel" class="modal-title">{{title}}户型分析</h4>
+        </div>
+        <div class="modal-body  pos_r">
+            <div class="tab-pane fade in active martop" id="basic">
+                <form action="" class="clearfix">
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">楼盘名称</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <build ref="ban" @buildChange="fatherBuildReceive"></build>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">出售状态</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <is-sale @isSaleChange='fatherIsSaleReceive' ref="sale"></is-sale>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">户型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <bht @bhtChange='fatherBhtReceive' ref="bht"></bht>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <ht @htChange='fatherHtReceive' ref="bt"></ht>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">户型标签</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <bad ref="bad" @balChange="fatherBalReceive"></bad>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">朝向</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.drection">
+                                <option value="0">--未选择--</option>
+                                <option value="1">东</option>
+                                <option value="2">南</option>
+                                <option value="3">西</option>
+                                <option value="4">北</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.buildArea"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.totlePrice"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">首付</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.downPayment"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">效果图</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*"
+                                   />
+                            <div id="horseTypeImgOutDiv">
+                                <div v-for="(item,index) of horseTypeImgList" :key="index"
+                                     v-show="horseTypeImgList.length!==0">
+                                    <div @click="fileDel(index)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">点评内容</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <textarea style="height: 300px;width: 400px;" v-model="addParam.content" placeholder="点评内容"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
+                                    data-toggle="modal"
+                                    v-on:click="closeCurrentPage()">返回
+                            </button>
+                            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                                    data-toggle="modal"
+                                    v-on:click="certainAction()">确认
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+
+<script>
+    import datePicker from 'vue2-datepicker'
+    import build from '../common/Building.vue'
+    import bht from '../common/BuildHorseType.vue'
+    import isSale from '../common/IsSale.vue'
+    import ht from '../common/HorseType.vue'
+    import bad from '../common/BuildingAnalysisLabel.vue'
+    var that = null
+    export default {
+        components: {
+            datePicker,
+            bht,
+            isSale,
+            build,
+            ht,
+            bad
+        },
+        data() {
+            return {
+                addParam: {
+                    // 楼盘名称
+                    buildId: '',
+                    // 户型
+                    bhtId: '',
+                    // 户型名字
+                    imgName: '',
+                    // 销售情况
+                    isSale: '',
+                    // 标签
+                    balId: '',
+                    // 类型
+                    ht: '',
+                    // 方向
+                    drection: '0',
+                    buildArea: '',
+                    totlePrice:'',
+                    downPayment:'',
+                    content:''
+                },
+                title: '',
+                horseTypeImgList: [],
+                horseTypeImgFileList: [],
+                size: 0,
+                imgData: {
+                    accept: 'image/gif, image/jpeg, image/png, image/jpg',
+                }
+            };
+        },
+        methods: {
+            // Initialization projcet’s content
+            initData(param, addParam) {
+                $('#balDialog').modal({backdrop: 'static', keyboard: false});
+                if (param === 'add') {
+                    this.title = '新增'
+                    this.addParam = {
+                        // 楼盘
+                        buildId: '',
+                        // 户型
+                        bhtId: '',
+                        // 销售情况
+                        isSale: '',
+                        // 标签
+                        balId: '',
+                        // 类型
+                        htId: '',
+                        // 方向
+                        drection: '0',
+                        buildArea: '',
+                        totlePrice:'',
+                        downPayment:'',
+                        content:''
+                    }
+                } else if (param === 'modify') {
+                    console.log('Initialization evaluation’s content, which modifies evaluation')
+                    this.title = '修改'
+
+                    Object.assign(this.addParam, addParam)
+                }
+            },
+
+
+            certainAction() {
+                const fd = new FormData();
+                // 效果图
+                // const horseTypeImg = $("#horseTypeImg")[0].files;
+                for (let i = 0; i < this.horseTypeImgFileList.length; i++) {
+                    fd.append("horseTypeImg", this.horseTypeImgFileList[i]);
+                }
+                fd.append("addParam", JSON.stringify(this.addParam));
+
+
+                switch (this.title) {
+                    case '新增':
+                       var url = this.url + '/buildingAnalysisBean/insertByBid'
+                        break;
+                    case '修改':
+                       var url = this.url + '/buildingBean/patchById'
+                        break;
+                }
+
+                this.$ajax({
+                    method: 'POST',
+                    url: url,
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        'Access-Token': this.accessToken
+                    },
+                    data: fd,
+                    dataType: 'json',
+                }).then((response) => {
+                    const res = response.data
+                    if (res.retCode === '0000') {
+                        alert(res.retMsg)
+                        this.$emit('certainAction')
+                    }
+                }).catch((error) => {
+                    console.log('楼盘信息提交失败')
+                });
+            },
+            closeCurrentPage() {
+                $("#balDialog").modal("hide")
+            },
+
+            formatFileSize: function (fileSize, idx) {
+                var units = ["B", "KB", "MB", "GB"];
+                idx = idx || 0;
+                if (fileSize < 1024 || idx === units.length - 1) {
+                    return fileSize.toFixed(1) + units[idx];
+                }
+                return this.formatFileSize(fileSize / 1024, ++idx);
+            },
+
+            fatherBhtReceive(data) {
+                this.addParam.bhtId = ''
+                this.addParam.bhtId = data.bhtId
+
+                this.addParam.imgName = ''
+                this.addParam.imgName = data.bhtName
+            },
+            fatherIsSaleReceive(data) {
+                this.addParam.isSale = ''
+                this.addParam.isSale = data
+            },
+            fatherBuildReceive(data) {
+                this.addParam.buildId = ''
+                this.addParam.buildId = data
+            },
+            fatherBalReceive(data) {
+                this.addParam.balId = ''
+                this.addParam.balId = data
+            },
+            fatherHtReceive(data) {
+                this.addParam.htId = ''
+                this.addParam.htId = data
+            },
+            //预览图
+            horseTypeImgChange() {
+
+                var files = $("#horseTypeImg")[0].files; //获取file对象
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file)
+                }
+            },
+            fileAdd(file) {
+                let type = file.type;//文件的类型，判断是否是图片
+                let size = file.size;//文件的大小，判断图片的大小
+                if (this.imgData.accept.indexOf(type) === -1) {
+                    alert('请选择我们支持的图片格式！');
+                    return false;
+                }
+                if (size > 3145728) {
+                    alert('请选择3M以内的图片！');
+                    return false;
+                }
+                let that = this;
+                // 总大小
+                this.size = this.size + file.size;
+                let reader = new FileReader();
+                // 调用reader.readAsDataURL()方法，把图片转成base64
+                reader.readAsDataURL(file);
+
+                // 监听reader对象的onload事件，当图片加载完成时，把base64编码賦值给预览图片
+                reader.onload = function () {
+                    var dataUrl = reader.result;
+
+                    file.src = this.result;
+
+                    that.horseTypeImgFileList.push(file)
+                    that.horseTypeImgList.push(dataUrl)
+
+                }
+            },
+            fileDel(index) {
+                this.horseTypeImgList.splice(index, 1);
+                this.horseTypeImgFileList.splice(index, 1)
+            }
+        },
+        computed: {
+            editor() {
+                return this.$refs.myQuillEditor.quill
+            }
+        }
+    }
+</script>
+
+<style>
+</style>

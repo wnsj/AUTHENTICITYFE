@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="bhtId" v-on:change="bhtChange()">
+    <select class="form-control" v-model="balId" v-on:change="balChange()">
         <option value="0">--未选择--</option>
-		<option v-for="(item,index) in bhtList" :key="index" v-bind:value="item.bhtId">{{item.bhtName}}</option>
+        <option v-for="(item,index) in balList" :key="index" v-bind:value="item.balId">{{item.balContent}}</option>
     </select>
 </template>
 
@@ -9,27 +9,32 @@
     export default {
         data() {
             return {
-                bhtId: '0',
-                bhtList: []
+                balId: '0',
+                balList: []
             };
         },
         methods: {
-            
-            bhtChange: function() {
-                for (var i = 0; i < this.bhtList.length; i++) {
-                    if(this.bhtId === 0){
-                         this.$emit('bhtChange', null)
-                         return
+
+            balChange: function() {
+                for (var i = 0; i < this.balList.length; i++) {
+                    if(this.balId === 0){
+                        this.$emit('balChange', null)
+                        return
                     }else{
-                        if (this.bhtList[i].bhtId === this.bhtId) {
-                            this.$emit('bhtChange',this.bhtList[i])
+                        if (this.balList[i].balId === this.balId) {
+
+                            this.$emit('balChange', this.balList[i].balId)
                             return
                         }
                     }
                 }
             },
+            setBalId: function(balId) {
+                this.balId = balId
+                this.queryData()
+            },
             async queryData() {
-                var url = this.url + '/buildingHorseTypeBean/getAllHorseType'
+                var url = this.url + '/buildingAnalysisLabelBean/getALabel'
                 this.$ajax({
                     method: 'GET',
                     url: url,
@@ -42,12 +47,12 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.bhtList = res.retData
+                        this.balList = res.retData
                     } else {
                         alert(res.retMsg)
                     }
                 }).catch((error) => {
-                    console.log('数据请求失败处理')
+                    console.log('数据请求失败处理'+ error)
                 });
             },
         },
@@ -57,6 +62,6 @@
     }
 </script>
 
-<style>
+<style scoped>
 
 </style>

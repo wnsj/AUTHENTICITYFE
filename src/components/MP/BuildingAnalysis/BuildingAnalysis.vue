@@ -79,9 +79,9 @@
                     </table>
                 </div>
                 <div class="row row_edit">
-                    <div class="modal fade" id="buildDialog">
+                    <div class="modal fade" id="balDialog">
                         <div class="modal-dialog">
-
+                            <bal-dialog ref='balDialog' @certainAction='feedBack'></bal-dialog>
                         </div>
                     </div>
                 </div>
@@ -100,12 +100,14 @@
     import isSale from '../../common/IsSale.vue'
     import paging from '../../common/Paging.vue'
     import build from '../../common/Building.vue'
+    import balDialog from '../../common/BuildingAnalysisDialog.vue'
     export default {
         components: {
             bht,
             isSale,
             paging,
-            build
+            build,
+            balDialog
         },
         data() {
             return {
@@ -175,16 +177,16 @@
             },
             selectRule(param, item) {
                 if (param === "1") {
-                    this.$refs.buildDialog.initData('add')
-                    $("#buildDialog").modal('show')
+                    this.$refs.balDialog.initData('add')
+                    $("#balDialog").modal('show')
                 } else if (param === "3") {
-                    this.$refs.buildDialog.initData('modify', item)
-                    $("#buildDialog").modal('show')
+                    this.$refs.balDialog.initData('modify', item)
+                    $("#balDialog").modal('show')
                 }
             },
             feedBack() {
                 this.queryData(1)
-                $("#buildDialog").modal('hide')
+                $("#balDialog").modal('hide')
             }
         },
         created: function () {

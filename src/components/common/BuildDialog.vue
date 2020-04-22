@@ -439,7 +439,7 @@
 
             fatherBhtReceive(data) {
                 this.addParam.bhtId = ''
-                this.addParam.bhtId = data
+                this.addParam.bhtId = data.bhtId
             },
             fatherBtReceive(data) {
                 this.addParam.btId = ''
