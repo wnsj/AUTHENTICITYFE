@@ -37,13 +37,6 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">位置</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <lt @locationTypeChange='fatherLtReceive' ref="lt"></lt>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <bt @btChange='fatherBtReceive' ref="bt"></bt>
@@ -224,6 +217,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">头图</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="file" id="headImg" @change="headImgChange" accept="image/*"
+                                   multiple="multiple"/>
+                            <div id="headImgOutDiv">
+                                <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
+                                    <div @click="fileDel(index,5)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group clearfix">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
@@ -334,6 +342,8 @@
                 buildRealImgFileList: [],
                 matchingRealImgList: [],
                 matchingRealImgFileList: [],
+                headImgList:[],
+                headImgFileList:[],
                 size: 0,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
@@ -417,6 +427,11 @@
                 // const matchingRealImg = $("#matchingRealImg")[0].files;
                 for (let i = 0; i < this.matchingRealImgFileList.length; i++) {
                     fd.append("matchingRealImg", this.matchingRealImgFileList[i]);
+                }
+
+                // 头图
+                for (let i = 0; i < this.headImgFileList.length; i++) {
+                    fd.append("headImg", this.headImgFileList[i]);
                 }
                 fd.append("addParam", JSON.stringify(this.addParam));
 
@@ -530,6 +545,14 @@
                     this.fileAdd(file, i, 4)
                 }
             },
+            headImgChange() {
+
+                var files = $("#headImg")[0].files; //获取file对象
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file, i, 5)
+                }
+            },
             fileAdd(file, i, pictureType) {
                 let type = file.type;//文件的类型，判断是否是图片
                 let size = file.size;//文件的大小，判断图片的大小
@@ -574,6 +597,9 @@
                         //     "</div>"
                         // );
                         // $("#matchingRealImg_" + i).attr("src", dataUrl);
+                    } else if (pictureType === 5) {
+                        that.headImgFileList.push(file)
+                        that.headImgList.push(dataUrl)
                     }
 
                 }
@@ -591,6 +617,9 @@
                 } else if (type === 4) {
                     this.matchingRealImgList.splice(index,1)
                     this.matchingRealImgFileList.splice(index,1)
+                } else if (type === 5) {
+                    this.headImgList.splice(index,1)
+                    this.headImgFileList.splice(index,1)
                 }
             }
         },
