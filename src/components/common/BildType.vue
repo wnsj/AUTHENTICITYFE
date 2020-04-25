@@ -9,7 +9,7 @@
     export default {
         data() {
             return {
-                btId: '0',
+                btId: 0,
                 buildTypeList: []
             };
         },
@@ -23,7 +23,6 @@
                     }else{
                         if (this.buildTypeList[i].btId === this.btId) {
                             this.$emit('btChange', this.buildTypeList[i].btId)
-                            console.log('子数据',this.buildTypeList[i].btId);
                             return
                         }
                     }

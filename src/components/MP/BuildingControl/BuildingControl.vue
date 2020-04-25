@@ -365,7 +365,15 @@
             feedBack() {
                 this.queryData(1)
                 $("#buildDialog").modal('hide')
-            }
+            },
+            // dataLook(obj){
+            //     if (null == obj)return
+            //     list:[]
+            //     for (let i = 0; i < this.obj.length; i++) {
+            //         list.push(obj[i])
+            //     }
+            //     list.join('\')
+            // }
         },
         created: function () {
             this.queryData()

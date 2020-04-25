@@ -16,6 +16,111 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">产权年限</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.ownershipYear">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">容积率</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.plotRatio">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">绿化率</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.greeningRate">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">售楼地址</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.saleAddress">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.propertyAddress">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">装修情况</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.decoration">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">占地面积</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.coveredArea">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">总户数</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.households">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">建筑风格</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.architecturalStyle">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">开发周期</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.iteration">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.floorage">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">物业公司</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.propertyCompany">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">物业费</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.propertyFee">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">停车位</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.parkingSpace">
+                        </div>
+                    </div>
+                    <!--  <div class="col-md-6 form-group clearfix">
+                          <label class="col-md-3 control-label text-right nopad end-aline"
+                                 style="padding:0;line-height:34px;">预售许可证</label><span class="sign-left">:</span>
+                          <div class="col-md-8">
+                              <input type="text" class="form-control" v-model="addParam.households">
+                          </div>
+                      </div>-->
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">别名</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.alias">
@@ -42,13 +147,96 @@
                             <bt @btChange='fatherBtReceive' ref="bt"></bt>
                         </div>
                     </div>
-                   <!-- <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
+                         <label class="col-md-3 control-label text-right nopad end-aline"
+                                style="padding:0;line-height:34px;">户型</label><span class="sign-left">:</span>
+                         <div class="col-md-8">
+                             <bht @bhtChange='fatherBhtReceive'></bht>
+                         </div>
+                     </div>-->
+                    <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">户型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">热销值</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <bht @bhtChange='fatherBhtReceive'></bht>
+                            <input type="text" class="form-control" v-model="addParam.sellWell"/>
                         </div>
-                    </div>-->
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">人气值</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.popularity"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">热搜值</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.hotSearch"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">特价</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.specialOffer"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">推荐户型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.recommend">
+                                <option value=0>--未选择--</option>
+                                <option value=1>--是--</option>
+                                <option value=2>--否--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">优选楼盘</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.optimization">
+                                <option value=0>--未选择--</option>
+                                <option value=1>--是--</option>
+                                <option value=2>--否--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">品质楼盘</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.quality">
+                                <option value=0>--未选择--</option>
+                                <option value=1>--是--</option>
+                                <option value=2>--否--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">优惠楼盘</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.discount">
+                                <option value=0>--未选择--</option>
+                                <option value=1>--是--</option>
+                                <option value=2>--否--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">最近开盘</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.buildOpen">
+                                <option value=0>--未选择--</option>
+                                <option value=1>--是--</option>
+                                <option value=2>--否--</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小总价</label><span class="sign-left">:</span>
@@ -120,18 +308,18 @@
                             <chara @charaChange='fatherChReceive' ref="chara"></chara>
                         </div>
                     </div>
-                   <!-- <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">咨询师</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <cou @couChange="fatherCouReceive"></cou>
-                        </div>
-                    </div>-->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">地址</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">楼盘地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.adress"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">联系方式</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.tel"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -165,7 +353,8 @@
                             <input type="file" id="effectImg" @change="effectImgChange" accept="image/*"
                                    multiple="multiple"/>
                             <div id="effectImgOutDiv">
-                                <div v-for="(item,index) of effectImgList" :key="index" v-show="effectImgList.length!==0">
+                                <div v-for="(item,index) of effectImgList" :key="index"
+                                     v-show="effectImgList.length!==0">
                                     <div @click="fileDel(index,1)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
@@ -180,7 +369,8 @@
                             <input type="file" id="enPlanImg" @change="enPlanImgChange" accept="image/*"
                                    multiple="multiple"/>
                             <div id="enPlanImgOutDiv">
-                                <div v-for="(item,index) of enPlanImgList" :key="index" v-show="enPlanImgList.length!==0">
+                                <div v-for="(item,index) of enPlanImgList" :key="index"
+                                     v-show="enPlanImgList.length!==0">
                                     <div @click="fileDel(index,2)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
@@ -195,7 +385,8 @@
                             <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
                                    multiple="multiple"/>
                             <div id="buildRealImgOutDiv">
-                                <div v-for="(item,index) of buildRealImgList" :key="index" v-show="buildRealImgList.length!==0">
+                                <div v-for="(item,index) of buildRealImgList" :key="index"
+                                     v-show="buildRealImgList.length!==0">
                                     <div @click="fileDel(index,3)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
@@ -210,7 +401,8 @@
                             <input type="file" id="matchingRealImg" @change="matchingRealImgChange" accept="image/*"
                                    multiple="multiple"/>
                             <div id="matchingRealImgOutDiv">
-                                <div v-for="(item,index) of matchingRealImgList" :key="index" v-show="matchingRealImgList.length!==0">
+                                <div v-for="(item,index) of matchingRealImgList" :key="index"
+                                     v-show="matchingRealImgList.length!==0">
                                     <div @click="fileDel(index,4)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
@@ -230,6 +422,15 @@
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">项目介绍</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <textarea style="height: 300px;width: 400px;" v-model="addParam.projectIntroduction"
+                                      placeholder="项目介绍"></textarea>
                         </div>
                     </div>
                     <div class="form-group clearfix">
@@ -331,24 +532,91 @@
                     // 加推时间
                     createDate: '',
                     // 预交房时间
-                    proDate: ''
+                    proDate: '',
+                    // 产权年限
+                    ownershipYear: '',
+                    // 物业类型
+                    propertyType: '',
+                    // 容积率
+                    plotRatio: '',
+                    // 绿化率
+                    greeningRate: '',
+                    // 售楼地址
+                    saleAddress: '',
+                    // 物业地址
+                    propertyAddress: '',
+                    // 装修情况
+                    decoration: '',
+                    // 占地面积
+                    coveredArea: '',
+                    // 建筑面积
+                    floorage: '',
+                    // 户数
+                    households: '',
+                    // 建筑风格
+                    architecturalStyle: '',
+                    // 开发周期
+                    iteration: '',
+                    // 物业公司
+                    propertyCompany: '',
+                    // 物业费
+                    propertyFee: '',
+                    // 停车位
+                    parkingSpace: '',
+                    // 项目介绍
+                    projectIntroduction: '',
+                    // 优惠(1:优惠；2：不优惠)
+                    discount: 0,
+                    // 热销值
+                    sellWell: '',
+                    //(1:近期开盘;2:不是近期开盘)
+                    buildOpen: '',
+                    // 联系方式
+                    tel: '',
+                    // 修改时间
+                    modifyTime: '',
+                    // 人气值
+                    popularity: '',
+                    // 热搜值
+                    hotSearch: '',
+                    // 特价值
+                    specialOffer: '',
+                    //是否推荐户型（1：是；2：否）
+                    recommend: 0,
+                    // 是否是优选楼盘（1：是；2：否）
+                    optimization: 0,
+                    //是否是品质楼盘（1：是；2：否）
+                    quality: 0
                 },
                 title: '',
-                effectImgList: [],
-                effectImgFileList: [],
-                enPlanImgList: [],
-                enPlanImgFileList: [],
-                buildRealImgList: [],
-                buildRealImgFileList: [],
-                matchingRealImgList: [],
-                matchingRealImgFileList: [],
-                headImgList:[],
-                headImgFileList:[],
-                size: 0,
-                imgData: {
-                    accept: 'image/gif, image/jpeg, image/png, image/jpg',
-                }
-            };
+                effectImgList:
+                    [],
+                effectImgFileList:
+                    [],
+                enPlanImgList:
+                    [],
+                enPlanImgFileList:
+                    [],
+                buildRealImgList:
+                    [],
+                buildRealImgFileList:
+                    [],
+                matchingRealImgList:
+                    [],
+                matchingRealImgFileList:
+                    [],
+                headImgList:
+                    [],
+                headImgFileList:
+                    [],
+                size:
+                    0,
+                imgData:
+                    {
+                        accept: 'image/gif, image/jpeg, image/png, image/jpg',
+                    }
+            }
+                ;
         },
         methods: {
             // Initialization projcet’s content
@@ -394,7 +662,61 @@
                         // 加推时间
                         createDate: '',
                         // 预交房时间
-                        proDate: ''
+                        proDate: '',
+                        // 产权年限
+                        ownershipYear: '',
+                        // 物业类型
+                        propertyType: '',
+                        // 容积率
+                        plotRatio: '',
+                        // 绿化率
+                        greeningRate: '',
+                        // 售楼地址
+                        saleAddress: '',
+                        // 物业地址
+                        propertyAddress: '',
+                        // 装修情况
+                        decoration: '',
+                        // 占地面积
+                        coveredArea: '',
+                        // 建筑面积
+                        floorage: '',
+                        // 户数
+                        households: '',
+                        // 建筑风格
+                        architecturalStyle: '',
+                        // 开发周期
+                        iteration: '',
+                        // 物业公司
+                        propertyCompany: '',
+                        // 物业费
+                        propertyFee: '',
+                        // 停车位
+                        parkingSpace: '',
+                        // 项目介绍
+                        projectIntroduction: '',
+                        // 优惠(1:优惠；2：不优惠)
+                        discount: '',
+                        // 热销值
+                        sellWell: '',
+                        //(1:近期开盘;2:不是近期开盘)
+                        buildOpen: '',
+                        // 联系方式
+                        tel: '',
+                        // 修改时间
+                        modifyTime: '',
+                        // 人气值
+                        popularity: '',
+                        // 热搜值
+                        hotSearch: '',
+                        // 特价值
+                        specialOffer: '',
+                        //是否推荐户型（1：是；2：否）
+                        recommend: '',
+                        // 是否是优选楼盘（1：是；2：否）
+                        optimization: '',
+                        //是否是品质楼盘（1：是；2：否）
+                        quality: ''
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
@@ -435,13 +757,12 @@
                 }
                 fd.append("addParam", JSON.stringify(this.addParam));
 
-                let url = '';
                 switch (this.title) {
                     case '新增':
-                        url = this.url + '/buildingBean/addBuilding'
+                       var url = this.url + '/buildingBean/addBuilding'
                         break;
                     case '修改':
-                        url = this.url + '/buildingBean/patchById'
+                       var url = this.url + '/buildingBean/patchById'
                         break;
                 }
 
@@ -604,22 +925,22 @@
 
                 }
             },
-            fileDel(index,type) {
+            fileDel(index, type) {
                 if (type === 1) {
                     this.effectImgList.splice(index, 1);
                     this.effectImgFileList.splice(index, 1)
                 } else if (type === 2) {
-                    this.enPlanImgList.splice(index,1)
-                    this.enPlanImgFileList.splice(index,1)
+                    this.enPlanImgList.splice(index, 1)
+                    this.enPlanImgFileList.splice(index, 1)
                 } else if (type === 3) {
-                    this.buildRealImgList.splice(index,1)
-                    this.buildRealImgFileList.splice(index,1)
+                    this.buildRealImgList.splice(index, 1)
+                    this.buildRealImgFileList.splice(index, 1)
                 } else if (type === 4) {
-                    this.matchingRealImgList.splice(index,1)
-                    this.matchingRealImgFileList.splice(index,1)
+                    this.matchingRealImgList.splice(index, 1)
+                    this.matchingRealImgFileList.splice(index, 1)
                 } else if (type === 5) {
-                    this.headImgList.splice(index,1)
-                    this.headImgFileList.splice(index,1)
+                    this.headImgList.splice(index, 1)
+                    this.headImgFileList.splice(index, 1)
                 }
             }
         },
