@@ -415,13 +415,22 @@
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="headImg" @change="headImgChange" accept="image/*"
-                                   multiple="multiple"/>
+                                   />
                             <div id="headImgOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <div @click="fileDel(index,5)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">视频</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="file" id="video"
+                                   />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -755,8 +764,10 @@
                 for (let i = 0; i < this.headImgFileList.length; i++) {
                     fd.append("headImg", this.headImgFileList[i]);
                 }
-                fd.append("addParam", JSON.stringify(this.addParam));
+                // 视频
+                fd.append("video",$("#video")[0].files[0]);
 
+                fd.append("addParam", JSON.stringify(this.addParam));
                 switch (this.title) {
                     case '新增':
                        var url = this.url + '/buildingBean/addBuilding'
