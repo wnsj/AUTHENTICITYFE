@@ -1,7 +1,7 @@
 <template>
     <div class="wraper">
         <div class="col-md-12 col-lg-12 main-title">
-            <h1 class="titleCss">户型分析管理</h1>
+            <h1 class="titleCss">咨询师管理</h1>
         </div>
         <div class="row newRow" style="margin-top: 1%">
             <!--咨询师-->
@@ -21,17 +21,17 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <cou-chara @couCharaChange="fatherCouChara" ref="couCharaRef">
+                    <cou-chara @couCharaChange="fatherCouChara">
                     </cou-chara>
                 </div>
             </div>
         </div>
         <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
-<!--            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"-->
-<!--                    v-on:click="selectRule('1')">添加</button>-->
+            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+                    v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
-                    v-on:click="queryData(1)">查询
+                    v-on:click="couQueryData(1)">查询
             </button>
         </div>
 
@@ -61,13 +61,13 @@
                         </tbody>
                     </table>
                 </div>
-<!--                <div class="row row_edit">-->
-<!--                    <div class="modal fade" id="balDialog">-->
-<!--                        <div class="modal-dialog">-->
-<!--                            <bal-dialog ref='balDialog' @certainAction='feedBack'></bal-dialog>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="row row_edit">
+                    <div class="modal fade" id="couDialog">
+                        <div class="modal-dialog">
+                            <cou-dialog  ref='couDialog' @certainAction='feedBack'></cou-dialog>
+                        </div>
+                    </div>
+                </div>
                 <!--分页插件-->
                 <div class="page">
                     <!--这里时通过props传值到子级，并有一个回调change的函数，来获取自己传值到父级的值-->
@@ -82,18 +82,21 @@
     import couChara from '../../common/subCou/CouChara.vue'
     import cou from '../../common/subCou/Counselor.vue'
     import paging from '../../common/Paging.vue'
+    import couDialog from '../../common/subCou/CuoDialog.vue'
+    var that = null
     export default {
         components: {
             couChara,
             cou,
-            paging
+            paging,
+            couDialog
         },
         name: 'CounselorControl',
         data() {
             return {
                 couId:'',
                 ccId:'',
-                couData:'',
+                couData:[],
                 //分页需要的数据
                 pages: '', //总页数
                 current: 1, //当前页码
@@ -109,7 +112,7 @@
               }
           },
             fatherCouChara(data) {
-              this.ccId = '';
+                this.ccId = '';
               if (null !== data) {
                   this.ccId = data
               }
@@ -117,7 +120,7 @@
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
-                this.queryData(page)
+                this.couQueryData(page)
             },
             async couQueryData(page) {
                 var url = this.url + '/counselorBean/getAllCouselorByPage'
@@ -151,19 +154,19 @@
                     console.log('数据请求失败处理')
                 });
             },
-            // selectRule(param, item) {
-            //     if (param === "1") {
-            //         this.$refs.balDialog.initData('add')
-            //         $("#balDialog").modal('show')
-            //     } else if (param === "3") {
-            //         this.$refs.balDialog.initData('modify', item)
-            //         $("#balDialog").modal('show')
-            //     }
-            // },
-            // feedBack() {
-            //     this.queryData(1)
-            //     $("#balDialog").modal('hide')
-            // }
+            selectRule(param, item) {
+                if (param === "1") {
+                    this.$refs.couDialog.initData('add')
+                    $("#couDialog").modal('show')
+                } else if (param === "3") {
+                    this.$refs.couDialog.initData('modify', item)
+                    $("#couDialog").modal('show')
+                }
+            },
+            feedBack() {
+                this.couQueryData(1)
+                $("#couDialog").modal('hide')
+            }
         },
         created: function () {
             this.couQueryData()
