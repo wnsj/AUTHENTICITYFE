@@ -1,35 +1,35 @@
 <template>
-    <select class="form-control" v-model="balId" v-on:change="balChange()">
-        <option value="0">--未选择--</option>
-        <option v-for="(item,index) in balList" :key="index" v-bind:value="item.balId">{{item.balContent}}</option>
-    </select>
+    <el-select v-model="balIdList" multiple
+               collapse-tags style="height: 9px" v-on:change="balChange()" placeholder="--未选择--">
+        <el-option v-for="item in balList"
+                   :key="item.balId"
+                   :label="item.balContent"
+                   :value="item.balId">
+
+        </el-option>
+    </el-select>
 </template>
 
 <script>
     export default {
         data() {
             return {
-                balId: '0',
+                balIdList: [],
                 balList: []
             };
         },
         methods: {
 
-            balChange: function() {
-                for (var i = 0; i < this.balList.length; i++) {
-                    if(this.balId === '0'){
+            balChange: function () {
+                    if (this.balIdList === []) {
                         this.$emit('balChange', null)
                         return
-                    }else{
-                        if (this.balList[i].balId === this.balId) {
-
-                            this.$emit('balChange', this.balList[i].balId)
-                            return
-                        }
+                    } else {
+                        this.$emit('balChange', this.balIdList)
+                        return
                     }
-                }
             },
-            setBalId: function(balId) {
+            setBalId: function (balId) {
                 this.balId = balId
                 this.queryData()
             },
@@ -52,7 +52,7 @@
                         alert(res.retMsg)
                     }
                 }).catch((error) => {
-                    console.log('数据请求失败处理'+ error)
+                    console.log('数据请求失败处理' + error)
                 });
             },
         },

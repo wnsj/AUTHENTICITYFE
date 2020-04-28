@@ -8,6 +8,8 @@ import moment from 'moment'
 import Cookies from 'js-cookie'
 import constant from '../src/assets/js/constant'
 import vueBeauty from 'vue-beauty'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 // 富文本编辑----------------------------------
 import QuillEditor from 'vue-quill-editor'
@@ -15,6 +17,7 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.bubble.css'
 import 'quill/dist/quill.snow.css'
 Vue.use(QuillEditor)
+Vue.use(ElementUI)
 // ----------------------------------------------
 
 // import utilDate from '../src/assets/js/utilDate'

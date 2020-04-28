@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="bid" v-on:change="buildChange()">
+    <select class="form-control" v-model="buildId" v-on:change="buildChange()">
         <option value="0">--未选择--</option>
-        <option v-for="(item,index) in buildList" :key="index" v-bind:value="item.bid">{{item.htName}}</option>
+        <option v-for="(item,index) in buildList" :key="index" v-bind:value="item.buildId">{{item.htName}}</option>
     </select>
 </template>
 
@@ -9,7 +9,7 @@
     export default {
         data() {
             return {
-                bid: '0',
+                buildId: '0',
                 buildList: []
             };
         },
@@ -17,12 +17,12 @@
 
             buildChange: function() {
                 for (var i = 0; i < this.buildList.length; i++) {
-                    if(this.bid === '0'){
+                    if(this.buildId === '0'){
                         this.$emit('buildChange', null)
                         return
                     }else{
-                        if (this.buildList[i].bid === this.bid) {
-                            this.$emit('buildChange',this.buildList[i].bid)
+                        if (this.buildList[i].buildId === this.buildId) {
+                            this.$emit('buildChange',this.buildList[i])
                             return
                         }
                     }

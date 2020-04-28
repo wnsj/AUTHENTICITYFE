@@ -32,7 +32,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <ht @htChange='fatherHtReceive' ref="bt"></ht>
+                            <input type="text" class="form-control" v-model="addParam.ht"/>
                         </div>
                     </div>
 
@@ -79,7 +79,14 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">效果图</label><span
+                               style="padding:0;line-height:34px;">居室</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.house"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">类型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*"
@@ -92,6 +99,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix" style="width: 100%">
+
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">点评内容</label><span
@@ -142,6 +152,7 @@
             return {
                 addParam: {
                     // 楼盘名称
+                    htName: '',
                     buildId: '',
                     // 户型
                     bhtId: '',
@@ -150,9 +161,11 @@
                     // 销售情况
                     isSale: '',
                     // 标签
-                    balId: '',
+                    balIdList: [],
                     // 类型
                     ht: '',
+                    // 居室
+                    house: '',
                     // 方向
                     drection: '0',
                     buildArea: '',
@@ -183,7 +196,7 @@
                         // 销售情况
                         isSale: '',
                         // 标签
-                        balId: '',
+                        balIdList: [],
                         // 类型
                         htId: '',
                         // 方向
@@ -209,7 +222,7 @@
                 for (let i = 0; i < this.horseTypeImgFileList.length; i++) {
                     fd.append("horseTypeImg", this.horseTypeImgFileList[i]);
                 }
-                fd.append("addParam", JSON.stringify(this.addParam));
+                fd.append("param", JSON.stringify(this.addParam));
 
 
                 switch (this.title) {
@@ -217,7 +230,7 @@
                        var url = this.url + '/buildingAnalysisBean/insertByBid'
                         break;
                     case '修改':
-                       var url = this.url + '/buildingBean/patchById'
+                       var url = this.url + '/buildingAnalysisBean/patchBuildAnalysisById'
                         break;
                 }
 
@@ -266,11 +279,13 @@
             },
             fatherBuildReceive(data) {
                 this.addParam.buildId = ''
-                this.addParam.buildId = data
+                this.addParam.buildId = data.buildId
+                this.addParam.htName = ''
+                this.addParam.htName = data.htName
             },
             fatherBalReceive(data) {
-                this.addParam.balId = ''
-                this.addParam.balId = data
+                this.addParam.balIdList = []
+                this.addParam.balIdList = data
             },
             fatherHtReceive(data) {
                 this.addParam.htId = ''

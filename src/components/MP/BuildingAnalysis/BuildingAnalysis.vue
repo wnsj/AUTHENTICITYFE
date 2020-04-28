@@ -68,7 +68,7 @@
                             <td class="text-center" style="line-height:33px;">{{item.saleLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.imgName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.caName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.balContent}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.balContentLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.drectionLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.buildArea}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.content}}</td>
@@ -140,7 +140,7 @@
             },
             fatherBuildReceive(data) {
                 this.buildSon = ''
-                this.buildSon = data
+                this.buildSon = data.buildId
             },
             async queryData(page) {
                 var url = this.url + '/buildingAnalysisBean/getAllAnalysisByBid'
