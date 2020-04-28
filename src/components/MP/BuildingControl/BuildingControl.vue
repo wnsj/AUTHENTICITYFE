@@ -260,18 +260,26 @@
             },
             fatherBtReceive(data) {
                 this.btSon = []
-                this.btSon.push(data)
+                if (null !== data) {
+                    this.btSon.push(data)
+                }
             },
             fatherIsSaleReceive(data) {
                 this.isSaleSon = []
-                this.isSaleSon.push(data)
+                if (null !== data) {
+                    this.isSaleSon.push(data)
+                }
+
             },
             fatherLtReceive(data) {
                 this.$refs.ldt.locationTypeChange(data)
             },
             fatherLdtReceive(data) {
                 this.ltSon = []
-                this.ltSon.push(data)
+                if (null !== data) {
+                    this.ltSon.push(data)
+                }
+
             },
             fatherAreaReceive(data) {
                 this.areaSon = []
@@ -305,11 +313,15 @@
             },
             fatherDevReceive(data) {
                 this.devSon = []
-                this.devSon.push(data)
+                if (null !== data) {
+                    this.devSon.push(data)
+                }
             },
             fatherChReceive(data) {
                 this.charaSon = []
-                this.charaSon.push(data)
+                if (null !== data) {
+                    this.charaSon.push(data)
+                }
             },
             async queryData(page) {
                 var url = this.url + '/buildingBean/getAllBuildByPage'

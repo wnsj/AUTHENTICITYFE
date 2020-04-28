@@ -433,6 +433,9 @@
                                    />
                         </div>
                     </div>
+                    <div class="col-md-6 form-group clearfix" style="width: 100%;">
+
+                    </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">项目介绍</label><span

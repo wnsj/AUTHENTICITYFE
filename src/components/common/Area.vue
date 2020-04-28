@@ -17,11 +17,11 @@
 
             areaChange: function() {
                 for (var i = 0; i < this.areaList.length; i++) {
-                    if(this.arId === 0){
+                    if(this.areaId == '0'){
                         this.$emit('areaChange', null)
                         return
                     }else{
-                        if (this.areaList[i].arId === this.areaId) {
+                        if (this.areaList[i].arId == this.areaId) {
 
                             this.$emit('areaChange', this.areaList[i])
                             return

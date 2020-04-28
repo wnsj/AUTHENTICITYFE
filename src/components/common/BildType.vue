@@ -9,7 +9,7 @@
     export default {
         data() {
             return {
-                btId: 0,
+                btId: '0',
                 buildTypeList: []
             };
         },
@@ -17,11 +17,11 @@
             
             btChange: function() {
                 for (var i = 0; i < this.buildTypeList.length; i++) {
-                    if(this.btId === 0){
+                    if(this.btId == 0){
                          this.$emit('btChange', null)
                          return
                     }else{
-                        if (this.buildTypeList[i].btId === this.btId) {
+                        if (this.buildTypeList[i].btId == this.btId) {
                             this.$emit('btChange', this.buildTypeList[i].btId)
                             return
                         }

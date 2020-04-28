@@ -32,7 +32,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.ht"/>
+                            <input type="text" class="form-control" v-model="addParam.caName"/>
                         </div>
                     </div>
 
@@ -163,7 +163,7 @@
                     // 标签
                     balIdList: [],
                     // 类型
-                    ht: '',
+                    caName: '',
                     // 居室
                     house: '',
                     // 方向
@@ -198,7 +198,7 @@
                         // 标签
                         balIdList: [],
                         // 类型
-                        htId: '',
+                        caName: '',
                         // 方向
                         drection: '0',
                         buildArea: '',

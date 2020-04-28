@@ -132,7 +132,9 @@
             },
             fatherBhtReceive(data) {
                 this.bhtSon = ''
-                this.bhtSon = data
+                if (null !== data) {
+                    this.bhtSon = data.bhtId
+                }
             },
             fatherIsSaleReceive(data) {
                 this.isSaleSon = ''
@@ -140,7 +142,9 @@
             },
             fatherBuildReceive(data) {
                 this.buildSon = ''
-                this.buildSon = data.buildId
+                if (null !== data) {
+                    this.buildSon = data.buildId
+                }
             },
             async queryData(page) {
                 var url = this.url + '/buildingAnalysisBean/getAllAnalysisByBid'
