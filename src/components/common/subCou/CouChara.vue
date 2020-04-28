@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="couId" v-on:change="couChange()">
+    <select class="form-control" v-model="ccId" v-on:change="couCharaChange()">
         <option value="0">--未选择--</option>
-        <option v-for="(item,index) in couIdList" :key="index" v-bind:value="item.couId">{{item.couName}}</option>
+        <option v-for="(item,index) in couCharaList" :key="index" v-bind:value="item.ccId">{{item.ccContent}}</option>
     </select>
 </template>
 
@@ -9,32 +9,32 @@
     export default {
         data() {
             return {
-                couId: '0',
-                couIdList: []
+                ccId: '0',
+                couCharaList: []
             };
         },
         methods: {
 
-            couChange: function() {
-                for (var i = 0; i < this.couIdList.length; i++) {
-                    if(this.couId === '0'){
-                        this.$emit('couChange', null)
+            couCharaChange: function() {
+                for (var i = 0; i < this.couCharaList.length; i++) {
+                    if(this.ccId === '0'){
+                        this.$emit('couCharaChange', null)
                         return
                     }else{
-                        if (this.couIdList[i].couId === this.couId) {
+                        if (this.couCharaList[i].ccId === this.ccId) {
 
-                            this.$emit('couChange', this.couIdList[i].couId)
+                            this.$emit('couCharaChange', this.couCharaList[i].ccId)
                             return
                         }
                     }
                 }
             },
-            setBtId: function(couId) {
-                this.couId = couId
+            setCcId: function(ccId) {
+                this.ccId = ccId
                 this.queryData()
             },
             async queryData() {
-                var url = this.url + '/counselorBean/getAllCouselor'
+                var url = this.url + '/counselorCharacterBean/getAllCouChara'
                 this.$ajax({
                     method: 'GET',
                     url: url,
@@ -47,7 +47,7 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.couIdList = res.retData
+                        this.couCharaList = res.retData
                     } else {
                         alert(res.retMsg)
                     }

@@ -5,6 +5,7 @@ import MainPage from '@/components/MainPage.vue'
 /*------------*/
 import BuildingControl from '../components/MP/BuildingControl/BuildingControl.vue'
 import BuildingAnalysis from '../components/MP/BuildingAnalysis/BuildingAnalysis.vue'
+import CounselorControl from '../components/MP/Counselor/CounselorControl.vue'
 
 Vue.use(Router)
 
@@ -34,6 +35,10 @@ export default new Router({
                     path: '/MP/BuildingAnalysis/BuildingAnalysis',
                     name: 'BuildingAnalysis',
                     component: BuildingAnalysis,
+                },{
+                    path: '/MP/Counselor/CounselorControl',
+                    name: 'CounselorControl',
+                    component: CounselorControl,
                 },
             ],
             redirect: '/MP/BuildingControl/BuildingControl'

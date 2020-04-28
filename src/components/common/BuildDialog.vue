@@ -475,7 +475,7 @@
     import ldt from '../common/LocationDType.vue'
     import dev from '../common/Dev.vue'
     import chara from '../common/Chara.vue'
-    import cou from '../common/Counselor.vue'
+    import cou from './subCou/Counselor.vue'
     import pro from '../common/Province.vue'
 
     var that = null
