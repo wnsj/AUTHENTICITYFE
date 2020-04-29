@@ -11,7 +11,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘名称</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <build ref="ban" @buildChange="fatherBuildReceive"></build>
+                            <build ref="buildRef" @buildChange="fatherBuildReceive"></build>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -209,7 +209,10 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
-
+                    this.$refs.buildRef.setBuildId(addParam.buildId)
+                    this.$refs.sale.setIsSale(addParam.isSale)
+                    this.$refs.bht.setBhtId(addParam.bhtId)
+                    this.$refs.bad.setBalIdList(addParam.balIdList)
                     Object.assign(this.addParam, addParam)
                 }
             },
