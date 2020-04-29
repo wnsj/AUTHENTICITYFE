@@ -28,6 +28,10 @@
                     }
                 }
             },
+            setBtId: function(btId) {
+                this.btId = btId
+                this.queryData()
+            },
             async queryData() {
                 var url = this.url + '/buildingTypeBean/getAllBuildingType'
                 this.$ajax({

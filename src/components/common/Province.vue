@@ -29,7 +29,7 @@
                     }
                 }
             },
-            setBtId: function(proId) {
+            setProId: function(proId) {
                 this.proId = proId
                 this.queryData()
             },

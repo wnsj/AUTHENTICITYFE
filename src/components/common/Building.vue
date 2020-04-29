@@ -50,8 +50,8 @@
                     console.log('数据请求失败处理')
                 });
             },
-            setBid: function(bid) {
-                this.bid = bid
+            setBuildId: function(buildId) {
+                this.buildId = buildId
                 this.queryData()
             },
         },

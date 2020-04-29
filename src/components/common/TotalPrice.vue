@@ -29,8 +29,8 @@
                     }
                 }
             },
-            setBtId: function(tpId) {
-                this.tpId = tpId
+            setTpId: function(tpId) {
+                this.totalId = tpId
                 this.queryData()
             },
             async queryData() {

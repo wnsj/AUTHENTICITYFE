@@ -12,8 +12,7 @@
         data() {
             return {
                 ldId:'0',
-                ldtList: [],
-                locationType:''
+                ldtList: []
             };
         },
         methods: {
@@ -41,9 +40,9 @@
                 });
             },
 
-            setLtId: function(ldId) {
-                this.locationType = ldId
-                this.queryData()
+            setLdtId: function(ldId) {
+                this.ldId = ldId
+                this.locationTypeChange()
             },
             ldtChange: function() {
                 for (var i = 0; i < this.ldtList.length; i++) {

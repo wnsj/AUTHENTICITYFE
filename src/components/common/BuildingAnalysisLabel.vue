@@ -29,8 +29,8 @@
                         return
                     }
             },
-            setBalId: function (balId) {
-                this.balId = balId
+            setBalIdList: function (balIdList) {
+                this.balIdList = balIdList
                 this.queryData()
             },
             async queryData() {

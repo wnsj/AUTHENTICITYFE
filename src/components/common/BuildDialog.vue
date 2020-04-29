@@ -16,6 +16,20 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">楼盘经度</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.longitude">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">楼盘纬度</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.latitude">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">产权年限</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.ownershipYear">
@@ -130,21 +144,21 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">位置类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <lt @ltChange='fatherLtReceive'></lt>
+                            <lt @ltChange='fatherLtReceive' ref="ltRef"></lt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">位置</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
+                            <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <bt @btChange='fatherBtReceive' ref="bt"></bt>
+                            <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                         </div>
                     </div>
                     <!-- <div class="col-md-6 form-group clearfix">
@@ -291,21 +305,21 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">销售情况</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <is-sale @isSaleChange='fatherIsSaleReceive' ref="sale"></is-sale>
+                            <is-sale @isSaleChange='fatherIsSaleReceive' ref="saleRef"></is-sale>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <dev @devChange='fatherDevReceive' ref="dev"></dev>
+                            <dev @devChange='fatherDevReceive' ref="devRef"></dev>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特色</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <chara @charaChange='fatherChReceive' ref="chara"></chara>
+                            <chara @charaChange='fatherChReceive' ref="charaRef"></chara>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -326,7 +340,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">省份</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <pro @proChange="fatherProReceive" ref="pro"></pro>
+                            <pro @proChange="fatherProReceive" ref="proRef"></pro>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -598,7 +612,11 @@
                     // 是否是优选楼盘（1：是；2：否）
                     optimization: 0,
                     //是否是品质楼盘（1：是；2：否）
-                    quality: 0
+                    quality: 0,
+                    // 经度
+                    longitude: '',
+                    // 纬度
+                    latitude: ''
                 },
                 title: '',
                 effectImgList:
@@ -728,12 +746,22 @@
                         // 是否是优选楼盘（1：是；2：否）
                         optimization: '',
                         //是否是品质楼盘（1：是；2：否）
-                        quality: ''
+                        quality: '',
+                        // 经度
+                        longitude: '',
+                        // 纬度
+                        latitude: ''
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
 
+                    this.$refs.ldtRef.setLdtId(addParam.ldId)
+                    this.$refs.btRef.setBtId(addParam.btId)
+                    this.$refs.saleRef.setIsSale(addParam.isSale)
+                    this.$refs.devRef.setDevId(addParam.devId)
+                    this.$refs.charaRef.setCharaId(addParam.chaId)
+                    this.$refs.proRef.setProId(addParam.proId)
                     Object.assign(this.addParam, addParam)
                 }
             },

@@ -29,8 +29,8 @@
                     }
                 }
             },
-            setBtId: function(stId) {
-                this.stId = stId
+            setIsSale: function(isSale) {
+                this.isSale = isSale
                 this.queryData()
             },
             async queryData() {

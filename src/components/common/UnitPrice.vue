@@ -29,8 +29,8 @@
                     }
                 }
             },
-            setBtId: function(upId) {
-                this.upId = upId
+            setUpId: function(upId) {
+                this.unitId = upId
                 this.queryData()
             },
             async queryData() {

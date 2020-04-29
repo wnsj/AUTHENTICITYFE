@@ -28,6 +28,10 @@
                     }
                 }
             },
+            setBhtId: function(bhtId) {
+                this.bhtId = bhtId
+                this.queryData()
+            },
             async queryData() {
                 var url = this.url + '/buildingHorseTypeBean/getAllHorseType'
                 this.$ajax({

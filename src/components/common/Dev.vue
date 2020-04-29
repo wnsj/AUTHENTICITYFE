@@ -29,7 +29,7 @@
                     }
                 }
             },
-            setBtId: function(devId) {
+            setDevId: function(devId) {
                 this.devId = devId
                 this.queryData()
             },

@@ -16,7 +16,7 @@
             };
         },
         methods: {
-            setBtId: function(ltId) {
+            setLtId: function(ltId) {
                 this.ltId = ltId
                 this.queryData()
             },

@@ -29,8 +29,8 @@
                     }
                 }
             },
-            setBtId: function(arId) {
-                this.arId = arId
+            setArId: function(arId) {
+                this.areaId = arId
                 this.queryData()
             },
             async queryData() {

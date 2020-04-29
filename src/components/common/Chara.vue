@@ -29,7 +29,7 @@
                     }
                 }
             },
-            setBtId: function(charaId) {
+            setCharaId: function(charaId) {
                 this.charaId = charaId
                 this.queryData()
             },
