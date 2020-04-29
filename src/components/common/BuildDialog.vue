@@ -58,6 +58,13 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">楼盘特点</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.buildDescription">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.propertyAddress">
@@ -317,7 +324,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">特色</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">特色标签</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <chara @charaChange='fatherChReceive' ref="charaRef"></chara>
                         </div>
@@ -616,7 +623,9 @@
                     // 经度
                     longitude: '',
                     // 纬度
-                    latitude: ''
+                    latitude: '',
+                    // 楼盘特色描述
+                    buildDescription: ''
                 },
                 title: '',
                 effectImgList:
@@ -750,7 +759,9 @@
                         // 经度
                         longitude: '',
                         // 纬度
-                        latitude: ''
+                        latitude: '',
+                        // 楼盘特色描述
+                        buildDescription: ''
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
