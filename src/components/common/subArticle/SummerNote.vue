@@ -57,7 +57,7 @@
                         fd.append("file", files[i]);
                     }
 
-                    var url = that.url + '/fileAction/uploadFile'
+                    var url = that.url + '/articleBean/uploadFile'
                     that.$ajax({
                         method: 'POST',
                         url: url,
@@ -75,7 +75,9 @@
                                 for (var i = 0; i < retData.length; i++) {
                                     var imgObj = retData[i];
                                     var imgUrl = that.addTimesParam(that.url + imgObj.fileUrl);
+                                    console.log('url' + imgUrl);
                                     var imgName = imgObj.srcName;
+                                    console.log('name' + imgName);
                                     $('#summernote').summernote('insertImage', imgUrl, imgName);
                                 }
                             }

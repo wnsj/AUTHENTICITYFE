@@ -35,6 +35,9 @@
                             <dd @click="addCheck('CounselorControl')" v-bind:class="{'li-active':onString=='CounselorControl'}">
                                 <router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
                             </dd>
+                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
+                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">文章管理</i></router-link>
+                            </dd>
                         </dl>
                     </div>
                 </div>
