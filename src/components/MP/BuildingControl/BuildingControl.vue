@@ -94,7 +94,7 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <lt @ltChange='fatherLtReceive'></lt>
+                    <lt @ltChange='fatherLtReceive' ref="lt"></lt>
                 </div>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">

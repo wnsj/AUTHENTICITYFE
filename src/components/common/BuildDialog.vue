@@ -151,7 +151,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">位置类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <lt @ltChange='fatherLtReceive' ref="ltRef"></lt>
+                            <lt @ltChange='fatherLtReceive'></lt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -168,13 +168,13 @@
                             <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                         </div>
                     </div>
-                    <!-- <div class="col-md-6 form-group clearfix">
+                     <div class="col-md-6 form-group clearfix">
                          <label class="col-md-3 control-label text-right nopad end-aline"
                                 style="padding:0;line-height:34px;">户型</label><span class="sign-left">:</span>
                          <div class="col-md-8">
-                             <bht @bhtChange='fatherBhtReceive'></bht>
+                             <build-horse-types @bhtsChange='fatherBhtReceive' ref="bhtsRef"></build-horse-types>
                          </div>
-                     </div>-->
+                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">热销值</label><span class="sign-left">:</span>
@@ -326,7 +326,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特色标签</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <chara @charaChange='fatherChReceive' ref="charaRef"></chara>
+                            <Charas @charsChange='fatherChReceive' ref="charsRef"></Charas>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -490,12 +490,12 @@
 <script>
     import datePicker from 'vue2-datepicker'
     import bt from '../common/BildType.vue'
-    import bht from '../common/BuildHorseType.vue'
+    import BuildHorseTypes from '../common/BuildHorseTypes.vue'
     import isSale from '../common/IsSale.vue'
     import lt from '../common/LocationType.vue'
     import ldt from '../common/LocationDType.vue'
     import dev from '../common/Dev.vue'
-    import chara from '../common/Chara.vue'
+    import Charas from '../common/Charas.vue'
     import cou from './subCou/Counselor.vue'
     import pro from '../common/Province.vue'
 
@@ -516,12 +516,12 @@
         components: {
             datePicker,
             bt,
-            bht,
+            BuildHorseTypes,
             isSale,
             lt,
             ldt,
             dev,
-            chara,
+            Charas,
             cou,
             pro
         },
@@ -535,7 +535,7 @@
                     // 类型
                     btId: '',
                     // 户型
-                    bhtId: '',
+                    bhtIdList: [],
                     // 最小总价
                     minTitlePrice: '',
                     // 最大总价
@@ -555,7 +555,7 @@
                     // 品牌开发商
                     devId: '',
                     // 特色
-                    chaId: '',
+                    chaIdList: [],
                     // 地址
                     adress: '',
                     // 省份
@@ -671,7 +671,7 @@
                         // 类型
                         btId: '',
                         // 户型
-                        bhtId: '',
+                        bhtIdList: [],
                         // 最小总价
                         minTitlePrice: '',
                         // 最大总价
@@ -691,7 +691,7 @@
                         // 品牌开发商
                         devId: '',
                         // 特色
-                        chaId: '',
+                        chaIdList: [],
                         // 地址
                         adress: '',
                         // 省份
@@ -771,7 +771,8 @@
                     this.$refs.btRef.setBtId(addParam.btId)
                     this.$refs.saleRef.setIsSale(addParam.isSale)
                     this.$refs.devRef.setDevId(addParam.devId)
-                    this.$refs.charaRef.setCharaId(addParam.chaId)
+                    this.$refs.charsRef.setCharaList(addParam.chaIdList)
+                    this.$refs.bhtsRef.setBhtIdList(addParam.bhtIdList)
                     this.$refs.proRef.setProId(addParam.proId)
                     Object.assign(this.addParam, addParam)
                 }
@@ -852,8 +853,8 @@
             },
 
             fatherBhtReceive(data) {
-                this.addParam.bhtId = ''
-                this.addParam.bhtId = data.bhtId
+                this.addParam.bhtIdList = []
+                this.addParam.bhtIdList = data
             },
             fatherBtReceive(data) {
                 this.addParam.btId = ''
@@ -864,7 +865,7 @@
                 this.addParam.isSale = data
             },
             fatherLtReceive(data) {
-                this.$refs.ldt.locationTypeChange(data)
+                this.$refs.ldtRef.locationTypeChange(data)
             },
             fatherLdtReceive(data) {
                 this.addParam.ldId = ''
@@ -875,8 +876,9 @@
                 this.addParam.devId = data
             },
             fatherChReceive(data) {
-                this.addParam.chaId = ''
-                this.addParam.chaId = data
+                console.log('传入数据' + data);
+                this.addParam.chaIdList = []
+                this.addParam.chaIdList = data
             },
             fatherCouReceive(data) {
                 this.addParam.couId = ''

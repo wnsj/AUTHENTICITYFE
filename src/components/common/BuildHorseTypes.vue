@@ -1,10 +1,10 @@
 <template>
-    <el-select v-model="charaList" multiple
-               collapse-tags style="height: 9px" v-on:change="charsChange()" placeholder="--未选择--">
-        <el-option v-for="item in chars"
-                   :key="item.chaId"
-                   :label="item.chaName"
-                   :value="item.chaId">
+    <el-select v-model="bhtIdList" multiple
+               collapse-tags style="height: 9px" v-on:change="bhtsChange()" placeholder="--未选择--">
+        <el-option v-for="item in bhtList"
+                   :key="item.bhtId"
+                   :label="item.bhtName"
+                   :value="item.bhtId">
 
         </el-option>
     </el-select>
@@ -14,29 +14,29 @@
     export default {
         data() {
             return {
-                charaList: [],
-                chars: []
+                bhtIdList: [],
+                bhtList: []
             };
         },
         methods: {
 
-            charsChange: function () {
-                for (var i = 0; i < this.chars.length; i++) {
-                    if (this.charaList === []) {
-                        this.$emit('charsChange', null);
+            bhtsChange: function() {
+                for (var i = 0; i < this.bhtList.length; i++) {
+                    if (this.bhtIdList === []) {
+                        this.$emit('bhtsChange', null);
                         return
                     } else {
-                        this.$emit('charsChange', this.charaList)
+                        this.$emit('bhtsChange', this.bhtIdList)
                         return
                     }
                 }
             },
-            setCharaList: function (charaList) {
-                this.charaList = charaList
+            setBhtIdList: function(bhtIdList) {
+                this.bhtIdList = bhtIdList
                 this.queryData()
             },
             async queryData() {
-                var url = this.url + '/characteristicBean/getAllChara'
+                var url = this.url + '/buildingHorseTypeBean/getAllHorseType'
                 this.$ajax({
                     method: 'GET',
                     url: url,
@@ -49,12 +49,12 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.chars = res.retData
+                        this.bhtList = res.retData
                     } else {
                         alert(res.retMsg)
                     }
                 }).catch((error) => {
-                    console.log('数据请求失败处理' + error)
+                    console.log('数据请求失败处理')
                 });
             },
         },
@@ -64,6 +64,6 @@
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>
