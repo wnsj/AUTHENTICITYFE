@@ -106,15 +106,13 @@
                     <ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
                 </div>
             </div>
-
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">环线</p><span
                     class="sign-left">:</span>
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <datePicker v-model="openTime" type="date" value-type="format"
-                                range></datePicker>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
                 </div>
             </div>
             <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -127,6 +125,18 @@
                                 format="YYYY-MM-DD HH:mm:ss"></datePicker>
                 </div>
             </div>-->
+        </div>
+        <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <datePicker v-model="openTime" type="date" value-type="format"
+                                range></datePicker>
+                </div>
+            </div>
         </div>
         <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
                <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
@@ -204,6 +214,7 @@
     import chara from '../../common/Chara.vue'
     import paging from '../../common/Paging.vue'
     import buildDialog from '../../common/BuildDialog.vue'
+    import Region from '../../common/Region.vue'
     export default {
         components: {
             datePicker,
@@ -218,7 +229,8 @@
             dev,
             chara,
             paging,
-            buildDialog
+            buildDialog,
+            Region
         },
         data() {
             return {
@@ -236,7 +248,7 @@
                 toSon:[],
                 devSon:[],
                 charaSon:[],
-
+                regionId:'',
                 //分页需要的数据
                 pages: '', //总页数
                 current: 1, //当前页码
@@ -323,6 +335,10 @@
                     this.charaSon.push(data)
                 }
             },
+            fatherRegReceive(data) {
+                this.regionId = ''
+                this.regionId = data
+            },
             async queryData(page) {
                 var url = this.url + '/buildingBean/getAllBuildByPage'
                 this.$ajax({
@@ -344,6 +360,7 @@
                         unitPriceList:this.unSon,
                         devIdList:this.devSon,
                         chaIdList:this.charaSon,
+                        regionId:this.regionId,
                         current: page,
                         pageSize: this.pageSize
                     },

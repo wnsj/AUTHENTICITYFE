@@ -82,7 +82,7 @@
         data() {
             return {
                 addParam: {
-                    articleType:'',
+                    articleType:0,
                     title:'',
                     articleContent:'',
                     aboutTime:''

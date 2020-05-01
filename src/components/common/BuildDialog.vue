@@ -163,6 +163,13 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">环线</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <bt @btChange='fatherBtReceive' ref="btRef"></bt>
@@ -368,7 +375,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">效果图</label><span
+                               style="padding:0;line-height:34px;">户型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="effectImg" @change="effectImgChange" accept="image/*"
@@ -384,7 +391,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">环境规划</label><span
+                               style="padding:0;line-height:34px;">小区环境</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="enPlanImg" @change="enPlanImgChange" accept="image/*"
@@ -400,7 +407,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">楼盘实景</label><span
+                               style="padding:0;line-height:34px;">实景图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
@@ -416,7 +423,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">配套实景</label><span
+                               style="padding:0;line-height:34px;">全景看房</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="matchingRealImg" @change="matchingRealImgChange" accept="image/*"
@@ -498,7 +505,7 @@
     import Charas from '../common/Charas.vue'
     import cou from './subCou/Counselor.vue'
     import pro from '../common/Province.vue'
-
+    import Region from '../common/Region.vue'
     var that = null
     // $(function () {
     //     function testFun() {
@@ -523,7 +530,8 @@
             dev,
             Charas,
             cou,
-            pro
+            pro,
+            Region
         },
         data() {
             return {
@@ -603,7 +611,7 @@
                     // 热销值
                     sellWell: '',
                     //(1:近期开盘;2:不是近期开盘)
-                    buildOpen: '',
+                    buildOpen: 0,
                     // 联系方式
                     tel: '',
                     // 修改时间
@@ -625,7 +633,9 @@
                     // 纬度
                     latitude: '',
                     // 楼盘特色描述
-                    buildDescription: ''
+                    buildDescription: '',
+                    // 环线id
+                    regionId:'',
                 },
                 title: '',
                 effectImgList:
@@ -761,7 +771,9 @@
                         // 纬度
                         latitude: '',
                         // 楼盘特色描述
-                        buildDescription: ''
+                        buildDescription: '',
+                        // 环线id
+                        regionId: ''
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
@@ -774,6 +786,7 @@
                     this.$refs.charsRef.setCharaList(addParam.chaIdList)
                     this.$refs.bhtsRef.setBhtIdList(addParam.bhtIdList)
                     this.$refs.proRef.setProId(addParam.proId)
+                    this.$refs.regionRef.setRegionId(addParam.regionId)
                     Object.assign(this.addParam, addParam)
                 }
             },
@@ -876,13 +889,12 @@
                 this.addParam.devId = data
             },
             fatherChReceive(data) {
-                console.log('传入数据' + data);
                 this.addParam.chaIdList = []
                 this.addParam.chaIdList = data
             },
-            fatherCouReceive(data) {
-                this.addParam.couId = ''
-                this.addParam.couId = data
+            fatherRegReceive(data) {
+                this.addParam.regionId = ''
+                this.addParam.regionId = data
             },
             fatherProReceive(data) {
                 this.addParam.proId = ''

@@ -22,7 +22,7 @@
                         <dl v-bind:class="{h4:bool4}">
                             <dt @click="onShow(3)" v-bind:class="{'li-active':bool4}">
                                 <i class="fa" v-bind:class="{'fa-folder-open':bool4,'fa-folder':!bool4}" aria-hidden="true">
-                                    编辑管理
+                                    楼盘相关
                                 </i>
                             </dt>
                             
@@ -35,8 +35,18 @@
                             <dd @click="addCheck('CounselorControl')" v-bind:class="{'li-active':onString=='CounselorControl'}">
                                 <router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
                             </dd>
+                        </dl>
+                        <dl v-bind:class="{h4:bool1}">
+                            <dt @click="onShow(0)" v-bind:class="{'li-active':bool1}">
+                                <i class="fa" v-bind:class="{'fa-folder-open':bool1,'fa-folder':!bool1}" aria-hidden="true">
+                                    招聘相关
+                                </i>
+                            </dt>
                             <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
                                 <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">文章管理</i></router-link>
+                            </dd>
+                            <dd @click="addCheck('RecruitControl')" v-bind:class="{'li-active':onString=='RecruitControl'}">
+                                <router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
                             </dd>
                         </dl>
                     </div>
