@@ -46,7 +46,6 @@
                             <th class="text-center">工作地点</th>
                             <th class="text-center">毕业院校</th>
                             <th class="text-center">薪酬</th>
-                            <th class="text-center">薪酬</th>
                             <th class="text-center">工作年限</th>
                             <th class="text-center">五险一金</th>
                             <th class="text-center">吃住</th>
@@ -71,13 +70,13 @@
                         </tbody>
                     </table>
                 </div>
-<!--                <div class="row row_edit">-->
-<!--                    <div class="modal fade" id="couDialog">-->
-<!--                        <div class="modal-dialog">-->
-<!--                            <cou-dialog  ref='couDialog' @certainAction='feedBack'></cou-dialog>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="row row_edit">
+                    <div class="modal fade" id="reDialog">
+                        <div class="modal-dialog">
+                            <SubRe ref='reDialog' @certainAction='feedBack'></SubRe>
+                        </div>
+                    </div>
+                </div>
                 <!--分页插件-->
                 <div class="page">
                     <!--这里时通过props传值到子级，并有一个回调change的函数，来获取自己传值到父级的值-->
@@ -92,12 +91,14 @@
     import paging from '../../common/Paging.vue'
     import PositionType from '../../common/subRecruit/PositionType.vue'
     import Position from '../../common/subRecruit/Position.vue'
+    import SubRe from '../../common/subRecruit/RecruitDialog.vue'
     var that = null
     export default {
         components: {
             PositionType,
             Position,
             paging,
+            SubRe
         },
         name: "RecruitControl",
         data() {
@@ -135,7 +136,7 @@
                 this.queryData(page)
             },
             async queryData(page) {
-                var url = this.url + '/recruitBean/getDetails'
+                var url = this.url + '/recruitBean/getRecruitByPage'
                 this.$ajax({
                     method: 'POST',
                     url: url,
@@ -168,16 +169,16 @@
             },
             selectRule(param, item) {
                 if (param === "1") {
-                    this.$refs.couDialog.initData('add')
-                    $("#couDialog").modal('show')
+                    this.$refs.reDialog.initData('add')
+                    $("#reDialog").modal('show')
                 } else if (param === "3") {
-                    this.$refs.couDialog.initData('modify', item)
-                    $("#couDialog").modal('show')
+                    this.$refs.reDialog.initData('modify', item)
+                    $("#reDialog").modal('show')
                 }
             },
             feedBack() {
                 this.queryData(1)
-                $("#couDialog").modal('hide')
+                $("#reDialog").modal('hide')
             }
         },
         created: function () {
