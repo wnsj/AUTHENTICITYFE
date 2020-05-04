@@ -340,7 +340,7 @@
                 this.regionId = data
             },
             async queryData(page) {
-                var url = this.url + '/buildingBean/getAllBuildByPage'
+                var url = this.url + '/buildingBean/getAllBulidBypages'
                 this.$ajax({
                     method: 'POST',
                     url: url,

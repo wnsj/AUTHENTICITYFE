@@ -4,7 +4,7 @@
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 con-cen" style="height:100%;">
                 <h2 class="pull-left" style="padding:10px 0; height:100%;">
                     <img style="width: 50px; height: 50px;" src="../assets/img/logo1.png" /> <strong style=" display:inline-block;font-size: 35px; line-height:40px;">
-                        圣安米悦</strong><br />
+                        寄居房源</strong><br />
                     <font style=" disply:block; font-size:26px;line-height:30px;">商 城 管 理 系 统</font>
                 </h2>
             </div>
@@ -34,6 +34,9 @@
                             </dd>
                             <dd @click="addCheck('CounselorControl')" v-bind:class="{'li-active':onString=='CounselorControl'}">
                                 <router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
+                            </dd>
+                            <dd @click="addCheck('Comment')" v-bind:class="{'li-active':onString=='Comment'}">
+                                <router-link to="/MP/Comment/Comment"><i class="fa" aria-hidden="true">点评管理</i></router-link>
                             </dd>
                         </dl>
                         <dl v-bind:class="{h4:bool1}">

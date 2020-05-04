@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="id" v-on:change="pChange()">
+    <select class="form-control" v-model="id" v-on:change="commentChange()">
         <option value="0">--未选择--</option>
-        <option v-for="(item,index) in positionList" :key="index" v-bind:value="item.id">{{item.recruitName}}</option>
+        <option v-for="(item,index) in commentList" :key="index" v-bind:value="item.id">{{item.couTypeName}}</option>
     </select>
 </template>
 
@@ -10,44 +10,44 @@
         data() {
             return {
                 id: '0',
-                positionList: []
+                commentList: []
             };
         },
         methods: {
 
-            pChange: function() {
-                for (var i = 0; i < this.positionList.length; i++) {
+            commentChange: function() {
+                for (var i = 0; i < this.commentList.length; i++) {
                     if(this.id === '0'){
-                        this.$emit('pChange', null)
+                        this.$emit('commentChange', null)
                         return
                     }else{
-                        if (this.positionList[i].id === this.id) {
+                        if (this.commentList[i].id === this.id) {
 
-                            this.$emit('pChange', this.positionList[i].recruitName)
+                            this.$emit('commentChange', this.commentList[i].id)
                             return
                         }
                     }
                 }
             },
-            setPtId: function(id) {
+            setComId: function(id) {
                 this.id = id
                 this.queryData()
             },
-            async queryData(typeId) {
-                var url = this.url + '/recruitLabelBean/getReLabel'
+            async queryData() {
+                var url = this.url + '/couTypeBean/getAllCouType'
                 this.$ajax({
-                    method: 'POST',
+                    method: 'GET',
                     url: url,
                     headers: {
                         'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
-                    data: {typeId:typeId},
+                    data: {},
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.positionList = res.retData
+                        this.commentList = res.retData
                     } else {
                         alert(res.retMsg)
                     }

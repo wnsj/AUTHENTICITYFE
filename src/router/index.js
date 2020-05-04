@@ -8,6 +8,7 @@ import BuildingAnalysis from '../components/MP/BuildingAnalysis/BuildingAnalysis
 import CounselorControl from '../components/MP/Counselor/CounselorControl.vue'
 import ArticleControl from '../components/MP/ArticleControl/ArticleControl.vue'
 import RecruitControl from '../components/MP/RecruitControl/RecruitControl.vue'
+import Comment from '../components/MP/Comment/Comment.vue'
 
 Vue.use(Router)
 
@@ -51,6 +52,11 @@ export default new Router({
                     path: '/MP/RecruitControl/RecruitControl',
                     name: 'RecruitControl',
                     component: RecruitControl,
+                },
+                {
+                    path: '/MP/Comment/Comment',
+                    name: 'Comment',
+                    component: Comment,
                 }
             ],
             redirect: '/MP/BuildingControl/BuildingControl'
