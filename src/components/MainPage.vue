@@ -210,7 +210,7 @@
 
     #aside-menu dl.h4 {
 		margin-top: 0px;
-        height: 200px;
+        height: 250px;
     }
 
     #aside-menu dl.h2 {

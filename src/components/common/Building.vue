@@ -28,6 +28,9 @@
                     }
                 }
             },
+			setBuildingId: function(buildId) {
+			    this.buildId = buildId
+			},
             async queryData() {
                 var url = this.url + '/buildingBean/getAllBuild'
                 this.$ajax({
