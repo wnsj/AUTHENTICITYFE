@@ -2,15 +2,13 @@
     <div class="root">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 aside-logo">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 con-cen" style="height:100%;">
-                <h2 class="pull-left" style="padding:10px 0; height:100%;">
-                    <img style="width: 50px; height: 50px;" src="../assets/img/logo1.png" /> <strong style=" display:inline-block;font-size: 35px; line-height:40px;">
-                        寄居房源</strong><br />
-                    <font style=" disply:block; font-size:26px;line-height:30px;">商 城 管 理 系 统</font>
+                <h2 class="pull-left" >
+                    <img style="width: 156px; height: 57px;" src="../assets/img/lp_logo.jpg" />
                 </h2>
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-right">
                 <p style="color: #1b4fa3;">欢迎<span style="color: #d58512;"> {{accountName}} </span>来到，商城管理系统</p>
-                <button class="btn btn-default m_r_10" style="margin-top: 40px;" v-on:click="loginOut()">退出</button>
+                <button class="btn btn-default m_r_10" style="margin-top: 20px;" v-on:click="loginOut()">退出</button>
             </div>
         </div>
         <div class="container-fluid clear-mp" id="Odiv">
@@ -18,7 +16,7 @@
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-aside clear-mp" id="Adiv" style="padding-top: 10px;">
                     <p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #795548;text-align: left; margin-bottom:10px;">功能列表</p>
                     <div id="aside-menu">
-                        
+
                         <dl v-bind:class="{h4:bool4}">
                             <dt @click="onShow(3)" v-bind:class="{'li-active':bool4}">
                                 <i class="fa" v-bind:class="{'fa-folder-open':bool4,'fa-folder':!bool4}" aria-hidden="true">
@@ -51,17 +49,6 @@
                             <dd @click="addCheck('RecruitControl')" v-bind:class="{'li-active':onString=='RecruitControl'}">
                                 <router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
                             </dd>
-                        </dl>
-                        <dl v-bind:class="{h4:bool5}">
-                            <dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
-                                <i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
-                                    文章管理
-                                </i>
-                            </dt>
-                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
-                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">文章管理</i></router-link>
-                            </dd>
-
                         </dl>
                         <dl v-bind:class="{h4:bool2}">
                             <dt @click="onShow(1)" v-bind:class="{'li-active':bool2}">

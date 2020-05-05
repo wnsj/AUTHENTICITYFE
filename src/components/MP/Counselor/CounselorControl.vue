@@ -25,9 +25,9 @@
                     </cou-chara>
                 </div>
             </div>
-        </div>
-        <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
-            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+
+
+             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
@@ -35,7 +35,8 @@
             </button>
         </div>
 
-        <div class="">
+
+        <div class="" style="padding-top: 30px;">
             <div class="col-md-12 col-lg-12">
                 <div class="table-responsive pre-scrollable table-bg">
                     <table class="table table-bordered table-hover" id="datatable">
