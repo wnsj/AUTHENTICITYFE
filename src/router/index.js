@@ -10,6 +10,7 @@ import ArticleControl from '../components/MP/ArticleControl/ArticleControl.vue'
 import RecruitControl from '../components/MP/RecruitControl/RecruitControl.vue'
 import Comment from '../components/MP/Comment/Comment.vue'
 import BuildingDynamic from '../components/MP/BuildingDynamic/BuildingDynamic.vue'
+import LinkPhone from '../components/MP/LinkPhone/LinkPhone.vue'
 
 Vue.use(Router)
 
@@ -63,6 +64,11 @@ export default new Router({
                     path: '/MP/BuildingDynamic/BuildingDynamic',
                     name: 'BuildingDynamic',
                     component: BuildingDynamic,
+                },
+                {
+                    path: '/MP/LinkPhone/LinkPhone',
+                    name: 'LinkPhone',
+                    component: LinkPhone,
                 }
             ],
             redirect: '/MP/BuildingControl/BuildingControl'

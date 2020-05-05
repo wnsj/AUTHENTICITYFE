@@ -62,6 +62,16 @@
                                 <router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">动态管理</i></router-link>
                             </dd>
                         </dl>
+                        <dl v-bind:class="{h4:bool3}">
+                            <dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
+                                <i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="true">
+                                    电话回拨
+                                </i>
+                            </dt>
+                            <dd @click="addCheck('LinkPhone')" v-bind:class="{'li-active':onString=='LinkPhone'}">
+                                <router-link to="/MP/LinkPhone/LinkPhone"><i class="fa" aria-hidden="true">电话回拨管理</i></router-link>
+                            </dd>
+                        </dl>
                     </div>
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 embed-responsive embed-responsive-16by9" style="overflow: inherit; background-color:">

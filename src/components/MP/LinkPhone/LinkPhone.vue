@@ -1,0 +1,183 @@
+<template>
+    <div>
+        <div class="col-md-12 col-lg-12 main-title">
+            <h1 class="titleCss">电话回拨管理</h1>
+        </div>
+        <div class="row newRow" style="margin-top: 1%">
+            <!--楼盘-->
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">联系人</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <input type="text" class="form-control" v-model="lpName"/>
+                </div>
+            </div>
+        </div>
+        <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
+            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                    data-toggle="modal"
+                    v-on:click="couQueryData(1)">查询
+            </button>
+        </div>
+
+        <div class="">
+            <div class="col-md-12 col-lg-12">
+                <div class="table-responsive pre-scrollable table-bg">
+                    <table class="table table-bordered table-hover" id="datatable">
+                        <thead class="datathead">
+                        <tr>
+                            <th class="text-center">姓名</th>
+                            <th class="text-center">电话</th>
+                            <th class="text-center">预约时间</th>
+                            <th class="text-center">创建时间</th>
+                            <th class="text-center">是否回拨</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="(item,index) in couData" :key="index">
+                            <td class="text-center" style="line-height:33px;">{{item.lpName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.phone}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.writeDate}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-primary pull-right m_r_10"
+                                        data-toggle="modal"
+                                        v-on:click="patchReMarks(item)">{{item.remarksLabel}}
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--                <div class="row row_edit">-->
+                <!--                    <div class="modal fade" id="dyDialog">-->
+                <!--                        <div class="modal-dialog">-->
+                <!--                            <dynamicDialog  ref='dyDialog' @certainAction='feedBack'></dynamicDialog>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--分页插件-->
+                <div class="page">
+                    <!--这里时通过props传值到子级，并有一个回调change的函数，来获取自己传值到父级的值-->
+                    <paging ref="paging" @change="pageChange"></paging>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+
+
+    import paging from '../../common/Paging.vue'
+
+    var that = null
+    export default {
+        components: {
+            paging
+        },
+        name: 'LinkPhone',
+        data() {
+            return {
+                // 联系人的姓名
+                lpName: '',
+                lpId:'',
+                couData: [],
+                //分页需要的数据
+                pages: '', //总页数
+                current: 1, //当前页码
+                pageSize: 10, //一页显示的数量
+                total: '', //数据的数量
+            };
+        },
+        methods: {
+
+            fatherBuild(data) {
+                this.buildId = ''
+                if (null !== data) {
+                    this.buildId = data.buildId
+                }
+            },
+            //子级传值到父级上来的动态拿去
+            pageChange: function (page) {
+                this.current = page
+                this.couQueryData(page)
+            },
+            async couQueryData(page) {
+                var url = this.url + '/linkPhoneBean/getPhone'
+                this.$ajax({
+                    method: 'POST',
+                    url: url,
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {
+                        lpName: this.lpName,
+                        current: page,
+                        pageSize: this.pageSize
+                    },
+                    dataType: 'json',
+                }).then((response) => {
+                    var res = response.data
+                    if (res.retCode === '0000') {
+                        this.pages = res.retData.pages //总页数
+                        this.current = res.retData.current //当前页码
+                        this.pageSize = res.retData.size //一页显示的数量  必须是奇数
+                        this.total = res.retData.total //数据的数量
+                        this.$refs.paging.setParam(this.pages, this.current, this.total)
+                        this.couData = res.retData.records
+                    } else {
+                        alert(res.retMsg)
+                    }
+                }).catch((error) => {
+                    console.log('数据请求失败处理')
+                });
+            },
+            // selectRule(param, item) {
+            //     if (param === "1") {
+            //         this.$refs.dyDialog.initDyRef('add')
+            //         $("#dyDialog").modal('show')
+            //     } else if (param === "3") {
+            //         this.$refs.dyDialog.initDyRef('modify', item)
+            //         $("#dyDialog").modal('show')
+            //     }
+            // },
+            feedBack() {
+                this.couQueryData(1)
+                $("#dyDialog").modal('hide')
+            },
+            async patchReMarks(item) {
+                var url = this.url + '/linkPhoneBean/patchLinkById'
+
+                this.$ajax({
+                    method: 'POST',
+                    url: url,
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {
+                        lpId: item.lpId,
+                    },
+                    dataType: 'json',
+                }).then((response) => {
+                    var res = response.data
+                    alert(res.retMsg)
+                    this.couQueryData(this.current)
+                }).catch((error) => {
+                    console.log('数据请求失败处理')
+                });
+            }
+        },
+        created: function () {
+            this.couQueryData()
+        },
+    }
+</script>
+
+<style scoped>
+
+</style>
