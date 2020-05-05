@@ -93,8 +93,9 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改';
-                    this.$refs.rn.setData(addParam.bdContent)
                     Object.assign(this.addParam, addParam)
+					this.$refs.rn.setData(this.addParam.bdContent)
+					this.$refs.buildRef.setBuildingId(this.addParam.buildId)
                 }
             },
 
