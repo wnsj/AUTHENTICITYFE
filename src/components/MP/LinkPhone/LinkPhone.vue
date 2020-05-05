@@ -40,9 +40,9 @@
                             <td class="text-center" style="line-height:33px;">{{item.lpName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.phone}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.writeDate}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-primary pull-right m_r_10"
+                            <td class="text-center" style="line-height:33px;" >{{item.createTime}}</td>
+                            <td class="text-center" >
+                                <button type="button" :class="item.remarks == 2 ? 'btn btn-primary': 'btn btn-warning' "
                                         data-toggle="modal"
                                         v-on:click="patchReMarks(item)">{{item.remarksLabel}}
                                 </button>
@@ -179,5 +179,8 @@
 </script>
 
 <style scoped>
+    .btnClzz{
+        color: red;
+    }
 
 </style>
