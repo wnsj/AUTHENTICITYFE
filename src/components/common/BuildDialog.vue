@@ -796,6 +796,7 @@
 
 
             certainAction() {
+				// if(this.isBlank(this.addParam.))
                 const fd = new FormData();
                 // 效果图
                 // const effectImg = $("#effectImg")[0].files;
