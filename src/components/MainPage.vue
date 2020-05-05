@@ -36,7 +36,7 @@
                                 <router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
                             </dd>
                         </dl>
-                        <dl v-bind:class="{h4:bool1}">
+                        <dl v-bind:class="{h2:bool1}">
                             <dt @click="onShow(0)" v-bind:class="{'li-active':bool1}">
                                 <i class="fa" v-bind:class="{'fa-folder-open':bool1,'fa-folder':!bool1}" aria-hidden="true">
                                     招聘相关
@@ -189,7 +189,7 @@
 
     #aside-menu dl.h4 {
 		margin-top: 0px;
-        height: 250px;
+        height: 200px;
     }
 
     #aside-menu dl.h2 {
