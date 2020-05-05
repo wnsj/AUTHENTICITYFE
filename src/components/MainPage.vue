@@ -52,6 +52,16 @@
                                 <router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
                             </dd>
                         </dl>
+                        <dl v-bind:class="{h4:bool2}">
+                            <dt @click="onShow(1)" v-bind:class="{'li-active':bool2}">
+                                <i class="fa" v-bind:class="{'fa-folder-open':bool2,'fa-folder':!bool2}" aria-hidden="true">
+                                    楼盘动态
+                                </i>
+                            </dt>
+                            <dd @click="addCheck('BuildingDynamic')" v-bind:class="{'li-active':onString=='BuildingDynamic'}">
+                                <router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">动态管理</i></router-link>
+                            </dd>
+                        </dl>
                     </div>
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 embed-responsive embed-responsive-16by9" style="overflow: inherit; background-color:">
@@ -76,10 +86,10 @@
             return {
                 accountName:this.accountName(),
                 itemList:[],
-                bool1:true,
+                bool1:false,
                 bool2:false,
                 bool3:false,
-                bool4:false,
+                bool4:true,
                 bool5:false,
                 onString:'MemberSummary'
             }

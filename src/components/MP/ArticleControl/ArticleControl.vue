@@ -1,5 +1,5 @@
 <template>
-    <div class="wraper">
+    <div>
         <div class="col-md-12 col-lg-12 main-title">
             <h1 class="titleCss">文章管理</h1>
         </div>

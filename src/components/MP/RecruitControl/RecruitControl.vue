@@ -1,9 +1,23 @@
 <template>
-    <div class="wraper">
+    <div>
         <div class="col-md-12 col-lg-12 main-title">
             <h1 class="titleCss">招聘管理</h1>
         </div>
         <div class="row newRow" style="margin-top: 1%">
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">招聘类型</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <select class="form-control" v-model="recruitmentType">
+                        <option value=0>--未选择--</option>
+                        <option value=1>社招</option>
+                        <option value=2>校招</option>
+                    </select>
+                </div>
+            </div>
             <!--岗位类型-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
@@ -107,7 +121,8 @@
                 positionType:'',
                 // 职位
                 position:'',
-
+                // 招聘类型
+                recruitmentType:'',
                 tableData: [],
                 //分页需要的数据
                 pages: '', //总页数
@@ -147,6 +162,7 @@
                     data: {
                         positionType: this.positionType,
                         position: this.position,
+                        recruitmentType:this.recruitmentType,
                         current: page,
                         pageSize: this.pageSize
                     },

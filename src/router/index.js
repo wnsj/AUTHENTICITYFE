@@ -9,6 +9,7 @@ import CounselorControl from '../components/MP/Counselor/CounselorControl.vue'
 import ArticleControl from '../components/MP/ArticleControl/ArticleControl.vue'
 import RecruitControl from '../components/MP/RecruitControl/RecruitControl.vue'
 import Comment from '../components/MP/Comment/Comment.vue'
+import BuildingDynamic from '../components/MP/BuildingDynamic/BuildingDynamic.vue'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
                     path: '/MP/Comment/Comment',
                     name: 'Comment',
                     component: Comment,
+                },
+                {
+                    path: '/MP/BuildingDynamic/BuildingDynamic',
+                    name: 'BuildingDynamic',
+                    component: BuildingDynamic,
                 }
             ],
             redirect: '/MP/BuildingControl/BuildingControl'
