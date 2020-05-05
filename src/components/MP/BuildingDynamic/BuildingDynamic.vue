@@ -1,28 +1,17 @@
 <template>
     <div>
         <div class="col-md-12 col-lg-12 main-title">
-            <h1 class="titleCss">咨询师管理</h1>
+            <h1 class="titleCss">动态管理</h1>
         </div>
         <div class="row newRow" style="margin-top: 1%">
-            <!--咨询师-->
+            <!--楼盘-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">咨询师</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">楼盘</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <cou @couChange="fatherCou" ref="couRef"></cou>
-                </div>
-            </div>
-            <!--咨询师特长-->
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">特长</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <cou-chara @couCharaChange="fatherCouChara">
-                    </cou-chara>
+                    <Building @buildChange="fatherBuild" ref="buildRef"></Building>
                 </div>
             </div>
         </div>
@@ -41,30 +30,24 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">咨询师</th>
-                            <th class="text-center">毕业院校</th>
-                            <th class="text-center">特长</th>
-                            <th class="text-center">标签</th>
-                            <th class="text-center">联系方式</th>
-                            <th class="text-center">自我介绍</th>
+                            <th class="text-center">楼盘</th>
+                            <th class="text-center">动态标题</th>
+                            <th class="text-center">发布时间</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.couName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.graduate}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.charaName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.couLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.tel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.introduce}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.htName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="row row_edit">
-                    <div class="modal fade" id="couDialog">
+                    <div class="modal fade" id="dyDialog">
                         <div class="modal-dialog">
-                            <cou-dialog  ref='couDialog' @certainAction='feedBack'></cou-dialog>
+                            <dynamicDialog  ref='dyDialog' @certainAction='feedBack'></dynamicDialog>
                         </div>
                     </div>
                 </div>
@@ -79,23 +62,21 @@
 </template>
 
 <script>
-    import couChara from '../../common/subCou/CouChara.vue'
-    import cou from '../../common/subCou/Counselor.vue'
+
+    import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
     import paging from '../../common/Paging.vue'
-    import couDialog from '../../common/subCou/CuoDialog.vue'
+    import Building from '../../common/Building.vue'
     var that = null
     export default {
         components: {
-            couChara,
-            cou,
             paging,
-            couDialog
+            Building,
+            dynamicDialog
         },
-        name: 'CounselorControl',
+        name: 'BuildingDynamic',
         data() {
             return {
-                couId:'',
-                ccId:'',
+                buildId:'',
                 couData:[],
                 //分页需要的数据
                 pages: '', //总页数
@@ -105,17 +86,12 @@
             };
         },
         methods:{
-          fatherCou(data) {
-              this.couId = '';
-              if (null !== data) {
-                  this.couId = data
-              }
-          },
-            fatherCouChara(data) {
-                this.ccId = '';
-              if (null !== data) {
-                  this.ccId = data
-              }
+
+            fatherBuild(data) {
+                this.buildId = ''
+                if (null !== data) {
+                    this.buildId = data.buildId
+                }
             },
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
@@ -123,7 +99,7 @@
                 this.couQueryData(page)
             },
             async couQueryData(page) {
-                var url = this.url + '/counselorBean/getAllCouselorByPage'
+                var url = this.url + '/buildingDynamicBean/getDynamicByPage'
                 this.$ajax({
                     method: 'POST',
                     url: url,
@@ -132,8 +108,7 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        couId: this.couId,
-                        ccId: this.ccId,
+                        buildId:this.buildId,
                         current: page,
                         pageSize: this.pageSize
                     },
@@ -156,16 +131,16 @@
             },
             selectRule(param, item) {
                 if (param === "1") {
-                    this.$refs.couDialog.initData('add')
-                    $("#couDialog").modal('show')
+                    this.$refs.dyDialog.initDyRef('add')
+                    $("#dyDialog").modal('show')
                 } else if (param === "3") {
-                    this.$refs.couDialog.initData('modify', item)
-                    $("#couDialog").modal('show')
+                    this.$refs.dyDialog.initDyRef('modify', item)
+                    $("#dyDialog").modal('show')
                 }
             },
             feedBack() {
                 this.couQueryData(1)
-                $("#couDialog").modal('hide')
+                $("#dyDialog").modal('hide')
             }
         },
         created: function () {

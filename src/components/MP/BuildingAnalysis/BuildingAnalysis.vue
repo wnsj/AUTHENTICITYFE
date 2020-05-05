@@ -1,5 +1,5 @@
 <template>
-    <div class="wraper">
+    <div>
         <div class="col-md-12 col-lg-12 main-title">
             <h1 class="titleCss">户型分析管理</h1>
         </div>
@@ -147,7 +147,7 @@
                 }
             },
             async queryData(page) {
-                var url = this.url + '/buildingAnalysisBean/getAllAnalysisByBid'
+                var url = this.url + '/buildingAnalysisBean/getAllAnalysisByPage'
                 this.$ajax({
                     method: 'POST',
                     url: url,

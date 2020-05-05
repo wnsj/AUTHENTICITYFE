@@ -1,5 +1,5 @@
 <template>
-    <div class="wraper">
+    <div>
         <div class="col-md-12 col-lg-12 main-title">
             <h1 class="titleCss">楼盘管理</h1>
         </div>
@@ -340,7 +340,7 @@
                 this.regionId = data
             },
             async queryData(page) {
-                var url = this.url + '/buildingBean/getAllBuildByPage'
+                var url = this.url + '/buildingBean/getAllBulidBypages'
                 this.$ajax({
                     method: 'POST',
                     url: url,

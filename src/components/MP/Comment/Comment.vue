@@ -1,41 +1,36 @@
 <template>
     <div>
         <div class="col-md-12 col-lg-12 main-title">
-            <h1 class="titleCss">招聘管理</h1>
+            <h1 class="titleCss">点评管理</h1>
         </div>
         <div class="row newRow" style="margin-top: 1%">
-
+            <!--楼盘名称-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">招聘类型</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">楼盘名称</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <select class="form-control" v-model="recruitmentType">
-                        <option value=0>--未选择--</option>
-                        <option value=1>社招</option>
-                        <option value=2>校招</option>
-                    </select>
+                    <Building @buildChange="fatherBuild" ref="buildRef"></Building>
                 </div>
             </div>
-            <!--岗位类型-->
+            <!--咨询师-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">岗位类型</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">咨询师</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <position-type @ptChange="fatherPt" ref="ptRef"></position-type>
+                    <cou @couChange="fatherCou" ref="couRef"></cou>
                 </div>
             </div>
-            <!--岗位-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">岗位</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">评论类型</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <position @pChange="fatherPosition" ref="pRef"></position>
+                    <CouType @commentChange="fatherCouType" ref="couTypeRef"></CouType>
                 </div>
             </div>
         </div>
@@ -44,7 +39,7 @@
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
-                    v-on:click="queryData(1)">查询
+                    v-on:click="couQueryData(1)">查询
             </button>
         </div>
 
@@ -54,40 +49,26 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">岗位类型</th>
-                            <th class="text-center">岗位名称</th>
-                            <th class="text-center">招聘人数</th>
-                            <th class="text-center">工作地点</th>
-                            <th class="text-center">毕业院校</th>
-                            <th class="text-center">薪酬</th>
-                            <th class="text-center">工作年限</th>
-                            <th class="text-center">五险一金</th>
-                            <th class="text-center">吃住</th>
-                            <th class="text-center">双休</th>
-                            <th class="text-center">发布时间</th>
+                            <th class="text-center">楼盘</th>
+                            <th class="text-center">咨询师</th>
+                            <th class="text-center">评论时间</th>
+                            <th class="text-center">评论类型</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.positionTypeLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.position}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.recruitsNum}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.workplace}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.education}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.minPay}}-{{item.maxPay}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.minWorkingYears}}-{{item.maxWorkingYears}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.fiveRisksFundLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.foodShelterLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.weekendLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createDate}}</td>
+                        <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
+                            <td class="text-center" style="line-height:33px;">{{item.htName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.couName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.comTime}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.couTypeName}}</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="row row_edit">
-                    <div class="modal fade" id="reDialog">
+                    <div class="modal fade" id="commentDialog">
                         <div class="modal-dialog">
-                            <SubRe ref='reDialog' @certainAction='feedBack'></SubRe>
+                            <CommentDialog  ref='commentDialog' @certainAction='feedBack'></CommentDialog>
                         </div>
                     </div>
                 </div>
@@ -102,28 +83,28 @@
 </template>
 
 <script>
+
+    import cou from '../../common/subCou/Counselor.vue'
     import paging from '../../common/Paging.vue'
-    import PositionType from '../../common/subRecruit/PositionType.vue'
-    import Position from '../../common/subRecruit/Position.vue'
-    import SubRe from '../../common/subRecruit/RecruitDialog.vue'
+    import Building from '../../common/Building.vue'
+    import CouType from '../../common/subComment/CommentType.vue'
+    import CommentDialog from '../../common/subComment/CommentDialog.vue'
     var that = null
     export default {
         components: {
-            PositionType,
-            Position,
+            cou,
             paging,
-            SubRe
+            Building,
+            CouType,
+            CommentDialog
         },
-        name: "RecruitControl",
+        name: 'Comment',
         data() {
             return {
-                // 职位类型
-                positionType:'',
-                // 职位
-                position:'',
-                // 招聘类型
-                recruitmentType:'',
-                tableData: [],
+                couId:'',
+                coucType:'',
+                buildId:'',
+                couData:[],
                 //分页需要的数据
                 pages: '', //总页数
                 current: 1, //当前页码
@@ -132,26 +113,31 @@
             };
         },
         methods:{
-            fatherPt(data) {
-                this.positionType = '';
+            fatherCou(data) {
+                this.couId = '';
                 if (null !== data) {
-                    this.positionType = data
-                    this.$refs.pRef.queryData(this.positionType)
+                    this.couId = data
                 }
             },
-            fatherPosition(data) {
-                this.position = '';
+            fatherCouType(data) {
+                this.coucType = ''
                 if (null !== data) {
-                    this.position = data
+                    this.coucType = data
+                }
+            },
+            fatherBuild(data) {
+                this.buildId = ''
+                if (null !== data) {
+                    this.buildId = data.buildId
                 }
             },
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
-                this.queryData(page)
+                this.couQueryData(page)
             },
-            async queryData(page) {
-                var url = this.url + '/recruitBean/getRecruitByPage'
+            async couQueryData(page) {
+                var url = this.url + '/counselorCommentBean/getCounselorByPage'
                 this.$ajax({
                     method: 'POST',
                     url: url,
@@ -160,9 +146,9 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        positionType: this.positionType,
-                        position: this.position,
-                        recruitmentType:this.recruitmentType,
+                        couId: this.couId,
+                        coucType:this.coucType,
+                        buildId:this.buildId,
                         current: page,
                         pageSize: this.pageSize
                     },
@@ -175,7 +161,7 @@
                         this.pageSize = res.retData.size //一页显示的数量  必须是奇数
                         this.total = res.retData.total //数据的数量
                         this.$refs.paging.setParam(this.pages, this.current, this.total)
-                        this.tableData = res.retData.records
+                        this.couData = res.retData.records
                     } else {
                         alert(res.retMsg)
                     }
@@ -185,20 +171,20 @@
             },
             selectRule(param, item) {
                 if (param === "1") {
-                    this.$refs.reDialog.initData('add')
-                    $("#reDialog").modal('show')
+                    this.$refs.commentDialog.initCommentRef('add')
+                    $("#commentDialog").modal('show')
                 } else if (param === "3") {
-                    this.$refs.reDialog.initData('modify', item)
-                    $("#reDialog").modal('show')
+                    this.$refs.commentDialog.initCommentRef('modify', item)
+                    $("#commentDialog").modal('show')
                 }
             },
             feedBack() {
-                this.queryData(1)
-                $("#reDialog").modal('hide')
+                this.couQueryData(1)
+                $("#commentDialog").modal('hide')
             }
         },
         created: function () {
-            this.queryData()
+            this.couQueryData()
         },
     }
 </script>

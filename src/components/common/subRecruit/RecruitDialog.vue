@@ -20,6 +20,28 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">是否热招</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.hotJob">
+                                <option value=0>--未选择--</option>
+                                <option value=1>是</option>
+                                <option value=2>否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">是否长招</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.longRecruit">
+                                <option value=0>--未选择--</option>
+                                <option value=1>是</option>
+                                <option value=2>否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">招收人数</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.recruitsNum"/>
@@ -190,7 +212,11 @@
                     // 招聘类型
                     recruitmentType:'',
                     // 发布时间
-                    createTime:''
+                    createTime:'',
+                    // 是否热招
+                    hotJob:'',
+                    // 是否长招
+                    longRecruit:''
                 },
                 title: '',
             };
@@ -233,7 +259,11 @@
                         // 招聘类型
                         recruitmentType:'',
                         // 发布时间
-                        createTime:''
+                        createTime:'',
+                        // 是否热招
+                        hotJob:'',
+                        // 是否长招
+                        longRecruit:''
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')

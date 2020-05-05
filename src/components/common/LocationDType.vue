@@ -18,7 +18,7 @@
         methods: {
 
             locationTypeChange: function(locationType) {
-                var url = this.url + '/locationDistinguishBean/getAllDistinguish'
+                var url = this.url + '/locationDistinguishBean/getAllDis'
                 this.$ajax({
                     method: 'POST',
                     url: url,
