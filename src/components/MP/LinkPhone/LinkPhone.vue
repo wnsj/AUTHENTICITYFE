@@ -14,15 +14,14 @@
                     <input type="text" class="form-control" v-model="lpName"/>
                 </div>
             </div>
-        </div>
-        <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
+            
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
                     v-on:click="couQueryData(1)">查询
             </button>
         </div>
 
-        <div class="">
+        <div class="" style="padding-top: 30px;">
             <div class="col-md-12 col-lg-12">
                 <div class="table-responsive pre-scrollable table-bg">
                     <table class="table table-bordered table-hover" id="datatable">
