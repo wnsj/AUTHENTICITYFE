@@ -3,7 +3,7 @@
         <div class="col-md-12 col-lg-12 main-title">
             <h1 class="titleCss">户型分析管理</h1>
         </div>
-        <div class="row newRow" style="margin-top: 1%">
+        <div class="row newRow" style="margin-top: 1%;">
             <!--户型-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
@@ -34,17 +34,18 @@
                     <build @buildChange='fatherBuildReceive'></build>
                 </div>
             </div>
-        </div>
-        <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
-               <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+
+            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                        v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
                     v-on:click="queryData(1)">查询
             </button>
+
         </div>
 
-        <div class="">
+
+        <div class="" style="padding-top: 30px;">
             <div class="col-md-12 col-lg-12">
                 <div class="table-responsive pre-scrollable table-bg">
                     <table class="table table-bordered table-hover" id="datatable">
