@@ -174,7 +174,6 @@
                     this.$refs.couLabel.setClId(addCou.labelList);
                     Object.assign(this.addCou, addCou)
                 }
-
             },
 
 
