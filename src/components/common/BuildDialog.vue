@@ -847,6 +847,66 @@
 
 
             certainAction() {
+                if (this.isBlank(this.addParam.saleAddress)) {
+                    alert('售楼地址不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.propertyAddress)) {
+                    alert('物业地址不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.decoration)) {
+                    alert('装修情况不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.coveredArea)) {
+                    alert('占地面积不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.floorage)) {
+                    alert('建筑面积不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.households)) {
+                    alert('户数不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.architecturalStyle)) {
+                    alert('建筑风格不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.iteration)) {
+                    alert('开发周期不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.propertyCompany)) {
+                    alert('物业公司不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.propertyFee)) {
+                    alert('物业费不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.parkingSpace)) {
+                    alert('停车位不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.greeningRate)) {
+                    alert('绿化率不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.plotRatio)) {
+                    alert('容积率不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.propertyType)) {
+                    alert('物业类型不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.ownershipYear)) {
+                    alert('产权年限不能为空')
+                    return
+                }
                 if (this.isBlank(this.addParam.sellWell)) {
                     alert('热销值不能为空')
                     return
@@ -860,8 +920,8 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.specialOffer)) {
-                    alert('热搜值不能为空')
+                if (this.isBlank(this.addParam.htName)) {
+                    alert('楼盘不能为空')
                     return
                 }
 
