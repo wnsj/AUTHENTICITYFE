@@ -175,13 +175,13 @@
                             <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                         </div>
                     </div>
-                     <div class="col-md-6 form-group clearfix">
-                         <label class="col-md-3 control-label text-right nopad end-aline"
-                                style="padding:0;line-height:34px;">户型</label><span class="sign-left">:</span>
-                         <div class="col-md-8">
-                             <build-horse-types @bhtsChange='fatherBhtReceive' ref="bhtsRef"></build-horse-types>
-                         </div>
-                     </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">户型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <build-horse-types @bhtsChange='fatherBhtReceive' ref="bhtsRef"></build-horse-types>
+                        </div>
+                    </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">热销值</label><span class="sign-left">:</span>
@@ -378,8 +378,11 @@
                                style="padding:0;line-height:34px;">户型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="effectImg" @change="effectImgChange" accept="image/*"
-                                   multiple="multiple"/>
+                            <label class="a-upload">
+                                <input type="file" id="effectImg" @change="effectImgChange"
+                                       accept="image/*"
+                                       multiple="multiple"/>
+                            </label>
                             <div id="effectImgOutDiv">
                                 <div v-for="(item,index) of effectImgList" :key="index"
                                      v-show="effectImgList.length!==0">
@@ -459,7 +462,7 @@
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="headImg" @change="headImgChange" accept="image/*"
-                                   />
+                            />
                             <div id="headImgOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <div @click="fileDel(index,5)">x</div>
@@ -474,7 +477,7 @@
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="video"
-                                   />
+                            />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix" style="width: 100%;">
@@ -525,6 +528,7 @@
     import cou from './subCou/Counselor.vue'
     import pro from '../common/Province.vue'
     import Region from '../common/Region.vue'
+
     var that = null
     // $(function () {
     //     function testFun() {
@@ -654,7 +658,7 @@
                     // 楼盘特色描述
                     buildDescription: '',
                     // 环线id
-                    regionId:'',
+                    regionId: '',
                 },
                 title: '',
                 effectImgList:
@@ -677,8 +681,8 @@
                     [],
                 headImgFileList:
                     [],
-                regionImgList:[],
-                regionImgFileList:[],
+                regionImgList: [],
+                regionImgFileList: [],
                 size:
                     0,
                 imgData:
@@ -691,6 +695,35 @@
         methods: {
             // Initialization projcet’s content
             initData(param, addParam) {
+
+                this.effectImgList = []
+
+                this.enPlanImgList = []
+
+                this.buildRealImgList = []
+
+                this.matchingRealImgList = []
+
+                this.headImgList = []
+
+                this.regionImgList = []
+
+                this.effectImgFileList = []
+                this.enPlanImgFileList = []
+                this.buildRealImgFileList = []
+                this.matchingRealImgFileList = []
+                this.headImgFileList = []
+                this.regionImgFileList = []
+
+
+                $("#effectImg").val("");
+                $("#enPlanImg").val("");
+                $("#buildRealImg").val("");
+                $("#matchingRealImg").val("");
+                $("#regionImg").val("");
+                $("#headImg").val("");
+                $("#video").val("");
+
                 $('#buildDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     this.title = '新增'
@@ -814,24 +847,24 @@
 
 
             certainAction() {
-				if(this.isBlank(this.addParam.sellWell)){
-					alert('热销值不能为空')
-					return
-				}
-				if(this.isBlank(this.addParam.hotSearch)){
-					alert('热搜值不能为空')
-					return
-				}
-				if(this.isBlank(this.addParam.popularity)){
-					alert('人气值不能为空')
-					return
-				}
-				
-				if(this.isBlank(this.addParam.specialOffer)){
-					alert('热搜值不能为空')
-					return
-				}
-				
+                if (this.isBlank(this.addParam.sellWell)) {
+                    alert('热销值不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.hotSearch)) {
+                    alert('热搜值不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.popularity)) {
+                    alert('人气值不能为空')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.specialOffer)) {
+                    alert('热搜值不能为空')
+                    return
+                }
+
                 const fd = new FormData();
                 // 效果图
                 // const effectImg = $("#effectImg")[0].files;
@@ -864,15 +897,15 @@
                     fd.append("regionImg", this.regionImgFileList[i]);
                 }
                 // 视频
-                fd.append("video",$("#video")[0].files[0]);
+                fd.append("video", $("#video")[0].files[0]);
 
                 fd.append("addParam", JSON.stringify(this.addParam));
                 switch (this.title) {
                     case '新增':
-                       var url = this.url + '/buildingBean/addBuilding'
+                        var url = this.url + '/buildingBean/addBuilding'
                         break;
                     case '修改':
-                       var url = this.url + '/buildingBean/patchById'
+                        var url = this.url + '/buildingBean/patchById'
                         break;
                 }
 
@@ -891,11 +924,23 @@
                         alert(res.retMsg)
                         this.$emit('certainAction')
                     }
+                    // $("#effectImgOutDiv").remove();
+                    // $("#enPlanImgOutDiv").remove();
+                    // $("#buildRealImgOutDiv").remove();
+                    // $("#matchingRealImgOutDiv").remove();
+                    // $("#regionImgOutDiv").remove();
+                    // $("#headImgOutDiv").remove();
                 }).catch((error) => {
                     console.log('楼盘信息提交失败')
                 });
             },
             closeCurrentPage() {
+                // $("#effectImgOutDiv").remove();
+                // $("#enPlanImgOutDiv").remove();
+                // $("#buildRealImgOutDiv").remove();
+                // $("#matchingRealImgOutDiv").remove();
+                // $("#regionImgOutDiv").remove();
+                // $("#headImgOutDiv").remove();
                 $("#buildDialog").modal("hide")
             },
 
@@ -1088,6 +1133,14 @@
         font-size: 0.5rem;
         color: #777777;
     }
-    #buildInputBox{height: 550px;overflow-y: scroll;overflow-x: hidden; }
-    #buildBtnBox{padding-top: 20px;}
+
+    #buildInputBox {
+        height: 550px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    #buildBtnBox {
+        padding-top: 20px;
+    }
 </style>
