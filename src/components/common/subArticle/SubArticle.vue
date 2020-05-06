@@ -31,14 +31,14 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">时间</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <datePicker v-model="addParam.aboutTime" type="date" value-type="format"
-                            style="width: 97%"></datePicker>
-                        </div>
-                    </div>
+<!--                    <div class="col-md-6 form-group clearfix">-->
+<!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                               style="padding:0;line-height:34px;">时间</label><span class="sign-left">:</span>-->
+<!--                        <div class="col-md-8">-->
+<!--                            <datePicker v-model="addParam.aboutTime" type="date" value-type="format"-->
+<!--                            style="width: 97%"></datePicker>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="col-md-6 form-group clearfix" style="width: 100%">
 
                     </div>

@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 aside-logo">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 con-cen" style="height:100%;">
                 <h2 class="pull-left" >
-                    <img style="width: 156px; height: 57px;" src="../assets/img/lp_logo.jpg" /> 
+                    <img style="width: 156px; height: 57px;" src="../assets/img/lp_logo.jpg" />
                 </h2>
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-right">
@@ -23,7 +23,7 @@
                                     楼盘相关
                                 </i>
                             </dt>
-
+                            
                             <dd @click="addCheck('BuildingControl')" v-bind:class="{'li-active':onString=='BuildingControl'}">
                                 <router-link to="/MP/BuildingControl/BuildingControl"><i class="fa" aria-hidden="true">楼盘管理</i></router-link>
                             </dd>
@@ -37,20 +37,27 @@
                                 <router-link to="/MP/Comment/Comment"><i class="fa" aria-hidden="true">点评管理</i></router-link>
                             </dd>
                         </dl>
-                        <dl v-bind:class="{h2:bool1}">
+                        <dl v-bind:class="{h4:bool1}">
                             <dt @click="onShow(0)" v-bind:class="{'li-active':bool1}">
                                 <i class="fa" v-bind:class="{'fa-folder-open':bool1,'fa-folder':!bool1}" aria-hidden="true">
                                     招聘相关
                                 </i>
                             </dt>
-                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
-                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">文章管理</i></router-link>
-                            </dd>
                             <dd @click="addCheck('RecruitControl')" v-bind:class="{'li-active':onString=='RecruitControl'}">
                                 <router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
                             </dd>
                         </dl>
-                        <dl v-bind:class="{h1:bool2}">
+                        <dl v-bind:class="{h4:bool5}">
+                            <dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
+                                <i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
+                                    文章管理
+                                </i>
+                            </dt>
+                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
+                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">文章管理</i></router-link>
+                            </dd>
+                        </dl>
+                        <dl v-bind:class="{h4:bool2}">
                             <dt @click="onShow(1)" v-bind:class="{'li-active':bool2}">
                                 <i class="fa" v-bind:class="{'fa-folder-open':bool2,'fa-folder':!bool2}" aria-hidden="true">
                                     楼盘动态
@@ -60,7 +67,7 @@
                                 <router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">动态管理</i></router-link>
                             </dd>
                         </dl>
-                        <dl v-bind:class="{h1:bool3}">
+                        <dl v-bind:class="{h4:bool3}">
                             <dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
                                 <i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="true">
                                     电话回拨
@@ -217,7 +224,7 @@
 		margin-top: 0px;
         height: 150px;
     }
-
+	
 	#aside-menu dl.h1 {
 		margin-top: 0px;
 	    height: 100px;

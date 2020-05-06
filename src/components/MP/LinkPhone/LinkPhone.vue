@@ -36,7 +36,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="(item,index) in couData" :key="index">
+                        <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule(item)">
                             <td class="text-center" style="line-height:33px;">{{item.lpName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.phone}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.writeDate}}</td>
@@ -48,17 +48,18 @@
                                         v-on:click="patchReMarks(item)">{{item.remarksLabel}}
                                 </button>
                             </td>
+
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <!--                <div class="row row_edit">-->
-                <!--                    <div class="modal fade" id="dyDialog">-->
-                <!--                        <div class="modal-dialog">-->
-                <!--                            <dynamicDialog  ref='dyDialog' @certainAction='feedBack'></dynamicDialog>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
+                <div class="row row_edit">
+                    <div class="modal fade" id="phoneDialog">
+                        <div class="modal-dialog">
+                            <phoneDialog ref='phoneDialog' @certainAction='feedBack'></phoneDialog>
+                        </div>
+                    </div>
+                </div>
                 <!--分页插件-->
                 <div class="page">
                     <!--这里时通过props传值到子级，并有一个回调change的函数，来获取自己传值到父级的值-->
@@ -73,18 +74,20 @@
 
 
     import paging from '../../common/Paging.vue'
+    import phoneDialog from '../../common/subLinkPhone/subLinkPhone.vue'
 
     var that = null
     export default {
         components: {
-            paging
+            paging,
+            phoneDialog
         },
         name: 'LinkPhone',
         data() {
             return {
                 // 联系人的姓名
                 lpName: '',
-                lpId:'',
+                lpId: '',
                 couData: [],
                 //分页需要的数据
                 pages: '', //总页数
@@ -137,18 +140,13 @@
                     console.log('数据请求失败处理')
                 });
             },
-            // selectRule(param, item) {
-            //     if (param === "1") {
-            //         this.$refs.dyDialog.initDyRef('add')
-            //         $("#dyDialog").modal('show')
-            //     } else if (param === "3") {
-            //         this.$refs.dyDialog.initDyRef('modify', item)
-            //         $("#dyDialog").modal('show')
-            //     }
-            // },
+            selectRule(item) {
+                this.$refs.phoneDialog.initPhoneRef(item)
+                $("#phoneDialog").modal('show')
+            },
             feedBack() {
                 this.couQueryData(1)
-                $("#dyDialog").modal('hide')
+                $("#phoneDialog").modal('hide')
             },
             async patchReMarks(item) {
                 var url = this.url + '/linkPhoneBean/patchLinkById'
@@ -181,8 +179,6 @@
 </script>
 
 <style scoped>
-    .btnClzz{
-        color: red;
-    }
+
 
 </style>
