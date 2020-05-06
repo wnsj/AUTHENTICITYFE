@@ -439,6 +439,22 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">区位</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="file" id="regionImg" @change="regionImgChange" accept="image/*"
+                                   multiple="multiple"/>
+                            <div id="regionImgOutDiv">
+                                <div v-for="(item,index) of regionImgList" :key="index"
+                                     v-show="regionImgList.length!==0">
+                                    <div @click="fileDel(index,6)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
@@ -661,6 +677,8 @@
                     [],
                 headImgFileList:
                     [],
+                regionImgList:[],
+                regionImgFileList:[],
                 size:
                     0,
                 imgData:
@@ -824,6 +842,10 @@
                 for (let i = 0; i < this.headImgFileList.length; i++) {
                     fd.append("headImg", this.headImgFileList[i]);
                 }
+                // 区位
+                for (let i = 0; i < this.regionImgFileList.length; i++) {
+                    fd.append("regionImg", this.regionImgFileList[i]);
+                }
                 // 视频
                 fd.append("video",$("#video")[0].files[0]);
 
@@ -945,6 +967,14 @@
                     this.fileAdd(file, i, 5)
                 }
             },
+            regionImgChange() {
+
+                var files = $("#regionImg")[0].files; //获取file对象
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file, i, 6)
+                }
+            },
             fileAdd(file, i, pictureType) {
                 let type = file.type;//文件的类型，判断是否是图片
                 let size = file.size;//文件的大小，判断图片的大小
@@ -992,6 +1022,9 @@
                     } else if (pictureType === 5) {
                         that.headImgFileList.push(file)
                         that.headImgList.push(dataUrl)
+                    } else if (pictureType === 6) {
+                        that.regionImgFileList.push(file)
+                        that.regionImgList.push(dataUrl)
                     }
 
                 }
@@ -1012,6 +1045,9 @@
                 } else if (type === 5) {
                     this.headImgList.splice(index, 1)
                     this.headImgFileList.splice(index, 1)
+                } else if (type === 6) {
+                    this.regionImgList.splice(index, 1)
+                    this.regionImgFileList.splice(index, 1)
                 }
             }
         },
