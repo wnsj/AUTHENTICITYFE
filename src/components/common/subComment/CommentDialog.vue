@@ -157,6 +157,7 @@
                     this.addParam.coucType = data
                 }
             },
+
             fatherBuild(data) {
                 this.addParam.buildId = ''
                 if (null !== data) {
