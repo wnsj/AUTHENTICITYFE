@@ -31,7 +31,7 @@
                             <th class="text-center">电话</th>
                             <th class="text-center">预约时间</th>
                             <th class="text-center">创建时间</th>
-                            <th class="text-center">备注</th>
+							<th class="text-center">备注</th>
                             <th class="text-center">是否回拨</th>
                         </tr>
                         </thead>
@@ -40,9 +40,9 @@
                             <td class="text-center" style="line-height:33px;">{{item.lpName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.phone}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.writeDate}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.form}}</td>
-                            <td class="text-center">
+                            <td class="text-center" style="line-height:33px;" >{{item.createTime}}</td>
+							<td class="text-center" style="line-height:33px;" >{{item.form}}</td>
+                            <td class="text-center" >
                                 <button type="button" :class="item.remarks == 2 ? 'btn btn-primary': 'btn btn-warning' "
                                         data-toggle="modal"
                                         v-on:click="patchReMarks(item)">{{item.remarksLabel}}
@@ -160,6 +160,7 @@
                     },
                     data: {
                         lpId: item.lpId,
+						remarks:'1',
                     },
                     dataType: 'json',
                 }).then((response) => {

@@ -146,6 +146,7 @@
                     <div class="col-md-12 form-group clearfix">
                         <RecruitNote ref="rn"></RecruitNote>
                     </div>
+
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位职责</label><span
                         class="sign-left">:</span>
@@ -185,6 +186,7 @@
             RecruitNote,
             PositionType,
             Position,
+
             subRe
         },
         data() {
@@ -278,13 +280,17 @@
                         // 是否长招
                         longRecruit:''
                     }
+					this.$refs.rn.setData(this.addParam.requirements)
+					this.$refs.rec.setData(this.addParam.responsibilities)
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
                     this.$refs.rn.setData(addParam.requirements)
+
                     this.$refs.sr.setData(addParam.responsibilities)
                     this.$refs.ptRef.setPtId(addParam.positionType)
                     this.$refs.pRef.setPId(addParam.position)
+
                     Object.assign(this.addParam, addParam)
                 }
             },
