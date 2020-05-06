@@ -299,7 +299,24 @@
             certainAction() {
                 this.addParam.requirements = this.$refs.rn.getData()
                 this.addParam.responsibilities = this.$refs.sr.getData()
-
+				
+				if(this.isBlank(this.addParam.positionType)){
+					alert('岗位类型未选择')
+					return
+				}
+				if(this.isBlank(this.addParam.position)){
+					alert('岗位未选择')
+					return
+				}
+				if(this.isBlank(this.addParam.recruitsNum)){
+					alert('招聘人数必填')
+					return
+				}
+				if(this.isBlank(this.addParam.workplace)){
+					alert('工作地点必填')
+					return
+				}
+				
                 switch (this.title) {
                     case '新增':
                         var url = this.url + '/recruitBean/addRecruit'
