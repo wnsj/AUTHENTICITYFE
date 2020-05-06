@@ -548,13 +548,13 @@
                     // 户型
                     bhtIdList: [],
                     // 最小总价
-                    minTitlePrice: '',
+                    minTitlePrice: '0',
                     // 最大总价
-                    maxTitlePrice: '',
+                    maxTitlePrice: '0',
                     // 最小单价
-                    minUnitPrice: '',
+                    minUnitPrice: '0',
                     // 最大单价
-                    maxUnitPrice: '',
+                    maxUnitPrice: '0',
                     // 面积（小）
                     minArea: '',
                     // 面积(大)
@@ -608,11 +608,11 @@
                     // 停车位
                     parkingSpace: '',
                     // 项目介绍
-                    projectIntroduction: '',
+                    projectIntroduction: '1',
                     // 优惠(1:优惠；2：不优惠)
                     discount: 0,
                     // 热销值
-                    sellWell: '',
+                    sellWell: '0',
                     //(1:近期开盘;2:不是近期开盘)
                     buildOpen: 0,
                     // 联系方式
@@ -620,17 +620,17 @@
                     // 修改时间
                     modifyTime: '',
                     // 人气值
-                    popularity: '',
+                    popularity: '0',
                     // 热搜值
-                    hotSearch: '',
+                    hotSearch: '0',
                     // 特价值
-                    specialOffer: '',
+                    specialOffer: '0',
                     //是否推荐户型（1：是；2：否）
-                    recommend: 0,
+                    recommend: 1,
                     // 是否是优选楼盘（1：是；2：否）
-                    optimization: 0,
+                    optimization: 1,
                     //是否是品质楼盘（1：是；2：否）
-                    quality: 0,
+                    quality: 1,
                     // 经度
                     longitude: '',
                     // 纬度
@@ -686,13 +686,13 @@
                         // 户型
                         bhtIdList: [],
                         // 最小总价
-                        minTitlePrice: '',
+                        minTitlePrice: '0',
                         // 最大总价
-                        maxTitlePrice: '',
+                        maxTitlePrice: '0',
                         // 最小单价
-                        minUnitPrice: '',
+                        minUnitPrice: '0',
                         // 最大单价
-                        maxUnitPrice: '',
+                        maxUnitPrice: '0',
                         // 面积（小）
                         minArea: '',
                         // 面积(大)
@@ -746,29 +746,29 @@
                         // 停车位
                         parkingSpace: '',
                         // 项目介绍
-                        projectIntroduction: '',
+                        projectIntroduction: '1',
                         // 优惠(1:优惠；2：不优惠)
-                        discount: '',
+                        discount: 0,
                         // 热销值
-                        sellWell: '',
+                        sellWell: '0',
                         //(1:近期开盘;2:不是近期开盘)
-                        buildOpen: '',
+                        buildOpen: 0,
                         // 联系方式
                         tel: '',
                         // 修改时间
                         modifyTime: '',
                         // 人气值
-                        popularity: '',
+                        popularity: '0',
                         // 热搜值
-                        hotSearch: '',
+                        hotSearch: '0',
                         // 特价值
-                        specialOffer: '',
+                        specialOffer: '0',
                         //是否推荐户型（1：是；2：否）
-                        recommend: '',
+                        recommend: 1,
                         // 是否是优选楼盘（1：是；2：否）
-                        optimization: '',
+                        optimization: 1,
                         //是否是品质楼盘（1：是；2：否）
-                        quality: '',
+                        quality: 1,
                         // 经度
                         longitude: '',
                         // 纬度
@@ -796,7 +796,24 @@
 
 
             certainAction() {
-				// if(this.isBlank(this.addParam.))
+				if(this.isBlank(this.addParam.sellWell)){
+					alert('热销值不能为空')
+					return
+				}
+				if(this.isBlank(this.addParam.hotSearch)){
+					alert('热搜值不能为空')
+					return
+				}
+				if(this.isBlank(this.addParam.popularity)){
+					alert('人气值不能为空')
+					return
+				}
+				
+				if(this.isBlank(this.addParam.specialOffer)){
+					alert('热搜值不能为空')
+					return
+				}
+				
                 const fd = new FormData();
                 // 效果图
                 // const effectImg = $("#effectImg")[0].files;
