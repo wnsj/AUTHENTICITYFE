@@ -93,7 +93,7 @@
                     // 评论内容
                     comContent: '',
                     // 咨询师id
-                    cId: '',
+                    couId: '',
                     // 楼盘id
                     buildId: '',
                     // 评论类型
@@ -128,7 +128,7 @@
                         // 评论内容
                         comContent: '',
                         // 咨询师id
-                        cId: '',
+                        couId: '',
                         // 楼盘id
                         buildId: '',
                         // 评论类型
@@ -139,16 +139,16 @@
                     this.title = '修改';
                     this.$refs.sn.setData(addParam.comContent)
                     this.$refs.couTypeRef.setComId(addParam.coucType)
-                    this.$refs.couRef.setCouId(addParam.cid);
+                    this.$refs.couRef.setCouId(addParam.couId);
                     this.$refs.buildRef.setBuildingId(addParam.buildId)
                     Object.assign(this.addParam, addParam)
                 }
             },
 
             fatherCou(data) {
-                this.addParam.cId = '';
+                this.addParam.couId = '';
                 if (null !== data) {
-                    this.addParam.cId = data
+                    this.addParam.couId = data
                 }
             },
             fatherCouType(data) {

@@ -261,17 +261,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">最近开盘</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <select class="form-control" v-model="addParam.buildOpen">
-                                <option value=0>--未选择--</option>
-                                <option value=1>--是--</option>
-                                <option value=2>--否--</option>
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小总价</label><span class="sign-left">:</span>
@@ -640,8 +630,6 @@
                     discount: 0,
                     // 热销值
                     sellWell: '0',
-                    //(1:近期开盘;2:不是近期开盘)
-                    buildOpen: 0,
                     // 联系方式
                     tel: '',
                     // 修改时间
@@ -809,8 +797,6 @@
                         discount: 0,
                         // 热销值
                         sellWell: '0',
-                        //(1:近期开盘;2:不是近期开盘)
-                        buildOpen: 0,
                         // 联系方式
                         tel: '',
                         // 修改时间
