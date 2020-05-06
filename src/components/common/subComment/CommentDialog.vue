@@ -129,10 +129,10 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改';
-					console.log(JSON.stringify(addParam))
+					console.log('数据' + JSON.stringify(addParam))
                     this.$refs.sn.setData(addParam.comContent)
-					this.$refs.couTypeRef.setComId(addParam.coucType)
-					this.$refs.couRef.setCouId(addParam.cid)
+                    this.$refs.couTypeRef.setComId(addParam.coucType)
+                    this.$refs.couRef.setCouId(addParam.cid);
 					this.$refs.buildRef.setBuildingId(addParam.buildId)
                     Object.assign(this.addParam, addParam)
                 }

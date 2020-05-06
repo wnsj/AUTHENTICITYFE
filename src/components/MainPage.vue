@@ -43,11 +43,18 @@
                                     招聘相关
                                 </i>
                             </dt>
-                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
-                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">文章管理</i></router-link>
-                            </dd>
                             <dd @click="addCheck('RecruitControl')" v-bind:class="{'li-active':onString=='RecruitControl'}">
                                 <router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
+                            </dd>
+                        </dl>
+                        <dl v-bind:class="{h4:bool5}">
+                            <dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
+                                <i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
+                                    文章管理
+                                </i>
+                            </dt>
+                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
+                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">文章管理</i></router-link>
                             </dd>
                         </dl>
                         <dl v-bind:class="{h4:bool2}">

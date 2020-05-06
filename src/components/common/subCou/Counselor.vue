@@ -30,6 +30,7 @@
                 }
             },
             setCouId: function(couId) {
+                console.log('数值' + couId)
                 this.couId = couId
                 this.queryData()
             },
