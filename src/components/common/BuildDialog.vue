@@ -11,7 +11,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘名称</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.htName">
+                            <input type="text" class="form-control" v-model="addParam.htName" placeholder="楼盘名称必填">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -32,105 +32,112 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">产权年限</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.ownershipYear">
+                            <input type="text" class="form-control" v-model="addParam.ownershipYear" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">容积率</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.plotRatio">
+                            <input type="text" class="form-control" v-model="addParam.plotRatio" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">绿化率</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.greeningRate">
+                            <input type="text" class="form-control" v-model="addParam.greeningRate" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">售楼地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.saleAddress">
+                            <input type="text" class="form-control" v-model="addParam.saleAddress" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘特点</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.buildDescription">
+                            <input type="text" class="form-control" v-model="addParam.buildDescription" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyAddress">
+                            <input type="text" class="form-control" v-model="addParam.propertyAddress" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">装修情况</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.decoration">
+                            <input type="text" class="form-control" v-model="addParam.decoration" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">占地面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.coveredArea">
+                            <input type="text" class="form-control" v-model="addParam.coveredArea" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">总户数</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.households">
+                            <input type="text" class="form-control" v-model="addParam.households" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑风格</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.architecturalStyle">
+                            <input type="text" class="form-control" v-model="addParam.architecturalStyle" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发周期</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.iteration">
+                            <input type="text" class="form-control" v-model="addParam.iteration" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.floorage">
+                            <input type="text" class="form-control" v-model="addParam.floorage" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业公司</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyCompany">
+                            <input type="text" class="form-control" v-model="addParam.propertyCompany" placeholder="必填,可填:无">
                         </div>
                     </div>
+					<div class="col-md-6 form-group clearfix">
+					    <label class="col-md-3 control-label text-right nopad end-aline"
+					           style="padding:0;line-height:34px;">物业类型</label><span class="sign-left">:</span>
+					    <div class="col-md-8">
+					        <input type="text" class="form-control" v-model="addParam.propertyType" placeholder="必填,可填:无">
+					    </div>
+					</div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业费</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyFee">
+                            <input type="text" class="form-control" v-model="addParam.propertyFee" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">停车位</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.parkingSpace">
+                            <input type="text" class="form-control" v-model="addParam.parkingSpace" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <!--  <div class="col-md-6 form-group clearfix">
@@ -144,7 +151,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">别名</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.alias">
+                            <input type="text" class="form-control" v-model="addParam.alias" placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -186,28 +193,28 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">热销值</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.sellWell"/>
+                            <input type="text" class="form-control" v-model="addParam.sellWell" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">人气值</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.popularity"/>
+                            <input type="text" class="form-control" v-model="addParam.popularity" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">热搜值</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.hotSearch"/>
+                            <input type="text" class="form-control" v-model="addParam.hotSearch" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.specialOffer"/>
+                            <input type="text" class="form-control" v-model="addParam.specialOffer" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -269,42 +276,42 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minTitlePrice"/>
+                            <input type="text" class="form-control" v-model="addParam.minTitlePrice" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.maxTitlePrice"/>
+                            <input type="text" class="form-control" v-model="addParam.maxTitlePrice" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minUnitPrice"/>
+                            <input type="text" class="form-control" v-model="addParam.minUnitPrice" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.maxUnitPrice"/>
+                            <input type="text" class="form-control" v-model="addParam.maxUnitPrice" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minArea"/>
+                            <input type="text" class="form-control" v-model="addParam.minArea" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.maxArea"/>
+                            <input type="text" class="form-control" v-model="addParam.maxArea" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -847,6 +854,10 @@
 
 
             certainAction() {
+				if (this.isBlank(this.addParam.htName)) {
+				    alert('楼盘不能为空')
+				    return
+				}
                 if (this.isBlank(this.addParam.saleAddress)) {
                     alert('售楼地址不能为空')
                     return
@@ -919,12 +930,6 @@
                     alert('人气值不能为空')
                     return
                 }
-
-                if (this.isBlank(this.addParam.htName)) {
-                    alert('楼盘不能为空')
-                    return
-                }
-
                 const fd = new FormData();
                 // 效果图
                 // const effectImg = $("#effectImg")[0].files;
