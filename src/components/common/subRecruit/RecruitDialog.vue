@@ -186,7 +186,6 @@
             RecruitNote,
             PositionType,
             Position,
-
             subRe
         },
         data() {
@@ -235,13 +234,13 @@
         methods: {
             // Initialization projcet’s content
             initData(param, addParam) {
+                this.$refs.rn.setData('')
+                this.$refs.sr.setData('')
+                this.$refs.ptRef.setPtId('0')
+                this.$refs.pRef.setPId('0')
                 $('#reDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     this.title = '新增'
-                    this.$refs.rn.setData('')
-                    this.$refs.sr.setData('')
-                    this.$refs.ptRef.setPtId('')
-                    this.$refs.pRef.setPId('')
                     this.addParam = {
                         // 职位
                         position:'',
@@ -281,7 +280,7 @@
                         longRecruit:''
                     }
 					this.$refs.rn.setData(this.addParam.requirements)
-					this.$refs.rec.setData(this.addParam.responsibilities)
+					this.$refs.sr.setData(this.addParam.responsibilities)
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'

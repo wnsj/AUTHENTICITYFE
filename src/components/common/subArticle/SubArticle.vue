@@ -101,6 +101,7 @@
             initRef(param, addParam) {
                 $('#subDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.$refs.sn.setData('')
                     this.title = '新增'
                     this.addParam = {
                         articleType:'',

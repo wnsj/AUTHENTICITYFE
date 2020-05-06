@@ -79,6 +79,8 @@
             initDyRef(param, addParam) {
                 $('#dyDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.$refs.rn.setData('')
+                    this.$refs.buildRef.setBuildingId("")
                     this.title = '新增'
                     this.addParam = {
                         // 动态内容
@@ -88,8 +90,7 @@
                         // 楼盘id
                         buildId:''
                     }
-					this.$refs.rn.setData(this.addParam.bdContent)
-					this.$refs.buildRef.setBuildingId("")
+
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改';

@@ -113,8 +113,16 @@
         methods: {
             // Initialization projcet’s content
             initCommentRef(param, addParam) {
+                this.picList = []
+                this.picFileList = []
+                $("#picImg").val("");
+
                 $('#commentDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.$refs.sn.setData('')
+                    this.$refs.couTypeRef.setComId('0')
+                    this.$refs.couRef.setCouId('0');
+                    this.$refs.buildRef.setBuildingId('0')
                     this.title = '新增'
                     this.addParam = {
                         // 评论内容
@@ -129,11 +137,10 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改';
-					console.log('数据' + JSON.stringify(addParam))
                     this.$refs.sn.setData(addParam.comContent)
                     this.$refs.couTypeRef.setComId(addParam.coucType)
                     this.$refs.couRef.setCouId(addParam.cid);
-					this.$refs.buildRef.setBuildingId(addParam.buildId)
+                    this.$refs.buildRef.setBuildingId(addParam.buildId)
                     Object.assign(this.addParam, addParam)
                 }
             },

@@ -64,10 +64,12 @@
 
                     </div>
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">自我介绍</label><span
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">自我介绍</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <textarea style="height: 300px;width: 400px;" v-model="addCou.introduce" placeholder="自我介绍"></textarea>
+                            <textarea style="height: 300px;width: 400px;" v-model="addCou.introduce"
+                                      placeholder="自我介绍"></textarea>
                         </div>
                     </div>
                     <div class="form-group clearfix">
@@ -95,6 +97,7 @@
     var that = null
     import couChara from '../subCou/CouChara.vue'
     import couLabel from '../subCou/CouLabel.vue'
+
     export default {
         components: {
             couChara,
@@ -104,7 +107,7 @@
             return {
                 addCou: {
                     // 咨询师
-                    couName:'',
+                    couName: '',
                     //毕业院校
                     graduate: '',
                     // 特长
@@ -116,8 +119,8 @@
                     // 介绍
                     introduce: ''
                 },
-                picture:[],
-                pictureFile:[],
+                picture: [],
+                pictureFile: [],
                 title: '',
                 size: 0,
                 imgData: {
@@ -140,8 +143,15 @@
                 }
             },
             initData(param, addCou) {
+                this.picture = []
+                this.pictureFile = []
+
+                $("#picture").val("");
+
                 $('#couDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.$refs.couCharaRef.setCcId('0');
+                    this.$refs.couLabel.setClId([]);
                     this.title = '新增'
                     this.addCou = {
                         // 咨询师
