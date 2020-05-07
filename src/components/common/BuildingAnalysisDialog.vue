@@ -32,7 +32,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.caName"/>
+                            <input type="text" class="form-control" v-model="addParam.caName"  placeholder="例:平房"/>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼层</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.floor"/>
+                            <input type="text" class="form-control" v-model="addParam.floor" placeholder="例: 30层"/>
                         </div>
                     </div>
 
@@ -68,28 +68,28 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.buildArea"/>
+                            <input type="text" class="form-control" v-model="addParam.buildArea" placeholder="例: 30"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.totlePrice"/>
+                            <input type="text" class="form-control" v-model="addParam.totlePrice" placeholder="例: 30"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">首付</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.downPayment"/>
+                            <input type="text" class="form-control" v-model="addParam.downPayment" placeholder="例: 30"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">居室</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.house"/>
+                            <input type="text" class="form-control" v-model="addParam.house" placeholder="例: 两居二室"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -243,6 +243,36 @@
 
 
             certainAction() {
+				 
+				if (this.isBlank(this.addParam.buildId)) {
+				    alert('楼盘不能为空')
+				    return
+				}
+				if (this.isBlank(this.addParam.bhtId)) {
+				    alert('户型不能为空')
+				    return
+				}
+				if (this.isBlank(this.addParam.caName)) {
+				    alert('类型不能为空')
+				    return
+				}
+				if (this.isBlank(this.addParam.drection)) {
+				    alert('朝向不能为空')
+				    return
+				}
+				if (this.isBlank(this.addParam.downPayment)) {
+				    alert('首付不能为空')
+				    return
+				}
+				if (this.isBlank(this.addParam.buildArea)) {
+				    alert('建筑面积不能为空')
+				    return
+				}
+				
+				
+				
+				
+				
                 const fd = new FormData();
                 // 效果图
                 // const horseTypeImg = $("#horseTypeImg")[0].files;
