@@ -6,7 +6,7 @@
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
-                <form action="" class="clearfix">
+                <div class="dialogInutBox clearfix">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">点评类型</label><span class="sign-left">:</span>
@@ -45,26 +45,27 @@
                         </div>
                     </div>
                     <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
+                        <label class="col-md-2 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">评论内容</label><span
                         class="sign-left">:</span>
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <SummerNote ref="sn"></SummerNote>
                     </div>
-                    <div class="form-group clearfix">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
-                                    data-toggle="modal"
-                                    v-on:click="closeCurrentPage()">返回
-                            </button>
-                            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
-                                    data-toggle="modal"
-                                    v-on:click="certainAction()">确认
-                            </button>
-                        </div>
+
+                </div>
+                <div class="dialogBtnBox form-group clearfix">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
+                                data-toggle="modal"
+                                v-on:click="closeCurrentPage()">返回
+                        </button>
+                        <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                                data-toggle="modal"
+                                v-on:click="certainAction()">确认
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
 
         </div>
