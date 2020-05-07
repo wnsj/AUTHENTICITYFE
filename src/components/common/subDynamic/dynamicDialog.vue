@@ -37,7 +37,7 @@
                                     data-toggle="modal"
                                     v-on:click="closeCurrentPage()">返回
                             </button>
-                            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                            <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                                     data-toggle="modal"
                                     v-on:click="certainAction()">确认
                             </button>
@@ -72,6 +72,7 @@
                     buildId:''
                 },
                 title: '',
+                isDisable:false
             };
         },
         methods: {
@@ -108,6 +109,10 @@
             },
 
             certainAction() {
+                this.isDisable = true
+                setTimeout(() => {
+                    this.isDisable = false
+                }, 1000)
                 this.addParam.bdContent = this.$refs.rn.getData()
                 const fd = new FormData();
 
@@ -122,6 +127,7 @@
                         var url = this.url + '/buildingDynamicBean/patchDyById'
                         break;
                 }
+
 
                 this.$ajax({
                     method: 'POST',

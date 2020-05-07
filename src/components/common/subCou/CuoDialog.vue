@@ -78,7 +78,7 @@
                                     data-toggle="modal"
                                     v-on:click="closeCurrentPage()">返回
                             </button>
-                            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                            <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                                     data-toggle="modal"
                                     v-on:click="certainAction()">确认
                             </button>
@@ -123,6 +123,7 @@
                 pictureFile: [],
                 title: '',
                 size: 0,
+                isDisable:false,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
                 }
@@ -178,6 +179,22 @@
 
 
             certainAction() {
+                this.isDisable = true
+                setTimeout(() => {
+                    this.isDisable = false
+                }, 1000)
+                if (this.isBlank(this.addCou.couName)) {
+                    alert('咨询师名字不能为空')
+                    return
+                }
+                if (this.isBlank(this.addCou.graduate)) {
+                    alert('毕业院校不能为空')
+                    return
+                }
+                if (this.isBlank(this.addCou.tel)) {
+                    alert('联系方式不能为空')
+                    return
+                }
                 const fd = new FormData();
                 // 效果图
                 // const horseTypeImg = $("#horseTypeImg")[0].files;
@@ -195,6 +212,7 @@
                         var url = this.url + '/counselorBean/patchCou'
                         break;
                 }
+
 
                 this.$ajax({
                     method: 'POST',

@@ -55,13 +55,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">朝向</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <select class="form-control" v-model="addParam.drection">
-                                <option value="0">--未选择--</option>
-                                <option value="1">东</option>
-                                <option value="2">南</option>
-                                <option value="3">西</option>
-                                <option value="4">北</option>
-                            </select>
+                            <input type="text" class="form-control" v-model="addParam.drection"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -178,7 +172,7 @@
                     // 居室
                     house: '',
                     // 方向
-                    drection: '0',
+                    drection: '',
                     buildArea: '',
                     totlePrice: '',
                     downPayment: '',
@@ -222,7 +216,7 @@
                         // 类型
                         caName: '',
                         // 方向
-                        drection: '0',
+                        drection: '',
                         buildArea: '',
                         totlePrice: '',
                         downPayment: '',
@@ -242,6 +236,18 @@
 
 
             certainAction() {
+                if (this.isBlank(this.addParam.buildId)) {
+                    alert('楼盘不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.bhtId)) {
+                    alert('户型不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.content)) {
+                    alert('请添加分析内容')
+                    return
+                }
                 const fd = new FormData();
                 // 效果图
                 // const horseTypeImg = $("#horseTypeImg")[0].files;

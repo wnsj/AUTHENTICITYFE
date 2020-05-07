@@ -160,7 +160,7 @@
                                     data-toggle="modal"
                                     v-on:click="closeCurrentPage()">返回
                             </button>
-                            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                            <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                                     data-toggle="modal"
                                     v-on:click="certainAction()">确认
                             </button>
@@ -226,7 +226,8 @@
                     // 是否热招
                     hotJob:'',
                     // 是否长招
-                    longRecruit:''
+                    longRecruit:'',
+                    isDisable:false
                 },
                 title: '',
             };
@@ -296,6 +297,10 @@
 
 
             certainAction() {
+                this.isDisable = true
+                setTimeout(() => {
+                    this.isDisable = false
+                }, 1000)
                 this.addParam.requirements = this.$refs.rn.getData()
                 this.addParam.responsibilities = this.$refs.sr.getData()
 				

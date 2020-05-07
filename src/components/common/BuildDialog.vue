@@ -487,7 +487,7 @@
                                 data-toggle="modal"
                                 v-on:click="closeCurrentPage()">返回
                         </button>
-                        <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                                 data-toggle="modal"
                                 v-on:click="certainAction()">确认
                         </button>
@@ -614,7 +614,7 @@
                     // 停车位
                     parkingSpace: '',
                     // 项目介绍
-                    projectIntroduction: '1',
+                    projectIntroduction: '',
                     // 热销值
                     sellWell: '0',
                     // 联系方式
@@ -665,6 +665,7 @@
                     [],
                 regionImgList: [],
                 regionImgFileList: [],
+                isDisable: false,
                 size:
                     0,
                 imgData:
@@ -779,7 +780,7 @@
                         // 停车位
                         parkingSpace: '',
                         // 项目介绍
-                        projectIntroduction: '1',
+                        projectIntroduction: '',
                         // 热销值
                         sellWell: '0',
                         // 联系方式
@@ -825,6 +826,10 @@
 
 
             certainAction() {
+                this.isDisable = true
+                setTimeout(() => {
+                    this.isDisable = false
+                }, 1000)
 				if (this.isBlank(this.addParam.htName)) {
 				    alert('楼盘不能为空')
 				    return
@@ -944,6 +949,7 @@
                         var url = this.url + '/buildingBean/patchById'
                         break;
                 }
+
 
                 this.$ajax({
                     method: 'POST',
