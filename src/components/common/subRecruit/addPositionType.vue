@@ -67,6 +67,10 @@
 
 
             certainAction() {
+				if(this.isBlank(this.addParam.typeName)){
+					alert('岗位类型不能为空')
+					return
+				}
                 this.$ajax({
                     method: 'POST',
                     url: this.url + "/recruitTypeBean/addRecruitType",

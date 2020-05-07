@@ -168,7 +168,7 @@
                                 data-toggle="modal"
                                 v-on:click="closeCurrentPage()">返回
                         </button>
-                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                        <button type="button" :disabled='isDisable' class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                                 data-toggle="modal"
                                 v-on:click="certainAction()">确认
                         </button>
