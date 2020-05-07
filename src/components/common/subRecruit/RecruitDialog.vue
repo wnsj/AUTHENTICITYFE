@@ -44,7 +44,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">招收人数</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.recruitsNum"/>
+                            <input type="text" class="form-control" v-model="addParam.recruitsNum"  placeholder="招收人数必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -68,42 +68,42 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小薪酬</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minPay"/>
+                            <input type="text" class="form-control" v-model="addParam.minPay" placeholder="必填,可为:0"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大薪酬</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.maxPay"/>
+                            <input type="text" class="form-control" v-model="addParam.maxPay" placeholder="必填,可为:0"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小工龄</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minWorkingYears"/>
+                            <input type="text" class="form-control" v-model="addParam.minWorkingYears" placeholder="必填,可为:0"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大工龄</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.maxWorkingYears"/>
+                            <input type="text" class="form-control" v-model="addParam.maxWorkingYears" placeholder="必填,可为:0"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">工作地点</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.workplace"/>
+                            <input type="text" class="form-control" v-model="addParam.workplace" placeholder="必填,可填:无"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">学历</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.education"/>
+                            <input type="text" class="form-control" v-model="addParam.education" placeholder="必填,可填:无"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -247,15 +247,15 @@
                         // 职位类型
                         positionType:'',
                         // 招收人数
-                        recruitsNum:'',
+                        recruitsNum:'0',
                         // 工作地点
                         workplace:'',
                         // 最小薪酬
-                        minPay:'',
+                        minPay:'0',
                         // 最大薪酬
-                        maxPay:'',
+                        maxPay:'0',
                         //最小工作年限
-                        minWorkingYears:'',
+                        minWorkingYears:'0',
                         // 最大工作年限
                         maxWorkingYears:'',
                         // 1:有五险一金；2：没有五险一金
@@ -307,12 +307,28 @@
 					alert('岗位未选择')
 					return
 				}
+				if(this.isBlank(this.addParam.minPay)){
+					alert('最小薪酬必填')
+					return
+				}
+				if(this.isBlank(this.addParam.maxPay)){
+					alert('最大薪酬必填')
+					return
+				}
 				if(this.isBlank(this.addParam.recruitsNum)){
 					alert('招聘人数必填')
 					return
 				}
 				if(this.isBlank(this.addParam.workplace)){
 					alert('工作地点必填')
+					return
+				}
+				if(this.isBlank(this.addParam.responsibilities)){
+					alert('岗位职责必填')
+					return
+				}
+				if(this.isBlank(this.addParam.requirements)){
+					alert('岗位要求必填')
 					return
 				}
 				
