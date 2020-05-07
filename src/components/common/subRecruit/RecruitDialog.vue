@@ -146,6 +146,14 @@
                     <div class="col-md-12 form-group clearfix">
                         <RecruitNote ref="rn"></RecruitNote>
                     </div>
+
+                    <div class="col-md-12 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位职责</label><span
+                        class="sign-left">:</span>
+                    </div>
+                    <div class="col-md-12 form-group clearfix">
+                        <subRe ref="sr"></subRe>
+                    </div>
                     <div class="form-group clearfix">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
@@ -171,12 +179,14 @@
     import RecruitNote from '../subRecruit/RecruitNote.vue'
     import PositionType from '../subRecruit/PositionType.vue'
     import Position from '../subRecruit/Position.vue'
+    import subRe from '../subRecruit/subRe.vue'
     var that = null
     export default {
         components: {
             RecruitNote,
             PositionType,
-            Position
+            Position,
+            subRe
         },
         data() {
             return {
@@ -224,6 +234,10 @@
         methods: {
             // Initialization projcet’s content
             initData(param, addParam) {
+                this.$refs.rn.setData('')
+                this.$refs.sr.setData('')
+                this.$refs.ptRef.setPtId('0')
+                this.$refs.pRef.setPId('0')
                 $('#reDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     this.title = '新增'
@@ -265,10 +279,17 @@
                         // 是否长招
                         longRecruit:''
                     }
+					this.$refs.rn.setData(this.addParam.requirements)
+					this.$refs.sr.setData(this.addParam.responsibilities)
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
                     this.$refs.rn.setData(addParam.requirements)
+
+                    this.$refs.sr.setData(addParam.responsibilities)
+                    this.$refs.ptRef.setPtId(addParam.positionType)
+                    this.$refs.pRef.setPId(addParam.position)
+
                     Object.assign(this.addParam, addParam)
                 }
             },
@@ -276,7 +297,25 @@
 
             certainAction() {
                 this.addParam.requirements = this.$refs.rn.getData()
-
+                this.addParam.responsibilities = this.$refs.sr.getData()
+				
+				if(this.isBlank(this.addParam.positionType)){
+					alert('岗位类型未选择')
+					return
+				}
+				if(this.isBlank(this.addParam.position)){
+					alert('岗位未选择')
+					return
+				}
+				if(this.isBlank(this.addParam.recruitsNum)){
+					alert('招聘人数必填')
+					return
+				}
+				if(this.isBlank(this.addParam.workplace)){
+					alert('工作地点必填')
+					return
+				}
+				
                 switch (this.title) {
                     case '新增':
                         var url = this.url + '/recruitBean/addRecruit'

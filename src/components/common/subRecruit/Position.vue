@@ -29,7 +29,7 @@
                     }
                 }
             },
-            setPtId: function(id) {
+            setPId: function(id) {
                 this.id = id
                 this.queryData()
             },

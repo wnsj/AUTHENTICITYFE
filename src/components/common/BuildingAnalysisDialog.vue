@@ -98,7 +98,7 @@
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*"
-                                   />
+                            />
                             <div id="horseTypeImgOutDiv">
                                 <div v-for="(item,index) of horseTypeImgList" :key="index"
                                      v-show="horseTypeImgList.length!==0">
@@ -112,10 +112,12 @@
 
                     </div>
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">点评内容</label><span
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">点评内容</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <textarea style="height: 300px;width: 400px;" v-model="addParam.content" placeholder="点评内容"></textarea>
+                            <textarea style="height: 300px;width: 400px;" v-model="addParam.content"
+                                      placeholder="点评内容"></textarea>
                         </div>
                     </div>
                     <div class="form-group clearfix">
@@ -146,6 +148,7 @@
     import isSale from '../common/IsSale.vue'
     import ht from '../common/HorseType.vue'
     import bad from '../common/BuildingAnalysisLabel.vue'
+
     var that = null
     export default {
         components: {
@@ -177,9 +180,9 @@
                     // 方向
                     drection: '0',
                     buildArea: '',
-                    totlePrice:'',
-                    downPayment:'',
-                    content:'',
+                    totlePrice: '',
+                    downPayment: '',
+                    content: '',
                     floor: ''
                 },
                 title: '',
@@ -194,8 +197,18 @@
         methods: {
             // Initialization projcet’s content
             initData(param, addParam) {
+                this.horseTypeImgList = []
+                this.horseTypeImgFileList = []
+                $("#horseTypeImg").val("");
+
+
+
                 $('#balDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.$refs.buildRef.setBuildId('0')
+                    this.$refs.sale.setIsSale(0)
+                    this.$refs.bht.setBhtId('0')
+                    this.$refs.bad.setBalIdList([])
                     this.title = '新增'
                     this.addParam = {
                         // 楼盘
@@ -211,9 +224,9 @@
                         // 方向
                         drection: '0',
                         buildArea: '',
-                        totlePrice:'',
-                        downPayment:'',
-                        content:'',
+                        totlePrice: '',
+                        downPayment: '',
+                        content: '',
                         floor: ''
                     }
                 } else if (param === 'modify') {
@@ -240,10 +253,10 @@
 
                 switch (this.title) {
                     case '新增':
-                       var url = this.url + '/buildingAnalysisBean/insertByBid'
+                        var url = this.url + '/buildingAnalysisBean/insertByBid'
                         break;
                     case '修改':
-                       var url = this.url + '/buildingAnalysisBean/patchBuildAnalysisById'
+                        var url = this.url + '/buildingAnalysisBean/patchBuildAnalysisById'
                         break;
                 }
 

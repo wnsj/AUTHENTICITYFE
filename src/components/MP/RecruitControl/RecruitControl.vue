@@ -41,6 +41,11 @@
 
             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
+
+            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+                    v-on:click="selectPt()">类型</button>
+            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+                    v-on:click="selectP()">岗位</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
                     v-on:click="queryData(1)">查询
@@ -91,6 +96,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="row row_edit">
+                    <div class="modal fade" id="addPt">
+                        <div class="modal-dialog">
+                            <subPt ref='addPt' @certainAction='feedBack1'></subPt>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row_edit">
+                    <div class="modal fade" id="addP">
+                        <div class="modal-dialog">
+                            <subP ref='addP' @certainAction='feedBack2'></subP>
+                        </div>
+                    </div>
+                </div>
                 <!--分页插件-->
                 <div class="page">
                     <!--这里时通过props传值到子级，并有一个回调change的函数，来获取自己传值到父级的值-->
@@ -106,13 +125,17 @@
     import PositionType from '../../common/subRecruit/PositionType.vue'
     import Position from '../../common/subRecruit/Position.vue'
     import SubRe from '../../common/subRecruit/RecruitDialog.vue'
+    import subPt from '../../common/subRecruit/addPositionType.vue'
+    import subP from '../../common/subRecruit/addPosition.vue'
     var that = null
     export default {
         components: {
             PositionType,
             Position,
             paging,
-            SubRe
+            SubRe,
+            subPt,
+            subP
         },
         name: "RecruitControl",
         data() {
@@ -187,14 +210,37 @@
                 if (param === "1") {
                     this.$refs.reDialog.initData('add')
                     $("#reDialog").modal('show')
+                    $("#addPt").modal('hide')
                 } else if (param === "3") {
                     this.$refs.reDialog.initData('modify', item)
                     $("#reDialog").modal('show')
+                    $("#addP").modal('hide')
+                    $("#addPt").modal('hide')
                 }
+            },
+            selectPt(item) {
+                this.$refs.addPt.initRef(item)
+                $("#reDialog").modal('hide')
+                $("#addP").modal('hide')
+                $("#addPt").modal('show')
+            },
+            selectP(item) {
+                this.$refs.addP.initRef(item)
+                $("#reDialog").modal('hide')
+                $("#addPt").modal('hide')
+                $("#addP").modal('show')
             },
             feedBack() {
                 this.queryData(1)
                 $("#reDialog").modal('hide')
+            },
+            feedBack1() {
+                this.queryData(1)
+                $("#addPt").modal('hide')
+            },
+            feedBack2() {
+                this.queryData(1)
+                $("#addP").modal('hide')
             }
         },
         created: function () {
