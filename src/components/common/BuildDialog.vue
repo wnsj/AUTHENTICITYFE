@@ -812,6 +812,47 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
 
+                    var en = []
+                    if (null !==addParam.effectPathList) {
+                        for (var i = 0;i< addParam.effectPathList.length;i++) {
+                            en.push(this.url + addParam.effectPathList[i])
+                        }
+                    }
+                    this.enPlanImgList = en
+
+                    var enPlan = []
+                    if (null !==addParam.enPlanPathList) {
+                        for (var i = 0;i< addParam.enPlanPathList.length;i++) {
+                            enPlan.push(this.url + addParam.enPlanPathList[i])
+                        }
+                    }
+                    this.buildRealImgList = enPlan
+                    var buildRea = []
+                    if (null !==addParam.buildReaPathList) {
+                        for (var i = 0;i< addParam.buildReaPathList.length;i++) {
+                            buildRea.push(this.url + addParam.buildReaPathList[i])
+                        }
+                    }
+
+                    var matching = []
+                    if (null !==addParam.matchingRealPathList) {
+                        for (var i = 0;i< addParam.matchingRealPathList.length;i++) {
+                            matching.push(this.url + addParam.matchingRealPathList[i])
+                        }
+                    }
+                    this.matchingRealImgList = matching
+
+                    var region = []
+                    if (null !==addParam.regionPathList) {
+                        for (var i = 0;i< addParam.regionPathList.length;i++) {
+                            region.push(this.url + addParam.regionPathList[i])
+                        }
+                    }
+                    this.regionImgList = region
+                    var img = []
+                    img.push(this.url + addParam.imgPath)
+                    this.headImgList = img
+
 					// console.log(JSON.stringify(addParam))
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
