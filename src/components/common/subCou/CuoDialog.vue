@@ -171,6 +171,10 @@
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
+
+                    var en = []
+                    en.push(this.url + addParam.picturePath)
+                    this.picture = en
                     this.title = '修改'
                     this.$refs.couCharaRef.setCcId(addCou.ccId);
                     this.$refs.couLabel.setClId(addCou.labelList);
