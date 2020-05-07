@@ -39,7 +39,7 @@
 			
 			login() {
 				this.btnText = '登录中...';
-				var url = this.url + "/systemAccount/login";
+				var url = this.url + "/account/login";
 				axios({
 					method: "post",
 					url: url,
@@ -98,7 +98,7 @@
 		height: 100%;
 		margin: 0 auto;
 		position: relative;
-		background: url(../../static/img/3-0.jpg) no-repeat;
+		background: url(../../static/img/login.jpg) no-repeat;
 		background-size: 100% 100%;
 	}
 
