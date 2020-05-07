@@ -54,6 +54,7 @@
                             <th class="text-center">楼盘名</th>
                             <th class="text-center">出售状态</th>
                             <th class="text-center">户型</th>
+                            <th class="text-center">居室</th>
                             <th class="text-center">类型</th>
                             <th class="text-center">户型标签</th>
                             <th class="text-center">朝向</th>
@@ -68,6 +69,7 @@
                             <td class="text-center" style="line-height:33px;">{{item.htName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.saleLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.imgName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.house}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.caName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.balContentLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.drectionLabel}}</td>
