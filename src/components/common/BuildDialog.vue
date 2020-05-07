@@ -250,17 +250,6 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">优惠楼盘</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <select class="form-control" v-model="addParam.discount">
-                                <option value=0>--未选择--</option>
-                                <option value=1>--是--</option>
-                                <option value=2>--否--</option>
-                            </select>
-                        </div>
-                    </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -626,8 +615,6 @@
                     parkingSpace: '',
                     // 项目介绍
                     projectIntroduction: '1',
-                    // 优惠(1:优惠；2：不优惠)
-                    discount: 0,
                     // 热销值
                     sellWell: '0',
                     // 联系方式
@@ -793,8 +780,6 @@
                         parkingSpace: '',
                         // 项目介绍
                         projectIntroduction: '1',
-                        // 优惠(1:优惠；2：不优惠)
-                        discount: 0,
                         // 热销值
                         sellWell: '0',
                         // 联系方式
