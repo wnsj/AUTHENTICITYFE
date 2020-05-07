@@ -6,7 +6,7 @@
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
-                <div id="buildInputBox" class="clearfix">
+                <div class="dialogInutBox clearfix">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘名称</label><span class="sign-left">:</span>
@@ -481,7 +481,7 @@
 
                 </div>
 
-                <div id="buildBtnBox" class="form-group clearfix">
+                <div class="dialogBtnBox form-group clearfix">
                     <div class="col-md-12">
                         <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
                                 data-toggle="modal"
@@ -1176,13 +1176,5 @@
         color: #777777;
     }
 
-    #buildInputBox {
-        height: 550px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
 
-    #buildBtnBox {
-        padding-top: 20px;
-    }
 </style>

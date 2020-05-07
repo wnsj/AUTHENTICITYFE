@@ -6,7 +6,7 @@
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
-                <form action="" class="clearfix">
+                <div class="dialogInutBox clearfix">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">招聘类型</label><span class="sign-left">:</span>
@@ -68,14 +68,19 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小薪酬</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minPay" placeholder="必填,可为:0"/>
+
+                            <input type="text" class="form-control salary" v-model="addParam.minPay"  placeholder="必填,可为:0"/><span class="salaryUnit">K</span>
+
+
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大薪酬</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.maxPay" placeholder="必填,可为:0"/>
+                            <input type="text" class="form-control salary" v-model="addParam.maxPay" placeholder="必填,可为:0"/><span class="salaryUnit">K</span>
+
+
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -154,19 +159,21 @@
                     <div class="col-md-12 form-group clearfix">
                         <subRe ref="sr"></subRe>
                     </div>
-                    <div class="form-group clearfix">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
-                                    data-toggle="modal"
-                                    v-on:click="closeCurrentPage()">返回
-                            </button>
-                            <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
-                                    data-toggle="modal"
-                                    v-on:click="certainAction()">确认
-                            </button>
-                        </div>
+
+
+                </div>
+                <div class="dialogBtnBox form-group clearfix">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
+                                data-toggle="modal"
+                                v-on:click="closeCurrentPage()">返回
+                        </button>
+                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                                data-toggle="modal"
+                                v-on:click="certainAction()">确认
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
 
         </div>
@@ -303,7 +310,7 @@
                 }, 1000)
                 this.addParam.requirements = this.$refs.rn.getData()
                 this.addParam.responsibilities = this.$refs.sr.getData()
-				
+
 				if(this.isBlank(this.addParam.positionType)){
 					alert('岗位类型未选择')
 					return
@@ -328,6 +335,7 @@
 					alert('工作地点必填')
 					return
 				}
+
 				if(this.isBlank(this.addParam.responsibilities)){
 					alert('岗位职责必填')
 					return
@@ -394,4 +402,6 @@
 </script>
 
 <style>
+.salary{float: left;width: 80px;}
+.salaryUnit{display: inline-block;float: left;line-height: 34px;margin-left: 5px;font-weight: bold;/* color: #66afe9; */}
 </style>

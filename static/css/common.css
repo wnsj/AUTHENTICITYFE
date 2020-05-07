@@ -171,3 +171,7 @@ body{
     -ms-user-select:none;
     user-select:none;
 }
+
+.dialogInutBox{max-height: 600px; overflow-y: auto; overflow-x: hidden;}
+.dialogBtnBox {padding-top: 20px;}
+.note-editor .note-editable{min-height: 200px;}
