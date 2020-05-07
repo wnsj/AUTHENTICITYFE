@@ -18,35 +18,35 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘经度</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.longitude">
+                            <input type="text" class="form-control" v-model="addParam.longitude" placeholder="数值,可填:30.002">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘纬度</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.latitude">
+                            <input type="text" class="form-control" v-model="addParam.latitude" placeholder="数值,可填:30.002">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">产权年限</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.ownershipYear" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.ownershipYear" placeholder="数值,可填:30">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">容积率</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.plotRatio" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.plotRatio" placeholder="数值,可填:1.0">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">绿化率</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.greeningRate" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.greeningRate" placeholder="必填,可填:1.0">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -81,14 +81,14 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">占地面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.coveredArea" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.coveredArea" placeholder="数值,可填:1">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">总户数</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.households" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.households" placeholder="数值,可填:1">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -102,14 +102,14 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发周期</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.iteration" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.iteration" placeholder="数值,可填:1">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.floorage" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.floorage" placeholder="数值,可填:1">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -130,14 +130,14 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业费</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyFee" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.propertyFee" placeholder="数值,可填:1">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">停车位</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.parkingSpace" placeholder="必填,可填:0">
+                            <input type="text" class="form-control" v-model="addParam.parkingSpace" placeholder="数值,可填:1">
                         </div>
                     </div>
                     <!--  <div class="col-md-6 form-group clearfix">
@@ -554,13 +554,13 @@
                     // 户型
                     bhtIdList: [],
                     // 最小总价
-                    minTitlePrice: '0',
+                    minTitlePrice: '1',
                     // 最大总价
-                    maxTitlePrice: '0',
+                    maxTitlePrice: '1',
                     // 最小单价
-                    minUnitPrice: '0',
+                    minUnitPrice: '1',
                     // 最大单价
-                    maxUnitPrice: '0',
+                    maxUnitPrice: '1',
                     // 面积（小）
                     minArea: '',
                     // 面积(大)
@@ -616,17 +616,17 @@
                     // 项目介绍
                     projectIntroduction: '',
                     // 热销值
-                    sellWell: '0',
+                    sellWell: '1',
                     // 联系方式
                     tel: '',
                     // 修改时间
                     modifyTime: '',
                     // 人气值
-                    popularity: '0',
+                    popularity: '1',
                     // 热搜值
-                    hotSearch: '0',
+                    hotSearch: '1',
                     // 特价值
-                    specialOffer: '0',
+                    specialOffer: '1',
                     //是否推荐户型（1：是；2：否）
                     recommend: 1,
                     // 是否是优选楼盘（1：是；2：否）
@@ -720,13 +720,13 @@
                         // 户型
                         bhtIdList: [],
                         // 最小总价
-                        minTitlePrice: '0',
+                        minTitlePrice: '1',
                         // 最大总价
-                        maxTitlePrice: '0',
+                        maxTitlePrice: '1',
                         // 最小单价
-                        minUnitPrice: '0',
+                        minUnitPrice: '1',
                         // 最大单价
-                        maxUnitPrice: '0',
+                        maxUnitPrice: '1',
                         // 面积（小）
                         minArea: '',
                         // 面积(大)
@@ -754,9 +754,9 @@
                         // 物业类型
                         propertyType: '',
                         // 容积率
-                        plotRatio: '',
+                        plotRatio: '1.0',
                         // 绿化率
-                        greeningRate: '',
+                        greeningRate: '1.0',
                         // 售楼地址
                         saleAddress: '',
                         // 物业地址
@@ -764,11 +764,11 @@
                         // 装修情况
                         decoration: '',
                         // 占地面积
-                        coveredArea: '',
+                        coveredArea: '1',
                         // 建筑面积
-                        floorage: '',
+                        floorage: '1',
                         // 户数
-                        households: '',
+                        households: '1',
                         // 建筑风格
                         architecturalStyle: '',
                         // 开发周期
@@ -782,17 +782,17 @@
                         // 项目介绍
                         projectIntroduction: '',
                         // 热销值
-                        sellWell: '0',
+                        sellWell: '1',
                         // 联系方式
                         tel: '',
                         // 修改时间
                         modifyTime: '',
                         // 人气值
-                        popularity: '0',
+                        popularity: '',
                         // 热搜值
-                        hotSearch: '0',
+                        hotSearch: '1',
                         // 特价值
-                        specialOffer: '0',
+                        specialOffer: '1',
                         //是否推荐户型（1：是；2：否）
                         recommend: 1,
                         // 是否是优选楼盘（1：是；2：否）
@@ -800,9 +800,9 @@
                         //是否是品质楼盘（1：是；2：否）
                         quality: 1,
                         // 经度
-                        longitude: '',
+                        longitude: '1.0',
                         // 纬度
-                        latitude: '',
+                        latitude: '1.0',
                         // 楼盘特色描述
                         buildDescription: '',
                         // 环线id
@@ -812,6 +812,7 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
 
+					console.log(JSON.stringify(addParam))
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
                     this.$refs.saleRef.setIsSale(addParam.isSale)
@@ -830,6 +831,14 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
+				if (this.isBlank(this.addParam.longitude)) {
+				    alert('经度不能为空或0')
+				    return
+				}
+				if (this.isBlank(this.addParam.latitude)) {
+				    alert('纬度不能为空或0')
+				    return
+				}
 				if (this.isBlank(this.addParam.htName)) {
 				    alert('楼盘不能为空')
 				    return
@@ -847,15 +856,15 @@
                     return
                 }
                 if (this.isBlank(this.addParam.coveredArea)) {
-                    alert('占地面积不能为空')
+                    alert('占地面积不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.floorage)) {
-                    alert('建筑面积不能为空')
+                    alert('建筑面积不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.households)) {
-                    alert('户数不能为空')
+                    alert('户数不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.architecturalStyle)) {
@@ -863,7 +872,7 @@
                     return
                 }
                 if (this.isBlank(this.addParam.iteration)) {
-                    alert('开发周期不能为空')
+                    alert('开发周期不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.propertyCompany)) {
@@ -871,19 +880,19 @@
                     return
                 }
                 if (this.isBlank(this.addParam.propertyFee)) {
-                    alert('物业费不能为空')
+                    alert('物业费不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.parkingSpace)) {
-                    alert('停车位不能为空')
+                    alert('停车位不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.greeningRate)) {
-                    alert('绿化率不能为空')
+                    alert('绿化率不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.plotRatio)) {
-                    alert('容积率不能为空')
+                    alert('容积率不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.propertyType)) {
@@ -891,19 +900,19 @@
                     return
                 }
                 if (this.isBlank(this.addParam.ownershipYear)) {
-                    alert('产权年限不能为空')
+                    alert('产权年限不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.sellWell)) {
-                    alert('热销值不能为空')
+                    alert('热销值不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.hotSearch)) {
-                    alert('热搜值不能为空')
+                    alert('热搜值不能为空或0')
                     return
                 }
                 if (this.isBlank(this.addParam.popularity)) {
-                    alert('人气值不能为空')
+                    alert('人气值不能为空或0')
                     return
                 }
                 const fd = new FormData();
