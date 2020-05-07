@@ -812,7 +812,7 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
 
-					console.log(JSON.stringify(addParam))
+					// console.log(JSON.stringify(addParam))
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
                     this.$refs.saleRef.setIsSale(addParam.isSale)
