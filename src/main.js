@@ -11,6 +11,10 @@ import vueBeauty from 'vue-beauty'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import VideoPlayer from 'vue-video-player'
+require('vue-video-player/node_modules/video.js/dist/video-js.css')
+require('vue-video-player/src/custom-theme.css')
+Vue.use(VideoPlayer)
 // 富文本编辑----------------------------------
 import QuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'

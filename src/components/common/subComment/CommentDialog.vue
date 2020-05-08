@@ -50,7 +50,9 @@
                         class="sign-left">:</span>
                     </div>
                     <div class="col-md-12 form-group clearfix">
-                        <SummerNote ref="sn"></SummerNote>
+<!--                        <SummerNote ref="sn"></SummerNote>-->
+                        <textarea style="height: 300px;width: 400px;" v-model="addParam.comContent"
+                                  placeholder="点评"></textarea>
                     </div>
 
                 </div>
@@ -75,7 +77,7 @@
 
 
 <script>
-    import SummerNote from '../subArticle/SummerNote.vue'
+    // import SummerNote from '../subArticle/SummerNote.vue'
     import Counselor from '../subCou/Counselor.vue'
     import CommentType from '../subComment/CommentType.vue'
     import Building from '../Building.vue'
@@ -83,7 +85,7 @@
     var that = null
     export default {
         components: {
-            SummerNote,
+            // SummerNote,
             Counselor,
             CommentType,
             Building
@@ -121,7 +123,7 @@
 
                 $('#commentDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
-                    this.$refs.sn.setData('')
+                    // this.$refs.sn.setData('')
                     this.$refs.couTypeRef.setComId('0')
                     this.$refs.couRef.setCouId('0');
                     this.$refs.buildRef.setBuildingId('0')
@@ -143,7 +145,7 @@
                     en.push(this.url + addParam.imgPathList)
                     this.picList = en
                     this.title = '修改';
-                    this.$refs.sn.setData(addParam.comContent)
+                    // this.$refs.sn.setData(addParam.comContent)
                     this.$refs.couTypeRef.setComId(addParam.coucType)
                     this.$refs.couRef.setCouId(addParam.couId);
                     this.$refs.buildRef.setBuildingId(addParam.buildId)
@@ -217,7 +219,7 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
-                this.addParam.comContent = this.$refs.sn.getData()
+                // this.addParam.comContent = this.$refs.sn.getData()
                 const fd = new FormData();
 
                 fd.append("param", JSON.stringify(this.addParam));

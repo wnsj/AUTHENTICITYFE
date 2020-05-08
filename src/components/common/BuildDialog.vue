@@ -464,6 +464,9 @@
                         <div class="col-md-8">
                             <input type="file" id="video"
                             />
+                            <div id="playAvOutDiv">
+                                <PlayAV ref="playRef"></PlayAV>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix" style="width: 100%;">
@@ -514,7 +517,7 @@
     import cou from './subCou/Counselor.vue'
     import pro from '../common/Province.vue'
     import Region from '../common/Region.vue'
-
+    import PlayAV from '../common/PlayAV.vue'
     var that = null
     // $(function () {
     //     function testFun() {
@@ -540,7 +543,8 @@
             Charas,
             cou,
             pro,
-            Region
+            Region,
+            PlayAV
         },
         data() {
             return {
@@ -811,6 +815,8 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
+
+                    this.$refs.playRef.initData(this.url + addParam.videoPath)
 
                     var en = []
                     if (null !==addParam.effectPathList) {
