@@ -60,7 +60,7 @@
                                 data-toggle="modal"
                                 v-on:click="closeCurrentPage()">返回
                         </button>
-                        <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                                 data-toggle="modal"
                                 v-on:click="certainAction()">确认
                         </button>
@@ -103,6 +103,7 @@
                 title: '',
                 picList: [],
                 picFileList: [],
+                isDisable:false,
                 size:
                     0,
                 imgData:
@@ -137,6 +138,10 @@
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
+
+                    var en = []
+                    en.push(this.url + addParam.imgPathList)
+                    this.picList = en
                     this.title = '修改';
                     this.$refs.sn.setData(addParam.comContent)
                     this.$refs.couTypeRef.setComId(addParam.coucType)
@@ -208,6 +213,10 @@
                 this.picFileList.splice(index)
             },
             certainAction() {
+                this.isDisable = true
+                setTimeout(() => {
+                    this.isDisable = false
+                }, 1000)
                 this.addParam.comContent = this.$refs.sn.getData()
                 const fd = new FormData();
 

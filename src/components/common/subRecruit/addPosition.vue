@@ -80,6 +80,14 @@
                 }
             },
             certainAction() {
+				if(this.isBlank(this.addParam.recruitName)){
+					alert('岗位不能为空')
+					return
+				}
+				if(this.isBlank(this.addParam.typeId)){
+					alert('岗位类型为空')
+					return
+				}
                 this.$ajax({
                     method: 'POST',
                     url: this.url + "/recruitLabelBean/addRecruitLabel",

@@ -32,7 +32,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.caName"/>
+                            <input type="text" class="form-control" v-model="addParam.caName" placeholder="例:平房"/>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼层</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.floor"/>
+                            <input type="text" class="form-control" v-model="addParam.floor" placeholder="例: 30层"/>
                         </div>
                     </div>
 
@@ -55,41 +55,36 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">朝向</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <select class="form-control" v-model="addParam.drection">
-                                <option value="0">--未选择--</option>
-                                <option value="1">东</option>
-                                <option value="2">南</option>
-                                <option value="3">西</option>
-                                <option value="4">北</option>
-                            </select>
+                            <input type="text" class="form-control" v-model="addParam.drection"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.buildArea"/><span class="Unit">㎡</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.buildArea" placeholder="例: 30"/><span class="Unit">㎡</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.totlePrice"/><span class="Unit">万</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.totlePrice" placeholder="例: 30"/><span class="Unit">万</span>
+
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">首付</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.downPayment"/><span class="Unit">万</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.downPayment"placeholder="例: 30"/><span class="Unit">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">居室</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.house"/>
+                            <input type="text" class="form-control" v-model="addParam.house" placeholder="例: 两居二室"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -128,7 +123,8 @@
                                 data-toggle="modal"
                                 v-on:click="closeCurrentPage()">返回
                         </button>
-                        <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10"
+                                style="margin-right:1.5%;"
                                 data-toggle="modal"
                                 v-on:click="certainAction()">确认
                         </button>
@@ -179,7 +175,7 @@
                     // 居室
                     house: '',
                     // 方向
-                    drection: '0',
+                    drection: '',
                     buildArea: '',
                     totlePrice: '',
                     downPayment: '',
@@ -190,6 +186,7 @@
                 horseTypeImgList: [],
                 horseTypeImgFileList: [],
                 size: 0,
+                isDisable: false,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
                 }
@@ -198,14 +195,12 @@
         methods: {
             // Initialization projcet’s content
             initData(param, addParam) {
-                this.horseTypeImgList = []
-                this.horseTypeImgFileList = []
-                $("#horseTypeImg").val("");
-
-
 
                 $('#balDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.horseTypeImgList = []
+                    this.horseTypeImgFileList = []
+                    $("#horseTypeImg").val("");
                     this.$refs.buildRef.setBuildId('0')
                     this.$refs.sale.setIsSale(0)
                     this.$refs.bht.setBhtId('0')
@@ -223,7 +218,7 @@
                         // 类型
                         caName: '',
                         // 方向
-                        drection: '0',
+                        drection: '',
                         buildArea: '',
                         totlePrice: '',
                         downPayment: '',
@@ -231,6 +226,11 @@
                         floor: ''
                     }
                 } else if (param === 'modify') {
+
+                    var en = []
+                    en.push(this.url + addParam.horseImgPath)
+                    this.horseTypeImgList = en
+
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
                     this.$refs.buildRef.setBuildId(addParam.buildId)
@@ -243,6 +243,39 @@
 
 
             certainAction() {
+                if (this.isBlank(this.addParam.buildId)) {
+                    alert('楼盘不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.bhtId)) {
+                    alert('户型不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.caName)) {
+                    alert('类型不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.drection)) {
+                    alert('朝向不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.downPayment)) {
+                    alert('首付不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.buildArea)) {
+                    alert('建筑面积不能为空')
+                    return
+                }
+
+                this.isDisable = true
+                setTimeout(() => {
+                    this.isDisable = false
+                }, 1000)
+                if (this.isBlank(this.addParam.content)) {
+                    alert('请添加分析内容')
+                    return
+                }
                 const fd = new FormData();
                 // 效果图
                 // const horseTypeImg = $("#horseTypeImg")[0].files;
