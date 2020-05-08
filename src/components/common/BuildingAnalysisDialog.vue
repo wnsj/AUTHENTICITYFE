@@ -68,21 +68,21 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.buildArea"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.buildArea"/><span class="Unit">㎡</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.totlePrice"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.totlePrice"/><span class="Unit">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">首付</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.downPayment"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.downPayment"/><span class="Unit">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">

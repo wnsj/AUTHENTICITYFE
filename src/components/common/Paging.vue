@@ -176,7 +176,7 @@
         transform: translate(-50%,-50%);
         /*margin-left: -1px;*/
         line-height:  34px;
-        color: #333;
+        color: #333!important;
         cursor: pointer
     }
 
@@ -193,8 +193,8 @@
     .page-bar .active a {
         color: #fff;
         cursor: default;
-        background-color: #c4b190;
-        border-color: #c4b190;
+        background-color: rgb(230, 230, 230);
+        border-color: rgb(230, 230, 230);
     }
 
     .page-bar i {
