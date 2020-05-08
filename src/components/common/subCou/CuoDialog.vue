@@ -181,7 +181,7 @@
                     en.push(this.url + addParam.picturePath)
                     this.picture = en
                     this.title = '修改'
-                    this.$refs.couCharaRef.setCcId(addCou.ccId);
+                    // this.$refs.couCharaRef.setCcId(addCou.ccId);
                     this.$refs.couLabel.setClId(addCou.labelList);
                     Object.assign(this.addCou, addCou)
                 }
