@@ -25,7 +25,8 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特长</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <cou-chara @couCharaChange="fatherCouChara" ref="couCharaRef"></cou-chara>
+							<input type="text" class="form-control" v-model="addCou.charaName"/>
+                            <!-- <cou-chara @couCharaChange="fatherCouChara" ref="couCharaRef"></cou-chara> -->
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -113,6 +114,8 @@
                     graduate: '',
                     // 特长
                     ccId: '',
+					// 特长名
+					charaName:'',
                     // 联系方式
                     tel: '',
                     // 标签
@@ -152,7 +155,7 @@
 
                 $('#couDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
-                    this.$refs.couCharaRef.setCcId('0');
+                    // this.$refs.couCharaRef.setCcId('0');
                     this.$refs.couLabel.setClId([]);
                     this.title = '新增'
                     this.addCou = {
@@ -162,6 +165,8 @@
                         graduate: '',
                         // 特长
                         ccId: '',
+						// 特长名
+						charaName:'',
                         // 联系方式
                         tel: '',
                         // 标签
@@ -176,7 +181,7 @@
                     en.push(this.url + addParam.picturePath)
                     this.picture = en
                     this.title = '修改'
-                    this.$refs.couCharaRef.setCcId(addCou.ccId);
+                    // this.$refs.couCharaRef.setCcId(addCou.ccId);
                     this.$refs.couLabel.setClId(addCou.labelList);
                     Object.assign(this.addCou, addCou)
                 }

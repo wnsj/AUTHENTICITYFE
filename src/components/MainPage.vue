@@ -14,7 +14,7 @@
         <div class="container-fluid clear-mp" id="Odiv">
             <div class="row clear-mp">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-aside clear-mp" id="Adiv" style="padding-top: 10px;">
-                    <p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #795548;text-align: left; margin-bottom:10px;">功能列表</p>
+                    <p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #047EB1;text-align: left; margin-bottom:10px;">功能列表</p>
                     <div id="aside-menu">
 
                         <dl v-bind:class="{h4:bool4}">
@@ -23,7 +23,7 @@
                                     楼盘相关
                                 </i>
                             </dt>
-                            
+
                             <dd @click="addCheck('BuildingControl')" v-bind:class="{'li-active':onString=='BuildingControl'}">
                                 <router-link to="/MP/BuildingControl/BuildingControl"><i class="fa" aria-hidden="true">楼盘管理</i></router-link>
                             </dd>
@@ -205,7 +205,7 @@
         margin-bottom: 0;
         height: 50px;
         overflow: hidden;
-        color: #795548;
+        color: #047EB1;
         font-size: 20px;
         background: #f1f1f1;
         transition: height .5s
@@ -224,7 +224,7 @@
 		margin-top: 0px;
         height: 150px;
     }
-	
+
 	#aside-menu dl.h1 {
 		margin-top: 0px;
 	    height: 100px;
@@ -245,7 +245,7 @@
 
     #aside-menu dl dd:hover {
         background: #f5f5f5;
-        color: #603b2c;
+        /* color: #603b2c; */
     }
 
     #aside-menu dl i {
@@ -269,7 +269,7 @@
     }
 
     .li-active i {
-        color: #f2ad4e;
+        color: #2C6489;
     }
 
     .root {
@@ -278,11 +278,11 @@
     }
 
     a {
-        color: #795548 !important;
+        color: #48AFE9 !important;
     }
 
     a:hover {
-        color: #795548 !important;
+        /* color: #795548 !important; */
     }
 </style>
 <host>

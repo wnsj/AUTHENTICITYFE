@@ -69,7 +69,7 @@
                                style="padding:0;line-height:34px;">最小薪酬</label><span class="sign-left">:</span>
                         <div class="col-md-8">
 
-                            <input type="text" class="form-control salary" v-model="addParam.minPay"  placeholder="必填,可为:0"/><span class="salaryUnit">K</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.minPay"  placeholder="必填,可为:0"/><span class="Unit">K</span>
 
 
                         </div>
@@ -78,7 +78,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大薪酬</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control salary" v-model="addParam.maxPay" placeholder="必填,可为:0"/><span class="salaryUnit">K</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.maxPay" placeholder="必填,可为:0"/><span class="Unit">K</span>
 
 
                         </div>
@@ -344,7 +344,7 @@
 					alert('岗位要求必填')
 					return
 				}
-				
+
                 switch (this.title) {
                     case '新增':
                         var url = this.url + '/recruitBean/addRecruit'
@@ -402,6 +402,5 @@
 </script>
 
 <style>
-.salary{float: left;width: 80px;}
-.salaryUnit{display: inline-block;float: left;line-height: 34px;margin-left: 5px;font-weight: bold;/* color: #66afe9; */}
+
 </style>
