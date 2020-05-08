@@ -175,3 +175,10 @@ body{
 .dialogInutBox{max-height: 600px; overflow-y: auto; overflow-x: hidden;}
 .dialogBtnBox {padding-top: 20px;}
 .note-editor .note-editable{min-height: 200px;}
+
+.intWid100{float: left;width: 100px;}
+.Unit{display: inline-block;float: left;line-height: 34px;margin-left: 5px;font-weight: bold;}
+
+
+#basic textarea{height: 300px!important;width: 435px!important;box-sizing: border-box;padding: 10px;border-radius: 11px;outline: none; }
+#basic .el-select__tags{top: 200%;}

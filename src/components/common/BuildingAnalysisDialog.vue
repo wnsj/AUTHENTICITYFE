@@ -32,7 +32,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.caName"  placeholder="例:平房"/>
+                            <input type="text" class="form-control" v-model="addParam.caName" placeholder="例:平房"/>
                         </div>
                     </div>
 
@@ -62,21 +62,22 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.buildArea" placeholder="例: 30"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.buildArea" placeholder="例: 30"/><span class="Unit">㎡</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.totlePrice" placeholder="例: 30"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.totlePrice" placeholder="例: 30"/><span class="Unit">万</span>
+
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">首付</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.downPayment" placeholder="例: 30"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.downPayment"placeholder="例: 30"/><span class="Unit">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -122,7 +123,8 @@
                                 data-toggle="modal"
                                 v-on:click="closeCurrentPage()">返回
                         </button>
-                        <button type="button"  :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10"
+                                style="margin-right:1.5%;"
                                 data-toggle="modal"
                                 v-on:click="certainAction()">确认
                         </button>
@@ -184,7 +186,7 @@
                 horseTypeImgList: [],
                 horseTypeImgFileList: [],
                 size: 0,
-                isDisable:false,
+                isDisable: false,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
                 }
@@ -193,14 +195,12 @@
         methods: {
             // Initialization projcet’s content
             initData(param, addParam) {
-                this.horseTypeImgList = []
-                this.horseTypeImgFileList = []
-                $("#horseTypeImg").val("");
-
-
 
                 $('#balDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.horseTypeImgList = []
+                    this.horseTypeImgFileList = []
+                    $("#horseTypeImg").val("");
                     this.$refs.buildRef.setBuildId('0')
                     this.$refs.sale.setIsSale(0)
                     this.$refs.bht.setBhtId('0')
@@ -226,6 +226,11 @@
                         floor: ''
                     }
                 } else if (param === 'modify') {
+
+                    var en = []
+                    en.push(this.url + addParam.horseImgPath)
+                    this.horseTypeImgList = en
+
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
                     this.$refs.buildRef.setBuildId(addParam.buildId)
@@ -238,30 +243,30 @@
 
 
             certainAction() {
-				if (this.isBlank(this.addParam.buildId)) {
-				    alert('楼盘不能为空')
-				    return
-				}
-				if (this.isBlank(this.addParam.bhtId)) {
-				    alert('户型不能为空')
-				    return
-				}
-				if (this.isBlank(this.addParam.caName)) {
-				    alert('类型不能为空')
-				    return
-				}
-				if (this.isBlank(this.addParam.drection)) {
-				    alert('朝向不能为空')
-				    return
-				}
-				if (this.isBlank(this.addParam.downPayment)) {
-				    alert('首付不能为空')
-				    return
-				}
-				if (this.isBlank(this.addParam.buildArea)) {
-				    alert('建筑面积不能为空')
-				    return
-				}
+                if (this.isBlank(this.addParam.buildId)) {
+                    alert('楼盘不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.bhtId)) {
+                    alert('户型不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.caName)) {
+                    alert('类型不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.drection)) {
+                    alert('朝向不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.downPayment)) {
+                    alert('首付不能为空')
+                    return
+                }
+                if (this.isBlank(this.addParam.buildArea)) {
+                    alert('建筑面积不能为空')
+                    return
+                }
 
                 this.isDisable = true
                 setTimeout(() => {
