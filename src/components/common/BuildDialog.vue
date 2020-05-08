@@ -312,7 +312,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <dev @devChange='fatherDevReceive' ref="devRef"></dev>
+                            <input type="text" class="form-control" v-model="addParam.devId"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -857,7 +857,7 @@
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
                     this.$refs.saleRef.setIsSale(addParam.isSale)
-                    this.$refs.devRef.setDevId(addParam.devId)
+                    // this.$refs.devRef.setDevId(addParam.devId)
                     this.$refs.charsRef.setCharaList(addParam.chaIdList)
                     this.$refs.bhtsRef.setBhtIdList(addParam.bhtIdList)
                     this.$refs.proRef.setProId(addParam.proId)
