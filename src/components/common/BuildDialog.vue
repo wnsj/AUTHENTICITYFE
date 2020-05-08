@@ -18,56 +18,64 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘经度</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.longitude" placeholder="数值,可填:30.002">
+                            <input type="text" class="form-control" v-model="addParam.longitude"
+                                   placeholder="数值,可填:30.002">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘纬度</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.latitude" placeholder="数值,可填:30.002">
+                            <input type="text" class="form-control" v-model="addParam.latitude"
+                                   placeholder="数值,可填:30.002">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">产权年限</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.ownershipYear" placeholder="数值,可填:30">
+                            <input type="text" class="form-control" v-model="addParam.ownershipYear"
+                                   placeholder="数值,可填:30">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">容积率</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.plotRatio" placeholder="数值,可填:1.0">
+                            <input type="text" class="form-control" v-model="addParam.plotRatio"
+                                   placeholder="数值,可填:1.0">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">绿化率</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.greeningRate" placeholder="必填,可填:1.0">
+                            <input type="text" class="form-control" v-model="addParam.greeningRate"
+                                   placeholder="必填,可填:1.0">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">售楼地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.saleAddress" placeholder="必填,可填:无">
+                            <input type="text" class="form-control" v-model="addParam.saleAddress"
+                                   placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘特点</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.buildDescription" placeholder="必填,可填:无">
+                            <input type="text" class="form-control" v-model="addParam.buildDescription"
+                                   placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyAddress" placeholder="必填,可填:无">
+                            <input type="text" class="form-control" v-model="addParam.propertyAddress"
+                                   placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -81,7 +89,8 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">占地面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.coveredArea" placeholder="数值,可填:1">
+                            <input type="text" class="form-control" v-model="addParam.coveredArea"
+                                   placeholder="数值,可填:1">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -95,7 +104,8 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑风格</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.architecturalStyle" placeholder="必填,可填:无">
+                            <input type="text" class="form-control" v-model="addParam.architecturalStyle"
+                                   placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -116,28 +126,32 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业公司</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyCompany" placeholder="必填,可填:无">
+                            <input type="text" class="form-control" v-model="addParam.propertyCompany"
+                                   placeholder="必填,可填:无">
                         </div>
                     </div>
-					<div class="col-md-6 form-group clearfix">
-					    <label class="col-md-3 control-label text-right nopad end-aline"
-					           style="padding:0;line-height:34px;">物业类型</label><span class="sign-left">:</span>
-					    <div class="col-md-8">
-					        <input type="text" class="form-control" v-model="addParam.propertyType" placeholder="必填,可填:无">
-					    </div>
-					</div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">物业类型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.propertyType"
+                                   placeholder="必填,可填:无">
+                        </div>
+                    </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业费</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyFee" placeholder="数值,可填:1">
+                            <input type="text" class="form-control" v-model="addParam.propertyFee"
+                                   placeholder="数值,可填:1">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">停车位</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.parkingSpace" placeholder="数值,可填:1">
+                            <input type="text" class="form-control" v-model="addParam.parkingSpace"
+                                   placeholder="数值,可填:1">
                         </div>
                     </div>
                     <!--  <div class="col-md-6 form-group clearfix">
@@ -464,8 +478,10 @@
                         <div class="col-md-8">
                             <input type="file" id="video"
                             />
-                            <div id="playAvOutDiv">
-                                <PlayAV ref="playRef"></PlayAV>
+                            <div id="playAvOutDiv" v-if="playAvOutDivFlag">
+<!--                                <PlayAV ref="playRef"></PlayAV>-->
+                                <label class="col-md-3 control-label text-right nopad end-aline"
+                                       style="padding:0;line-height:34px;">{{this.videoName}}</label>
                             </div>
                         </div>
                     </div>
@@ -490,7 +506,8 @@
                                 data-toggle="modal"
                                 v-on:click="closeCurrentPage()">返回
                         </button>
-                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10"
+                                style="margin-right:1.5%;"
                                 data-toggle="modal"
                                 v-on:click="certainAction()">确认
                         </button>
@@ -518,6 +535,7 @@
     import pro from '../common/Province.vue'
     import Region from '../common/Region.vue'
     import PlayAV from '../common/PlayAV.vue'
+
     var that = null
     // $(function () {
     //     function testFun() {
@@ -670,12 +688,12 @@
                 regionImgList: [],
                 regionImgFileList: [],
                 isDisable: false,
-                size:
-                    0,
-                imgData:
-                    {
+                size: 0,
+                imgData: {
                         accept: 'image/gif, image/jpeg, image/png, image/jpg',
-                    }
+                    },
+                playAvOutDivFlag:true,
+                videoName:''
             }
                 ;
         },
@@ -695,13 +713,13 @@
 
                 this.regionImgList = []
 
+                this.videoName = ''
                 this.effectImgFileList = []
                 this.enPlanImgFileList = []
                 this.buildRealImgFileList = []
                 this.matchingRealImgFileList = []
                 this.headImgFileList = []
                 this.regionImgFileList = []
-
 
                 $("#effectImg").val("");
                 $("#enPlanImg").val("");
@@ -813,44 +831,50 @@
                         regionId: ''
                     }
                 } else if (param === 'modify') {
+                    if (this.isBlank(addParam.videoPath)) {
+                        this.playAvOutDivFlag = false
+                        $("#playAvOutDiv").modal("hide")
+                    }else{
+                        this.videoName = addParam.videoName
+                        // this.$refs.playRef.initData(this.url + addParam.videoPath)
+                    }
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
 
-                    this.$refs.playRef.initData(this.url + addParam.videoPath)
 
                     var en = []
-                    if (null !==addParam.effectPathList) {
-                        for (var i = 0;i< addParam.effectPathList.length;i++) {
+                    if (null !== addParam.effectPathList) {
+                        for (var i = 0; i < addParam.effectPathList.length; i++) {
                             en.push(this.url + addParam.effectPathList[i])
                         }
                     }
                     this.enPlanImgList = en
 
                     var enPlan = []
-                    if (null !==addParam.enPlanPathList) {
-                        for (var i = 0;i< addParam.enPlanPathList.length;i++) {
+                    if (null !== addParam.enPlanPathList) {
+                        for (var i = 0; i < addParam.enPlanPathList.length; i++) {
                             enPlan.push(this.url + addParam.enPlanPathList[i])
                         }
                     }
                     this.buildRealImgList = enPlan
                     var buildRea = []
-                    if (null !==addParam.buildReaPathList) {
-                        for (var i = 0;i< addParam.buildReaPathList.length;i++) {
+                    if (null !== addParam.buildReaPathList) {
+                        for (var i = 0; i < addParam.buildReaPathList.length; i++) {
                             buildRea.push(this.url + addParam.buildReaPathList[i])
                         }
                     }
 
                     var matching = []
-                    if (null !==addParam.matchingRealPathList) {
-                        for (var i = 0;i< addParam.matchingRealPathList.length;i++) {
+                    if (null !== addParam.matchingRealPathList) {
+                        for (var i = 0; i < addParam.matchingRealPathList.length; i++) {
                             matching.push(this.url + addParam.matchingRealPathList[i])
                         }
                     }
                     this.matchingRealImgList = matching
 
                     var region = []
-                    if (null !==addParam.regionPathList) {
-                        for (var i = 0;i< addParam.regionPathList.length;i++) {
+                    if (null !== addParam.regionPathList) {
+                        for (var i = 0; i < addParam.regionPathList.length; i++) {
                             region.push(this.url + addParam.regionPathList[i])
                         }
                     }
@@ -859,7 +883,7 @@
                     img.push(this.url + addParam.imgPath)
                     this.headImgList = img
 
-					// console.log(JSON.stringify(addParam))
+                    // console.log(JSON.stringify(addParam))
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
                     this.$refs.saleRef.setIsSale(addParam.isSale)
@@ -878,18 +902,19 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
-				if (this.isBlank(this.addParam.longitude)) {
-				    alert('经度不能为空或0')
-				    return
-				}
-				if (this.isBlank(this.addParam.latitude)) {
-				    alert('纬度不能为空或0')
-				    return
-				}
-				if (this.isBlank(this.addParam.htName)) {
-				    alert('楼盘不能为空')
-				    return
-				}
+
+                if (this.isBlank(this.addParam.longitude)) {
+                    alert('经度不能为空或0')
+                    return
+                }
+                if (this.isBlank(this.addParam.latitude)) {
+                    alert('纬度不能为空或0')
+                    return
+                }
+                if (this.isBlank(this.addParam.htName)) {
+                    alert('楼盘不能为空')
+                    return
+                }
                 if (this.isBlank(this.addParam.saleAddress)) {
                     alert('售楼地址不能为空')
                     return
@@ -994,8 +1019,16 @@
                     fd.append("regionImg", this.regionImgFileList[i]);
                 }
                 // 视频
-                fd.append("video", $("#video")[0].files[0]);
-
+                var videoFile = $("#video")[0].files[0]
+                fd.append("video",videoFile );
+                if (null != videoFile) {
+                    var Mb = videoFile.size/1024/1024
+                    console.log("文件大小" +Mb);
+                    if (Mb > 100) {
+                        alert("您的视频超出限制，请选择100Mb内视频")
+                        return
+                    }
+                }
                 fd.append("addParam", JSON.stringify(this.addParam));
                 switch (this.title) {
                     case '新增':
@@ -1039,6 +1072,7 @@
                 // $("#matchingRealImgOutDiv").remove();
                 // $("#regionImgOutDiv").remove();
                 // $("#headImgOutDiv").remove();
+                this.playAvOutDivFlag = true
                 $("#buildDialog").modal("hide")
             },
 

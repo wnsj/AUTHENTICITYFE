@@ -178,7 +178,7 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
                     var en = []
-                    en.push(this.url + addParam.picturePath)
+                    en.push(this.url + addCou.picturePath)
                     this.picture = en
                     this.title = '修改'
                     // this.$refs.couCharaRef.setCcId(addCou.ccId);

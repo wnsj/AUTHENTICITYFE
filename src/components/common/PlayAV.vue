@@ -1,14 +1,14 @@
 <template>
     <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" aria-hidden="true" class="close" v-on:click="closeCurrentPage()">×</button>
+        <div class="play-header">
+            <button type="button" aria-hidden="true" class="closePlay" v-on:click="closeCurrentPage()">×</button>
         </div>
         <div v-show='!isError'>
-            <video id="videobox" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls preload="auto"
+            <video id="videobox" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" style="width: 100%" controls preload="auto"
                 webkit-playsinline="true" playsinline="true" allowsInlineMediaPlayback=YES
-                webview.allowsInlineMediaPlayback=YES width='100%' ref='videoRef' x5-video-player-fullscreen="true"
+                webview.allowsInlineMediaPlayback=YES width='100%' ref='videoRef'
                 :poster="posterSrc">
-               <!-- <source id="sourceBox" :src="videoSrc" type="video/mp4"> -->
+                <source id="sourceBox" :src="videoSrc" type="video/mp4">
                 <p class="vjs-no-js">不支持播放</p>
             </video>
             <!-- <audio id="videobox" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls preload="auto"
@@ -100,7 +100,7 @@
                 posterImage: true,
                 errorDisplay: false,
                 controlBar: false,
-                playbackRates: [0.5, 1, 1.5, 2],
+                // playbackRates: [0.5, 1, 1.5, 2],
                 ControlBar: {
                     customControlSpacer: true
                 },
@@ -243,30 +243,48 @@
     .video-js .vjs-big-play-button {
         font-size: 2.5em;
         line-height: 2.3em;
-        height: 2.5em;
-        width: 2.5em;
+        height: 1.2em;
+        width: 1.2em;
         -webkit-border-radius: 2.5em;
         -moz-border-radius: 2.5em;
         border-radius: 2.5em;
         background-color: #73859f;
         background-color: rgba(115, 133, 159, .5);
         border-width: 0.15em;
-        margin-top: -1.25em;
-        margin-left: -1.75em;
+        margin-top: -0.6em;
+        margin-left: -0.6em;
     }
 
     /* 中间的播放箭头 */
     .vjs-big-play-button .vjs-icon-placeholder {
-        font-size: 1.63em;
+        margin-top: -1.6em;
+        margin-left: -0.5em;
+        position: absolute;
+        font-size: 0.7em;
     }
 
     /* 加载圆圈 */
     .vjs-loading-spinner {
-        font-size: 2.5em;
-        width: 2em;
-        height: 2em;
+        font-size: 1.5em;
+        width: 1em;
+        height: 1em;
         border-radius: 1em;
         margin-top: -1em;
-        margin-left: -1.5em;
+        margin-left: 2em;
+    }
+    .closePlay {
+        float: right;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 10px;
+        color: #000;
+        margin-top: -8px;
+        margin-right: -8px;
+        text-shadow: 0 1px 0 #fff;
+        filter: alpha(opacity=20);
+    }
+    .play-header {
+        padding: 8px;
+        border-bottom: 1px solid #e5e5e5;
     }
 </style>

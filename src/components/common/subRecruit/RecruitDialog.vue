@@ -149,7 +149,9 @@
                         class="sign-left">:</span>
                     </div>
                     <div class="col-md-12 form-group clearfix">
-                        <RecruitNote ref="rn"></RecruitNote>
+<!--                        <RecruitNote ref="rn"></RecruitNote>-->
+                        <textarea style="height: 300px;width: 400px;" v-model="addParam.requirements"
+                                  placeholder="点评"></textarea>
                     </div>
 
                     <div class="col-md-12 form-group clearfix">
@@ -157,7 +159,9 @@
                         class="sign-left">:</span>
                     </div>
                     <div class="col-md-12 form-group clearfix">
-                        <subRe ref="sr"></subRe>
+<!--                        <subRe ref="sr"></subRe>-->
+                        <textarea style="height: 300px;width: 400px;" v-model="addParam.responsibilities"
+                                  placeholder="点评"></textarea>
                     </div>
 
 
@@ -242,8 +246,8 @@
         methods: {
             // Initialization projcet’s content
             initData(param, addParam) {
-                this.$refs.rn.setData('')
-                this.$refs.sr.setData('')
+                // this.$refs.rn.setData('')
+                // this.$refs.sr.setData('')
                 this.$refs.ptRef.setPtId('0')
                 this.$refs.pRef.setPId('0')
                 $('#reDialog').modal({backdrop: 'static', keyboard: false});
@@ -287,14 +291,14 @@
                         // 是否长招
                         longRecruit:''
                     }
-					this.$refs.rn.setData(this.addParam.requirements)
-					this.$refs.sr.setData(this.addParam.responsibilities)
+					// this.$refs.rn.setData(this.addParam.requirements)
+					// this.$refs.sr.setData(this.addParam.responsibilities)
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
-                    this.$refs.rn.setData(addParam.requirements)
+                    // this.$refs.rn.setData(addParam.requirements)
 
-                    this.$refs.sr.setData(addParam.responsibilities)
+                    // this.$refs.sr.setData(addParam.responsibilities)
                     this.$refs.ptRef.setPtId(addParam.positionType)
                     this.$refs.pRef.setPId(addParam.position)
 
@@ -308,8 +312,8 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
-                this.addParam.requirements = this.$refs.rn.getData()
-                this.addParam.responsibilities = this.$refs.sr.getData()
+                // this.addParam.requirements = this.$refs.rn.getData()
+                // this.addParam.responsibilities = this.$refs.sr.getData()
 
 				if(this.isBlank(this.addParam.positionType)){
 					alert('岗位类型未选择')
