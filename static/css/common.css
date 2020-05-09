@@ -27,6 +27,7 @@ body{
     text-indent: -2em;
 	margin-right: 300px;
 }
+.titleNow{display: inline-block;float: left;font-weight: bold;margin-top:25px;}
 .clear-mp{
     margin: 0;
     padding: 0;
@@ -182,3 +183,7 @@ body{
 
 #basic textarea{height: 300px!important;width: 435px!important;box-sizing: border-box;padding: 10px;border-radius: 11px;outline: none; }
 #basic .el-select__tags{top: 200%;}
+.bigWidthModal{width: 700px;}
+.bigWidthModal #basic textarea{height: 300px!important;width: 500px!important;}
+
+#SdivInnerBox{overflow-x: hidden;overflow-y: auto;}

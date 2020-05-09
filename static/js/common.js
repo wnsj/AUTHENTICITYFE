@@ -10,12 +10,14 @@ function boxheight() {
 	//通过Document对body进行检测，获取浏览器可视化高度
 	if (document.documentElement && document.documentElement.clientHeight)
 		winHeight = document.documentElement.clientHeight;
+        winHeight1 = document.documentElement.clientHeight - 150;
 
-	
 	//DIV高度为浏览器窗口高度
 	document.getElementById("Odiv").style.height = winHeight + "px";
 	document.getElementById("Adiv").style.height = winHeight + "px";
-	
+    document.getElementById("Sdiv").style.height = winHeight + "px";
+    document.getElementById("SdivInnerBox").style.height = winHeight1 + "px";
+
 	//var aWraper = document.getElementsByClassName("wraper")[0];
 	//aWraper.style.height = winHeight*600/789 + "px";
 	var oTabel = document.getElementsByClassName("pre-scrollable")[0];

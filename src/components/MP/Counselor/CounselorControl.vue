@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="col-md-12 col-lg-12 main-title">
+        <!-- <div class="col-md-12 col-lg-12 main-title">
             <h1 class="titleCss">咨询师管理</h1>
-        </div>
+        </div> -->
         <div class="row newRow" style="margin-top: 1%">
             <!--咨询师-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -38,7 +38,7 @@
 
         <div class="" style="padding-top: 30px;">
             <div class="col-md-12 col-lg-12">
-                <div class="table-responsive pre-scrollable table-bg">
+                <div class="table-responsive table-bg">
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>

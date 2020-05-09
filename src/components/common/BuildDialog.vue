@@ -1,6 +1,6 @@
 <!-- add and modify position -->
 <template>
-    <div class="modal-content" id="build">
+    <div class="modal-content bigWidthModal" id="build">
         <div class="modal-header">
             <h4 id="myModalLabel" class="modal-title">{{title}}楼盘</h4>
         </div>
