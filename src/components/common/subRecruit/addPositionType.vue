@@ -84,7 +84,9 @@
                     const res = response.data
                     if (res.retCode === '0000') {
                         alert(res.retMsg)
-                        this.$emit('certainAction')
+                        this.$emit('certainAction',1)
+                    } else {
+                        this.$emit('certainAction',2)
                     }
                     this.addParam.typeName = ''
                 }).catch((error) => {
