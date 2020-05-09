@@ -24,16 +24,16 @@
                     <div class="col-md-6 form-group clearfix" style="width: 100%">
 
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">动态内容</label><span
+                    <div class="col-md-12 form-group clearfix">
+                        <label class="col-md-2 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">动态内容</label><span
                         class="sign-left">:</span>
-                        <div class="col-md-8 form-group clearfix">
-                        <!--                        <RecruitNote ref="rn"></RecruitNote>-->
-                            <textarea style="height: 300px;width: 400px;" v-model="addParam.bdContent"
-                                      placeholder="点评"></textarea>
-                        </div>
+                        
                     </div>
-                    
+                    <div class="col-md-12 form-group clearfix">
+<!--                        <RecruitNote ref="rn"></RecruitNote>-->
+                        <textarea style="height: 300px;width: 400px;" v-model="addParam.bdContent"
+                                  placeholder="楼盘动态"></textarea>
+                    </div>
 
                 </div>
                 <div class="dialogBtnBox form-group clearfix">

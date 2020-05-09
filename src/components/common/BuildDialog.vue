@@ -576,17 +576,17 @@
                     // 户型
                     bhtIdList: [],
                     // 最小总价
-                    minTitlePrice: '1',
+                    minTitlePrice: 1,
                     // 最大总价
-                    maxTitlePrice: '1',
+                    maxTitlePrice: 1,
                     // 最小单价
-                    minUnitPrice: '1',
+                    minUnitPrice: 1,
                     // 最大单价
-                    maxUnitPrice: '1',
+                    maxUnitPrice: 1,
                     // 面积（小）
-                    minArea: '',
+                    minArea: 1,
                     // 面积(大)
-                    maxArea: '',
+                    maxArea: 1,
                     // 开盘时间
                     openDate: '',
                     // 销售情况
@@ -638,17 +638,17 @@
                     // 项目介绍
                     projectIntroduction: '',
                     // 热销值
-                    sellWell: '1',
+                    sellWell: 1,
                     // 联系方式
                     tel: '',
                     // 修改时间
                     modifyTime: '',
                     // 人气值
-                    popularity: '1',
+                    popularity: 1,
                     // 热搜值
-                    hotSearch: '1',
+                    hotSearch: 1,
                     // 特价值
-                    specialOffer: '1',
+                    specialOffer: 1,
                     //是否推荐户型（1：是；2：否）
                     recommend: 1,
                     // 是否是优选楼盘（1：是；2：否）
@@ -750,17 +750,17 @@
                         // 户型
                         bhtIdList: [],
                         // 最小总价
-                        minTitlePrice: '1',
+                        minTitlePrice: 1,
                         // 最大总价
-                        maxTitlePrice: '1',
+                        maxTitlePrice: 1,
                         // 最小单价
-                        minUnitPrice: '1',
+                        minUnitPrice: 1,
                         // 最大单价
-                        maxUnitPrice: '1',
+                        maxUnitPrice: 1,
                         // 面积（小）
-                        minArea: '',
+                        minArea: 1,
                         // 面积(大)
-                        maxArea: '',
+                        maxArea: 1,
                         // 开盘时间
                         openDate: '',
                         // 销售情况
@@ -794,11 +794,11 @@
                         // 装修情况
                         decoration: '',
                         // 占地面积
-                        coveredArea: '1',
+                        coveredArea: 1,
                         // 建筑面积
-                        floorage: '1',
+                        floorage: 1,
                         // 户数
-                        households: '1',
+                        households: 1,
                         // 建筑风格
                         architecturalStyle: '',
                         // 开发周期
@@ -812,17 +812,17 @@
                         // 项目介绍
                         projectIntroduction: '',
                         // 热销值
-                        sellWell: '1',
+                        sellWell: 1,
                         // 联系方式
                         tel: '',
                         // 修改时间
                         modifyTime: '',
                         // 人气值
-                        popularity: '1',
+                        popularity: 1,
                         // 热搜值
-                        hotSearch: '1',
+                        hotSearch: 1,
                         // 特价值
-                        specialOffer: '1',
+                        specialOffer: 1,
                         //是否推荐户型（1：是；2：否）
                         recommend: 1,
                         // 是否是优选楼盘（1：是；2：否）
