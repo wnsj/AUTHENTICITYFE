@@ -103,6 +103,8 @@
                         alert(res.retMsg)
                         this.$emit('certainAction')
                     }
+                    this.addParam.recruitName = ''
+                    this.$refs.ptRef.setPtId('0')
                 }).catch((error) => {
                     console.log('楼盘信息提交失败')
                 });

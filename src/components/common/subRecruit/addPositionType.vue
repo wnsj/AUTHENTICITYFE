@@ -86,6 +86,7 @@
                         alert(res.retMsg)
                         this.$emit('certainAction')
                     }
+                    this.addParam.typeName = ''
                 }).catch((error) => {
                     console.log('楼盘信息提交失败')
                 });

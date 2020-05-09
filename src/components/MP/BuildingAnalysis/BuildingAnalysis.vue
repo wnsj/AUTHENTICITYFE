@@ -72,7 +72,7 @@
                             <td class="text-center" style="line-height:33px;">{{item.house}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.caName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.balContentLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.drectionLabel}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.drection}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.buildArea}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.content}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.totlePrice}}</td>

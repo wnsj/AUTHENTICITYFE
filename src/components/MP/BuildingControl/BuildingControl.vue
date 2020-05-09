@@ -157,13 +157,13 @@
                             <th class="text-center">出售状态</th>
                             <th class="text-center">地址</th>
                             <th class="text-center">户型</th>
-                            <th class="text-center">面积</th>
                             <th class="text-center">类型</th>
                             <th class="text-center">特色</th>
-                            <th class="text-center">开盘时间</th>
+                            <th class="text-center">面积</th>
                             <th class="text-center">参考单价(万)</th>
                             <th class="text-center">参考总价(万)</th>
-                            <th class="text-center">咨询师</th>
+                            <th class="text-center">开盘时间</th>
+<!--                            <th class="text-center">咨询师</th>-->
                         </tr>
                         </thead>
                         <tbody>
@@ -172,13 +172,13 @@
                             <td class="text-center" style="line-height:33px;">{{item.saleLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.adress}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.caName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.minArea}}-{{item.maxArea}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.btName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.chaName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.openDateTime}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.minArea}}-{{item.maxArea}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.minUnitPrice}}-{{item.maxUnitPrice}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.minTitlePrice}}-{{item.maxTitlePrice}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.couName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.openDateTime}}</td>
+<!--                            <td class="text-center" style="line-height:33px;">{{item.couName}}</td>-->
                         </tr>
                         </tbody>
                     </table>

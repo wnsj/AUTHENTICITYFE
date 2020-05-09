@@ -732,6 +732,14 @@
                 $('#buildDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     this.title = '新增'
+                    this.$refs.ldtRef.setLdtId('0')
+                    this.$refs.btRef.setBtId('0')
+                    this.$refs.saleRef.setIsSale('0')
+                    // this.$refs.devRef.setDevId(addParam.devId)
+                    this.$refs.charsRef.setCharaList([])
+                    this.$refs.bhtsRef.setBhtIdList([])
+                    this.$refs.proRef.setProId('0')
+                    this.$refs.regionRef.setRegionId('0')
                     this.addParam = {
                         // 楼盘名称
                         htName: '',
@@ -810,7 +818,7 @@
                         // 修改时间
                         modifyTime: '',
                         // 人气值
-                        popularity: '',
+                        popularity: '1',
                         // 热搜值
                         hotSearch: '1',
                         // 特价值
@@ -848,7 +856,8 @@
                             en.push(this.url + addParam.effectPathList[i])
                         }
                     }
-                    this.enPlanImgList = en
+                    this.effectImgList = en
+
 
                     var enPlan = []
                     if (null !== addParam.enPlanPathList) {
@@ -856,13 +865,17 @@
                             enPlan.push(this.url + addParam.enPlanPathList[i])
                         }
                     }
-                    this.buildRealImgList = enPlan
+                    this.enPlanImgList = enPlan
+
+
                     var buildRea = []
                     if (null !== addParam.buildReaPathList) {
                         for (var i = 0; i < addParam.buildReaPathList.length; i++) {
                             buildRea.push(this.url + addParam.buildReaPathList[i])
                         }
                     }
+                    this.buildRealImgList = buildRea
+
 
                     var matching = []
                     if (null !== addParam.matchingRealPathList) {
@@ -879,6 +892,7 @@
                         }
                     }
                     this.regionImgList = region
+
                     var img = []
                     img.push(this.url + addParam.imgPath)
                     this.headImgList = img
