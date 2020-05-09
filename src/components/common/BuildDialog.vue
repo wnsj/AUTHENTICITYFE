@@ -1003,15 +1003,15 @@
                 }
 
                 if (this.addParam.minArea > this.addParam.maxArea){
-                    alert('最大面积不能小于或等于最小面积')
+                    alert('最大面积不能小于最小面积')
                     return;
                 }
                 if (this.addParam.minUnitPrice > this.addParam.maxUnitPrice) {
-                    alert('最大单价不能小于或等于最小单价')
+                    alert('最大单价不能小于最小单价')
                     return;
                 }
                 if (this.addParam.minTitlePrice > this.addParam.maxTitlePrice) {
-                    alert('最大总价不能小于或等于最小总价')
+                    alert('最大总价不能小于最小总价')
                     return;
                 }
                 const fd = new FormData();
