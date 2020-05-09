@@ -7,8 +7,11 @@
                 </h2>
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-right">
-                <p style="color: #1b4fa3;">欢迎<span style="color: #d58512;"> {{accountName}} </span>来到，寄居找房管理系统</p>
-                <button class="btn btn-default m_r_10" style="margin-top: 20px;" v-on:click="loginOut()">退出</button>
+                <h1 class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right titleNow" >{{titleNow}}</h1>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                    <p style="color: #1b4fa3;">欢迎<span style="color: #d58512;"> {{accountName}} </span>来到，寄居找房管理系统</p>
+                    <button class="btn btn-default m_r_10" style="margin-top: 20px;" v-on:click="loginOut()">退出</button>
+                </div>
             </div>
         </div>
         <div class="container-fluid clear-mp" id="Odiv">
@@ -79,8 +82,11 @@
                         </dl>
                     </div>
                 </div>
-                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 embed-responsive embed-responsive-16by9" style="overflow: inherit; background-color:">
-                    <router-view />
+                <div id="Sdiv" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="overflow: inherit;position: relative; ">
+                    <div id="SdivInnerBox">
+                        <router-view />
+                     </div>
+                    <div style="position: relative;width: 100%;overflow: hidden;padding: 20px 0; ">@ 版权所有：九博科技有限公司</div>
                 </div>
             </div>
         </div>
@@ -106,7 +112,8 @@
                 bool3:false,
                 bool4:true,
                 bool5:false,
-                onString:'MemberSummary'
+                onString:'MemberSummary',
+                titleNow:'楼盘管理'
             }
         },
         methods:{
@@ -156,7 +163,39 @@
             },
             addCheck(string){
                 this.onString = string;
-                console.log(string)
+                //console.log(string);
+                if (string == 'BuildingControl') {
+                    this.titleNow = '楼盘管理';
+                    return false;
+                }
+                if (string == 'BuildingAnalysis') {
+                    this.titleNow = '户型分析管理';
+                    return false;
+                }
+                if (string == 'CounselorControl') {
+                    this.titleNow = '咨询师管理';
+                    return false;
+                }
+                if (string == 'Comment') {
+                    this.titleNow = '点评管理';
+                    return false;
+                }
+                if (string == 'RecruitControl') {
+                    this.titleNow = '招聘管理';
+                    return false;
+                }
+                if (string == 'ArticleControl') {
+                    this.titleNow = '文章管理';
+                    return false;
+                }
+                if (string == 'BuildingDynamic') {
+                    this.titleNow = '动态管理';
+                    return false;
+                }
+                if (string == 'LinkPhone') {
+                    this.titleNow = '电话回拨管理';
+                    return false;
+                }
             },
             gainFun(data){
                 this.onString = data;
@@ -186,6 +225,7 @@
         created() {
             this.$parent.setRouter("/MainPage");
         }
+
     }
 </script>
 

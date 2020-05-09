@@ -87,14 +87,14 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小工龄</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.minWorkingYears" placeholder="必填,可为:0"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.minWorkingYears" placeholder="必填,可为:0"/><span class="Unit">年</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大工龄</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.maxWorkingYears" placeholder="必填,可为:0"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.maxWorkingYears" placeholder="必填,可为:0"/><span class="Unit">年</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
