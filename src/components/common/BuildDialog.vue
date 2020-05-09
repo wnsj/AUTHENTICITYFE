@@ -987,6 +987,19 @@
                     alert('人气值不能为空或0')
                     return
                 }
+
+                if (this.addParam.minArea >= this.addParam.maxArea){
+                    alert('最大面积不能小于或等于最小面积')
+                    return;
+                }
+                if (this.addParam.minUnitPrice >= this.addParam.maxUnitPrice) {
+                    alert('最大单价不能小于或等于最小单价')
+                    return;
+                }
+                if (this.addParam.minTitlePrice >= this.addParam.maxTitlePrice) {
+                    alert('最大总价不能小于或等于最小总价')
+                    return;
+                }
                 const fd = new FormData();
                 // 效果图
                 // const effectImg = $("#effectImg")[0].files;
