@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">均价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control intWid100" v-model="addParam.totlePrice" placeholder="例: 30"/><span class="Unit">万</span>
 
@@ -232,6 +232,7 @@
                     this.horseTypeImgList = en
 
                     console.log('Initialization evaluation’s content, which modifies evaluation')
+                    this.title = '修改'
                     this.title = '修改'
                     this.$refs.buildRef.setBuildId(addParam.buildId)
                     this.$refs.sale.setIsSale(addParam.isSale)

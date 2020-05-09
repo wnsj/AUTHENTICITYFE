@@ -23,8 +23,8 @@
             </div>
 
 
-             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-                    v-on:click="selectRule('1')">添加</button>
+<!--             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"-->
+<!--                    v-on:click="selectRule('1')">添加</button>-->
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
                     v-on:click="queryData(1)">查询

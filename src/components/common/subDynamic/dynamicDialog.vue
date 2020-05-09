@@ -29,7 +29,9 @@
                         class="sign-left">:</span>
                     </div>
                     <div class="col-md-12 form-group clearfix">
-                        <RecruitNote ref="rn"></RecruitNote>
+<!--                        <RecruitNote ref="rn"></RecruitNote>-->
+                        <textarea style="height: 300px;width: 400px;" v-model="addParam.bdContent"
+                                  placeholder="点评"></textarea>
                     </div>
 
                 </div>
@@ -81,7 +83,7 @@
             initDyRef(param, addParam) {
                 $('#dyDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
-                    this.$refs.rn.setData('')
+                    // this.$refs.rn.setData('')
                     this.$refs.buildRef.setBuildingId("")
                     this.title = '新增'
                     this.addParam = {
@@ -97,7 +99,7 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改';
                     Object.assign(this.addParam, addParam)
-					this.$refs.rn.setData(this.addParam.bdContent)
+					// this.$refs.rn.setData(this.addParam.bdContent)
 					this.$refs.buildRef.setBuildingId(this.addParam.buildId)
                 }
             },
@@ -114,7 +116,7 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
-                this.addParam.bdContent = this.$refs.rn.getData()
+                // this.addParam.bdContent = this.$refs.rn.getData()
                 const fd = new FormData();
 
                 fd.append("param", JSON.stringify(this.addParam));
