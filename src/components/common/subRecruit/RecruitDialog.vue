@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位要求</label><span
+                        <label class="col-md-2 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位要求</label><span
                         class="sign-left">:</span>
                     </div>
                     <div class="col-md-12 form-group clearfix">
@@ -155,7 +155,7 @@
                     </div>
 
                     <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位职责</label><span
+                        <label class="col-md-2 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位职责</label><span
                         class="sign-left">:</span>
                     </div>
                     <div class="col-md-12 form-group clearfix">
