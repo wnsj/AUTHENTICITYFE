@@ -59,7 +59,7 @@
                             <th class="text-center">户型标签</th>
                             <th class="text-center">朝向</th>
                             <th class="text-center">建筑面积</th>
-                            <th class="text-center">户型分析</th>
+<!--                            <th class="text-center">户型分析</th>-->
                             <th class="text-center">总价(万)</th>
                             <th class="text-center">首付(万)</th>
                         </tr>
@@ -74,7 +74,7 @@
                             <td class="text-center" style="line-height:33px;">{{item.balContentLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.drection}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.buildArea}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.content}}</td>
+<!--                            <td class="text-center" style="line-height:33px;">{{item.content}}</td>-->
                             <td class="text-center" style="line-height:33px;">{{item.totlePrice}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.downPayment}}</td>
                         </tr>
