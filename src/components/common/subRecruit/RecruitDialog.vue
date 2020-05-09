@@ -151,7 +151,7 @@
                     <div class="col-md-12 form-group clearfix">
 <!--                        <RecruitNote ref="rn"></RecruitNote>-->
                         <textarea style="height: 300px;width: 400px;" v-model="addParam.requirements"
-                                  placeholder="点评"></textarea>
+                                  placeholder="岗位要求"></textarea>
                     </div>
 
                     <div class="col-md-12 form-group clearfix">
@@ -161,7 +161,7 @@
                     <div class="col-md-12 form-group clearfix">
 <!--                        <subRe ref="sr"></subRe>-->
                         <textarea style="height: 300px;width: 400px;" v-model="addParam.responsibilities"
-                                  placeholder="点评"></textarea>
+                                  placeholder="岗位职责"></textarea>
                     </div>
 
 

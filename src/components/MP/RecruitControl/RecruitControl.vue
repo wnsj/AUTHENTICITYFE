@@ -234,11 +234,17 @@
                 this.queryData(1)
                 $("#reDialog").modal('hide')
             },
-            feedBack1() {
+            feedBack1(data) {
+                if (data == 1){
+                    this.$refs.ptRef.queryData()
+                }
                 this.queryData(1)
                 $("#addPt").modal('hide')
             },
-            feedBack2() {
+            feedBack2(data) {
+                if (data == 1){
+                    this.$refs.pRef.queryData()
+                }
                 this.queryData(1)
                 $("#addP").modal('hide')
             }

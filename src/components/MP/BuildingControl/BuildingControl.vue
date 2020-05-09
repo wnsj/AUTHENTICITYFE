@@ -76,13 +76,22 @@
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">供应商</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">环线</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <dev @devChange = 'fatherDevReceive'></dev>
+                    <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
                 </div>
             </div>
+<!--            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">-->
+<!--                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">-->
+<!--                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">供应商</p><span-->
+<!--                    class="sign-left">:</span>-->
+<!--                </div>-->
+<!--                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">-->
+<!--                    <dev @devChange = 'fatherDevReceive'></dev>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
 
         <div class="row newRow" style="margin-top: 1%">
@@ -106,15 +115,16 @@
                     <ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
                 </div>
             </div>
+
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">环线</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span
                     class="sign-left">:</span>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <datePicker v-model="openTime" type="date" value-type="format"
+                                range></datePicker>
                 </div>
-            </div>
             <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
                     <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">结束时间</p><span
@@ -126,17 +136,6 @@
                 </div>
             </div>-->
         </div>
-        <div class="row newRow" style="padding-bottom:15px;margin-top: 1.5%">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <datePicker v-model="openTime" type="date" value-type="format"
-                                range></datePicker>
-                </div>
-            </div>
 
             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                        v-on:click="selectRule('1')">添加</button>
@@ -148,7 +147,7 @@
         </div>
 
 
-        <div class="">
+        <div class="" style="margin-top: 2%">
             <div class="col-md-12 col-lg-12">
                 <div class="table-responsive  table-bg">
                     <table class="table table-bordered table-hover" id="datatable">
@@ -158,13 +157,13 @@
                             <th class="text-center">出售状态</th>
                             <th class="text-center">地址</th>
                             <th class="text-center">户型</th>
-                            <th class="text-center">面积</th>
                             <th class="text-center">类型</th>
                             <th class="text-center">特色</th>
-                            <th class="text-center">开盘时间</th>
+                            <th class="text-center">面积</th>
                             <th class="text-center">参考单价(万)</th>
                             <th class="text-center">参考总价(万)</th>
-                            <th class="text-center">咨询师</th>
+                            <th class="text-center">开盘时间</th>
+<!--                            <th class="text-center">咨询师</th>-->
                         </tr>
                         </thead>
                         <tbody>
@@ -173,13 +172,13 @@
                             <td class="text-center" style="line-height:33px;">{{item.saleLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.adress}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.caName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.minArea}}-{{item.maxArea}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.btName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.chaName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.minArea}}-{{item.maxArea}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.minUnitPrice}}-{{item.maxUnitPrice}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.minTitlePrice}}-{{item.maxTitlePrice}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.openDateTime}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.minUnitPrice}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.minTitlePrice}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.couName}}</td>
+<!--                            <td class="text-center" style="line-height:33px;">{{item.couName}}</td>-->
                         </tr>
                         </tbody>
                     </table>

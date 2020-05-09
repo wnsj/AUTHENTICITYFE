@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="ccId" v-on:change="couCharaChange()">
+    <select class="form-control" v-model="charaName" v-on:change="couCharaChange()">
         <option value="0">--未选择--</option>
-        <option v-for="(item,index) in couCharaList" :key="index" v-bind:value="item.ccId">{{item.ccContent}}</option>
+        <option v-for="(item,index) in couCharaList" :key="index" v-bind:value="item.charaName">{{item.charaName}}</option>
     </select>
 </template>
 
@@ -9,7 +9,7 @@
     export default {
         data() {
             return {
-                ccId: '0',
+                charaName: '0',
                 couCharaList: []
             };
         },
@@ -17,24 +17,24 @@
 
             couCharaChange: function() {
                 for (var i = 0; i < this.couCharaList.length; i++) {
-                    if(this.ccId === '0'){
+                    if(this.charaName === '0'){
                         this.$emit('couCharaChange', null)
                         return
                     }else{
-                        if (this.couCharaList[i].ccId === this.ccId) {
+                        if (this.couCharaList[i].charaName === this.charaName) {
 
-                            this.$emit('couCharaChange', this.couCharaList[i].ccId)
+                            this.$emit('couCharaChange', this.couCharaList[i].charaName)
                             return
                         }
                     }
                 }
             },
-            setCcId: function(ccId) {
-                this.ccId = ccId
+            setCcId: function(charaName) {
+                this.charaName = charaName
                 this.queryData()
             },
             async queryData() {
-                var url = this.url + '/counselorCharacterBean/getAllCouChara'
+                var url = this.url + '/counselorBean/getAllCharaName'
                 this.$ajax({
                     method: 'GET',
                     url: url,

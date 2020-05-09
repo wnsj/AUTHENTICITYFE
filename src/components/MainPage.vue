@@ -70,9 +70,9 @@
                                 <router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">动态管理</i></router-link>
                             </dd>
                         </dl>
-                        <dl v-bind:class="{h1:bool3}">
+                        <dl v-bind:class="{h1:bool3}" v-show=phoneFlag>
                             <dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
-                                <i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="true">
+                                <i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
                                     电话回拨
                                 </i>
                             </dt>
@@ -106,6 +106,8 @@
         data() {
             return {
                 accountName:this.accountName(),
+                accountId:this.accountId(),
+                phoneFlag:true,
                 itemList:[],
                 bool1:false,
                 bool2:false,
@@ -217,12 +219,21 @@
                     this.accountId = '';
                 }
             },
+            checkJur() {
+
+                if (this.accountId == 1) {
+                    this.phoneFlag = true
+                    console.log('accountId' + this.index);
+                } else {
+                    this.phoneFlag = false
+                }
+            }
         },
         mounted() {
             init();
-
         },
         created() {
+            this.checkJur()
             this.$parent.setRouter("/MainPage");
         }
 
