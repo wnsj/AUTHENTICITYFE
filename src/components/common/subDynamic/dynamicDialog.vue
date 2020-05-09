@@ -31,7 +31,7 @@
                     <div class="col-md-12 form-group clearfix">
 <!--                        <RecruitNote ref="rn"></RecruitNote>-->
                         <textarea style="height: 300px;width: 400px;" v-model="addParam.bdContent"
-                                  placeholder="点评"></textarea>
+                                  placeholder="楼盘动态"></textarea>
                     </div>
 
                 </div>
