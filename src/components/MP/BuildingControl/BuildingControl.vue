@@ -155,7 +155,7 @@
                         <tr>
                             <th class="text-center">楼盘名</th>
                             <th class="text-center">出售状态</th>
-                            <th class="text-center">地址</th>
+                            <!-- <th class="text-center">地址</th> -->
                             <th class="text-center">户型</th>
                             <th class="text-center">类型</th>
                             <th class="text-center">特色</th>
@@ -170,7 +170,7 @@
                         <tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
                             <td class="text-center" style="line-height:33px;">{{item.htName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.saleLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.adress}}</td>
+                            <!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
                             <td class="text-center" style="line-height:33px;">{{item.caName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.btName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.chaName}}</td>
