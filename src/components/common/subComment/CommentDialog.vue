@@ -142,7 +142,9 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
                     var en = []
-                    en.push(this.url + addParam.imgPathList[0])
+// 					if(!this.isBlank(addParam.imgPathList)){
+// 						en.push(this.url + addParam.imgPathList[0])
+// 					}
                     this.picList = en
                     this.title = '修改';
                     // this.$refs.sn.setData(addParam.comContent)
@@ -203,7 +205,7 @@
                 // 监听reader对象的onload事件，当图片加载完成时，把base64编码賦值给预览图片
                 reader.onload = function () {
                     var dataUrl = reader.result;
-
+					console.log(this)
                     file.src = this.result;
                     that.picFileList.push(file)
                     that.picList.push(dataUrl)
