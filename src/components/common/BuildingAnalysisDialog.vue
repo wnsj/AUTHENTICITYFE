@@ -241,7 +241,6 @@
 
 
             certainAction() {
-                debugger
                 if (this.isBlank(this.addParam.buildId)) {
                     alert('楼盘不能为空')
                     return

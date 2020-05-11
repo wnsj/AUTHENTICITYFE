@@ -382,11 +382,9 @@
                                style="padding:0;line-height:34px;">户型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <label class="a-upload">
                                 <input type="file" id="effectImg" @change="effectImgChange"
                                        accept="image/*"
                                        multiple="multiple"/>
-                            </label>
                             <div id="effectImgOutDiv">
                                 <div v-for="(item,index) of effectImgList" :key="index"
                                      v-show="effectImgList.length!==0">
@@ -1010,15 +1008,15 @@
                     return
                 }
 
-                if (this.addParam.minArea > this.addParam.maxArea){
+                if (parseInt(this.addParam.minArea) > parseInt(this.addParam.maxArea)){
                     alert('最大面积不能小于最小面积')
                     return;
                 }
-                if (this.addParam.minUnitPrice > this.addParam.maxUnitPrice) {
+                if (parseInt(this.addParam.minUnitPrice) > parseInt(this.addParam.maxUnitPrice)) {
                     alert('最大单价不能小于最小单价')
                     return;
                 }
-                if (this.addParam.minTitlePrice > this.addParam.maxTitlePrice) {
+                if (parseInt(this.addParam.minTitlePrice) > parseInt(this.addParam.maxTitlePrice)) {
                     alert('最大总价不能小于最小总价')
                     return;
                 }
