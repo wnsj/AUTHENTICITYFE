@@ -44,7 +44,7 @@
 							<td class="text-center" style="line-height:33px;" >{{item.form}}</td>
                             <td class="text-center" >
                                 <button type="button" :class="item.remarks == 2 ? 'btn btn-primary': 'btn btn-warning' "
-                                        data-toggle="modal"
+                                        data-toggle="modal" :disabled="item.remarks == 2 ? false : true"
                                         v-on:click="patchReMarks(item)">{{item.remarksLabel}}
                                 </button>
                             </td>

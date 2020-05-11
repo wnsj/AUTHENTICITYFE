@@ -9,7 +9,7 @@
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-right">
                 <h1 class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right titleNow" >{{titleNow}}</h1>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-                    <p style="color: #1b4fa3;">欢迎<span style="color: #d58512;"> {{accountName}} </span>来到，寄居找房管理系统</p>
+                    <!-- <p style="color: #1b4fa3;">欢迎<span style="color: #d58512;"> {{accountName}} </span>来到，寄居找房管理系统</p> -->
                     <button class="btn btn-default m_r_10" style="margin-top: 20px;" v-on:click="loginOut()">退出</button>
                 </div>
             </div>
