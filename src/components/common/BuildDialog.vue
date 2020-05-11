@@ -378,11 +378,9 @@
                                style="padding:0;line-height:34px;">户型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <label class="a-upload">
                                 <input type="file" id="effectImg" @change="effectImgChange"
                                        accept="image/*"
                                        multiple="multiple"/>
-                            </label>
                             <div id="effectImgOutDiv">
                                 <div v-for="(item,index) of effectImgList" :key="index"
                                      v-show="effectImgList.length!==0">
