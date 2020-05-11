@@ -387,7 +387,7 @@
                             <div id="effectImgOutDiv">
                                 <div v-for="(item,index) of effectImgList" :key="index"
                                      v-show="effectImgList.length!==0">
-                                    <div @click="fileDel(index,1)">x</div>
+                                    <div @click="fileDel(index,1),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -403,7 +403,7 @@
                             <div id="enPlanImgOutDiv">
                                 <div v-for="(item,index) of enPlanImgList" :key="index"
                                      v-show="enPlanImgList.length!==0">
-                                    <div @click="fileDel(index,2)">x</div>
+                                    <div @click="fileDel(index,2),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -419,7 +419,7 @@
                             <div id="buildRealImgOutDiv">
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
-                                    <div @click="fileDel(index,3)">x</div>
+                                    <div @click="fileDel(index,3),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -435,7 +435,7 @@
                             <div id="matchingRealImgOutDiv">
                                 <div v-for="(item,index) of matchingRealImgList" :key="index"
                                      v-show="matchingRealImgList.length!==0">
-                                    <div @click="fileDel(index,4)">x</div>
+                                    <div @click="fileDel(index,4),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -451,7 +451,7 @@
                             <div id="regionImgOutDiv">
                                 <div v-for="(item,index) of regionImgList" :key="index"
                                      v-show="regionImgList.length!==0">
-                                    <div @click="fileDel(index,6)">x</div>
+                                    <div @click="fileDel(index,6),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -466,7 +466,7 @@
                             />
                             <div id="headImgOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
-                                    <div @click="fileDel(index,5)">x</div>
+                                    <div @click="fileDel(index,5),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -1284,7 +1284,32 @@
                     this.regionImgList.splice(index, 1)
                     this.regionImgFileList.splice(index, 1)
                 }
-            }
+            },
+            removeImg(item) {
+                if (this.title == '新增') return;
+                if (this.isBlank(item)) return;
+                var index = item.lastIndexOf('=');
+                var str = item.substring(index+1,item.length)
+                if (this.isBlank(str)) return;
+                var id = '';
+                id = parseInt(str)
+                console.log('字符串' + str);
+                this.$ajax({
+                    method: 'POST',
+                    url: this.url + '/buildingBean/deleteImgFile',
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {imgId:id},
+                    dataType: 'json',
+                }).then((response) => {
+                }).catch((error) => {
+                    console.log('楼盘信息提交失败')
+                });
+            },
+
+
         },
         computed: {
             editor() {

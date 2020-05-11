@@ -38,7 +38,7 @@
                             <div id="picImgOutDiv">
                                 <div v-for="(item,index) of picList" :key="index"
                                      v-show="picList.length!==0">
-                                    <div @click="fileDel(index)">x</div>
+                                    <div @click="fileDel(index),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -142,11 +142,15 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
 
-                    var en = []
-					if(!this.isBlank(addParam.imgPathList)){
-						en.push(this.url + addParam.imgPathList[0])
+
+					if(null != addParam && null != addParam.imgPathList){
+                        var en = []
+                        for (var i = 0;i<addParam.imgPathList.length;i++) {
+                            en.push(this.url + addParam.imgPathList[i])
+                        }
+                        this.picList = en
 					}
-                    this.picList = en
+
 
                     this.title = '修改';
                     // this.$refs.sn.setData(addParam.comContent)
@@ -215,6 +219,29 @@
             fileDel(index) {
                 this.picList.splice(index, 1);
                 this.picFileList.splice(index, 1)
+            },
+            removeImg(item) {
+                if (this.title == '新增') return;
+                if (this.isBlank(item)) return;
+                var index = item.lastIndexOf('=');
+                var str = item.substring(index+1,item.length)
+                if (this.isBlank(str)) return;
+                var id = '';
+                id = parseInt(str)
+                console.log('字符串' + str);
+                this.$ajax({
+                    method: 'POST',
+                    url: this.url + '/buildingBean/deleteImgFile',
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {imgId:id},
+                    dataType: 'json',
+                }).then((response) => {
+                }).catch((error) => {
+                    console.log('楼盘信息提交失败')
+                });
             },
             certainAction() {
                 if (null != this.picList && this.picList.length > 3) {
