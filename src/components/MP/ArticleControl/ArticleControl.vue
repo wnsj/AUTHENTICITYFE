@@ -18,6 +18,9 @@
                         <option value=3>公司荣誉</option>
                         <option value=4>企业团队</option>
                         <option value=5>企业文化</option>
+                        <option value=6>联系我们</option>
+                        <option value=7>服务声明</option>
+                        <option value=8>楼盘合作</option>
                     </select>
                 </div>
             </div>

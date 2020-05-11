@@ -353,6 +353,10 @@
             horseTypeImgChange() {
 
                 var files = $("#horseTypeImg")[0].files; //获取file对象
+
+                if (null != files) {
+                    this.horseTypeImgList = []
+                }
                 for (let i = 0; i < files.length; i++) {
                     var file = files[i]
                     this.fileAdd(file)

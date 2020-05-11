@@ -141,8 +141,10 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
-                    var en = []
-                    en.push(this.url + addParam.imgPathList[0])
+                    if (null != addParam && null != addParam.imgPathList) {
+                        var en = []
+                        en.push(this.url + addParam.imgPathList[0])
+                    }
                     this.picList = en
                     this.title = '修改';
                     // this.$refs.sn.setData(addParam.comContent)
@@ -215,6 +217,10 @@
                 this.picFileList.splice(index)
             },
             certainAction() {
+                if (null != this.picList && this.picList.length>3) {
+                    alert('请选择三张或三张以内图片')
+                    return;
+                }
                 this.isDisable = true
                 setTimeout(() => {
                     this.isDisable = false
