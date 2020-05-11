@@ -64,13 +64,12 @@
                     <div class="col-md-6 form-group clearfix" style="width: 100%">
 
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">自我介绍</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <textarea style="height: 300px;width: 400px;" v-model="addCou.introduce"
-                                      placeholder="自我介绍"></textarea>
+                    <div class="col-md-12 form-group clearfix">
+                        <div class="col-md-6  clearfix" style="padding: 0;">
+                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">自我介绍</label><span class="sign-left">:</span>
+                         </div>
+                        <div class="col-md-12">
+                            <textarea class="form-control wdType03" v-model="addCou.introduce"  placeholder="自我介绍"></textarea>
                         </div>
                     </div>
 

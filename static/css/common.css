@@ -181,9 +181,12 @@ body{
 .Unit{display: inline-block;float: left;line-height: 34px;margin-left: 5px;font-weight: bold;}
 
 
-#basic textarea{height: 300px!important;width: 435px!important;box-sizing: border-box;padding: 10px;border-radius: 11px;outline: none; }
+/* #basic textarea.wdType01{height: 300px!important;width: 435px!important;box-sizing: border-box;padding: 10px;border-radius: 11px;outline: none; } */
+#basic textarea.wdType02{height: 80px;width:100%;}
+#basic textarea.wdType03{min-height: 300px;}
 #basic .el-select__tags{top: 200%;}
 .bigWidthModal{width: 700px;}
-.bigWidthModal #basic textarea{height: 300px!important;width: 500px!important;}
+.bigWidthModal #basic textarea.wdType03{height: 300px;}
+/* .bigWidthModal #basic textarea{height: 300px!important;width: 500px!important;box-sizing: border-box;padding: 10px;border-radius: 11px;outline: none;} */
 
 #SdivInnerBox{overflow-x: hidden;overflow-y: auto;}

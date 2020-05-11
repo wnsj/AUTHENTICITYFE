@@ -77,7 +77,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">首付</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.downPayment"placeholder="例: 30"/><span class="Unit">万</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.downPayment" placeholder="例: 30"/><span class="Unit">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -103,16 +103,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix" style="width: 100%">
 
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">点评内容</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <textarea style="height: 300px;width: 400px;" v-model="addParam.content"
-                                      placeholder="点评内容"></textarea>
+                    <div class="col-md-12 form-group clearfix">
+                        <div class="col-md-6  clearfix" style="padding: 0;">
+                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">点评内容</label><span class="sign-left">:</span>
+                         </div>
+                        <div class="col-md-12">
+                            <textarea class="form-control wdType03" v-model="addParam.content" placeholder="点评内容"></textarea>
                         </div>
                     </div>
 

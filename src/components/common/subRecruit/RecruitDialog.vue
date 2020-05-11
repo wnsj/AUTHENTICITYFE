@@ -44,7 +44,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">招收人数</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.recruitsNum"  placeholder="招收人数必填"/>
+                            <input type="text" class="form-control intWid100" v-model="addParam.recruitsNum"  placeholder="招收人数必填"/><span class="Unit">人</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -144,26 +144,26 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-2 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位要求</label><span
-                        class="sign-left">:</span>
-                    </div>
-                    <div class="col-md-12 form-group clearfix">
-<!--                        <RecruitNote ref="rn"></RecruitNote>-->
-                        <textarea style="height: 300px;width: 400px;" v-model="addParam.requirements"
-                                  placeholder="岗位要求"></textarea>
+                       <div class="col-md-6  clearfix" style="padding: 0;">
+                           <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位要求</label><span class="sign-left">:</span>
+                        </div>
+                        <div class="col-md-12 form-group clearfix">
+    <!--                        <RecruitNote ref="rn"></RecruitNote>-->
+                            <textarea class="form-control wdType03" v-model="addParam.requirements" placeholder="岗位要求"></textarea>
+                        </div>
                     </div>
 
                     <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-2 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位职责</label><span
-                        class="sign-left">:</span>
+                        <div class="col-md-6  clearfix" style="padding: 0;">
+                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">岗位职责</label><span class="sign-left">:</span>
+                         </div>
+                        <div class="col-md-12 form-group clearfix">
+    <!--                        <subRe ref="sr"></subRe>-->
+                            <textarea class="form-control wdType03" v-model="addParam.responsibilities" placeholder="岗位职责"></textarea>
+                        </div>
                     </div>
-                    <div class="col-md-12 form-group clearfix">
-<!--                        <subRe ref="sr"></subRe>-->
-                        <textarea style="height: 300px;width: 400px;" v-model="addParam.responsibilities"
-                                  placeholder="岗位职责"></textarea>
-                    </div>
-
 
                 </div>
                 <div class="dialogBtnBox form-group clearfix">

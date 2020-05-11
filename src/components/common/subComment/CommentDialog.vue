@@ -44,16 +44,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">评论内容</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix">
+                        <div class="col-md-6  clearfix" style="padding: 0;">
+                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">评论内容</label><span class="sign-left">:</span>
+                         </div>
+                        <div class="col-md-12 form-group clearfix">
                         <!--                        <SummerNote ref="sn"></SummerNote>-->
-                            <textarea  v-model="addParam.comContent"  placeholder="点评"></textarea>
+                            <textarea class="form-control wdType03" v-model="addParam.comContent"  placeholder="点评"></textarea>
                         </div>
                     </div>
-                    
+
 
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
