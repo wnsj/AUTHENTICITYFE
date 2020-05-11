@@ -194,9 +194,9 @@
             initData(param, addParam) {
 
                 $('#balDialog').modal({backdrop: 'static', keyboard: false});
+                this.horseTypeImgList = []
+                this.horseTypeImgFileList = []
                 if (param === 'add') {
-                    this.horseTypeImgList = []
-                    this.horseTypeImgFileList = []
                     $("#horseTypeImg").val("");
                     this.$refs.buildRef.setBuildId('0')
                     this.$refs.sale.setIsSale(0)
@@ -312,6 +312,7 @@
                 });
             },
             closeCurrentPage() {
+                this.horseTypeImgList = []
                 $("#balDialog").modal("hide")
             },
 
