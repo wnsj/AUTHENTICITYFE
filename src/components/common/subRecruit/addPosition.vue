@@ -70,7 +70,7 @@
             // Initialization projcet’s content
             initRef() {
                 $('#addP').modal({backdrop: 'static', keyboard: false});
-
+				this.$refs.ptRef.queryData()
             },
 
             fatherPt(data) {

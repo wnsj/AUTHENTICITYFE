@@ -34,6 +34,7 @@
                 this.queryData()
             },
             async queryData(typeId) {
+				console.log('------来啊--------')
                 var url = this.url + '/recruitLabelBean/getReLabel'
                 this.$ajax({
                     method: 'POST',
