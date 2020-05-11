@@ -142,7 +142,7 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
                     var en = []
-                    en.push(this.url + addParam.imgPathList)
+                    en.push(this.url + addParam.imgPathList[0])
                     this.picList = en
                     this.title = '修改';
                     // this.$refs.sn.setData(addParam.comContent)
