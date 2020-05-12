@@ -50,16 +50,6 @@
                                 <router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
                             </dd>
                         </dl>
-                        <dl v-bind:class="{h1:bool5}">
-                            <dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
-                                <i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
-                                    文章管理
-                                </i>
-                            </dt>
-                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
-                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">文章管理</i></router-link>
-                            </dd>
-                        </dl>
                         <dl v-bind:class="{h1:bool2}">
                             <dt @click="onShow(1)" v-bind:class="{'li-active':bool2}">
                                 <i class="fa" v-bind:class="{'fa-folder-open':bool2,'fa-folder':!bool2}" aria-hidden="true">
@@ -78,6 +68,16 @@
                             </dt>
                             <dd @click="addCheck('LinkPhone')" v-bind:class="{'li-active':onString=='LinkPhone'}">
                                 <router-link to="/MP/LinkPhone/LinkPhone"><i class="fa" aria-hidden="true">电话回拨管理</i></router-link>
+                            </dd>
+                        </dl>
+                        <dl v-bind:class="{h1:bool5}">
+                            <dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
+                                <i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
+                                    其他模块
+                                </i>
+                            </dt>
+                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
+                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">其他模块</i></router-link>
                             </dd>
                         </dl>
                     </div>
