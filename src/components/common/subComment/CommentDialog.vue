@@ -38,7 +38,7 @@
                             <div id="picImgOutDiv">
                                 <div v-for="(item,index) of picList" :key="index"
                                      v-show="picList.length!==0">
-                                    <div @click="fileDel(index)">x</div>
+                                    <div @click="fileDel(index),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -46,11 +46,13 @@
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">评论内容</label><span class="sign-left">:</span>
-                         </div>
+                            <label class="col-md-3 control-label text-right nopad end-aline"
+                                   style="padding:0;line-height:34px;">评论内容</label><span class="sign-left">:</span>
+                        </div>
                         <div class="col-md-12 form-group clearfix">
-                        <!--                        <SummerNote ref="sn"></SummerNote>-->
-                            <textarea class="form-control wdType03" v-model="addParam.comContent"  placeholder="点评"></textarea>
+                            <!--                        <SummerNote ref="sn"></SummerNote>-->
+                            <textarea class="form-control wdType03" v-model="addParam.comContent"
+                                      placeholder="点评"></textarea>
                         </div>
                     </div>
 
@@ -62,7 +64,8 @@
                                 data-toggle="modal"
                                 v-on:click="closeCurrentPage()">返回
                         </button>
-                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10"
+                                style="margin-right:1.5%;"
                                 data-toggle="modal"
                                 v-on:click="certainAction()">确认
                         </button>
@@ -82,7 +85,6 @@
     import CommentType from '../subComment/CommentType.vue'
     import Building from '../Building.vue'
 
-    var that = null
     export default {
         components: {
             // SummerNote,
@@ -105,13 +107,11 @@
                 title: '',
                 picList: [],
                 picFileList: [],
-                isDisable:false,
-                size:
-                    0,
-                imgData:
-                    {
-                        accept: 'image/gif, image/jpeg, image/png, image/jpg',
-                    }
+                isDisable: false,
+                size: 0,
+                imgData: {
+                    accept: 'image/gif, image/jpeg, image/png, image/jpg',
+                }
             };
         },
         methods: {
@@ -141,9 +141,17 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
-                    var en = []
-                    en.push(this.url + addParam.imgPathList[0])
-                    this.picList = en
+
+
+					if(null != addParam && null != addParam.imgPathList){
+                        var en = []
+                        for (var i = 0;i<addParam.imgPathList.length;i++) {
+                            en.push(this.url + addParam.imgPathList[i])
+                        }
+                        this.picList = en
+					}
+
+
                     this.title = '修改';
                     // this.$refs.sn.setData(addParam.comContent)
                     this.$refs.couTypeRef.setComId(addParam.coucType)
@@ -175,7 +183,6 @@
 
             //预览图
             picChange() {
-
                 var files = $("#picImg")[0].files; //获取file对象
                 for (let i = 0; i < files.length; i++) {
                     var file = files[i]
@@ -183,6 +190,7 @@
                 }
             },
             fileAdd(file, i) {
+                let thatThis = this;
                 let type = file.type;//文件的类型，判断是否是图片
                 let size = file.size;//文件的大小，判断图片的大小
                 if (this.imgData.accept.indexOf(type) === -1) {
@@ -193,7 +201,6 @@
                     alert('请选择3M以内的图片！');
                     return false;
                 }
-                let that = this;
                 // 总大小
                 this.size = this.size + file.size;
                 let reader = new FileReader();
@@ -203,18 +210,44 @@
                 // 监听reader对象的onload事件，当图片加载完成时，把base64编码賦值给预览图片
                 reader.onload = function () {
                     var dataUrl = reader.result;
-
+					console.log(this)
                     file.src = this.result;
-                    that.picFileList.push(file)
-                    that.picList.push(dataUrl)
-
+                    thatThis.picFileList.push(file)
+                    thatThis.picList.push(dataUrl)
                 }
             },
             fileDel(index) {
-                this.picList.splice(index);
-                this.picFileList.splice(index)
+                this.picList.splice(index, 1);
+                this.picFileList.splice(index, 1)
+            },
+            removeImg(item) {
+                if (this.title == '新增') return;
+                if (this.isBlank(item)) return;
+                var index = item.lastIndexOf('=');
+                var str = item.substring(index+1,item.length)
+                if (this.isBlank(str)) return;
+                var id = '';
+                id = parseInt(str)
+                console.log('字符串' + str);
+                this.$ajax({
+                    method: 'POST',
+                    url: this.url + '/buildingBean/deleteImgFile',
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {imgId:id},
+                    dataType: 'json',
+                }).then((response) => {
+                }).catch((error) => {
+                    console.log('楼盘信息提交失败')
+                });
             },
             certainAction() {
+                if (null != this.picList && this.picList.length > 3) {
+                    alert('请选择三张或三张以内图片')
+                    return;
+                }
                 this.isDisable = true
                 setTimeout(() => {
                     this.isDisable = false
@@ -273,7 +306,7 @@
             editor() {
                 return this.$refs.myQuillEditor.quill
             }
-        }
+        },
     }
 </script>
 

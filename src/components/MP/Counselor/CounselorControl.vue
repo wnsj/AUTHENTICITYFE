@@ -47,7 +47,7 @@
                             <th class="text-center">特长</th>
                             <th class="text-center">标签</th>
                             <th class="text-center">联系方式</th>
-                            <th class="text-center">自我介绍</th>
+                            <!-- <th class="text-center">自我介绍</th> -->
                         </tr>
                         </thead>
                         <tbody>
@@ -57,7 +57,7 @@
                             <td class="text-center" style="line-height:33px;">{{item.charaName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.couLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.tel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.introduce}}</td>
+                            <!-- <td class="text-center" style="line-height:33px;">{{item.introduce}}</td> -->
                         </tr>
                         </tbody>
                     </table>

@@ -349,6 +349,15 @@
 					return
 				}
 
+				if (parseInt(this.addParam.minPay) > parseInt(this.addParam.maxPay)) {
+				    alert('最大薪酬不能小于最小薪酬')
+                    return;
+                }
+
+                if (parseInt(this.addParam.minWorkingYears) > parseInt(this.addParam.maxWorkingYears)) {
+                    alert('最大工作年限不能小于最小工作年限')
+                    return;
+                }
                 switch (this.title) {
                     case '新增':
                         var url = this.url + '/recruitBean/addRecruit'

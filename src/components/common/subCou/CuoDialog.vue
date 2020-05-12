@@ -257,10 +257,15 @@
             pictureChange() {
 
                 var files = $("#picture")[0].files; //获取file对象
+
+                if (null != files) {
+                    this.picture = []
+                }
                 for (let i = 0; i < files.length; i++) {
                     var file = files[i]
                     this.fileAdd(file)
                 }
+
             },
             fileAdd(file) {
                 let type = file.type;//文件的类型，判断是否是图片
