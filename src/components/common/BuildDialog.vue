@@ -1305,7 +1305,6 @@
                 if (this.isBlank(str)) return;
                 var id = '';
                 id = parseInt(str)
-                console.log('字符串' + str);
                 this.$ajax({
                     method: 'POST',
                     url: this.url + '/buildingBean/deleteImgFile',
