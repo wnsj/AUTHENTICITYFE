@@ -853,52 +853,65 @@
                     this.title = '修改'
 
 
-                    var en = []
+
                     if (null !== addParam.effectPathList) {
+                        var en = []
                         for (var i = 0; i < addParam.effectPathList.length; i++) {
                             en.push(this.url + addParam.effectPathList[i])
                         }
+                        this.effectImgList = en
                     }
-                    this.effectImgList = en
 
 
-                    var enPlan = []
+
+
                     if (null !== addParam.enPlanPathList) {
+                        var enPlan = []
                         for (var i = 0; i < addParam.enPlanPathList.length; i++) {
                             enPlan.push(this.url + addParam.enPlanPathList[i])
                         }
+                        this.enPlanImgList = enPlan
                     }
-                    this.enPlanImgList = enPlan
 
 
-                    var buildRea = []
+
+
                     if (null !== addParam.buildReaPathList) {
+                        var buildRea = []
                         for (var i = 0; i < addParam.buildReaPathList.length; i++) {
                             buildRea.push(this.url + addParam.buildReaPathList[i])
                         }
+                        this.buildRealImgList = buildRea
                     }
-                    this.buildRealImgList = buildRea
 
 
-                    var matching = []
+
+
                     if (null !== addParam.matchingRealPathList) {
+                        var matching = []
                         for (var i = 0; i < addParam.matchingRealPathList.length; i++) {
                             matching.push(this.url + addParam.matchingRealPathList[i])
                         }
+                        this.matchingRealImgList = matching
                     }
-                    this.matchingRealImgList = matching
 
-                    var region = []
+
+
                     if (null !== addParam.regionPathList) {
+                        var region = []
                         for (var i = 0; i < addParam.regionPathList.length; i++) {
                             region.push(this.url + addParam.regionPathList[i])
                         }
+                        this.regionImgList = region
                     }
-                    this.regionImgList = region
 
-                    var img = []
-                    img.push(this.url + addParam.imgPath)
-                    this.headImgList = img
+
+                    if (null != addParam && null != addParam.imgPath) {
+                        var img = []
+                        img.push(this.url + addParam.imgPath)
+                        this.headImgList = img
+                    }
+
 
                     // console.log(JSON.stringify(addParam))
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
@@ -1284,6 +1297,7 @@
                 }
             },
             removeImg(item) {
+                alert("确定删除该图片？")
                 if (this.title == '新增') return;
                 if (this.isBlank(item)) return;
                 var index = item.lastIndexOf('=');
@@ -1313,7 +1327,8 @@
             editor() {
                 return this.$refs.myQuillEditor.quill
             }
-        }
+        },
+
     }
 </script>
 

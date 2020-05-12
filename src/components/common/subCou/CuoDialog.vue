@@ -176,9 +176,11 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
-                    var en = []
-                    en.push(this.url + addCou.picturePath)
-                    this.picture = en
+                    if (null != addCou && null != addCou.picturePath) {
+                        var en = []
+                        en.push(this.url + addCou.picturePath)
+                        this.picture = en
+                    }
                     this.title = '修改'
                     // this.$refs.couCharaRef.setCcId(addCou.ccId);
                     this.$refs.couLabel.setClId(addCou.labelList);
