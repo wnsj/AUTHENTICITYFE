@@ -92,12 +92,12 @@
                                style="padding:0;line-height:34px;">类型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*"
-                            />
+                            <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*" />
+                            <p class="redtips">*注意：宽434px*高471px</p>
                             <div id="horseTypeImgOutDiv">
                                 <div v-for="(item,index) of horseTypeImgList" :key="index"
                                      v-show="horseTypeImgList.length!==0">
-                                    <div @click="fileDel(index)">x</div>
+                                    <div @click="fileDel(index),removeImg(item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -224,9 +224,11 @@
                     }
                 } else if (param === 'modify') {
 
-                    var en = []
-                    en.push(this.url + addParam.horseImgPath)
-                    this.horseTypeImgList = en
+                    if (null != addParam && null != addParam.horseImgPath)  {
+                        var en = []
+                        en.push(this.url + addParam.horseImgPath)
+                        this.horseTypeImgList = en
+                    }
 
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
@@ -395,7 +397,30 @@
             fileDel(index) {
                 this.horseTypeImgList.splice(index, 1);
                 this.horseTypeImgFileList.splice(index, 1)
-            }
+            },
+            removeImg(item) {
+                if (this.title == '新增') return;
+                if (this.isBlank(item)) return;
+                var index = item.lastIndexOf('=');
+                var str = item.substring(index+1,item.length)
+                if (this.isBlank(str)) return;
+                var id = '';
+                id = parseInt(str)
+                console.log('字符串' + str);
+                this.$ajax({
+                    method: 'POST',
+                    url: this.url + '/buildingBean/deleteImgFile',
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {imgId:id},
+                    dataType: 'json',
+                }).then((response) => {
+                }).catch((error) => {
+                    console.log('楼盘信息提交失败')
+                });
+            },
         },
         computed: {
             editor() {

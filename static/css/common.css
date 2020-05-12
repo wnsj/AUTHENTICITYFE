@@ -190,3 +190,4 @@ body{
 /* .bigWidthModal #basic textarea{height: 300px!important;width: 500px!important;box-sizing: border-box;padding: 10px;border-radius: 11px;outline: none;} */
 
 #SdivInnerBox{overflow-x: hidden;overflow-y: auto;}
+.redtips{color: #FF0000;font-size: 10px;padding-top: 4px;}
