@@ -97,7 +97,7 @@
                             <div id="horseTypeImgOutDiv">
                                 <div v-for="(item,index) of horseTypeImgList" :key="index"
                                      v-show="horseTypeImgList.length!==0">
-                                    <div @click="fileDel(index),removeImg(item)">x</div>
+                                    <div @click="fileDel(index)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -398,29 +398,29 @@
                 this.horseTypeImgList.splice(index, 1);
                 this.horseTypeImgFileList.splice(index, 1)
             },
-            removeImg(item) {
-                if (this.title == '新增') return;
-                if (this.isBlank(item)) return;
-                var index = item.lastIndexOf('=');
-                var str = item.substring(index+1,item.length)
-                if (this.isBlank(str)) return;
-                var id = '';
-                id = parseInt(str)
-                console.log('字符串' + str);
-                this.$ajax({
-                    method: 'POST',
-                    url: this.url + '/buildingBean/deleteImgFile',
-                    headers: {
-                        'Content-Type': this.contentType,
-                        'Access-Token': this.accessToken
-                    },
-                    data: {imgId:id},
-                    dataType: 'json',
-                }).then((response) => {
-                }).catch((error) => {
-                    console.log('楼盘信息提交失败')
-                });
-            },
+            // removeImg(item) {
+            //     if (this.title == '新增') return;
+            //     if (this.isBlank(item)) return;
+            //     var index = item.lastIndexOf('=');
+            //     var str = item.substring(index+1,item.length)
+            //     if (this.isBlank(str)) return;
+            //     var id = '';
+            //     id = parseInt(str)
+            //     console.log('字符串' + str);
+            //     this.$ajax({
+            //         method: 'POST',
+            //         url: this.url + '/buildingBean/deleteImgFile',
+            //         headers: {
+            //             'Content-Type': this.contentType,
+            //             'Access-Token': this.accessToken
+            //         },
+            //         data: {imgId:id},
+            //         dataType: 'json',
+            //     }).then((response) => {
+            //     }).catch((error) => {
+            //         console.log('楼盘信息提交失败')
+            //     });
+            // },
         },
         computed: {
             editor() {
