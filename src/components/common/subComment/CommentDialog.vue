@@ -38,7 +38,7 @@
                             <div id="picImgOutDiv">
                                 <div v-for="(item,index) of picList" :key="index"
                                      v-show="picList.length!==0">
-                                    <div @click="fileDel(index),removeImg(item)">x</div>
+                                    <div @click="fileDel(index,item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -216,11 +216,18 @@
                     thatThis.picList.push(dataUrl)
                 }
             },
-            fileDel(index) {
+            fileDel(index,item) {
+
+                if (this.title == '修改') {
+                    if (!confirm("确定删除该图片？")){
+                        return;
+                    }
+                }
+
                 this.picList.splice(index, 1);
                 this.picFileList.splice(index, 1)
-            },
-            removeImg(item) {
+
+
                 if (this.title == '新增') return;
                 if (this.isBlank(item)) return;
                 var index = item.lastIndexOf('=');
@@ -228,7 +235,7 @@
                 if (this.isBlank(str)) return;
                 var id = '';
                 id = parseInt(str)
-                console.log('字符串' + str);
+
                 this.$ajax({
                     method: 'POST',
                     url: this.url + '/buildingBean/deleteImgFile',
@@ -243,6 +250,7 @@
                     console.log('楼盘信息提交失败')
                 });
             },
+
             certainAction() {
                 if (null != this.picList && this.picList.length > 3) {
                     alert('请选择三张或三张以内图片')
