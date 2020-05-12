@@ -306,9 +306,17 @@
             fatherUnReceive(data) {
                 this.unSon = []
                 if (null != data) {
+                    var begPrice = null;
+                    if (null != data.begPrice) {
+                        begPrice = data.begPrice*10000
+                    }
+                    var endPrice = null;
+                    if (null != data.endPrice) {
+                        endPrice = data.endPrice*10000
+                    }
                     let unParam = {
-                        minUnitPrice:data.begPrice,
-                        maxUnitPrice:data.endPrice
+                        minUnitPrice:begPrice,
+                        maxUnitPrice:endPrice
                     }
                     this.unSon.push(unParam)
                 }

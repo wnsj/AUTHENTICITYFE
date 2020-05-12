@@ -60,8 +60,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">售楼地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.saleAddress"
-                                   placeholder="必填,可填:无">
+                            <textarea value=""  style="resize:none" placeholder=""  class="form-control wdType02" v-model="addParam.saleAddress" placeholder="必填,可填:无" />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -76,8 +75,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyAddress"
-                                   placeholder="必填,可填:无">
+                            <textarea value="" style="resize:none" placeholder=""  class="form-control wdType02" v-model="addParam.propertyAddress" placeholder="必填,可填:无" />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -99,7 +97,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">总户数</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.households" placeholder="数值,可填:1">
+                            <input type="text" class="form-control intWid100" v-model="addParam.households" placeholder="数值,可填:1"><span class="Unit">户</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -329,7 +327,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.devId"/>
+                            <textarea class="form-control wdType02" value="" style="resize:none" placeholder="" v-model="addParam.devId" />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -343,7 +341,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.adress"/>
+                            <textarea class="form-control wdType02" style="resize:none" value="" placeholder="" v-model="addParam.adress" />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">

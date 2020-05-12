@@ -14,7 +14,7 @@
                     <input type="text" class="form-control" v-model="lpName"/>
                 </div>
             </div>
-            
+
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
                     v-on:click="couQueryData(1)">查询
@@ -31,7 +31,7 @@
                             <th class="text-center">电话</th>
                             <th class="text-center">预约时间</th>
                             <th class="text-center">创建时间</th>
-							<th class="text-center">备注</th>
+                            <th class="text-center">备注</th>
                             <th class="text-center">是否回拨</th>
                         </tr>
                         </thead>
@@ -40,9 +40,9 @@
                             <td class="text-center" style="line-height:33px;">{{item.lpName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.phone}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.writeDate}}</td>
-                            <td class="text-center" style="line-height:33px;" >{{item.createTime}}</td>
-							<td class="text-center" style="line-height:33px;" >{{item.form}}</td>
-                            <td class="text-center" >
+                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.form}}</td>
+                            <td class="text-center">
                                 <button type="button" :class="item.remarks == 2 ? 'btn btn-primary': 'btn btn-warning' "
                                         data-toggle="modal" :disabled="item.remarks == 2 ? false : true"
                                         v-on:click="patchReMarks(item)">{{item.remarksLabel}}
@@ -149,6 +149,9 @@
                 $("#phoneDialog").modal('hide')
             },
             async patchReMarks(item) {
+                if (!confirm("确定已回拨该客户？")) {
+                    return;
+                }
                 var url = this.url + '/linkPhoneBean/patchLinkById'
 
                 this.$ajax({
@@ -160,7 +163,7 @@
                     },
                     data: {
                         lpId: item.lpId,
-						remarks:'1',
+                        remarks: '1',
                     },
                     dataType: 'json',
                 }).then((response) => {
