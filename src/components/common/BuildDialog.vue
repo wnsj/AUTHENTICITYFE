@@ -285,14 +285,14 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.minUnitPrice" placeholder="必填"/><span class="pos-ab pos-tr">万</span>
+                            <input type="text" class="form-control " v-model="addParam.minUnitPrice" placeholder="必填"/><span class="pos-ab pos-tr">元</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.maxUnitPrice" placeholder="必填"/><span class="pos-ab pos-tr">万</span>
+                            <input type="text" class="form-control " v-model="addParam.maxUnitPrice" placeholder="必填"/><span class="pos-ab pos-tr">元</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -827,11 +827,11 @@
                         // 特价值
                         specialOffer: 1,
                         //是否推荐户型（1：是；2：否）
-                        recommend: 1,
+                        recommend: 2,
                         // 是否是优选楼盘（1：是；2：否）
-                        optimization: 1,
+                        optimization: 2,
                         //是否是品质楼盘（1：是；2：否）
-                        quality: 1,
+                        quality: 2,
                         // 经度
                         longitude: '1.0',
                         // 纬度
