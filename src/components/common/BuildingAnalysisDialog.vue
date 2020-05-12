@@ -92,8 +92,8 @@
                                style="padding:0;line-height:34px;">类型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*"
-                            />
+                            <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*" />
+                            <p class="redtips">*注意：宽434px*高471px</p>
                             <div id="horseTypeImgOutDiv">
                                 <div v-for="(item,index) of horseTypeImgList" :key="index"
                                      v-show="horseTypeImgList.length!==0">

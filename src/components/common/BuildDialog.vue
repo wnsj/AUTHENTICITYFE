@@ -382,9 +382,8 @@
                                style="padding:0;line-height:34px;">户型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                                <input type="file" id="effectImg" @change="effectImgChange"
-                                       accept="image/*"
-                                       multiple="multiple"/>
+                            <input type="file" id="effectImg" @change="effectImgChange" accept="image/*" multiple="multiple"/>
+                            <p class="redtips">*注意：宽620px*高380px</p>
                             <div id="effectImgOutDiv">
                                 <div v-for="(item,index) of effectImgList" :key="index"
                                      v-show="effectImgList.length!==0">
@@ -399,8 +398,8 @@
                                style="padding:0;line-height:34px;">小区环境</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="enPlanImg" @change="enPlanImgChange" accept="image/*"
-                                   multiple="multiple"/>
+                            <input type="file" id="enPlanImg" @change="enPlanImgChange" accept="image/*" multiple="multiple"/>
+                            <p class="redtips">*注意：宽620px*高380px</p>
                             <div id="enPlanImgOutDiv">
                                 <div v-for="(item,index) of enPlanImgList" :key="index"
                                      v-show="enPlanImgList.length!==0">
@@ -415,8 +414,8 @@
                                style="padding:0;line-height:34px;">实景图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
-                                   multiple="multiple"/>
+                            <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"  multiple="multiple"/>
+                            <p class="redtips">*注意：宽620px*高380px</p>
                             <div id="buildRealImgOutDiv">
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
@@ -431,8 +430,8 @@
                                style="padding:0;line-height:34px;">全景看房</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="matchingRealImg" @change="matchingRealImgChange" accept="image/*"
-                                   multiple="multiple"/>
+                            <input type="file" id="matchingRealImg" @change="matchingRealImgChange" accept="image/*" multiple="multiple"/>
+                            <p class="redtips">*注意：宽620px*高380px</p>
                             <div id="matchingRealImgOutDiv">
                                 <div v-for="(item,index) of matchingRealImgList" :key="index"
                                      v-show="matchingRealImgList.length!==0">
@@ -447,8 +446,8 @@
                                style="padding:0;line-height:34px;">区位</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="regionImg" @change="regionImgChange" accept="image/*"
-                                   multiple="multiple"/>
+                            <input type="file" id="regionImg" @change="regionImgChange" accept="image/*"  multiple="multiple"/>
+                            <p class="redtips">*注意：宽620px*高380px</p>
                             <div id="regionImgOutDiv">
                                 <div v-for="(item,index) of regionImgList" :key="index"
                                      v-show="regionImgList.length!==0">
@@ -459,12 +458,11 @@
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">头图</label><span
-                        class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="headImg" @change="headImgChange" accept="image/*"
-                            />
+                            <input type="file" id="headImg" @change="headImgChange" accept="image/*" />
+                            <p class="redtips">*注意：宽378px*高228px</p>
+
                             <div id="headImgOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <div @click="fileDel(index,5)">x</div>

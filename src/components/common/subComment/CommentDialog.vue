@@ -33,8 +33,8 @@
                                style="padding:0;line-height:34px;">图片</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="picImg" @change="picChange" accept="image/*"
-                                   multiple="multiple"/>
+                            <input type="file" id="picImg" @change="picChange" accept="image/*"  multiple="multiple"/>
+                            <p class="redtips">*注意：宽82px*高82px</p>
                             <div id="picImgOutDiv">
                                 <div v-for="(item,index) of picList" :key="index"
                                      v-show="picList.length!==0">

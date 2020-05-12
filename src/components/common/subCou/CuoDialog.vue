@@ -50,8 +50,8 @@
                                style="padding:0;line-height:34px;">照片</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="picture" @change="pictureChange" accept="image/*"
-                            />
+                            <input type="file" id="picture" @change="pictureChange" accept="image/*" />
+							<p class="redtips">*注意：宽82px*高82px</p>
                             <div id="pictureOutDiv">
                                 <div v-for="(item,index) of picture" :key="index"
                                      v-show="picture.length!==0">
