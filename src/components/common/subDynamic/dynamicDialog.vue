@@ -21,8 +21,14 @@
                             <Building @buildChange="fatherBuild" ref="buildRef"></Building>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix" style="width: 100%">
 
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">发布时间</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <datePicker v-model="addParam.createDate" type="date" value-type="format"
+                                        style="width: 97%"></datePicker>
+                        </div>
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
@@ -55,11 +61,13 @@
 
 
 <script>
+    import datePicker from 'vue2-datepicker'
     import RecruitNote from '../subRecruit/RecruitNote.vue'
     import Building from '../Building.vue'
     var that = null
     export default {
         components: {
+            datePicker,
             RecruitNote,
             Building
         },
@@ -71,7 +79,9 @@
                     // 标题
                     bdName:'',
                     // 楼盘id
-                    buildId:''
+                    buildId:'',
+                    // 发布时间
+                    createDate:''
                 },
                 title: '',
                 isDisable:false
