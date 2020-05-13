@@ -35,25 +35,44 @@
                 </div>
             </div>
             <!--特色-->
+<!--            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">-->
+<!--                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">-->
+<!--                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">特色</p><span-->
+<!--                    class="sign-left">:</span>-->
+<!--                </div>-->
+<!--                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">-->
+<!--                    <chara @charaChange='fatherChReceive'></chara>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">特色</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">环线</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <chara @charaChange='fatherChReceive'></chara>
+                    <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
                 </div>
             </div>
         </div>
 
         <div class="row newRow" style="margin-top: 1%">
+            <!--位置-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">面积</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">位置类型</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <ar @areaChange = 'fatherAreaReceive'></ar>
+                    <lt @ltChange='fatherLtReceive' ref="lt"></lt>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">位置</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
                 </div>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -74,15 +93,6 @@
                     <to @totalChange = 'fatherToReceive'></to>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">环线</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
-                </div>
-            </div>
 <!--            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">-->
 <!--                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">-->
 <!--                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">供应商</p><span-->
@@ -96,26 +106,15 @@
 
         <div class="row newRow" style="margin-top: 1%">
 
-            <!--位置-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">位置类型</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">面积</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <lt @ltChange='fatherLtReceive' ref="lt"></lt>
+                    <ar @areaChange = 'fatherAreaReceive'></ar>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">位置</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
-                </div>
-            </div>
-
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
                     <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span
@@ -160,7 +159,7 @@
                             <th class="text-center">类型</th>
 <!--                            <th class="text-center">特色</th>-->
                             <th class="text-center">面积</th>
-                            <th class="text-center">参考单价(万)</th>
+                            <th class="text-center">参考单价(元)</th>
                             <th class="text-center">参考总价(万)</th>
                             <th class="text-center">开盘时间</th>
 <!--                            <th class="text-center">咨询师</th>-->
