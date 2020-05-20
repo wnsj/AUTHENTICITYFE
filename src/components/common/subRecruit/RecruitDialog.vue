@@ -320,7 +320,7 @@
 					return
 				}
                 if(this.isBlank(this.addParam.education)){
-                    alert('学历未选择')
+                    alert('学历未填写')
                     return
                 }
 				if(this.isBlank(this.addParam.position)){
