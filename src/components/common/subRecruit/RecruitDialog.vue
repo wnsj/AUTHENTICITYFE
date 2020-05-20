@@ -323,20 +323,20 @@
 					alert('岗位未选择')
 					return
 				}
-				if(this.addParam.minPay == '' ||this.addParam.minPay == null){
+				if(this.addParam.minPay === '' ||this.addParam.minPay == null){
 					alert('最小薪酬必填')
 					return
 				}
-				if(this.addParam.maxPay == '' || this.addParam.maxPay == null){
+				if(this.addParam.maxPay === '' || this.addParam.maxPay == null){
 					alert('最大薪酬必填')
 					return
 				}
-                if(this.addParam.minWorkingYears == '' || this.addParam.minWorkingYears == null){
-                    alert('最小工作年限必填')
+                if(this.addParam.minWorkingYears === '' || this.addParam.minWorkingYears == null){
+                    alert('最小工龄必填')
                     return
                 }
-                if(this.addParam.maxWorkingYears == '' || this.addParam.maxWorkingYears == null){
-                    alert('最大工作年限必填')
+                if(this.addParam.maxWorkingYears === '' || this.addParam.maxWorkingYears == null){
+                    alert('最大工龄必填')
                     return
                 }
 				if(this.isBlank(this.addParam.recruitsNum)){
