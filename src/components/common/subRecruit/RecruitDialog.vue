@@ -259,17 +259,17 @@
                         // 职位类型
                         positionType:'',
                         // 招收人数
-                        recruitsNum:'0',
+                        recruitsNum:'1',
                         // 工作地点
                         workplace:'',
                         // 最小薪酬
                         minPay:'0',
                         // 最大薪酬
-                        maxPay:'0',
+                        maxPay:'1',
                         //最小工作年限
                         minWorkingYears:'0',
                         // 最大工作年限
-                        maxWorkingYears:'',
+                        maxWorkingYears:'1',
                         // 1:有五险一金；2：没有五险一金
                         fiveRisksFund:'',
                         // 1:包吃住；2：否
@@ -323,14 +323,22 @@
 					alert('岗位未选择')
 					return
 				}
-				if(this.isBlank(this.addParam.minPay)){
+				if(this.addParam.minPay == '' ||this.addParam.minPay == null){
 					alert('最小薪酬必填')
 					return
 				}
-				if(this.isBlank(this.addParam.maxPay)){
+				if(this.addParam.maxPay == '' || this.addParam.maxPay == null){
 					alert('最大薪酬必填')
 					return
 				}
+                if(this.addParam.minWorkingYears == '' || this.addParam.minWorkingYears == null){
+                    alert('最小工作年限必填')
+                    return
+                }
+                if(this.addParam.maxWorkingYears == '' || this.addParam.maxWorkingYears == null){
+                    alert('最大工作年限必填')
+                    return
+                }
 				if(this.isBlank(this.addParam.recruitsNum)){
 					alert('招聘人数必填')
 					return
@@ -349,13 +357,13 @@
 					return
 				}
 
-				if (parseInt(this.addParam.minPay) > parseInt(this.addParam.maxPay)) {
-				    alert('最大薪酬不能小于最小薪酬')
+				if (parseInt(this.addParam.minPay) >= parseInt(this.addParam.maxPay)) {
+				    alert('最大薪酬不能小于或等于最小薪酬')
                     return;
                 }
 
-                if (parseInt(this.addParam.minWorkingYears) > parseInt(this.addParam.maxWorkingYears)) {
-                    alert('最大工作年限不能小于最小工作年限')
+                if (parseInt(this.addParam.minWorkingYears) >= parseInt(this.addParam.maxWorkingYears)) {
+                    alert('最大工作年限不能小于或等于最小工作年限')
                     return;
                 }
                 switch (this.title) {

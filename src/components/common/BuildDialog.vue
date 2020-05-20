@@ -931,6 +931,10 @@
                     this.isDisable = false
                 }, 1000)
 
+                if (!((/^1[3456789]\d{9}$/).test(this.addParam.tel))) {
+                    alert('请输入正确的手机格式')
+                    return;
+                }
                 if (this.isBlank(this.addParam.longitude)) {
                     alert('经度不能为空或0')
                     return
@@ -1322,6 +1326,11 @@
                 });
             },
 
+            checkPhone(item) {
+                console.log('数据' + item);
+
+                return false
+            }
         },
         computed: {
             editor() {

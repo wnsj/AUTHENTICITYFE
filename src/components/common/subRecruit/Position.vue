@@ -1,7 +1,7 @@
 <template>
     <select class="form-control" v-model="id" v-on:change="pChange()">
         <option value="0">--未选择--</option>
-        <option v-for="(item,index) in positionList" :key="index" v-bind:value="item.id">{{item.recruitName}}</option>
+        <option v-for="(item,index) in positionList" :key="index" v-bind:value="item.recruitName">{{item.recruitName}}</option>
     </select>
 </template>
 
@@ -21,7 +21,7 @@
                         this.$emit('pChange', null)
                         return
                     }else{
-                        if (this.positionList[i].id === this.id) {
+                        if (this.positionList[i].recruitName === this.id) {
 
                             this.$emit('pChange', this.positionList[i].recruitName)
                             return
@@ -34,7 +34,6 @@
                 this.queryData()
             },
             async queryData(typeId) {
-				console.log('------来啊--------')
                 var url = this.url + '/recruitLabelBean/getReLabel'
                 this.$ajax({
                     method: 'POST',

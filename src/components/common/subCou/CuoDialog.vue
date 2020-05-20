@@ -194,6 +194,10 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
+                if (!((/^1[3456789]\d{9}$/).test(this.addCou.tel))) {
+                    alert('请输入正确的手机格式')
+                    return;
+                }
                 if (this.isBlank(this.addCou.couName)) {
                     alert('咨询师名字不能为空')
                     return
@@ -240,7 +244,7 @@
                         this.$emit('certainAction')
                     }
                 }).catch((error) => {
-                    console.log('楼盘信息提交失败')
+                    console.log('信息提交失败')
                 });
             },
             closeCurrentPage() {
