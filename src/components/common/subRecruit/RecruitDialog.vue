@@ -319,6 +319,10 @@
 					alert('岗位类型未选择')
 					return
 				}
+                if(this.isBlank(this.addParam.education)){
+                    alert('学历未选择')
+                    return
+                }
 				if(this.isBlank(this.addParam.position)){
 					alert('岗位未选择')
 					return
