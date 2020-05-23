@@ -2,7 +2,7 @@
 <template>
     <div class="modal-content">
         <div class="modal-header">
-            <h4 id="myModalLabel" class="modal-title">{{title}}备注</h4>
+            <h4 id="myModalLabel" class="modal-title">{{title}}反馈</h4>
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
@@ -21,12 +21,19 @@
                             <input type="text" class="form-control" disabled="false" v-model="addParam.phone"/>
                         </div>
                     </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">回访销售</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control " v-model="addParam.returnSale" placeholder="必填"/>
+                        </div>
+                    </div>
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">备注</label><span class="sign-left">:</span>
+                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">反馈</label><span class="sign-left">:</span>
                          </div>
                         <div class="col-md-12">
-                            <textarea  class="form-control wdType03" v-model="addParam.form" placeholder="项目介绍"></textarea>
+                            <textarea  class="form-control wdType03" v-model="addParam.form" placeholder="反馈"></textarea>
                         </div>
                     </div>
 
@@ -62,7 +69,9 @@
                     // 联系方式
                     phone:'',
                     // 备注
-                    form:''
+                    form:'',
+                    // 回访销售
+                    returnSale:''
                 },
                 title: '添加',
                 isDisable:false
@@ -82,6 +91,15 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
+
+                if (this.isBlank(this.addParam.returnSale)) {
+                    alert("请添加回访销售")
+                    return
+                }
+                if (this.isBlank(this.addParam.form)) {
+                    alert("请添加备注")
+                    return
+                }
                 this.$ajax({
                     method: 'POST',
                     url: this.url + '/linkPhoneBean/patchFormById',

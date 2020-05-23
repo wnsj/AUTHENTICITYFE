@@ -228,12 +228,12 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.specialOffer" placeholder="必填"/><span class="pos-ab pos-tr">万</span>
+                            <input type="text" class="form-control " v-model="addParam.specialOffer" placeholder="必填"/><span class="pos-ab pos-tr">万起</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">推荐户型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">推荐楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <select class="form-control" v-model="addParam.recommend">
                                 <option value=0>--未选择--</option>
@@ -267,30 +267,23 @@
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">最小总价</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最低总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control "  v-model="addParam.minTitlePrice" placeholder="必填"/><span class="pos-ab pos-tr">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">最大总价</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最高总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control "  v-model="addParam.maxTitlePrice" placeholder="必填"/><span class="pos-ab pos-tr">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">最小单价</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">均价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.minUnitPrice" placeholder="必填"/><span class="pos-ab pos-tr">元</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">最大单价</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.maxUnitPrice" placeholder="必填"/><span class="pos-ab pos-tr">元</span>
+                            <input type="text" class="form-control " v-model="addParam.averagePrice" placeholder="必填"/><span class="pos-ab pos-tr">元</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -576,13 +569,13 @@
                     btId: '',
                     // 户型
                     bhtIdList: [],
-                    // 最小总价
+                    // 最低总价
                     minTitlePrice: 1,
-                    // 最大总价
+                    // 最高总价
                     maxTitlePrice: 1,
-                    // 最小单价
+                    // 最低单价
                     minUnitPrice: 1,
-                    // 最大单价
+                    // 最高单价
                     maxUnitPrice: 1,
                     // 面积（小）
                     minArea: 1,
@@ -650,7 +643,7 @@
                     hotSearch: 1,
                     // 特价值
                     specialOffer: 1,
-                    //是否推荐户型（1：是；2：否）
+                    //是否推荐楼盘（1：是；2：否）
                     recommend: 1,
                     // 是否是优选楼盘（1：是；2：否）
                     optimization: 1,
@@ -664,6 +657,8 @@
                     buildDescription: '',
                     // 环线id
                     regionId: '',
+                    //均价
+                    averagePrice:1
                 },
                 title: '',
                 effectImgList:
@@ -750,13 +745,13 @@
                         btId: '',
                         // 户型
                         bhtIdList: [],
-                        // 最小总价
+                        // 最低总价
                         minTitlePrice: 1,
-                        // 最大总价
+                        // 最高总价
                         maxTitlePrice: 1,
-                        // 最小单价
+                        // 最低单价
                         minUnitPrice: 1,
-                        // 最大单价
+                        // 最高单价
                         maxUnitPrice: 1,
                         // 面积（小）
                         minArea: 1,
@@ -824,7 +819,7 @@
                         hotSearch: 1,
                         // 特价值
                         specialOffer: 1,
-                        //是否推荐户型（1：是；2：否）
+                        //是否推荐楼盘（1：是；2：否）
                         recommend: 2,
                         // 是否是优选楼盘（1：是；2：否）
                         optimization: 2,
@@ -837,7 +832,9 @@
                         // 楼盘特色描述
                         buildDescription: '',
                         // 环线id
-                        regionId: ''
+                        regionId: '',
+                        //均价
+                        averagePrice:1
                     }
                 } else if (param === 'modify') {
                     if (this.isBlank(addParam.videoPath)) {
@@ -931,10 +928,13 @@
                     this.isDisable = false
                 }, 1000)
 
-                if (!((/^1[3456789]\d{9}$/).test(this.addParam.tel))) {
-                    alert('请输入正确的手机格式')
-                    return;
+                if (!this.isBlank(this.addParam.tel)) {
+                    if (!((/^1[3456789]\d{9}$/).test(this.addParam.tel))) {
+                        alert('请输入正确的手机格式')
+                        return;
+                    }
                 }
+
                 if (this.isBlank(this.addParam.longitude)) {
                     alert('经度不能为空或0')
                     return
@@ -1019,13 +1019,13 @@
                     alert('人气值不能为空或0')
                     return
                 }
+                if (this.isBlank(parseInt(this.addParam.averagePrice))) {
+                    alert('均价不能为空或0')
+                    return
+                }
 
                 if (parseInt(this.addParam.minArea) > parseInt(this.addParam.maxArea)){
                     alert('最大面积不能小于最小面积')
-                    return;
-                }
-                if (parseInt(this.addParam.minUnitPrice) > parseInt(this.addParam.maxUnitPrice)) {
-                    alert('最大单价不能小于最小单价')
                     return;
                 }
                 if (parseInt(this.addParam.minTitlePrice) > parseInt(this.addParam.maxTitlePrice)) {

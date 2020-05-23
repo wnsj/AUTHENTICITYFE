@@ -4,14 +4,14 @@
             <h1 class="titleCss">电话回拨管理</h1>
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
-            <!--楼盘-->
+
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">联系人</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">联系电话</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <input type="text" class="form-control" v-model="lpName"/>
+                    <input type="text" class="form-control" v-model="phone"/>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@
         data() {
             return {
                 // 联系人的姓名
-                lpName: '',
+                phone: '',
                 lpId: '',
                 couData: [],
                 //分页需要的数据
@@ -123,7 +123,7 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        lpName: this.lpName,
+                        phone: this.phone,
                         current: page,
                         pageSize: this.pageSize
                     },
@@ -153,6 +153,10 @@
                 $("#phoneDialog").modal('hide')
             },
             async patchReMarks(item) {
+                if (this.isBlank(item.form)) {
+                    alert("请添加该客户备注")
+                    return;
+                }
                 if (!confirm("确定已回拨该客户？")) {
                     return;
                 }

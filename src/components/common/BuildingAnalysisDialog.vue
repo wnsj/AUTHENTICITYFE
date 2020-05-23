@@ -38,7 +38,7 @@
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">楼层</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最高</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.floor" placeholder="例: 30层"/>
                         </div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">类型图</label><span
+                               style="padding:0;line-height:34px;">户型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*" />

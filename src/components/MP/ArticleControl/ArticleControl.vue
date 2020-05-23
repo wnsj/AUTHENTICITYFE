@@ -41,7 +41,7 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">ID</th>
+<!--                            <th class="text-center">ID</th>-->
                             <th class="text-center">文章类型</th>
                             <th class="text-center">文章标题</th>
                             <th class="text-center">创建时间</th>
@@ -49,7 +49,7 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.id}}</td>
+<!--                            <td class="text-center" style="line-height:33px;">{{item.id}}</td>-->
                             <td class="text-center" style="line-height:33px;">{{item.articleTypeLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.title}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.createDate}}</td>
