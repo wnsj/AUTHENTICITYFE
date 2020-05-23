@@ -80,6 +80,22 @@
                                 <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">其他模块</i></router-link>
                             </dd>
                         </dl>
+<!--                        <el-row class="tac">-->
+<!--                            <el-col :span="24">-->
+<!--                                <el-menu-->
+<!--                                    class="el-menu-vertical-demo">-->
+<!--                                    <el-submenu v-for="item in menuList" v-if="item.menuBeanList != null">-->
+<!--                                        <template slot="title">-->
+<!--                                            <span>{{item.menuName}}</span>-->
+<!--                                        </template>-->
+<!--                                        <el-submenu v-for="item_child in item.menuBeanList" index="item.menuCode">-->
+<!--                                            <template slot="title">选项1</template>-->
+<!--                                            <el-menu-item index="1-1-1">选项1</el-menu-item>-->
+<!--                                        </el-submenu>-->
+<!--                                    </el-submenu>-->
+<!--                                </el-menu>-->
+<!--                            </el-col>-->
+<!--                        </el-row>-->
                     </div>
                 </div>
                 <div id="Sdiv" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="overflow: inherit;position: relative; ">
@@ -108,6 +124,7 @@
                 accountName:this.accountName(),
                 accountId:this.accountId(),
                 phoneFlag:true,
+                menuList:sessionStorage.getItem("menuList"),
                 itemList:[],
                 bool1:false,
                 bool2:false,

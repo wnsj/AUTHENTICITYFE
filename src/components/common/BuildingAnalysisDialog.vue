@@ -40,7 +40,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最高</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.floor" placeholder="例: 30层"/>
+                            <input type="text" class="form-control" v-model="addParam.floor" placeholder="例: 30"/><span class="pos-ab pos-tr">层</span>
                         </div>
                     </div>
 
