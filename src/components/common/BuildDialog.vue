@@ -342,7 +342,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">联系方式</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.tel"/>
+                            <input type="text" class="form-control" v-model="addParam.tel" placeholder="填写规范的联系方式"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -929,12 +929,12 @@
                     this.isDisable = false
                 }, 1000)
 
-                if (!this.isBlank(this.addParam.tel)) {
-                    if (!((/^1[3456789]\d{9}$/).test(this.addParam.tel))) {
-                        alert('请输入正确的手机格式')
-                        return;
-                    }
-                }
+                // if (!this.isBlank(this.addParam.tel)) {
+                //     if (!((/^((\d{2,3}-\d{7,8})|(^[0-9]*$))$/).test(this.addParam.tel))) {
+                //         alert('请输入正确的手机格式')
+                //         return;
+                //     }
+                // }
 
                 if (this.isBlank(this.addParam.longitude)) {
                     alert('经度不能为空或0')
