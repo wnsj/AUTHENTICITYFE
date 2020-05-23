@@ -34,7 +34,7 @@
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="picImg" @change="picChange" accept="image/*"  multiple="multiple"/>
-                            <p class="redtips">*注意：宽82px*高82px</p>
+                            <p class="redtips">*注意：宽82px*高82px,数量不能超过3张</p>
                             <div id="picImgOutDiv">
                                 <div v-for="(item,index) of picList" :key="index"
                                      v-show="picList.length!==0">
