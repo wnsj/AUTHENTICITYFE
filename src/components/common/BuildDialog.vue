@@ -65,17 +65,17 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">楼盘特点</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.buildDescription"
-                                   placeholder="必填,可填:无">
+                            <textarea value="" style="resize:none" placeholder=""  class="form-control wdType02" v-model="addParam.propertyAddress" placeholder="必填,可填:无" />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">楼盘特点</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <textarea value="" style="resize:none" placeholder=""  class="form-control wdType02" v-model="addParam.propertyAddress" placeholder="必填,可填:无" />
+                            <input type="text" class="form-control" v-model="addParam.buildDescription"
+                                   placeholder="必填,可填:无">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -170,6 +170,13 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">环线</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">位置类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <lt @ltChange='fatherLtReceive'></lt>
@@ -180,13 +187,6 @@
                                style="padding:0;line-height:34px;">位置</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">环线</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -255,6 +255,13 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">均价</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control " v-model="addParam.averagePrice" placeholder="必填"/><span class="pos-ab pos-tr">元</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">品质楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <select class="form-control" v-model="addParam.quality">
@@ -277,13 +284,6 @@
                                style="padding:0;line-height:34px;">最高总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control "  v-model="addParam.maxTitlePrice" placeholder="必填"/><span class="pos-ab pos-tr">万</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">均价</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.averagePrice" placeholder="必填"/><span class="pos-ab pos-tr">元</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -316,18 +316,19 @@
                             <is-sale @isSaleChange='fatherIsSaleReceive' ref="saleRef"></is-sale>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <textarea class="form-control wdType02" value="" style="resize:none" placeholder="" v-model="addParam.devId" />
-                        </div>
-                    </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特色标签</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <Charas @charsChange='fatherChReceive' ref="charsRef"></Charas>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <textarea class="form-control wdType02" value="" style="resize:none" placeholder="" v-model="addParam.devId" />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
