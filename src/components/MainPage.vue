@@ -2,12 +2,12 @@
     <div class="root">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 aside-logo">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 con-cen" style="height:100%;">
-                <h2 class="pull-left" >
-                    <img style="width: 156px; height: 57px;" src="../assets/img/lp_logo.jpg" />
+                <h2 class="pull-left">
+                    <img style="width: 156px; height: 57px;" src="../assets/img/lp_logo.jpg"/>
                 </h2>
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-right">
-                <h1 class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right titleNow" >{{titleNow}}</h1>
+                <h1 class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right titleNow">{{titleNow}}</h1>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
                     <!-- <p style="color: #1b4fa3;">欢迎<span style="color: #d58512;"> {{accountName}} </span>来到，寄居找房管理系统</p> -->
                     <button class="btn btn-default m_r_10" style="margin-top: 20px;" v-on:click="loginOut()">退出</button>
@@ -17,91 +17,107 @@
         <div class="container-fluid clear-mp" id="Odiv">
             <div class="row clear-mp">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-aside clear-mp" id="Adiv" style="padding-top: 10px;">
-                    <p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #047EB1;text-align: left; margin-bottom:10px;">功能列表</p>
+                    <p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #047EB1;text-align: left; margin-bottom:10px;">
+                        功能列表</p>
                     <div id="aside-menu">
 
-                        <dl v-bind:class="{h4:bool4}">
-                            <dt @click="onShow(3)" v-bind:class="{'li-active':bool4}">
-                                <i class="fa" v-bind:class="{'fa-folder-open':bool4,'fa-folder':!bool4}" aria-hidden="true">
-                                    楼盘相关
-                                </i>
-                            </dt>
+                                                <dl v-bind:class="{h4:bool4}">
+                                                    <dt @click="onShow(3)" v-bind:class="{'li-active':bool4}">
+                                                        <i class="fa" v-bind:class="{'fa-folder-open':bool4,'fa-folder':!bool4}" aria-hidden="true">
+                                                            楼盘相关
+                                                        </i>
+                                                    </dt>
 
-                            <dd @click="addCheck('BuildingControl')" v-bind:class="{'li-active':onString=='BuildingControl'}">
-                                <router-link to="/MP/BuildingControl/BuildingControl"><i class="fa" aria-hidden="true">楼盘管理</i></router-link>
-                            </dd>
-                            <dd @click="addCheck('BuildingAnalysis')" v-bind:class="{'li-active':onString=='BuildingAnalysis'}">
-                                <router-link to="/MP/BuildingAnalysis/BuildingAnalysis"><i class="fa" aria-hidden="true">户型分析管理</i></router-link>
-                            </dd>
-                            <dd @click="addCheck('CounselorControl')" v-bind:class="{'li-active':onString=='CounselorControl'}">
-                                <router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
-                            </dd>
-                            <dd @click="addCheck('Comment')" v-bind:class="{'li-active':onString=='Comment'}">
-                                <router-link to="/MP/Comment/Comment"><i class="fa" aria-hidden="true">点评管理</i></router-link>
-                            </dd>
-                        </dl>
-                        <dl v-bind:class="{h1:bool1}">
-                            <dt @click="onShow(0)" v-bind:class="{'li-active':bool1}">
-                                <i class="fa" v-bind:class="{'fa-folder-open':bool1,'fa-folder':!bool1}" aria-hidden="true">
-                                    招聘相关
-                                </i>
-                            </dt>
-                            <dd @click="addCheck('RecruitControl')" v-bind:class="{'li-active':onString=='RecruitControl'}">
-                                <router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
-                            </dd>
-                        </dl>
-                        <dl v-bind:class="{h1:bool2}">
-                            <dt @click="onShow(1)" v-bind:class="{'li-active':bool2}">
-                                <i class="fa" v-bind:class="{'fa-folder-open':bool2,'fa-folder':!bool2}" aria-hidden="true">
-                                    楼盘动态
-                                </i>
-                            </dt>
-                            <dd @click="addCheck('BuildingDynamic')" v-bind:class="{'li-active':onString=='BuildingDynamic'}">
-                                <router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">动态管理</i></router-link>
-                            </dd>
-                        </dl>
-                        <dl v-bind:class="{h1:bool3}" v-show=phoneFlag>
-                            <dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
-                                <i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
-                                    电话回拨
-                                </i>
-                            </dt>
-                            <dd @click="addCheck('LinkPhone')" v-bind:class="{'li-active':onString=='LinkPhone'}">
-                                <router-link to="/MP/LinkPhone/LinkPhone"><i class="fa" aria-hidden="true">电话回拨管理</i></router-link>
-                            </dd>
-                        </dl>
-                        <dl v-bind:class="{h1:bool5}">
-                            <dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
-                                <i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
-                                    其他模块
-                                </i>
-                            </dt>
-                            <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
-                                <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">其他模块</i></router-link>
-                            </dd>
-                        </dl>
+                                                    <dd @click="addCheck('BuildingControl')" v-bind:class="{'li-active':onString=='BuildingControl'}">
+                                                        <router-link to="/MP/BuildingControl/BuildingControl"><i class="fa" aria-hidden="true">楼盘管理</i></router-link>
+                                                    </dd>
+                                                    <dd @click="addCheck('BuildingAnalysis')" v-bind:class="{'li-active':onString=='BuildingAnalysis'}">
+                                                        <router-link to="/MP/BuildingAnalysis/BuildingAnalysis"><i class="fa" aria-hidden="true">户型分析管理</i></router-link>
+                                                    </dd>
+                                                    <dd @click="addCheck('CounselorControl')" v-bind:class="{'li-active':onString=='CounselorControl'}">
+                                                        <router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
+                                                    </dd>
+                                                    <dd @click="addCheck('Comment')" v-bind:class="{'li-active':onString=='Comment'}">
+                                                        <router-link to="/MP/Comment/Comment"><i class="fa" aria-hidden="true">点评管理</i></router-link>
+                                                    </dd>
+                                                </dl>
+                                                <dl v-bind:class="{h1:bool1}">
+                                                    <dt @click="onShow(0)" v-bind:class="{'li-active':bool1}">
+                                                        <i class="fa" v-bind:class="{'fa-folder-open':bool1,'fa-folder':!bool1}" aria-hidden="true">
+                                                            招聘相关
+                                                        </i>
+                                                    </dt>
+                                                    <dd @click="addCheck('RecruitControl')" v-bind:class="{'li-active':onString=='RecruitControl'}">
+                                                        <router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
+                                                    </dd>
+                                                </dl>
+                                                <dl v-bind:class="{h1:bool2}">
+                                                    <dt @click="onShow(1)" v-bind:class="{'li-active':bool2}">
+                                                        <i class="fa" v-bind:class="{'fa-folder-open':bool2,'fa-folder':!bool2}" aria-hidden="true">
+                                                            楼盘动态
+                                                        </i>
+                                                    </dt>
+                                                    <dd @click="addCheck('BuildingDynamic')" v-bind:class="{'li-active':onString=='BuildingDynamic'}">
+                                                        <router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">动态管理</i></router-link>
+                                                    </dd>
+                                                </dl>
+                                                <dl v-bind:class="{h1:bool3}" v-show=phoneFlag>
+                                                    <dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
+                                                        <i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
+                                                            电话回拨
+                                                        </i>
+                                                    </dt>
+                                                    <dd @click="addCheck('LinkPhone')" v-bind:class="{'li-active':onString=='LinkPhone'}">
+                                                        <router-link to="/MP/LinkPhone/LinkPhone"><i class="fa" aria-hidden="true">电话回拨管理</i></router-link>
+                                                    </dd>
+                                                </dl>
+                                                <dl v-bind:class="{h1:bool5}">
+                                                    <dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
+                                                        <i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
+                                                            其他模块
+                                                        </i>
+                                                    </dt>
+                                                    <dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
+                                                        <router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">其他模块</i></router-link>
+                                                    </dd>
+                                                </dl>
 <!--                        <el-row class="tac">-->
 <!--                            <el-col :span="24">-->
-<!--                                <el-menu-->
-<!--                                    class="el-menu-vertical-demo">-->
-<!--                                    <el-submenu v-for="item in menuList" v-if="item.menuBeanList != null">-->
-<!--                                        <template slot="title">-->
-<!--                                            <span>{{item.menuName}}</span>-->
-<!--                                        </template>-->
-<!--                                        <el-submenu v-for="item_child in item.menuBeanList" index="item.menuCode">-->
-<!--                                            <template slot="title">选项1</template>-->
-<!--                                            <el-menu-item index="1-1-1">选项1</el-menu-item>-->
+<!--                                <el-menu :unique-opened="true" :router="true"-->
+<!--                                         class="el-menu-vertical-demo">-->
+<!--                                    <template v-for="item in menuList">-->
+<!--                                        <el-submenu :index="item.menuPath" :key="item.menuPath">-->
+<!--                                            <template slot="title"><span>{{item.menuName}}</span></template>-->
+<!--                                            <template v-for="itemChild in item.menuBeanList">-->
+<!--                                                &lt;!&ndash;三级菜单&ndash;&gt;-->
+<!--                                                <el-submenu-->
+<!--                                                    v-if="itemChild.menuBeanList && itemChild.menuBeanList.length"-->
+<!--                                                    :index="itemChild.menuPath" :key="itemChild.menuPath">-->
+<!--                                                    <template slot="title"><span>{{itemChild.menuName}}</span>-->
+<!--                                                    </template>-->
+<!--                                                    <el-menu-item v-for="itemChildChild in itemChild.menuBeanList"-->
+<!--                                                                  :index="itemChildChild.menuPath"-->
+<!--                                                                  :key="itemChildChild.menuPath">-->
+<!--                                                        <span slot="title">{{itemChildChild.menuName}}</span>-->
+<!--                                                    </el-menu-item>-->
+<!--                                                </el-submenu>-->
+<!--                                                &lt;!&ndash;二级菜单&ndash;&gt;-->
+<!--                                                <el-menu-item v-else :index="itemChild.menuPath" :key="itemChild.menuPath">-->
+<!--                                                    <span slot="title">{{itemChild.menuName}}</span></el-menu-item>-->
+<!--                                            </template>-->
 <!--                                        </el-submenu>-->
-<!--                                    </el-submenu>-->
+<!--                                    </template>-->
 <!--                                </el-menu>-->
 <!--                            </el-col>-->
 <!--                        </el-row>-->
                     </div>
+                    `
                 </div>
-                <div id="Sdiv" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="overflow: inherit;position: relative; ">
+                <div id="Sdiv" class="col-xs-10 col-sm-10 col-md-10 col-lg-10"
+                     style="overflow: inherit;position: relative; ">
                     <div id="SdivInnerBox">
-                        <router-view />
-                     </div>
+                        <router-view/>
+                    </div>
                     <div style="position: relative;width: 100%;overflow: hidden;padding: 20px 0; ">@ 版权所有：九博科技有限公司</div>
                 </div>
             </div>
@@ -116,32 +132,31 @@
     import {
         init
     } from '@/../static/js/common.js'
+
     export default {
-        components: {
-        },
+        components: {},
         data() {
             return {
-                accountName:this.accountName(),
-                accountId:this.accountId(),
-                phoneFlag:true,
-                menuList:sessionStorage.getItem("menuList"),
-                itemList:[],
-                bool1:false,
-                bool2:false,
-                bool3:false,
-                bool4:true,
-                bool5:false,
-                onString:'MemberSummary',
-                titleNow:'楼盘管理'
+                accountName: this.accountName(),
+                accountId: this.accountId(),
+                phoneFlag: true,
+                // menuList: [],
+                bool1: false,
+                bool2: false,
+                bool3: false,
+                bool4: true,
+                bool5: false,
+                onString: 'MemberSummary',
+                titleNow: '楼盘管理'
             }
         },
-        methods:{
-            titleChange(param){
-                console.log('param:'+param)
-                this.title=param
+        methods: {
+            titleChange(param) {
+                console.log('param:' + param)
+                this.title = param
             },
-            onShow(index){
-                switch(index){
+            onShow(index) {
+                switch (index) {
                     case 0:
                         this.bool1 = !this.bool1;
                         this.bool2 = false;
@@ -180,7 +195,7 @@
                 }
 
             },
-            addCheck(string){
+            addCheck(string) {
                 this.onString = string;
                 //console.log(string);
                 if (string == 'BuildingControl') {
@@ -204,7 +219,7 @@
                     return false;
                 }
                 if (string == 'ArticleControl') {
-                    this.titleNow = '文章管理';
+                    this.titleNow = '其他模块';
                     return false;
                 }
                 if (string == 'BuildingDynamic') {
@@ -216,11 +231,11 @@
                     return false;
                 }
             },
-            gainFun(data){
+            gainFun(data) {
                 this.onString = data;
                 this.bool2 = true;
             },
-            gainFun2(data){
+            gainFun2(data) {
                 this.onString = data;
                 this.bool2 = true;
             },
@@ -244,9 +259,11 @@
                 } else {
                     this.phoneFlag = false
                 }
-            }
+            },
         },
         mounted() {
+            // var menu = JSON.parse(sessionStorage.getItem("menuList"));
+            // this.menuList = menu.menuBeanList
             init();
         },
         created() {
@@ -284,19 +301,19 @@
     }
 
     #aside-menu dl.h4 {
-		margin-top: 0px;
+        margin-top: 0px;
         height: 250px;
     }
 
     #aside-menu dl.h2 {
-		margin-top: 0px;
+        margin-top: 0px;
         height: 150px;
     }
 
-	#aside-menu dl.h1 {
-		margin-top: 0px;
-	    height: 100px;
-	}
+    #aside-menu dl.h1 {
+        margin-top: 0px;
+        height: 100px;
+    }
 
     #aside-menu dl dt {
         height: 50px;

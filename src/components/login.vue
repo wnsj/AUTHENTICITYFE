@@ -62,8 +62,9 @@
 							Cookies.set('accessToken', this.accountData.accessToken,"30MIN");
 							Cookies.set('accountData', this.accountData.accountData, "30MIN");
 						}
-						// sessionStorage.setItem("menuList",this.accountData.menuData)
-						this.$parent.setRouter("/MainPage");
+                        // sessionStorage.setItem("menuList",JSON.stringify(this.accountData.menuData))
+
+                        this.$parent.setRouter("/MainPage");
 					} else {
 						this.btnText = '登录';
 						alert(response.data.retMsg);
