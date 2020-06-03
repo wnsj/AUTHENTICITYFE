@@ -17,7 +17,7 @@
         },
         methods: {
 
-            locationTypeChange: function(locationType) {
+            locationTypeChange: function() {
                 var url = this.url + '/locationDistinguishBean/getAllDis'
                 this.$ajax({
                     method: 'POST',
@@ -26,7 +26,7 @@
                         'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
-                    data: {'ltId':locationType},
+                    data: {},
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data

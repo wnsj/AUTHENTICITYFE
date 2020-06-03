@@ -63,13 +63,13 @@
                             <textarea value=""  style="resize:none" placeholder=""  class="form-control wdType02" v-model="addParam.saleAddress" placeholder="必填,可填:无" />
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <textarea value="" style="resize:none" placeholder=""  class="form-control wdType02" v-model="addParam.propertyAddress" placeholder="必填,可填:无" />
-                        </div>
-                    </div>
+<!--                    <div class="col-md-6 form-group clearfix">-->
+<!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                               style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>-->
+<!--                        <div class="col-md-8">-->
+<!--                            <textarea value="" style="resize:none" placeholder=""  class="form-control wdType02" v-model="addParam.propertyAddress" placeholder="必填,可填:无" />-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘特点</label><span class="sign-left">:</span>
@@ -143,7 +143,7 @@
                                style="padding:0;line-height:34px;">物业费</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.propertyFee"
-                                   placeholder="数值,可填:1"><span class="pos-ab pos-tr">元 / 年</span>
+                                   placeholder="数值,可填:1"><span class="pos-ab pos-tr">元 / 平米 / 年</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -175,16 +175,23 @@
                             <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
                         </div>
                     </div>
+<!--                    <div class="col-md-6 form-group clearfix">-->
+<!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                               style="padding:0;line-height:34px;">位置类型</label><span class="sign-left">:</span>-->
+<!--                        <div class="col-md-8">-->
+<!--                            <lt @ltChange='fatherLtReceive'></lt>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">位置类型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">地铁</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <lt @ltChange='fatherLtReceive'></lt>
+                            <Metros @metrosChange='fatherMetrosReceive' ref="metrosRef"></Metros>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">位置</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">区域</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
                         </div>
@@ -418,7 +425,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">全景看房</label><span
+                               style="padding:0;line-height:34px;">样板间图片</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="matchingRealImg" @change="matchingRealImgChange" accept="image/*" multiple="multiple"/>
@@ -490,22 +497,22 @@
 
                     </div>
 
-
-
-
                 </div>
 
                 <div class="dialogBtnBox form-group clearfix">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"
-                                data-toggle="modal"
-                                v-on:click="closeCurrentPage()">返回
-                        </button>
-                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10"
-                                style="margin-right:1.5%;"
-                                data-toggle="modal"
-                                v-on:click="certainAction()">确认
-                        </button>
+<!--                        <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;"-->
+<!--                                data-toggle="modal"-->
+<!--                                v-on:click="closeCurrentPage()">返回-->
+<!--                        </button>-->
+<!--                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10"-->
+<!--                                style="margin-right:1.5%;"-->
+<!--                                data-toggle="modal"-->
+<!--                                v-on:click="certainAction()">确认-->
+<!--                        </button>-->
+                        <el-button type="primary" style="margin-right: 25%" v-on:click="certainAction()" :loading=loading>{{btnName}}</el-button>
+                        <el-button type="warning" v-on:click="closeCurrentPage()">返回</el-button>
+
                     </div>
                 </div>
 
@@ -522,13 +529,14 @@
     import bt from '../common/BildType.vue'
     import BuildHorseTypes from '../common/BuildHorseTypes.vue'
     import isSale from '../common/IsSale.vue'
-    import lt from '../common/LocationType.vue'
+    // import lt from '../common/LocationType.vue'
     import ldt from '../common/LocationDType.vue'
     import dev from '../common/Dev.vue'
     import Charas from '../common/Charas.vue'
     import cou from './subCou/Counselor.vue'
     import pro from '../common/Province.vue'
     import Region from '../common/Region.vue'
+    import Metros from '../common/Metros.vue'
     import PlayAV from '../common/PlayAV.vue'
 
     var that = null
@@ -550,13 +558,14 @@
             bt,
             BuildHorseTypes,
             isSale,
-            lt,
+            // lt,
             ldt,
             dev,
             Charas,
             cou,
             pro,
             Region,
+            Metros,
             PlayAV
         },
         data() {
@@ -658,6 +667,8 @@
                     buildDescription: '',
                     // 环线id
                     regionId: '',
+                    // 地铁线
+                    metroIdList: [],
                     //均价
                     averagePrice:1
                 },
@@ -690,7 +701,9 @@
                         accept: 'image/gif, image/jpeg, image/png, image/jpg',
                     },
                 playAvOutDivFlag:true,
-                videoName:''
+                videoName:'',
+                loading: false,
+                btnName:'确认'
             }
                 ;
         },
@@ -698,6 +711,8 @@
             // Initialization projcet’s content
             initData(param, addParam) {
 
+                this.btnName = '确认'
+                this.loading =  false
                 this.effectImgList = []
 
                 this.enPlanImgList = []
@@ -737,6 +752,7 @@
                     this.$refs.bhtsRef.setBhtIdList([])
                     this.$refs.proRef.setProId('0')
                     this.$refs.regionRef.setRegionId('0')
+                    this.$refs.metrosRef.setMetroIdList([])
                     this.addParam = {
                         // 楼盘名称
                         htName: '',
@@ -834,6 +850,8 @@
                         buildDescription: '',
                         // 环线id
                         regionId: '',
+                        // 地铁线
+                        metroIdList: [],
                         //均价
                         averagePrice:1
                     }
@@ -918,16 +936,18 @@
                     this.$refs.bhtsRef.setBhtIdList(addParam.bhtIdList)
                     this.$refs.proRef.setProId(addParam.proId)
                     this.$refs.regionRef.setRegionId(addParam.regionId)
+                    this.$refs.metrosRef.setMetroIdList(addParam.metroIdList)
                     Object.assign(this.addParam, addParam)
                 }
             },
 
 
             certainAction() {
-                this.isDisable = true
-                setTimeout(() => {
-                    this.isDisable = false
-                }, 1000)
+                // this.isDisable = true
+                //
+                // setTimeout(() => {
+                //     this.isDisable = false
+                // }, 1000)
 
                 // if (!this.isBlank(this.addParam.tel)) {
                 //     if (!((/^((\d{2,3}-\d{7,8})|(^[0-9]*$))$/).test(this.addParam.tel))) {
@@ -952,10 +972,10 @@
                     alert('售楼地址不能为空')
                     return
                 }
-                if (this.isBlank(this.addParam.propertyAddress)) {
-                    alert('物业地址不能为空')
-                    return
-                }
+                // if (this.isBlank(this.addParam.propertyAddress)) {
+                //     alert('物业地址不能为空')
+                //     return
+                // }
                 if (this.isBlank(this.addParam.decoration)) {
                     alert('装修情况不能为空')
                     return
@@ -1033,6 +1053,10 @@
                     alert('最大总价不能小于最小总价')
                     return;
                 }
+
+                this.loading = true
+                this.btnName = '提交中...'
+
                 const fd = new FormData();
                 // 效果图
                 // const effectImg = $("#effectImg")[0].files;
@@ -1098,8 +1122,13 @@
                 }).then((response) => {
                     const res = response.data
                     if (res.retCode === '0000') {
-                        alert(res.retMsg)
-                        this.$emit('certainAction')
+                        this.loading = false
+                        this.btnName = '提交成功'
+                        // alert(res.retMsg)
+                        setTimeout(() => {
+                            this.$emit('certainAction')
+                        }, 2000)
+
                     }
                     // $("#effectImgOutDiv").remove();
                     // $("#enPlanImgOutDiv").remove();
@@ -1143,12 +1172,14 @@
                 this.addParam.isSale = ''
                 this.addParam.isSale = data
             },
-            fatherLtReceive(data) {
-                this.$refs.ldtRef.locationTypeChange(data)
-            },
+
             fatherLdtReceive(data) {
                 this.addParam.ldId = ''
                 this.addParam.ldId = data
+            },
+            fatherMetrosReceive(data) {
+                this.addParam.metroIdList = []
+                this.addParam.metroIdList = data
             },
             fatherDevReceive(data) {
                 this.addParam.devId = ''
