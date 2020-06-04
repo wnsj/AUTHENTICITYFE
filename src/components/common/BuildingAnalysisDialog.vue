@@ -40,7 +40,8 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最高</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.floor" placeholder="例: 30"/><span class="pos-ab pos-tr">层</span>
+                            <input type="text" class="form-control" v-model="addParam.floor" placeholder="例: 30"/><span
+                            class="pos-ab pos-tr">层</span>
                         </div>
                     </div>
 
@@ -62,22 +63,24 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.buildArea" placeholder="例: 30"/><span class="Unit">㎡</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.buildArea"
+                                   placeholder="例: 30"/><span class="Unit">㎡</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">均价</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.totlePrice" placeholder="例: 30"/><span class="Unit">元</span>
-
+                            <input type="text" class="form-control intWid100" v-model="addParam.totlePrice"
+                                   placeholder="例: 30"/><span class="Unit">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">首付</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.downPayment" placeholder="例: 30"/><span class="Unit">万</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.downPayment"
+                                   placeholder="例: 30"/><span class="Unit">万起</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -92,7 +95,7 @@
                                style="padding:0;line-height:34px;">户型图</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*" />
+                            <input type="file" id="horseTypeImg" @change="horseTypeImgChange" accept="image/*"/>
                             <p class="redtips">*注意：宽434px*高471px</p>
                             <div id="horseTypeImgOutDiv">
                                 <div v-for="(item,index) of horseTypeImgList" :key="index"
@@ -106,10 +109,12 @@
 
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">点评内容</label><span class="sign-left">:</span>
-                         </div>
+                            <label class="col-md-3 control-label text-right nopad end-aline"
+                                   style="padding:0;line-height:34px;">点评内容</label><span class="sign-left">:</span>
+                        </div>
                         <div class="col-md-12">
-                            <textarea class="form-control wdType03" v-model="addParam.content" placeholder="点评内容"></textarea>
+                            <textarea class="form-control wdType03" v-model="addParam.content"
+                                      placeholder="点评内容"></textarea>
                         </div>
                     </div>
 
@@ -224,7 +229,7 @@
                     }
                 } else if (param === 'modify') {
 
-                    if (null != addParam && null != addParam.horseImgPath)  {
+                    if (null != addParam && null != addParam.horseImgPath) {
                         var en = []
                         en.push(this.url + addParam.horseImgPath)
                         this.horseTypeImgList = en
@@ -276,15 +281,17 @@
                     return
                 }
 
+
                 if (this.addParam.totlePrice != null && this.addParam.totlePrice !== '' && parseInt(this.addParam.totlePrice) !== 0) {
-                    if (!(/^([0-9]*$)$/).test(this.addParam.totlePrice)) {
-                        alert('均价只能是整数')
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.totlePrice)) {
+                        alert('总价只能是整数或者1-2位小数的正实数')
                         return;
                     }
                 } else {
-                    alert('均价不能为空或0')
+                    alert('总价不能为空或0')
                     return
                 }
+
 
                 this.isDisable = true
                 setTimeout(() => {
