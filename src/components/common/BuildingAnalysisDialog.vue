@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">建筑类别</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.caName" placeholder="例:平房"/>
                         </div>
@@ -167,7 +167,7 @@
                     isSale: '',
                     // 标签
                     balIdList: [],
-                    // 类型
+                    // 建筑类别
                     caName: '',
                     // 居室
                     house: '',
@@ -212,7 +212,7 @@
                         isSale: '',
                         // 标签
                         balIdList: [],
-                        // 类型
+                        // 建筑类别
                         caName: '',
                         // 方向
                         drection: '',
@@ -252,19 +252,37 @@
                     return
                 }
                 if (this.isBlank(this.addParam.caName)) {
-                    alert('类型不能为空')
+                    alert('建筑类别不能为空')
                     return
                 }
                 if (this.isBlank(this.addParam.drection)) {
                     alert('朝向不能为空')
                     return
                 }
-                if (this.isBlank(this.addParam.downPayment)) {
-                    alert('首付不能为空')
-                    return
-                }
+
                 if (this.isBlank(this.addParam.buildArea)) {
                     alert('建筑面积不能为空')
+                    return
+                }
+
+
+                if (this.addParam.downPayment != null && this.addParam.downPayment !== '' && parseInt(this.addParam.downPayment) !== 0) {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.downPayment)) {
+                        alert('首付只能是整数或者1-2位小数的正实数')
+                        return;
+                    }
+                } else {
+                    alert('首付不能为空或0')
+                    return
+                }
+
+                if (this.addParam.totlePrice != null && this.addParam.totlePrice !== '' && parseInt(this.addParam.totlePrice) !== 0) {
+                    if (!(/^([0-9]*$)$/).test(this.addParam.totlePrice)) {
+                        alert('均价只能是整数')
+                        return;
+                    }
+                } else {
+                    alert('均价不能为空或0')
                     return
                 }
 
