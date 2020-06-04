@@ -327,26 +327,64 @@
 					alert('岗位未选择')
 					return
 				}
-				if(this.addParam.minPay === '' ||this.addParam.minPay == null){
-					alert('最小薪酬必填')
-					return
-				}
-				if(this.addParam.maxPay === '' || this.addParam.maxPay == null){
-					alert('最大薪酬必填')
-					return
-				}
-                if(this.addParam.minWorkingYears === '' || this.addParam.minWorkingYears == null){
+
+
+                if (this.addParam.minPay != null && this.addParam.minPay !== '') {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minPay)) {
+                        alert('最小薪酬只能是整数或者1-2位小数的正实数')
+                        return;
+                    }
+                } else {
+                    alert('最小薪酬必填')
+                    return
+                }
+
+
+                if (this.addParam.maxPay != null && this.addParam.maxPay !== '') {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxPay)) {
+                        alert('最大薪酬只能是整数或者1-2位小数的正实数')
+                        return;
+                    }
+                } else {
+                    alert('最大薪酬必填')
+                    return
+                }
+
+
+
+
+                if (this.addParam.minWorkingYears != null && this.addParam.minWorkingYears !== '') {
+                    if (!(/^([0-9]*$)$/).test(this.addParam.minWorkingYears)) {
+                        alert('最小工龄只能是整数')
+                        return;
+                    }
+                } else {
                     alert('最小工龄必填')
                     return
                 }
-                if(this.addParam.maxWorkingYears === '' || this.addParam.maxWorkingYears == null){
+
+                if (this.addParam.maxWorkingYears != null && this.addParam.maxWorkingYears !== '') {
+                    if (!(/^([0-9]*$)$/).test(this.addParam.maxWorkingYears)) {
+                        alert('最大工龄只能是整数')
+                        return;
+                    }
+                } else {
                     alert('最大工龄必填')
                     return
                 }
-				if(this.isBlank(this.addParam.recruitsNum)){
-					alert('招聘人数必填')
-					return
-				}
+
+
+                if (this.addParam.recruitsNum != null && this.addParam.recruitsNum !== '' && parseInt(this.addParam.recruitsNum) !== 0) {
+                    if (!(/^([0-9]*$)$/).test(this.addParam.recruitsNum)) {
+                        alert('招聘人数只能是整数')
+                        return;
+                    }
+                } else {
+                    alert('招聘人数必填')
+                    return
+                }
+
+
 				if(this.isBlank(this.addParam.workplace)){
 					alert('工作地点必填')
 					return
@@ -361,7 +399,7 @@
 					return
 				}
 
-				if (parseInt(this.addParam.minPay) >= parseInt(this.addParam.maxPay)) {
+				if (parseFloat(this.addParam.minPay) >= parseFloat(this.addParam.maxPay)) {
 				    alert('最大薪酬不能小于或等于最小薪酬')
                     return;
                 }
