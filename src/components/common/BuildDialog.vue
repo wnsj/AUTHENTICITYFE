@@ -198,7 +198,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">建筑类别</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                         </div>
@@ -575,7 +575,7 @@
                     htName: '',
                     // 区域位置
                     ldId: '',
-                    // 类型
+                    // 建筑类别
                     btId: '',
                     // 户型
                     bhtIdList: [],
@@ -758,7 +758,7 @@
                         htName: '',
                         // 区域位置
                         ldId: '',
-                        // 类型
+                        // 建筑类别
                         btId: '',
                         // 户型
                         bhtIdList: [],
