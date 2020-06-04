@@ -1202,12 +1202,12 @@
                     return;
                 }
 
-                // if (!this.isBlank(this.addParam.tel)) {
-                //     if (!((/^((1[345678]\d{9})|(\d{2,3}\d{7,8})|(\d{2,3}-\d{7,8})|(^[0-9]*$))$/).test(this.addParam.tel))) {
-                //         alert('请输入正确的手机格式')
-                //         return;
-                //     }
-                // }
+                if (!this.isBlank(this.addParam.tel)) {
+                    if (!((/^((1[345678]\d{9})|(\d{2,3}\d{7,8})|(\d{2,3}-\d{7,8}))$/).test(this.addParam.tel))) {
+                        alert('请输入正确的联系方式')
+                        return;
+                    }
+                }
 
 
                 this.loading = true

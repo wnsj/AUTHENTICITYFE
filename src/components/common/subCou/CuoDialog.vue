@@ -194,8 +194,15 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
-                if (!((/^1[3456789]\d{9}$/).test(this.addCou.tel))) {
-                    alert('请输入正确的手机格式')
+
+
+                if (!this.isBlank(this.addCou.tel)) {
+                    if (!(/^1[3456789]\d{9}$/).test(this.addCou.tel)) {
+                        alert('请输入正确的联系方式')
+                        return;
+                    }
+                } else {
+                    alert('请输入联系方式')
                     return;
                 }
                 if (this.isBlank(this.addCou.couName)) {
@@ -206,10 +213,7 @@
                     alert('毕业院校不能为空')
                     return
                 }
-                if (this.isBlank(this.addCou.tel)) {
-                    alert('联系方式不能为空')
-                    return
-                }
+
                 const fd = new FormData();
                 // 效果图
                 // const horseTypeImg = $("#horseTypeImg")[0].files;
