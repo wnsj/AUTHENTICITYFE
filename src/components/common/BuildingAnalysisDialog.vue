@@ -69,7 +69,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">均价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.totlePrice" placeholder="例: 30"/><span class="Unit">万</span>
+                            <input type="text" class="form-control intWid100" v-model="addParam.totlePrice" placeholder="例: 30"/><span class="Unit">元</span>
 
                         </div>
                     </div>
