@@ -143,7 +143,7 @@
                                style="padding:0;line-height:34px;">物业费</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.propertyFee"
-                                   placeholder="数值,可填:1"><span class="pos-ab pos-tr">元 / 平 / 年</span>
+                                   placeholder="数值,可填:1"><span class="pos-ab pos-tr">元 / 平 / 月</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
