@@ -214,28 +214,28 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">热销值</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.sellWell" placeholder="必填"/>
+                            <input type="text" class="form-control" v-model="addParam.sellWell" placeholder=""/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">人气值</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.popularity" placeholder="必填"/>
+                            <input type="text" class="form-control" v-model="addParam.popularity" placeholder=""/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">热搜值</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.hotSearch" placeholder="必填"/>
+                            <input type="text" class="form-control" v-model="addParam.hotSearch" placeholder=""/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.specialOffer" placeholder="必填"/><span class="pos-ab pos-tr">万起</span>
+                            <input type="text" class="form-control " v-model="addParam.specialOffer" placeholder=""/><span class="pos-ab pos-tr">万起</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -264,7 +264,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">均价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.averagePrice" placeholder="必填"/><span class="pos-ab pos-tr">元</span>
+                            <input type="text" class="form-control " v-model="addParam.averagePrice" placeholder=""/><span class="pos-ab pos-tr">元</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -283,28 +283,28 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最低总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control "  v-model="addParam.minTitlePrice" placeholder="必填"/><span class="pos-ab pos-tr">万</span>
+                            <input type="text" class="form-control "  v-model="addParam.minTitlePrice" placeholder=""/><span class="pos-ab pos-tr">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最高总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control "  v-model="addParam.maxTitlePrice" placeholder="必填"/><span class="pos-ab pos-tr">万</span>
+                            <input type="text" class="form-control "  v-model="addParam.maxTitlePrice" placeholder=""/><span class="pos-ab pos-tr">万</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.minArea" placeholder="必填"/><span class="pos-ab pos-tr">㎡</span>
+                            <input type="text" class="form-control " v-model="addParam.minArea" placeholder=""/><span class="pos-ab pos-tr">㎡</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最大面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.maxArea" placeholder="必填"/>
+                            <input type="text" class="form-control " v-model="addParam.maxArea" placeholder=""/>
 							<span class="pos-ab pos-tr">㎡</span>
                         </div>
                     </div>
@@ -979,25 +979,19 @@
 
 
 
-                if (this.addParam.coveredArea != null && this.addParam.coveredArea !== '' && parseInt(this.addParam.coveredArea) !== 0) {
+                if (this.addParam.coveredArea != null && this.addParam.coveredArea !== '' && parseFloat(this.addParam.coveredArea) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.coveredArea)) {
                         alert('占地面积只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('占地面积不能为空或0')
-                    return
                 }
 
 
-                if (this.addParam.floorage != null && this.addParam.floorage !== '' && parseInt(this.addParam.floorage) !== 0) {
+                if (this.addParam.floorage != null && this.addParam.floorage !== '' && parseFloat(this.addParam.floorage) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.floorage)) {
                         alert('建筑面积只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('建筑面积不能为空或0')
-                    return
                 }
 
 
@@ -1006,9 +1000,6 @@
                         alert('户数只能是整数')
                         return;
                     }
-                } else {
-                    alert('户数不能为空或0')
-                    return
                 }
 
 
@@ -1017,9 +1008,6 @@
                         alert('特价值只能是整数')
                         return;
                     }
-                } else {
-                    alert('特价值不能为空或0')
-                    return
                 }
 
 
@@ -1035,9 +1023,6 @@
                         alert('开发周期只能是整数')
                         return;
                     }
-                } else {
-                    alert('开发周期不能为空或0')
-                    return
                 }
 
 
@@ -1048,14 +1033,11 @@
 
 
 
-                if (this.addParam.propertyFee != null && this.addParam.propertyFee !== '' && parseInt(this.addParam.propertyFee) !== 0) {
+                if (this.addParam.propertyFee != null && this.addParam.propertyFee !== '' && parseFloat(this.addParam.propertyFee) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.propertyFee)) {
                         alert('物业费只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('物业费不能为空或0')
-                    return
                 }
 
 
@@ -1064,31 +1046,22 @@
                         alert('停车位只能是整数')
                         return;
                     }
-                } else {
-                    alert('停车位不能为空或0')
-                    return
                 }
 
 
-                if (this.addParam.greeningRate != null && this.addParam.greeningRate !== '' && parseInt(this.addParam.greeningRate) !== 0) {
+                if (this.addParam.greeningRate != null && this.addParam.greeningRate !== '' && parseFloat(this.addParam.greeningRate) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.greeningRate)) {
                         alert('绿化率只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('绿化率不能为空或0')
-                    return
                 }
 
 
-                if (this.addParam.plotRatio != null && this.addParam.plotRatio !== '' && parseInt(this.addParam.plotRatio) !== 0) {
+                if (this.addParam.plotRatio != null && this.addParam.plotRatio !== '' && parseFloat(this.addParam.plotRatio) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.plotRatio)) {
                         alert('容积率只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('容积率不能为空或0')
-                    return
                 }
 
 
@@ -1104,9 +1077,6 @@
                         alert('产权年限只能是整数')
                         return;
                     }
-                } else {
-                    alert('产权年限不能为空或0')
-                    return
                 }
 
 
@@ -1115,9 +1085,6 @@
                         alert('热销值只能是整数')
                         return;
                     }
-                } else {
-                    alert('热销值不能为空或0')
-                    return
                 }
 
 
@@ -1127,9 +1094,6 @@
                         alert('热搜值只能是整数')
                         return;
                     }
-                } else {
-                    alert('热搜值不能为空或0')
-                    return
                 }
 
 
@@ -1138,42 +1102,30 @@
                         alert('人气值只能是整数')
                         return;
                     }
-                } else {
-                    alert('人气值不能为空或0')
-                    return
                 }
 
 
-                if (this.addParam.averagePrice != null && this.addParam.averagePrice !== '' && parseInt(this.addParam.averagePrice) !== 0) {
+                if (this.addParam.averagePrice != null && this.addParam.averagePrice !== '' && parseFloat(this.addParam.averagePrice) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.averagePrice)) {
                         alert('均价只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('均价不能为空或0')
-                    return
                 }
 
-                if (this.addParam.minArea != null && this.addParam.minArea !== '' && parseInt(this.addParam.minArea) !== 0) {
+                if (this.addParam.minArea != null && this.addParam.minArea !== '' && parseFloat(this.addParam.minArea) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minArea)) {
                         alert('最小面积只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('最小面积不能为空或0')
-                    return;
                 }
-                if (this.addParam.maxArea != null && this.addParam.maxArea !== '' && parseInt(this.addParam.maxArea) !== 0) {
+                if (this.addParam.maxArea != null && this.addParam.maxArea !== '' && parseFloat(this.addParam.maxArea) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxArea)) {
                         alert('最大面积只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('最大面积不能为空或0')
-                    return;
                 }
 
-                if (parseInt(this.addParam.minArea) > parseInt(this.addParam.maxArea)){
+                if (parseFloat(this.addParam.minArea) > parseFloat(this.addParam.maxArea)){
                     alert('最大面积不能小于最小面积')
                     return;
                 }
@@ -1184,20 +1136,14 @@
                         alert('最低总价只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('最低总价不能为空或0')
-                    return;
                 }
-                if (this.addParam.maxTitlePrice != null && this.addParam.maxTitlePrice !== '' && parseInt(this.addParam.maxTitlePrice) !== 0) {
+                if (this.addParam.maxTitlePrice != null && this.addParam.maxTitlePrice !== '' && parseFloat(this.addParam.maxTitlePrice) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxTitlePrice)) {
                         alert('最高总价只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('最高总价不能为空或0')
-                    return;
                 }
-                if (parseInt(this.addParam.minTitlePrice) > parseInt(this.addParam.maxTitlePrice)) {
+                if (parseFloat(this.addParam.minTitlePrice) > parseFloat(this.addParam.maxTitlePrice)) {
                     alert('最高总价不能小于最低总价')
                     return;
                 }

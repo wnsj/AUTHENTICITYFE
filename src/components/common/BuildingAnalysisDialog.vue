@@ -265,10 +265,6 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.buildArea)) {
-                    alert('建筑面积不能为空')
-                    return
-                }
 
 
                 if (this.addParam.downPayment != null && this.addParam.downPayment !== '' && parseInt(this.addParam.downPayment) !== 0) {
@@ -276,9 +272,6 @@
                         alert('首付只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('首付不能为空或0')
-                    return
                 }
 
 
@@ -287,9 +280,6 @@
                         alert('总价只能是整数或者1-2位小数的正实数')
                         return;
                     }
-                } else {
-                    alert('总价不能为空或0')
-                    return
                 }
 
 
