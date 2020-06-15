@@ -1,15 +1,23 @@
 <template>
-    <select class="form-control" v-model="buildId" v-on:change="buildChange()">
-        <option value="0">--未选择--</option>
-        <option v-for="(item,index) in buildList" :key="index" v-bind:value="item.buildId">{{item.htName}}</option>
-    </select>
+<!--    <select class="form-control" v-model="buildId" v-on:change="buildChange()">-->
+<!--        <option value="">&#45;&#45;未选择&#45;&#45;</option>-->
+<!--        <option v-for="(item,index) in buildList" :key="index" v-bind:value="item.buildId">{{item.htName}}</option>-->
+<!--    </select>-->
+        <el-select size="medium" v-model="buildId" v-on:change="buildChange()" clearable filterable placeholder="未选择">
+            <el-option
+                v-for="item in buildList"
+                :key="item.buildId"
+                :label="item.htName"
+                :value="item.buildId">
+            </el-option>
+        </el-select>
 </template>
 
 <script>
     export default {
         data() {
             return {
-                buildId: '0',
+                buildId: '',
                 buildList: []
             };
         },
@@ -17,7 +25,7 @@
 
             buildChange: function() {
                 for (var i = 0; i < this.buildList.length; i++) {
-                    if(this.buildId === '0'){
+                    if(this.buildId === ''){
                         this.$emit('buildChange', null)
                         return
                     }else{

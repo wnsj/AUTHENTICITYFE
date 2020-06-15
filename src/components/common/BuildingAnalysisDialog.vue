@@ -203,7 +203,7 @@
                 this.horseTypeImgFileList = []
                 if (param === 'add') {
                     $("#horseTypeImg").val("");
-                    this.$refs.buildRef.setBuildId('0')
+                    this.$refs.buildRef.setBuildId('')
                     this.$refs.sale.setIsSale(0)
                     this.$refs.bht.setBhtId('0')
                     this.$refs.bad.setBalIdList([])
@@ -355,9 +355,12 @@
             },
             fatherBuildReceive(data) {
                 this.addParam.buildId = ''
-                this.addParam.buildId = data.buildId
                 this.addParam.htName = ''
-                this.addParam.htName = data.htName
+                if (null != data) {
+                    this.addParam.buildId = data.buildId
+
+                    this.addParam.htName = data.htName
+                }
             },
             fatherBalReceive(data) {
                 this.addParam.balIdList = []

@@ -152,7 +152,7 @@
         },
         methods: {
             titleChange(param) {
-                console.log('param:' + param)
+                // console.log('param:' + param)
                 this.title = param
             },
             onShow(index) {
@@ -255,7 +255,7 @@
 
                 if (this.accountId == 1) {
                     this.phoneFlag = true
-                    console.log('accountId' + this.index);
+                    // console.log('accountId' + this.index);
                 } else {
                     this.phoneFlag = false
                 }

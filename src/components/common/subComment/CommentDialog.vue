@@ -126,7 +126,7 @@
                     // this.$refs.sn.setData('')
                     this.$refs.couTypeRef.setComId('0')
                     this.$refs.couRef.setCouId('0');
-                    this.$refs.buildRef.setBuildingId('0')
+                    this.$refs.buildRef.setBuildingId('')
                     this.title = '新增'
                     this.addParam = {
                         // 评论内容

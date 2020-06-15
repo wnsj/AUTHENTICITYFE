@@ -44,7 +44,7 @@ Vue.prototype.has = function(param) {
 
 // 路由卫士
 router.beforeEach((to, from, next) => {
-    console.log(to.path + '---' + from.path)
+    // console.log(to.path + '---' + from.path)
     if (to.path == '/login' && from.path == '/MainPage') {
         next();
     } else if (to.path == '/login') {
@@ -58,7 +58,7 @@ router.beforeEach((to, from, next) => {
                 alert('没有查到用户信息，或者用户信息存储失败')
             }
             next('/login');
-        } else 
+        } else
 		if (to.path == '/') {
             next('/MainPage');
         } else if (to.path == '/login') {
@@ -186,6 +186,7 @@ Vue.prototype.phoneNum = function(phoneNum) {
 Vue.prototype.ipAddress = function() {
     return constant.ipAddress();
 }
+
 
 
 /*
