@@ -192,9 +192,14 @@
                     </table>
                 </div>
                 <div class="row row_edit">
-                    <div class="modal fade" id="buildDialog">
+                    <div class="modal fade" id="buildDialog" >
                         <div class="modal-dialog">
                             <build-dialog ref='buildDialog' @certainAction='feedBack'></build-dialog>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="mobileDialog" style="margin-left: 69%">
+                        <div class="modal-dialog" style="width: 90%">
+                            <MobileDialog ref='mobileDialogRef' @certainAction='feedBackMobile'></MobileDialog>
                         </div>
                     </div>
                 </div>
@@ -213,7 +218,7 @@
     import bt from '../../common/BildType.vue'
     import bht from '../../common/BuildHorseType.vue'
     import isSale from '../../common/IsSale.vue'
-    // import lt from '../../common/LocationType.vue'
+    import MobileDialog from '../../common/MobileDialog.vue'
     import ldt from '../../common/LocationDType.vue'
     import ar from '../../common/Area.vue'
     import un from '../../common/UnitPrice.vue'
@@ -224,6 +229,7 @@
     import buildDialog from '../../common/BuildDialog.vue'
     import Region from '../../common/Region.vue'
     import Metro from '../../common/Metro.vue'
+    import PlayAV from "../../common/PlayAV";
     export default {
         components: {
             datePicker,
@@ -240,7 +246,8 @@
             paging,
             buildDialog,
             Region,
-            Metro
+            Metro,
+            MobileDialog
         },
         data() {
             return {
@@ -417,6 +424,11 @@
             feedBack() {
                 this.queryData(1)
                 $("#buildDialog").modal('hide')
+            },
+
+            feedBackMobile() {
+                this.queryData(1)
+                $("#mobileDialog").modal('hide')
             },
             // dataLook(obj){
             //     if (null == obj)return

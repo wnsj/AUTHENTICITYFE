@@ -35,7 +35,6 @@
                             <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">动态内容</label><span class="sign-left">:</span>
                          </div>
                         <div class="col-md-12 form-group clearfix">
-    <!--                        <RecruitNote ref="rn"></RecruitNote>-->
                             <textarea class="form-control wdType03" v-model="addParam.bdContent" placeholder="楼盘动态"></textarea>
                         </div>
                     </div>
@@ -62,13 +61,11 @@
 
 <script>
     import datePicker from 'vue2-datepicker'
-    import RecruitNote from '../subRecruit/RecruitNote.vue'
     import Building from '../Building.vue'
     var that = null
     export default {
         components: {
             datePicker,
-            RecruitNote,
             Building
         },
         data() {

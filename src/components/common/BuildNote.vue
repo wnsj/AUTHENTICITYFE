@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div id="summernote"></div>
+        <div id="buildNote"></div>
     </div>
 </template>
 
 <script>
     // 载入bootstrap以及summernote的样式
-    //require('bootstrap')
+    // require('bootstrap')
 
-    //require('bootstrap/dist/css/bootstrap.min.css')
+    // require('bootstrap/dist/css/bootstrap.min.css')
     //require(summernote/dist/summernote.css')
     //require('summernote/dist/summernote.js')
 
@@ -20,15 +20,15 @@
         methods: {
             //设置值
             setData(data) {
-                $('#summernote').summernote('code', data);
+                $('#buildNote').summernote('code', data);
             },
             //获取值
             getData() {
-                return $('#summernote').summernote('code');
+                return $('#buildNote').summernote('code');
             },
             //重置
             resetData() {
-                $('#summernote').summernote('reset');
+                $('#buildNote').summernote('reset');
             }
         },
         mounted() {
@@ -46,7 +46,14 @@
             //
             var callbacks = {
                 onInit: function() {
-                    //console.log('Summernote 初始化 。。。');
+                    // CODE: $("#buildNote").summernote();
+                    // // console.log('Summernote 初始化 。。。');
+                    // // $('.summernote').summernote({
+                    // //     height: 10
+                    // // });
+                    // CODE:$('#buildNote').summernote({
+                    //     height: 1000,                 // set editor height
+                    // });
                 },
                 onImageUpload: function(files) {
                     //上传文件
@@ -57,7 +64,7 @@
                         fd.append("file", files[i]);
                     }
 
-                    var url = that.url + '/articleBean/uploadFile'
+                    var url = that.url + '/buildingBean/uploadFile'
                     that.$ajax({
                         method: 'POST',
                         url: url,
@@ -75,10 +82,10 @@
                                 for (var i = 0; i < retData.length; i++) {
                                     var imgObj = retData[i];
                                     var imgUrl = that.addTimesParam(that.url + imgObj.fileUrl);
-                                    console.log('url' + imgUrl);
+                                    // console.log('url' + imgUrl);
                                     var imgName = imgObj.srcName;
-                                    console.log('name' + imgName);
-                                    $('#summernote').summernote('insertImage', imgUrl, imgName);
+                                    // console.log('name' + imgName);
+                                    $('#buildNote').summernote('insertImage', imgUrl, imgName);
                                 }
                             }
                         }
@@ -88,10 +95,10 @@
                 }
             };
 
-            $('#summernote').summernote({
+            $('#buildNote').summernote({
                 lang: 'zh-CN',
                 //toolbar: toolbarArr,
-                //height: '100px',
+                height: '350px',
                 //width: '200px',
                 callbacks: callbacks
             });
@@ -100,7 +107,6 @@
 </script>
 
 <style>
-
 </style>
 <!--
 <div id="spinDiv"></div>

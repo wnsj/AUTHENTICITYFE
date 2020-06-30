@@ -187,14 +187,12 @@
 
 
 <script>
-    import RecruitNote from '../subRecruit/RecruitNote.vue'
     import PositionType from '../subRecruit/PositionType.vue'
     import Position from '../subRecruit/Position.vue'
     import subRe from '../subRecruit/subRe.vue'
     var that = null
     export default {
         components: {
-            RecruitNote,
             PositionType,
             Position,
             subRe
