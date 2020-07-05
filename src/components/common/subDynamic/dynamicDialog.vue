@@ -123,9 +123,9 @@
                     this.isDisable = false
                 }, 1000)
                 // this.addParam.bdContent = this.$refs.rn.getData()
-                const fd = new FormData();
-
-                fd.append("param", JSON.stringify(this.addParam));
+//                 const fd = new FormData();
+// 
+//                 fd.append("param", JSON.stringify(this.addParam));
 
 
                 switch (this.title) {
@@ -141,10 +141,10 @@
                     method: 'POST',
                     url: url,
                     headers: {
-                        'Content-Type': 'multipart/form-data',
+                        'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
-                    data: fd,
+                    data: this.addParam,
                     dataType: 'json',
                 }).then((response) => {
                     const res = response.data
