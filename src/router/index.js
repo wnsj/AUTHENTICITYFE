@@ -11,6 +11,10 @@ import RecruitControl from '../components/MP/RecruitControl/RecruitControl.vue'
 import Comment from '../components/MP/Comment/Comment.vue'
 import BuildingDynamic from '../components/MP/BuildingDynamic/BuildingDynamic.vue'
 import LinkPhone from '../components/MP/LinkPhone/LinkPhone.vue'
+import LinkRenting from '../components/MP/LinkPhone/LinkRenting.vue'
+import HouseResources from '../components/MP/HouseResources/HouseResources.vue'
+import EntrustRent from '../components/MP/HouseResources/EntrustRent.vue'
+import Business from '../components/MP/Business/Business.vue'
 
 Vue.use(Router)
 
@@ -66,10 +70,30 @@ export default new Router({
                     component: BuildingDynamic,
                 },
                 {
+                    path: '/MP/LinkPhone/LinkRenting',
+                    name: 'LinkRenting',
+                    component: LinkRenting,
+                },
+                {
                     path: '/MP/LinkPhone/LinkPhone',
                     name: 'LinkPhone',
                     component: LinkPhone,
-                }
+                },
+				{
+				    path: '/MP/HouseResources/HouseResources',
+				    name: 'HouseResources',
+				    component: HouseResources,
+				},
+				{
+				    path: '/MP/HouseResources/EntrustRent',
+				    name: 'EntrustRent',
+				    component: EntrustRent,
+				},
+				{
+				    path: '/MP/Business/Business',
+				    name: 'Business',
+				    component: Business,
+				}
             ],
             redirect: '/MP/BuildingControl/BuildingControl'
         }
