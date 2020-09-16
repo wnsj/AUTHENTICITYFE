@@ -11,6 +11,7 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <!-- <cou @couChange="fatherCou" ref="couRef"></cou> -->
                 </div>
             </div>
             <!--咨询师特长-->
@@ -30,7 +31,7 @@
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
-                    v-on:click="couQueryData(1)">查询
+                    v-on:click="queryData(1)">查询
             </button>
         </div>
 
@@ -64,6 +65,7 @@
                 <div class="row row_edit">
                     <div class="modal fade" id="couDialog">
                         <div class="modal-dialog">
+                            <!-- <cou-dialog  ref='couDialog' @certainAction='feedBack'></cou-dialog> -->
                         </div>
                     </div>
                 </div>
@@ -78,9 +80,17 @@
 </template>
 
 <script>
+//     import couChara from '../../../common/subCou/CouChara.vue'
+//     import cou from '../../../common/subCou/Counselor.vue'
+//     import paging from '../../../common/Paging.vue'
+//     import couDialog from '../../../common/subCou/CuoDialog.vue'
     var that = null
     export default {
         components: {
+//             couChara,
+//             cou,
+//             paging,
+//             couDialog
         },
         name: 'CounselorControl',
         data() {
@@ -111,9 +121,9 @@
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
-                this.couQueryData(page)
+                this.queryData(page)
             },
-            async couQueryData(page) {
+            async queryData(page) {
                 var url = this.url + '/counselorBean/getAllCouselorByPage'
                 this.$ajax({
                     method: 'POST',
@@ -155,12 +165,12 @@
                 }
             },
             feedBack() {
-                this.couQueryData(1)
+                this.queryData(1)
                 $("#couDialog").modal('hide')
             }
         },
         created: function () {
-            this.couQueryData()
+            this.queryData()
         },
     }
 </script>

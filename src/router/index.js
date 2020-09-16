@@ -14,6 +14,7 @@ import LinkPhone from '../components/MP/LinkPhone/LinkPhone.vue'
 import HouseResources from '../components/MP/HouseResources/HouseResources.vue'
 import EntrustRent from '../components/MP/HouseResources/EntrustRent.vue'
 import Business from '../components/MP/Business/Business.vue'
+import Office from '../components/MP/HouseResources/Office/Office.vue'
 
 Vue.use(Router)
 
@@ -87,6 +88,11 @@ export default new Router({
 				    path: '/MP/Business/Business',
 				    name: 'Business',
 				    component: Business,
+				},
+				{
+				    path: '/MP/HouseResources/Office/Office',
+				    name: 'Office',
+				    component: Office,
 				}
             ],
             redirect: '/MP/BuildingControl/BuildingControl'
