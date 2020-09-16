@@ -188,65 +188,65 @@
     
     
     
-     surround;
+    //  surround;
 
     
     
     
-     labelList;
+    //  labelList;
 
     
-    共享，3商铺
+    // 共享，3商铺
     
-    r roomType;
-
-    
-    
-    
-     areaInfo;
-    
-    
-    
-    
-    r stId;
-    
-    
-    
-    
-     caId;
-    
-    
-    
-    
-    imal transferFee;
-    
-    
-    
-    
-    ist = false)
-     ldName;
-    
-    
-    
-    
-    ist = false)
-     buildName;
-    
-    
-    
-    
-    ist = false)
-     bussinessName;
+    // r roomType;
 
     
     
     
-     payType;
+    //  areaInfo;
+    
+    
+    
+    
+    // r stId;
+    
+    
+    
+    
+    //  caId;
+    
+    
+    
+    
+    // imal transferFee;
+    
+    
+    
+    
+    // ist = false)
+    //  ldName;
+    
+    
+    
+    
+    // ist = false)
+    //  buildName;
+    
+    
+    
+    
+    // ist = false)
+    //  bussinessName;
 
     
     
     
-    r isRent;
+    //  payType;
+
+    
+    
+    
+    // r isRent;
                 },
                 picture: [],
                 pictureFile: [],

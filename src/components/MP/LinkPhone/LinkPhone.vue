@@ -28,10 +28,8 @@
                         <thead class="datathead">
                         <tr>
                             <th class="text-center">姓名</th>
-                            <th class="text-center">电话</th>
+                            <th class="text-center">联系方式</th>
                             <th class="text-center">来源</th>
-                            <th class="text-center">楼盘</th>
-                            <th class="text-center">预约时间</th>
                             <th class="text-center">创建时间</th>
                             <th class="text-center">备注</th>
                             <th class="text-center">是否回拨</th>
@@ -42,8 +40,6 @@
                             <td class="text-center" style="line-height:33px;">{{item.lpName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.phone}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.moLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.build}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.writeDate}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.form}}</td>
                             <td class="text-center">
