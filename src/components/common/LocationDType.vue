@@ -12,6 +12,7 @@
         data() {
             return {
                 ldId:'0',
+                proId: '',
                 ldtList: []
             };
         },
@@ -26,7 +27,9 @@
                         'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
-                    data: {},
+                    data: {
+                        proId: this.proId
+                    },
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data
@@ -42,6 +45,10 @@
 
             setLdtId: function(ldId) {
                 this.ldId = ldId
+                this.locationTypeChange()
+            },
+            setProId: function(proId) {
+                this.proId = proId
                 this.locationTypeChange()
             },
             ldtChange: function() {

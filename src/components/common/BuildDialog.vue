@@ -14,16 +14,7 @@
                             <input type="text" class="form-control" v-model="addParam.htName" placeholder="楼盘名称必填">
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">手机展示</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <select class="form-control" v-on:change="isMobile" v-model="addParam.isMobile">
-                                <option value=1>--是--</option>
-                                <option value=2>--否--</option>
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘经度</label><span class="sign-left">:</span>
@@ -40,94 +31,7 @@
                                    placeholder="数值,可填:30.002">
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">产权年限</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.ownershipYear"
-                                   placeholder="数值,可填:30">
-                            <span class="pos-ab pos-tr">年</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">容积率</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.plotRatio"
-                                   placeholder="数值,可填:1.0">
-                            <span class="pos-ab pos-tr">%</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">绿化率</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.greeningRate"
-                                   placeholder="必填,可填:1.0"><span class="pos-ab pos-tr">%</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">售楼地址</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <textarea value="" style="resize:none" placeholder="" class="form-control wdType02"
-                                      v-model="addParam.saleAddress" placeholder="必填,可填:无"/>
-                        </div>
-                    </div>
-                    <!--                    <div class="col-md-6 form-group clearfix">-->
-                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
-                    <!--                               style="padding:0;line-height:34px;">物业地址</label><span class="sign-left">:</span>-->
-                    <!--                        <div class="col-md-8">-->
-                    <!--                            <textarea value="" style="resize:none" placeholder=""  class="form-control wdType02" v-model="addParam.propertyAddress" placeholder="必填,可填:无" />-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">楼盘特点</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.buildDescription"
-                                   placeholder="必填,可填:无">
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">装修情况</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.decoration" placeholder="必填,可填:无">
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">占地面积</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.coveredArea"
-                                   placeholder="数值,可填:1"><span class="pos-ab pos-tr">㎡</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">总户数</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control intWid100" v-model="addParam.households"
-                                   placeholder="数值,可填:1"><span class="Unit">户</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">建筑类型</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.architecturalStyle"
-                                   placeholder="必填,可填:无">
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">开发周期</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.iteration" placeholder="数值,可填:1"><span
-                            class="pos-ab pos-tr">年</span>
-                        </div>
-                    </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
@@ -144,65 +48,15 @@
                                    placeholder="必填,可填:无">
                         </div>
                     </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">物业类型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">省份</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.propertyType"
-                                   placeholder="必填,可填:无">
+                            <pro @proChange="fatherProReceive" ref="proRef"></pro>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">物业费</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.propertyFee"
-                                   placeholder="数值,可填:1"><span class="pos-ab pos-tr">元 / 平 / 月</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">停车位</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.parkingSpace"
-                                   placeholder="数值,可填:1"><span class="pos-ab pos-tr">个</span>
-                        </div>
-                    </div>
-                    <!--  <div class="col-md-6 form-group clearfix">
-                          <label class="col-md-3 control-label text-right nopad end-aline"
-                                 style="padding:0;line-height:34px;">预售许可证</label><span class="sign-left">:</span>
-                          <div class="col-md-8">
-                              <input type="text" class="form-control" v-model="addParam.households">
-                          </div>
-                      </div>-->
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">别名</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.alias" placeholder="必填,可填:无">
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">环线</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
-                        </div>
-                    </div>
-                    <!--                    <div class="col-md-6 form-group clearfix">-->
-                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
-                    <!--                               style="padding:0;line-height:34px;">位置类型</label><span class="sign-left">:</span>-->
-                    <!--                        <div class="col-md-8">-->
-                    <!--                            <lt @ltChange='fatherLtReceive'></lt>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">地铁</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <Metros @metrosChange='fatherMetrosReceive' ref="metrosRef"></Metros>
-                        </div>
-                    </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">区域</label><span class="sign-left">:</span>
@@ -210,18 +64,27 @@
                             <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
                         </div>
                     </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">建筑类别</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">商圈</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <Business @buChange='fatherBuReceive' ref="buRef"></Business>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">户型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">特色标签</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <build-horse-types @bhtsChange='fatherBhtReceive' ref="bhtsRef"></build-horse-types>
+                            <Charas @charsChange='fatherChReceive' ref="charsRef"></Charas>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -238,21 +101,14 @@
                             <input type="text" class="form-control" v-model="addParam.popularity" placeholder=""/>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">热搜值</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.hotSearch" placeholder=""/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">特价</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.specialOffer"
-                                   placeholder=""/><span class="pos-ab pos-tr">万起</span>
-                        </div>
-                    </div>
+                    <!--                    <div class="col-md-6 form-group clearfix">-->
+                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+                    <!--                               style="padding:0;line-height:34px;">热搜值</label><span class="sign-left">:</span>-->
+                    <!--                        <div class="col-md-8">-->
+                    <!--                            <input type="text" class="form-control" v-model="addParam.hotSearch" placeholder=""/>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">推荐楼盘</label><span class="sign-left">:</span>
@@ -266,41 +122,57 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">优选楼盘</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">入驻企业</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <select class="form-control" v-model="addParam.optimization">
-                                <option value=0>--未选择--</option>
-                                <option value=1>--是--</option>
-                                <option value=2>--否--</option>
-                            </select>
+                            <input class="form-control " v-model="addParam.enterprises" placeholder=""/>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">均价</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.averagePrice"
-                                   placeholder=""/><span class="pos-ab pos-tr">元</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">品质楼盘</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <select class="form-control" v-model="addParam.quality">
-                                <option value=0>--未选择--</option>
-                                <option value=1>--是--</option>
-                                <option value=2>--否--</option>
-                            </select>
-                        </div>
-                    </div>
+                    <!--                    <div class="col-md-6 form-group clearfix">-->
+                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+                    <!--                               style="padding:0;line-height:34px;">优选楼盘</label><span class="sign-left">:</span>-->
+                    <!--                        <div class="col-md-8">-->
+                    <!--                            <select class="form-control" v-model="addParam.optimization">-->
+                    <!--                                <option value=0>&#45;&#45;未选择&#45;&#45;</option>-->
+                    <!--                                <option value=1>&#45;&#45;是&#45;&#45;</option>-->
+                    <!--                                <option value=2>&#45;&#45;否&#45;&#45;</option>-->
+                    <!--                            </select>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
+                    <!--                    <div class="col-md-6 form-group clearfix">-->
+                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+                    <!--                               style="padding:0;line-height:34px;">品质楼盘</label><span class="sign-left">:</span>-->
+                    <!--                        <div class="col-md-8">-->
+                    <!--                            <select class="form-control" v-model="addParam.quality">-->
+                    <!--                                <option value=0>&#45;&#45;未选择&#45;&#45;</option>-->
+                    <!--                                <option value=1>&#45;&#45;是&#45;&#45;</option>-->
+                    <!--                                <option value=2>&#45;&#45;否&#45;&#45;</option>-->
+                    <!--                            </select>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">最低单价</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control " v-model="addParam.minUnitPrice"
+                                   placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">最高单价</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control " v-model="addParam.maxUnitPrice"
+                                   placeholder=""/>
+                        </div>
+                    </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最低总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.minTitlePrice"
-                                   placeholder=""/><span class="pos-ab pos-tr">万</span>
+                                   placeholder=""/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -308,7 +180,7 @@
                                style="padding:0;line-height:34px;">最高总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.maxTitlePrice"
-                                   placeholder=""/><span class="pos-ab pos-tr">万</span>
+                                   placeholder=""/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -327,34 +199,60 @@
                             <span class="pos-ab pos-tr">㎡</span>
                         </div>
                     </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">开盘时间</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最小工位</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <datePicker v-model="addParam.openDate" type="date" value-type="format"
-                                        style="width: 97%"></datePicker>
+                            <input type="text" class="form-control " v-model="addParam.minStationNum" placeholder=""/><span
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">销售情况</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最大工位</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <is-sale @isSaleChange='fatherIsSaleReceive' ref="saleRef"></is-sale>
+                            <input type="text" class="form-control " v-model="addParam.maxStationNum" placeholder=""/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">特色标签</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">楼层</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <Charas @charsChange='fatherChReceive' ref="charsRef"></Charas>
+                            <input type="text" class="form-control " v-model="addParam.floor" placeholder=""/>
                         </div>
                     </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">层高</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control " v-model="addParam.floorHeight" placeholder=""/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">客梯数</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input class="form-control " v-model="addParam.elevatorNum" placeholder=""/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">周边</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input class="form-control " v-model="addParam.periphery" placeholder=""/>
+                        </div>
+                    </div>
+
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <textarea class="form-control wdType02" value="" style="resize:none" placeholder=""
+                            <textarea class="form-control wdType02" style="resize:none" placeholder=""
                                       v-model="addParam.devId"/>
                         </div>
                     </div>
@@ -362,7 +260,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <textarea class="form-control wdType02" style="resize:none" value="" placeholder=""
+                            <textarea class="form-control wdType02" style="resize:none" placeholder=""
                                       v-model="addParam.adress"/>
                         </div>
                     </div>
@@ -370,69 +268,21 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">联系方式</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.tel" placeholder="填写规范的联系方式"/>
+                            <label>
+                                <input type="text" class="form-control" v-model="addParam.tel" placeholder="填写规范的联系方式"/>
+                            </label>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">省份</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">咨询师</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <pro @proChange="fatherProReceive" ref="proRef"></pro>
+                            <Counselor @couChange='fatherCouReceive' ref="couRef"></Counselor>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">加推时间</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <datePicker v-model="addParam.createDate" type="date" value-type="format"
-                                        style="width: 97%"></datePicker>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">预交房时间</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <datePicker v-model="addParam.proDate" type="date" value-type="format"
-                                        style="width: 97%"></datePicker>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">户型图</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="effectImg" @change="effectImgChange" accept="image/*"
-                                   multiple="multiple"/>
-                            <p class="redtips">*注意：宽620px*高380px</p>
-                            <div id="effectImgOutDiv">
-                                <div v-for="(item,index) of effectImgList" :key="index"
-                                     v-show="effectImgList.length!==0">
-                                    <div @click="fileDel(index,1,item)">x</div>
-                                    <img :src="item" style="width: 100%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">小区环境</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="enPlanImg" @change="enPlanImgChange" accept="image/*"
-                                   multiple="multiple"/>
-                            <p class="redtips">*注意：宽620px*高380px</p>
-                            <div id="enPlanImgOutDiv">
-                                <div v-for="(item,index) of enPlanImgList" :key="index"
-                                     v-show="enPlanImgList.length!==0">
-                                    <div @click="fileDel(index,2,item)">x</div>
-                                    <img :src="item" style="width: 100%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">实景图</label><span
+                               style="padding:0;line-height:34px;">图片</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
@@ -442,40 +292,6 @@
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
                                     <div @click="fileDel(index,3,item)">x</div>
-                                    <img :src="item" style="width: 100%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">样板间图片</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="matchingRealImg" @change="matchingRealImgChange" accept="image/*"
-                                   multiple="multiple"/>
-                            <p class="redtips">*注意：宽620px*高380px</p>
-                            <div id="matchingRealImgOutDiv">
-                                <div v-for="(item,index) of matchingRealImgList" :key="index"
-                                     v-show="matchingRealImgList.length!==0">
-                                    <div @click="fileDel(index,4,item)">x</div>
-                                    <img :src="item" style="width: 100%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">区位</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="regionImg" @change="regionImgChange" accept="image/*"
-                                   multiple="multiple"/>
-                            <p class="redtips">*注意：宽620px*高380px</p>
-                            <div id="regionImgOutDiv">
-                                <div v-for="(item,index) of regionImgList" :key="index"
-                                     v-show="regionImgList.length!==0">
-                                    <div @click="fileDel(index,6,item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -510,19 +326,8 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-6 form-group clearfix">
 
-                    </div>
-                    <div class="col-md-12 form-group clearfix">
-                        <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline"
-                                   style="padding:0;line-height:34px;">项目介绍</label><span class="sign-left">:</span>
-                        </div>
-                        <div class="col-md-12 ">
-                            <textarea class="form-control wdType03" v-model="addParam.projectIntroduction"
-                                      placeholder="项目介绍"></textarea>
-                        </div>
                     </div>
                 </div>
 
@@ -538,14 +343,8 @@
                             type="warning"
                             v-on:click="closeCurrentPage()">返回
                         </el-button>
-                        <el-button
-                            type="warning"
-                            v-on:click="mobileChange(param)"
-                            v-show="addParam.isMobile==1">前往移动端
-                        </el-button>
                     </div>
                 </div>
-
             </div>
         </div>
         <div>
@@ -564,11 +363,12 @@
     import ldt from '../common/LocationDType.vue'
     import dev from '../common/Dev.vue'
     import Charas from '../common/Charas.vue'
-    import cou from './subCou/Counselor.vue'
+    import Counselor from './subCou/Counselor.vue'
     import pro from '../common/Province.vue'
     import Region from '../common/Region.vue'
     import Metros from '../common/Metros.vue'
     import PlayAV from '../common/PlayAV.vue'
+    import Business from "./subBu/subBusiness";
 
     var that = null
     // $(function () {
@@ -587,16 +387,17 @@
         components: {
             datePicker,
             bt,
-            BuildHorseTypes,
-            isSale,
+            // BuildHorseTypes,
+            // isSale,
             // lt,
+            Business,
             ldt,
-            dev,
+            // dev,
             Charas,
-            cou,
+            Counselor,
             pro,
-            Region,
-            Metros,
+            // Region,
+            // Metros,
             PlayAV
         },
         data() {
@@ -604,131 +405,135 @@
                 addParam: {
                     // 楼盘名称
                     htName: '',
-                    // 区域位置
-                    ldId: '',
-                    // 建筑类别
-                    btId: '',
-                    // 户型
-                    bhtIdList: [],
-                    // 最低总价
-                    minTitlePrice: 1,
-                    // 最高总价
-                    maxTitlePrice: 1,
-                    // 最低单价
-                    minUnitPrice: 1,
-                    // 最高单价
-                    maxUnitPrice: 1,
-                    // 面积（小）
-                    minArea: 1,
-                    // 面积(大)
-                    maxArea: 1,
-                    // 开盘时间
-                    openDate: '',
-                    // 销售情况
-                    isSale: '',
-                    // 品牌开发商
-                    devId: '',
-                    // 特色
-                    chaIdList: [],
-                    // 地址
-                    adress: '',
-                    // 省份
+
+                    // 省份ID
                     proId: '',
-                    // 简称
-                    alias: '',
-                    // 加推时间
-                    createDate: '',
-                    // 预交房时间
-                    proDate: '',
-                    // 产权年限
-                    ownershipYear: '',
-                    // 物业类型
-                    propertyType: '',
-                    // 容积率
-                    plotRatio: '',
-                    // 绿化率
-                    greeningRate: '',
-                    // 售楼地址
-                    saleAddress: '',
-                    // 物业地址
-                    propertyAddress: '',
-                    // 装修情况
-                    decoration: '',
-                    // 占地面积
-                    coveredArea: '',
+
+                    // 区域ID
+                    ldId: '',
+
+                    // 最小面积
+                    minArea: '',
+
+                    // 最大面积
+                    maxArea: '',
+
+                    // 最大单价
+                    maxUnitPrice: '',
+
+                    // 最小单价
+                    minUnitPrice: '',
+
+                    // 最大总价
+                    maxTitlePrice: '',
+
+                    // 最小总价
+                    minTitlePrice: '',
+
+                    // 楼盘地址
+                    adress: '',
+
+                    // 开发商id
+                    devId: '',
+
                     // 建筑面积
                     floorage: '',
-                    // 户数
-                    households: '',
-                    // 建筑类型
-                    architecturalStyle: '',
-                    // 开发周期
-                    iteration: '',
+
                     // 物业公司
                     propertyCompany: '',
-                    // 物业费
-                    propertyFee: '',
-                    // 停车位
-                    parkingSpace: '',
+
                     // 项目介绍
                     projectIntroduction: '',
+
+                    // 人气值
+                    popularity: '',
+
+                    // 热搜值
+                    hotSearch: '',
+
+                    // 特价值
+                    specialOffer: '',
+
                     // 热销值
-                    sellWell: 1,
+                    sellWell: '',
+
+                    // 是否推荐户型（1：是；2：否）
+                    recommend: '',
+
+                    // 是否是优选楼盘（1：是；2：否）
+                    optimization: '',
+
+                    // 是否是品质楼盘（1：是；2：否）
+                    quality: '',
+
                     // 联系方式
                     tel: '',
-                    // 修改时间
-                    modifyTime: '',
-                    // 人气值
-                    popularity: 1,
-                    // 热搜值
-                    hotSearch: 1,
-                    // 特价值
-                    specialOffer: 1,
-                    //是否推荐楼盘（1：是；2：否）
-                    recommend: 1,
-                    // 是否是优选楼盘（1：是；2：否）
-                    optimization: 1,
-                    //是否是品质楼盘（1：是；2：否）
-                    quality: 1,
+
                     // 经度
                     longitude: '',
+
                     // 纬度
                     latitude: '',
-                    // 楼盘特色描述
-                    buildDescription: '',
-                    // 环线id
-                    regionId: '',
-                    // 地铁线
-                    metroIdList: [],
-                    //均价
-                    averagePrice: 1,
-                    // 是否移动端(1:是；2：否)
-                    isMobile: '',
 
+                    // 排序权重
+                    sort: '',
+
+                    // 楼层
+                    floor: '',
+
+                    // 客梯数
+                    elevatorNum: '',
+
+                    // 标准层高
+                    floorHeight: '',
+
+                    // 入住企业
+                    enterprises: '',
+
+                    // 咨询师id
+                    couId: '',
+
+                    // 商圈id
+                    businessId: '',
+
+                    // 楼盘类型
+                    buildType: '',
+
+                    // 周边
+                    periphery: '',
+
+                    // 特色
+                    chaIdList: [],
+
+                    // 最小工位数
+                    minStationNum: '',
+
+                    // 最大工位数
+                    maxStationNum: ''
                 },
                 title: '',
-                effectImgList:
-                    [],
-                effectImgFileList:
-                    [],
-                enPlanImgList:
-                    [],
-                enPlanImgFileList:
-                    [],
+                // effectImgList:
+                //     [],
+                // effectImgFileList:
+                //     [],
+                // enPlanImgList:
+                //     [],
+                // enPlanImgFileList:
+                //     [],
                 buildRealImgList:
                     [],
                 buildRealImgFileList:
                     [],
-                matchingRealImgList:
-                    [],
-                matchingRealImgFileList:
-                    [],
+                // matchingRealImgList:
+                //     [],
+                // matchingRealImgFileList:
+                //     [],
                 headImgList:
                     [],
                 headImgFileList:
                     [],
-                regionImgList: [],
-                regionImgFileList: [],
+                // regionImgList: [],
+                // regionImgFileList: [],
                 isDisable: false,
                 size: 0,
                 imgData: {
@@ -738,15 +543,6 @@
                 videoName: '',
                 loading: false,
                 btnName: '确认',
-                // 移动端参数
-                param: {
-                    buildId: '',
-                    // 是否移动端
-                    isMobile: '',
-                    sort: '',
-                    mobileHead: '',
-                    mobileIntroduction: ''
-                },
             }
                 ;
         },
@@ -755,150 +551,155 @@
             initData(param, addParam) {
                 this.btnName = '确认'
                 this.loading = false
-                this.effectImgList = []
-
-                this.enPlanImgList = []
+                // this.effectImgList = []
+                //
+                // this.enPlanImgList = []
 
                 this.buildRealImgList = []
 
-                this.matchingRealImgList = []
-
+                // this.matchingRealImgList = []
+                //
                 this.headImgList = []
-
-                this.regionImgList = []
+                //
+                // this.regionImgList = []
 
                 this.videoName = ''
-                this.effectImgFileList = []
-                this.enPlanImgFileList = []
+                // this.effectImgFileList = []
+                // this.enPlanImgFileList = []
                 this.buildRealImgFileList = []
-                this.matchingRealImgFileList = []
+                // this.matchingRealImgFileList = []
                 this.headImgFileList = []
-                this.regionImgFileList = []
+                // this.regionImgFileList = []
 
-                $("#effectImg").val("");
-                $("#enPlanImg").val("");
+                // $("#effectImg").val("");
+                // $("#enPlanImg").val("");
                 $("#buildRealImg").val("");
-                $("#matchingRealImg").val("");
-                $("#regionImg").val("");
+                // $("#matchingRealImg").val("");
+                // $("#regionImg").val("");
                 $("#headImg").val("");
                 $("#video").val("");
 
                 $('#buildDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
-                    this.param.buildId = ''
                     this.title = '新增'
                     this.$refs.ldtRef.setLdtId('0')
                     this.$refs.btRef.setBtId('0')
-                    this.$refs.saleRef.setIsSale('0')
+                    this.$refs.couRef.setCouId('0')
+                    // this.$refs.saleRef.setIsSale('0')
                     // this.$refs.devRef.setDevId(addParam.devId)
                     this.$refs.charsRef.setCharaList([])
-                    this.$refs.bhtsRef.setBhtIdList([])
+                    // this.$refs.bhtsRef.setBhtIdList([])
                     this.$refs.proRef.setProId('0')
-                    this.$refs.regionRef.setRegionId('0')
-                    this.$refs.metrosRef.setMetroIdList([])
+                    // this.$refs.regionRef.setRegionId('0')
+                    // this.$refs.metrosRef.setMetroIdList([])
                     this.addParam = {
                         // 楼盘名称
                         htName: '',
-                        // 区域位置
-                        ldId: '',
-                        // 建筑类别
-                        btId: '',
-                        // 户型
-                        bhtIdList: [],
-                        // 最低总价
-                        minTitlePrice: 1,
-                        // 最高总价
-                        maxTitlePrice: 1,
-                        // 最低单价
-                        minUnitPrice: 1,
-                        // 最高单价
-                        maxUnitPrice: 1,
-                        // 面积（小）
-                        minArea: 1,
-                        // 面积(大)
-                        maxArea: 1,
-                        // 开盘时间
-                        openDate: '',
-                        // 销售情况
-                        isSale: '',
-                        // 品牌开发商
-                        devId: '',
-                        // 特色
-                        chaIdList: [],
-                        // 地址
-                        adress: '',
-                        // 省份
+
+                        // 省份ID
                         proId: '',
-                        // 简称
-                        alias: '',
-                        // 加推时间
-                        createDate: '',
-                        // 预交房时间
-                        proDate: '',
-                        // 产权年限
-                        ownershipYear: '',
-                        // 物业类型
-                        propertyType: '',
-                        // 容积率
-                        plotRatio: '1.0',
-                        // 绿化率
-                        greeningRate: '1.0',
-                        // 售楼地址
-                        saleAddress: '',
-                        // 物业地址
-                        propertyAddress: '',
-                        // 装修情况
-                        decoration: '',
-                        // 占地面积
-                        coveredArea: 1,
+
+                        // 区域ID
+                        ldId: '',
+
+                        // 最小面积
+                        minArea: '',
+
+                        // 最大面积
+                        maxArea: '',
+
+                        // 最大单价
+                        maxUnitPrice: '',
+
+                        // 最小单价
+                        minUnitPrice: '',
+
+                        // 最大总价
+                        maxTitlePrice: '',
+
+                        // 最小总价
+                        minTitlePrice: '',
+
+                        // 楼盘地址
+                        adress: '',
+
+                        // 开发商id
+                        devId: '',
+
                         // 建筑面积
-                        floorage: 1,
-                        // 户数
-                        households: 1,
-                        // 建筑类型
-                        architecturalStyle: '',
-                        // 开发周期
-                        iteration: '',
+                        floorage: '',
+
                         // 物业公司
                         propertyCompany: '',
-                        // 物业费
-                        propertyFee: '',
-                        // 停车位
-                        parkingSpace: '',
+
                         // 项目介绍
                         projectIntroduction: '',
+
+                        // 人气值
+                        popularity: '',
+
+                        // 热搜值
+                        hotSearch: '',
+
+                        // 特价值
+                        specialOffer: '',
+
                         // 热销值
-                        sellWell: 1,
+                        sellWell: '',
+
+                        // 是否推荐户型（1：是；2：否）
+                        recommend: '',
+
+                        // 是否是优选楼盘（1：是；2：否）
+                        optimization: '',
+
+                        // 是否是品质楼盘（1：是；2：否）
+                        quality: '',
+
                         // 联系方式
                         tel: '',
-                        // 修改时间
-                        modifyTime: '',
-                        // 人气值
-                        popularity: 1,
-                        // 热搜值
-                        hotSearch: 1,
-                        // 特价值
-                        specialOffer: 1,
-                        //是否推荐楼盘（1：是；2：否）
-                        recommend: 2,
-                        // 是否是优选楼盘（1：是；2：否）
-                        optimization: 2,
-                        //是否是品质楼盘（1：是；2：否）
-                        quality: 2,
+
                         // 经度
-                        longitude: '1.0',
+                        longitude: '',
+
                         // 纬度
-                        latitude: '1.0',
-                        // 楼盘特色描述
-                        buildDescription: '',
-                        // 环线id
-                        regionId: '',
-                        // 地铁线
-                        metroIdList: [],
-                        //均价
-                        averagePrice: 1,
-                        // 是否移动端(1:是；2：否)
-                        isMobile: 2,
+                        latitude: '',
+
+                        // 排序权重
+                        sort: '',
+
+                        // 楼层
+                        floor: '',
+
+                        // 客梯数
+                        elevatorNum: '',
+
+                        // 标准层高
+                        floorHeight: '',
+
+                        // 入住企业
+                        enterprises: '',
+
+                        // 咨询师id
+                        couId: '',
+
+                        // 商圈id
+                        businessId: '',
+
+                        // 楼盘类型
+                        buildType: '',
+
+                        // 周边
+                        periphery: '',
+
+                        // 特色
+                        chaIdList: [],
+
+                        // 最小工位数
+                        minStationNum: '',
+
+                        // 最大工位数
+                        maxStationNum: ''
 
                     }
                 } else if (param === 'modify') {
@@ -912,74 +713,78 @@
                     // console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
 
-                    this.param.buildId = addParam.buildId;
-                    this.param.sort = addParam.sort;
-                    this.param.isMobile = addParam.isMobile
-                    this.param.mobileHead = addParam.mobileHead;
-                    this.param.mobileIntroduction = addParam.mobileIntroduction;
+                    // this.param.buildId = addParam.buildId;
+                    // this.param.sort = addParam.sort;
+                    // this.param.isMobile = addParam.isMobile
+                    // this.param.mobileHead = addParam.mobileHead;
+                    // this.param.mobileIntroduction = addParam.mobileIntroduction;
+                    //
+                    // if (null !== addParam.effectPathList) {
+                    //     var en = []
+                    //     for (var i = 0; i < addParam.effectPathList.length; i++) {
+                    //         en.push(this.url + addParam.effectPathList[i])
+                    //     }
+                    //     this.effectImgList = en
+                    // }
+                    //
+                    //
+                    // if (null !== addParam.enPlanPathList) {
+                    //     var enPlan = []
+                    //     for (var i = 0; i < addParam.enPlanPathList.length; i++) {
+                    //         enPlan.push(this.url + addParam.enPlanPathList[i])
+                    //     }
+                    //     this.enPlanImgList = enPlan
+                    // }
 
-                    if (null !== addParam.effectPathList) {
-                        var en = []
-                        for (var i = 0; i < addParam.effectPathList.length; i++) {
-                            en.push(this.url + addParam.effectPathList[i])
-                        }
-                        this.effectImgList = en
-                    }
 
-
-                    if (null !== addParam.enPlanPathList) {
-                        var enPlan = []
-                        for (var i = 0; i < addParam.enPlanPathList.length; i++) {
-                            enPlan.push(this.url + addParam.enPlanPathList[i])
-                        }
-                        this.enPlanImgList = enPlan
-                    }
-
-
-                    if (null !== addParam.buildReaPathList) {
+                    if (null !== addParam.picturePath) {
                         var buildRea = []
-                        for (var i = 0; i < addParam.buildReaPathList.length; i++) {
-                            buildRea.push(this.url + addParam.buildReaPathList[i])
+                        for (var i = 0; i < addParam.picturePath.length; i++) {
+                            buildRea.push(this.url + addParam.picturePath[i])
                         }
                         this.buildRealImgList = buildRea
                     }
 
 
-                    if (null !== addParam.matchingRealPathList) {
-                        var matching = []
-                        for (var i = 0; i < addParam.matchingRealPathList.length; i++) {
-                            matching.push(this.url + addParam.matchingRealPathList[i])
-                        }
-                        this.matchingRealImgList = matching
-                    }
+                    // if (null !== addParam.matchingRealPathList) {
+                    //     var matching = []
+                    //     for (var i = 0; i < addParam.matchingRealPathList.length; i++) {
+                    //         matching.push(this.url + addParam.matchingRealPathList[i])
+                    //     }
+                    //     this.matchingRealImgList = matching
+                    // }
 
 
-                    if (null !== addParam.regionPathList) {
-                        var region = []
-                        for (var i = 0; i < addParam.regionPathList.length; i++) {
-                            region.push(this.url + addParam.regionPathList[i])
-                        }
-                        this.regionImgList = region
-                    }
+                    // if (null !== addParam.regionPathList) {
+                    //     var region = []
+                    //     for (var i = 0; i < addParam.regionPathList.length; i++) {
+                    //         region.push(this.url + addParam.regionPathList[i])
+                    //     }
+                    //     this.regionImgList = region
+                    // }
 
-
-                    if (null != addParam && null != addParam.imgPath) {
+                    //
+                    if (null != addParam && null != addParam.headPath) {
                         var img = []
-                        img.push(this.url + addParam.imgPath)
+                        img.push(this.url + addParam.headPath)
                         this.headImgList = img
                     }
 
 
                     // console.log(JSON.stringify(addParam))
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
-                    this.$refs.btRef.setBtId(addParam.btId)
-                    this.$refs.saleRef.setIsSale(addParam.isSale)
+                    this.$refs.btRef.setBtId(addParam.buildType)
+                    // this.$refs.saleRef.setIsSale(addParam.isSale)
                     // this.$refs.devRef.setDevId(addParam.devId)
-                    this.$refs.charsRef.setCharaList(addParam.chaIdList)
-                    this.$refs.bhtsRef.setBhtIdList(addParam.bhtIdList)
+                    if (addParam.chaIdList) {
+                        this.$refs.charsRef.setCharaList(addParam.chaIdList)
+                    }
+
+                    // this.$refs.bhtsRef.setBhtIdList(addParam.bhtIdList)
                     this.$refs.proRef.setProId(addParam.proId)
-                    this.$refs.regionRef.setRegionId(addParam.regionId)
-                    this.$refs.metrosRef.setMetroIdList(addParam.metroIdList)
+                    this.$refs.couRef.setCouId(addParam.couId)
+                    // this.$refs.regionRef.setRegionId(addParam.regionId)
+                    // this.$refs.metrosRef.setMetroIdList(addParam.metroIdList)
                     Object.assign(this.addParam, addParam)
                 }
             },
@@ -1000,18 +805,6 @@
                     alert('楼盘不能为空')
                     return
                 }
-                if (this.isBlank(this.addParam.saleAddress)) {
-                    alert('售楼地址不能为空')
-                    return
-                }
-                // if (this.isBlank(this.addParam.propertyAddress)) {
-                //     alert('物业地址不能为空')
-                //     return
-                // }
-                if (this.isBlank(this.addParam.decoration)) {
-                    alert('装修情况不能为空')
-                    return
-                }
 
 
                 if (this.addParam.coveredArea != null && this.addParam.coveredArea !== '' && parseFloat(this.addParam.coveredArea) !== 0) {
@@ -1030,85 +823,17 @@
                 }
 
 
-                if (this.addParam.households != null && this.addParam.households !== '' && parseInt(this.addParam.households) !== 0) {
-                    if (!(/^([0-9]*$)$/).test(this.addParam.households)) {
-                        alert('户数只能是整数')
-                        return;
-                    }
-                }
-
-
-                if (this.addParam.specialOffer != null && this.addParam.specialOffer !== '' && parseInt(this.addParam.specialOffer) !== 0) {
-                    if (!(/^([0-9]*$)$/).test(this.addParam.specialOffer)) {
-                        alert('特价值只能是整数')
-                        return;
-                    }
-                }
-
-
-                if (this.isBlank(this.addParam.architecturalStyle)) {
-                    alert('建筑类型不能为空')
-                    return
-                }
-
-
-                if (this.addParam.iteration != null && this.addParam.iteration !== '' && parseInt(this.addParam.iteration) !== 0) {
-                    if (!(/^([0-9]*$)$/).test(this.addParam.iteration)) {
-                        alert('开发周期只能是整数')
-                        return;
-                    }
-                }
+                // if (this.addParam.specialOffer != null && this.addParam.specialOffer !== '' && parseInt(this.addParam.specialOffer) !== 0) {
+                //     if (!(/^([0-9]*$)$/).test(this.addParam.specialOffer)) {
+                //         alert('特价值只能是整数')
+                //         return;
+                //     }
+                // }
 
 
                 if (this.isBlank(this.addParam.propertyCompany)) {
                     alert('物业公司不能为空')
                     return
-                }
-
-
-                if (this.addParam.propertyFee != null && this.addParam.propertyFee !== '' && parseFloat(this.addParam.propertyFee) !== 0) {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.propertyFee)) {
-                        alert('物业费只能是整数或者1-2位小数的正实数')
-                        return;
-                    }
-                }
-
-
-                if (this.addParam.parkingSpace != null && this.addParam.parkingSpace !== '' && parseInt(this.addParam.parkingSpace) !== 0) {
-                    if (!(/^([0-9]*$)$/).test(this.addParam.parkingSpace)) {
-                        alert('停车位只能是整数')
-                        return;
-                    }
-                }
-
-
-                if (this.addParam.greeningRate != null && this.addParam.greeningRate !== '' && parseFloat(this.addParam.greeningRate) !== 0) {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.greeningRate)) {
-                        alert('绿化率只能是整数或者1-2位小数的正实数')
-                        return;
-                    }
-                }
-
-
-                if (this.addParam.plotRatio != null && this.addParam.plotRatio !== '' && parseFloat(this.addParam.plotRatio) !== 0) {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.plotRatio)) {
-                        alert('容积率只能是整数或者1-2位小数的正实数')
-                        return;
-                    }
-                }
-
-
-                if (this.isBlank(this.addParam.propertyType)) {
-                    alert('物业类型不能为空')
-                    return
-                }
-
-
-                if (this.addParam.ownershipYear != null && this.addParam.ownershipYear !== '' && parseInt(this.addParam.ownershipYear) !== 0) {
-                    if (!(/^([0-9]*$)$/).test(this.addParam.ownershipYear)) {
-                        alert('产权年限只能是整数')
-                        return;
-                    }
                 }
 
 
@@ -1120,12 +845,12 @@
                 }
 
 
-                if (this.addParam.hotSearch != null && this.addParam.hotSearch !== '' && parseInt(this.addParam.hotSearch) !== 0) {
-                    if (!(/^([0-9]*$)$/).test(this.addParam.hotSearch)) {
-                        alert('热搜值只能是整数')
-                        return;
-                    }
-                }
+                // if (this.addParam.hotSearch != null && this.addParam.hotSearch !== '' && parseInt(this.addParam.hotSearch) !== 0) {
+                //     if (!(/^([0-9]*$)$/).test(this.addParam.hotSearch)) {
+                //         alert('热搜值只能是整数')
+                //         return;
+                //     }
+                // }
 
 
                 if (this.addParam.popularity != null && this.addParam.popularity !== '' && parseInt(this.addParam.popularity) !== 0) {
@@ -1135,13 +860,6 @@
                     }
                 }
 
-
-                if (this.addParam.averagePrice != null && this.addParam.averagePrice !== '' && parseFloat(this.addParam.averagePrice) !== 0) {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.averagePrice)) {
-                        alert('均价只能是整数或者1-2位小数的正实数')
-                        return;
-                    }
-                }
 
                 if (this.addParam.minArea != null && this.addParam.minArea !== '' && parseFloat(this.addParam.minArea) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minArea)) {
@@ -1193,15 +911,15 @@
                 const fd = new FormData();
                 // 效果图
                 // const effectImg = $("#effectImg")[0].files;
-                for (let i = 0; i < this.effectImgFileList.length; i++) {
-                    fd.append("effectImg", this.effectImgFileList[i]);
-                }
-
-                // 环境规划
-                // const enPlanImg = $("#enPlanImg")[0].files;
-                for (let i = 0; i < this.enPlanImgFileList.length; i++) {
-                    fd.append("enPlanImg", this.enPlanImgFileList[i]);
-                }
+                // for (let i = 0; i < this.effectImgFileList.length; i++) {
+                //     fd.append("effectImg", this.effectImgFileList[i]);
+                // }
+                //
+                // // 环境规划
+                // // const enPlanImg = $("#enPlanImg")[0].files;
+                // for (let i = 0; i < this.enPlanImgFileList.length; i++) {
+                //     fd.append("enPlanImg", this.enPlanImgFileList[i]);
+                // }
                 // 楼盘实景
                 // const buildRealImg = $("#buildRealImg")[0].files;
                 for (let i = 0; i < this.buildRealImgFileList.length; i++) {
@@ -1209,18 +927,18 @@
                 }
                 // 配套实景
                 // const matchingRealImg = $("#matchingRealImg")[0].files;
-                for (let i = 0; i < this.matchingRealImgFileList.length; i++) {
-                    fd.append("matchingRealImg", this.matchingRealImgFileList[i]);
-                }
+                // for (let i = 0; i < this.matchingRealImgFileList.length; i++) {
+                //     fd.append("matchingRealImg", this.matchingRealImgFileList[i]);
+                // }
 
                 // 头图
                 for (let i = 0; i < this.headImgFileList.length; i++) {
                     fd.append("headImg", this.headImgFileList[i]);
                 }
                 // 区位
-                for (let i = 0; i < this.regionImgFileList.length; i++) {
-                    fd.append("regionImg", this.regionImgFileList[i]);
-                }
+                // for (let i = 0; i < this.regionImgFileList.length; i++) {
+                //     fd.append("regionImg", this.regionImgFileList[i]);
+                // }
                 // 视频
                 var videoFile = $("#video")[0].files[0]
                 fd.append("video", videoFile);
@@ -1258,10 +976,10 @@
                         this.loading = false
                         this.btnName = '提交成功'
                         if (this.addParam.isMobile == 1) {
-                            this.param.buildId = res.retData.buildId;
-                            this.param.sort = res.retData.sort;
-                            this.param.mobileHead = res.retData.mobileHead;
-                            this.param.mobileIntroduction = res.retData.mobileIntroduction;
+                            // this.param.buildId = res.retData.buildId;
+                            // this.param.sort = res.retData.sort;
+                            // this.param.mobileHead = res.retData.mobileHead;
+                            // this.param.mobileIntroduction = res.retData.mobileIntroduction;
 
                             // this.$parent.$refs.mobileDialogRef.initRef(this.param)
                             // $('#mobileDialog').modal({backdrop: 'static', keyboard: true});
@@ -1272,13 +990,17 @@
                             }, 2000)
                         }
 
+                    } else {
+                        alert(res.retMsg)
+                        this.$emit('certainAction')
                     }
                 }).catch((error) => {
-                    console.log(error + '楼盘信息提交失败')
+                    console.log(error);
                 });
             },
             closeCurrentPage() {
                 this.playAvOutDivFlag = true
+                this.$emit('certainAction')
                 $("#buildDialog").modal("hide")
             },
 
@@ -1291,31 +1013,48 @@
                 return this.formatFileSize(fileSize / 1024, ++idx);
             },
 
-            fatherBhtReceive(data) {
-                this.addParam.bhtIdList = []
-                this.addParam.bhtIdList = data
-            },
+            // fatherBhtReceive(data) {
+            //     this.addParam.bhtIdList = []
+            //     this.addParam.bhtIdList = data
+            // },
             fatherBtReceive(data) {
-                this.addParam.btId = ''
-                this.addParam.btId = data
+                this.addParam.buildType = ''
+                this.addParam.buildType = data
             },
-            fatherIsSaleReceive(data) {
-                this.addParam.isSale = ''
-                this.addParam.isSale = data
+
+            fatherCouReceive(data) {
+                this.addParam.couId = ''
+                if (null != data) {
+                    this.addParam.couId = data
+                }
             },
+            // fatherIsSaleReceive(data) {
+            //     this.addParam.isSale = ''
+            //     this.addParam.isSale = data
+            // },
 
             fatherLdtReceive(data) {
                 this.addParam.ldId = ''
-                this.addParam.ldId = data
+                if (null != data) {
+                    this.addParam.ldId = data
+                }
+                this.$refs.buRef.setLdId(data)
             },
-            fatherMetrosReceive(data) {
-                this.addParam.metroIdList = []
-                this.addParam.metroIdList = data
+            fatherBuReceive(data) {
+                this.addParam.businessId = ''
+                if (null != data) {
+                    this.addParam.businessId = data
+                }
+
             },
-            fatherDevReceive(data) {
-                this.addParam.devId = ''
-                this.addParam.devId = data
-            },
+            // fatherMetrosReceive(data) {
+            //     this.addParam.metroIdList = []
+            //     this.addParam.metroIdList = data
+            // },
+            // fatherDevReceive(data) {
+            //     this.addParam.devId = ''
+            //     this.addParam.devId = data
+            // },
             fatherChReceive(data) {
                 this.addParam.chaIdList = []
                 this.addParam.chaIdList = data
@@ -1326,7 +1065,10 @@
             },
             fatherProReceive(data) {
                 this.addParam.proId = ''
-                this.addParam.proId = data
+                if (null != data) {
+                    this.addParam.proId = data
+                }
+                this.$refs.ldtRef.setProId(data)
             },
             //预览图
             effectImgChange() {
@@ -1409,20 +1151,13 @@
                     var dataUrl = reader.result;
 
                     file.src = this.result;
-                    if (pictureType === 1) {
-                        that.effectImgFileList.push(file)
-                        that.effectImgList.push(dataUrl)
-
-                    } else if (pictureType === 2) {
-                        that.enPlanImgFileList.push(file)
-                        that.enPlanImgList.push(dataUrl)
-
-                    } else if (pictureType === 3) {
+                     if (pictureType === 3) {
                         that.buildRealImgFileList.push(file)
                         that.buildRealImgList.push(dataUrl)
-                    } else if (pictureType === 4) {
-                        that.matchingRealImgFileList.push(file)
-                        that.matchingRealImgList.push(dataUrl)
+                    }else if (pictureType === 5) {
+                        that.headImgFileList.push(file)
+                        that.headImgList.push(dataUrl)
+                    }
 
                         // if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
                         //     "<div id='matchingRealImgInnDiv_" + i + "' >" +
@@ -1430,13 +1165,7 @@
                         //     "</div>"
                         // );
                         // $("#matchingRealImg_" + i).attr("src", dataUrl);
-                    } else if (pictureType === 5) {
-                        that.headImgFileList.push(file)
-                        that.headImgList.push(dataUrl)
-                    } else if (pictureType === 6) {
-                        that.regionImgFileList.push(file)
-                        that.regionImgList.push(dataUrl)
-                    }
+
 
                 }
             },
@@ -1447,26 +1176,13 @@
                     }
                 }
 
-                if (type === 1) {
-                    this.effectImgList.splice(index, 1);
-                    this.effectImgFileList.splice(index, 1)
-                } else if (type === 2) {
-                    this.enPlanImgList.splice(index, 1)
-                    this.enPlanImgFileList.splice(index, 1)
-                } else if (type === 3) {
+                if (type === 3) {
                     this.buildRealImgList.splice(index, 1)
                     this.buildRealImgFileList.splice(index, 1)
-                } else if (type === 4) {
-                    this.matchingRealImgList.splice(index, 1)
-                    this.matchingRealImgFileList.splice(index, 1)
                 } else if (type === 5) {
                     this.headImgList.splice(index, 1)
                     this.headImgFileList.splice(index, 1)
-                } else if (type === 6) {
-                    this.regionImgList.splice(index, 1)
-                    this.regionImgFileList.splice(index, 1)
                 }
-
                 if (this.title == '新增') return;
                 if (this.isBlank(item)) return;
                 var index = item.lastIndexOf('=');
@@ -1488,24 +1204,6 @@
                     console.log('楼盘信息提交失败')
                 });
             },
-
-            mobileChange(item) {
-                if (item.buildId == '') {
-                    alert('请先提交PC端楼盘信息')
-                } else {
-                    // $("#buildDialog").modal("hide")
-                    // this.$refs.mobileDialogRef.initRef(item)
-                    this.$parent.$refs.mobileDialogRef.initRef(item)
-                    $('#mobileDialog').modal({backdrop: 'static', keyboard: true});
-                    $("#mobileDialog").modal('show')
-                }
-
-            },
-
-            isMobile() {
-                this.param.isMobile = this.addParam.isMobile
-            }
-
 
         },
         computed: {
