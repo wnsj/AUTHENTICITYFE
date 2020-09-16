@@ -20,7 +20,7 @@
 					<p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #047EB1;text-align: left; margin-bottom:10px;">
 						功能列表</p>
 					<div id="aside-menu">
-						<dl v-bind:class="{h2:bool3}">
+						<dl v-bind:class="{h4:bool3}">
 							<dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
 									房源管理
@@ -31,6 +31,9 @@
 							</dd>
 							<dd @click="addCheck('EntrustRent')" v-bind:class="{'li-active':onString=='EntrustRent'}">
 								<router-link to="/MP/HouseResources/EntrustRent"><i class="fa" aria-hidden="true">委托管理</i></router-link>
+							</dd>
+							<dd @click="addCheck('Business')" v-bind:class="{'li-active':onString=='Business'}">
+								<router-link to="/MP/Business/Business"><i class="fa" aria-hidden="true">商圈管理</i></router-link>
 							</dd>
 						</dl>
 						<dl v-bind:class="{h4:bool4}">
@@ -247,6 +250,10 @@
 				}
 				if (string == 'EntrustRent') {
 				    this.titleNow = '委托管理';
+				    return false;
+				}
+				if (string == 'Business') {
+				    this.titleNow = '商圈管理';
 				    return false;
 				}
             },

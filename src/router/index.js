@@ -13,6 +13,7 @@ import BuildingDynamic from '../components/MP/BuildingDynamic/BuildingDynamic.vu
 import LinkPhone from '../components/MP/LinkPhone/LinkPhone.vue'
 import HouseResources from '../components/MP/HouseResources/HouseResources.vue'
 import EntrustRent from '../components/MP/HouseResources/EntrustRent.vue'
+import Business from '../components/MP/Business/Business.vue'
 
 Vue.use(Router)
 
@@ -81,6 +82,11 @@ export default new Router({
 				    path: '/MP/HouseResources/EntrustRent',
 				    name: 'EntrustRent',
 				    component: EntrustRent,
+				},
+				{
+				    path: '/MP/Business/Business',
+				    name: 'Business',
+				    component: Business,
 				}
             ],
             redirect: '/MP/BuildingControl/BuildingControl'

@@ -185,9 +185,7 @@
 // btId;
 // renovationCondition;
 
-    
-    
-    
+
     //  surround;
 
     
@@ -247,6 +245,69 @@
     
     
     // r isRent;
+
+//     
+//     
+//      surround;
+// 
+//     
+//     
+//     
+//      labelList;
+// 
+//     
+//     共享，3商铺
+//     
+//     r roomType;
+// 
+//     
+//     
+//     
+//      areaInfo;
+//     
+//     
+//     
+//     
+//     r stId;
+//     
+//     
+//     
+//     
+//      caId;
+//     
+//     
+//     
+//     
+//     imal transferFee;
+//     
+//     
+//     
+//     
+//     ist = false)
+//      ldName;
+//     
+//     
+//     
+//     
+//     ist = false)
+//      buildName;
+//     
+//     
+//     
+//     
+//     ist = false)
+//      bussinessName;
+// 
+//     
+//     
+//     
+//      payType;
+// 
+//     
+//     
+//     
+//     r isRent;
+
                 },
                 picture: [],
                 pictureFile: [],
