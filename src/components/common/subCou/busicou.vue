@@ -2,98 +2,45 @@
 <template>
     <div class="modal-content">
         <div class="modal-header">
-            <h4 id="myModalLabel" class="modal-title">{{title}}咨询师</h4>
+            <h4 id="myModalLabel" class="modal-title">{{title}}商圈信息</h4>
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
                 <div class="dialogInutBox clearfix">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">房源名称</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">所属区域</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <!-- <input type="text" class="form-control" v-model="addCou.couName"/> -->
+                          <select name="" id="" class="form-control">
+                             <option value="未选择">未选择</option>
+                          </select>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">区域</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">商圈名字</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addCou.graduate"/>
+                            <input type="text" class="form-control" />
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">商圈描述</label>
+                        <div class="col-md-10">
+                            <textarea type="text" class="form-control"></textarea>
+                        </div>
+                    </div>
+                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">商圈</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">是否热门</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-							<input type="text" class="form-control" v-model="addCou.charaName"/>
-                            <!-- <cou-chara @couCharaChange="fatherCouChara" ref="couCharaRef"></cou-chara> -->
+                          <select name="" id="" class="form-control">
+                             <option value="2">是</option>
+                             <option value="3">否</option>
+                          </select>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">楼盘</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addCou.tel"/>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">是否可注册</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <!-- <cou-label @couClChange="fatherCouLabel" ref="couLabel"></cou-label> -->
-                        </div>
-                    </div>
-					<div class="col-md-6 form-group clearfix">
-					    <label class="col-md-3 control-label text-right nopad end-aline"
-					           style="padding:0;line-height:34px;">单价</label><span class="sign-left">:</span>
-					    <div class="col-md-8">
-					        <input type="text" class="form-control" v-model="addCou.tel"/>
-					    </div>
-					</div>
-					<div class="col-md-6 form-group clearfix">
-					    <label class="col-md-3 control-label text-right nopad end-aline"
-					           style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
-					    <div class="col-md-8">
-					        <input type="text" class="form-control" v-model="addCou.tel"/>
-					    </div>
-					</div>
-					<div class="col-md-6 form-group clearfix">
-					    <label class="col-md-3 control-label text-right nopad end-aline"
-					           style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
-					    <div class="col-md-8">
-					        <input type="text" class="form-control" v-model="addCou.tel"/>
-					    </div>
-					</div>
-					<div class="col-md-6 form-group clearfix">
-					    <label class="col-md-3 control-label text-right nopad end-aline"
-					           style="padding:0;line-height:34px;">详细地址</label><span class="sign-left">:</span>
-					    <div class="col-md-8">
-					        <input type="text" class="form-control" v-model="addCou.tel"/>
-					    </div>
-					</div>
-					<div class="col-md-6 form-group clearfix">
-					    <label class="col-md-3 control-label text-right nopad end-aline"
-					           style="padding:0;line-height:34px;">地铁地址</label><span class="sign-left">:</span>
-					    <div class="col-md-8">
-					        <input type="text" class="form-control" v-model="addCou.tel"/>
-					    </div>
-					</div>
-					<div class="col-md-6 form-group clearfix">
-					    <label class="col-md-3 control-label text-right nopad end-aline"
-					           style="padding:0;line-height:34px;">房源类型</label><span class="sign-left">:</span>
-					    <div class="col-md-8">
-					        <input type="text" class="form-control" v-model="addCou.tel"/>
-					    </div>
-					</div>
-					<div class="col-md-6 form-group clearfix">
-					    <label class="col-md-3 control-label text-right nopad end-aline"
-					           style="padding:0;line-height:34px;">楼盘</label><span class="sign-left">:</span>
-					    <div class="col-md-8">
-					        <input type="text" class="form-control" v-model="addCou.tel"/>
-					    </div>
-					</div>
-
+                    
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">照片</label><span
@@ -145,169 +92,31 @@
 
 <script>
     var that = null
-//     import couChara from '../subCou/CouChara.vue'
-//     import couLabel from '../subCou/CouLabel.vue'
+    import couChara from '../subCou/CouChara.vue'
+    import couLabel from '../subCou/CouLabel.vue'
 
     export default {
         components: {
-//             couChara,
-//             couLabel
+            couChara,
+            couLabel
         },
         data() {
             return {
                 addCou: {
-                    // 名字
-                    room: '',
-                    //区域ID
-                    ldId: '',
-                    // 楼盘ID
-                    buildId: '',
-					// 商圈ID
-					businessId:'',
+                    // 咨询师
+                    couName: '',
+                    //毕业院校
+                    graduate: '',
+                    // 特长
+                    ccId: '',
+					// 特长名
+					charaName:'',
                     // 联系方式
-                    watchHouseTime: '',
-//                      private String rentFreeTime;
-// 
-//     isRegister;
-// isHome;
-// isHot;
-// unitPrice;
-// totalPrice;
-// buildArea;
-// detailedAddress;
-// stationAddress;
-// reateDate;
-// odifyDate;
-// couId;
-// roomImg;
-// longitude;
-// latitude;
-// btId;
-// renovationCondition;
-
-
-    //  surround;
-
-    
-    
-    
-    //  labelList;
-
-    
-    // 共享，3商铺
-    
-    // r roomType;
-
-    
-    
-    
-    //  areaInfo;
-    
-    
-    
-    
-    // r stId;
-    
-    
-    
-    
-    //  caId;
-    
-    
-    
-    
-    // imal transferFee;
-    
-    
-    
-    
-    // ist = false)
-    //  ldName;
-    
-    
-    
-    
-    // ist = false)
-    //  buildName;
-    
-    
-    
-    
-    // ist = false)
-    //  bussinessName;
-
-    
-    
-    
-    //  payType;
-
-    
-    
-    
-    // r isRent;
-
-//     
-//     
-//      surround;
-// 
-//     
-//     
-//     
-//      labelList;
-// 
-//     
-//     共享，3商铺
-//     
-//     r roomType;
-// 
-//     
-//     
-//     
-//      areaInfo;
-//     
-//     
-//     
-//     
-//     r stId;
-//     
-//     
-//     
-//     
-//      caId;
-//     
-//     
-//     
-//     
-//     imal transferFee;
-//     
-//     
-//     
-//     
-//     ist = false)
-//      ldName;
-//     
-//     
-//     
-//     
-//     ist = false)
-//      buildName;
-//     
-//     
-//     
-//     
-//     ist = false)
-//      bussinessName;
-// 
-//     
-//     
-//     
-//      payType;
-// 
-//     
-//     
-//     
-//     r isRent;
-
+                    tel: '',
+                    // 标签
+                    labelList: [],
+                    // 介绍
+                    introduce: ''
                 },
                 picture: [],
                 pictureFile: [],
@@ -341,7 +150,8 @@
 
                 $('#couDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
-                    
+                    // this.$refs.couCharaRef.setCcId('0');
+                    this.$refs.couLabel.setClId([]);
                     this.title = '新增'
                     this.addCou = {
                         // 咨询师

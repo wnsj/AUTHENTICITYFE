@@ -20,9 +20,9 @@
 					<p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #047EB1;text-align: left; margin-bottom:10px;">
 						功能列表</p>
 					<div id="aside-menu">
-						<dl v-bind:class="{h4:bool3}">
-							<dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
-								<i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
+						<dl v-bind:class="{h4:bool6}">
+							<dt @click="onShow(5)" v-bind:class="{'li-active':bool6}">
+								<i class="fa" v-bind:class="{'fa-folder-open':bool6,'fa-folder':!bool6}" aria-hidden="false">
 									房源管理
 								</i>
 							</dt>
@@ -79,14 +79,17 @@
 								<router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">动态管理</i></router-link>
 							</dd>
 						</dl>
-						<dl v-bind:class="{h1:bool3}" v-show=phoneFlag>
+						<dl v-bind:class="{h222:bool3}" v-show=phoneFlag>
 							<dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
 									电话回拨
 								</i>
 							</dt>
 							<dd @click="addCheck('LinkPhone')" v-bind:class="{'li-active':onString=='LinkPhone'}">
-								<router-link to="/MP/LinkPhone/LinkPhone"><i class="fa" aria-hidden="true">电话回拨管理</i></router-link>
+								<router-link to="/MP/LinkPhone/LinkPhone"><i class="fa" aria-hidden="true">委托找房</i></router-link>
+							</dd>
+							<dd @click="addCheck('LinkRenting')" v-bind:class="{'li-active':onString=='LinkRenting'}">
+								<router-link to="/MP/LinkPhone/LinkRenting"><i class="fa" aria-hidden="true">委托好租</i></router-link>
 							</dd>
 						</dl>
 						<dl v-bind:class="{h1:bool5}">
@@ -162,7 +165,8 @@
                 bool2: false,
                 bool3: false,
                 bool4: true,
-                bool5: false,
+				bool5: false,
+				bool6: false,
                 onString: 'MemberSummary',
                 titleNow: '楼盘管理'
             }
@@ -179,35 +183,48 @@
                         this.bool2 = false;
                         this.bool3 = false;
                         this.bool4 = false;
-                        this.bool5 = false;
+						this.bool5 = false;
+						this.bool6 = false;
                         break;
                     case 1:
                         this.bool1 = false;
                         this.bool2 = !this.bool2;
                         this.bool3 = false;
                         this.bool4 = false;
-                        this.bool5 = false;
+						this.bool5 = false;
+						this.bool6 = false;
                         break;
                     case 2:
                         this.bool1 = false;
                         this.bool2 = false;
                         this.bool3 = !this.bool3;
                         this.bool4 = false;
-                        this.bool5 = false;
+						this.bool5 = false;
+						this.bool6 = false;
                         break;
                     case 3:
                         this.bool1 = false;
                         this.bool2 = false;
                         this.bool3 = false;
                         this.bool4 = !this.bool4;
-                        this.bool5 = false;
+						this.bool5 = false;
+						this.bool6 = false;
                         break;
                     case 4:
                         this.bool1 = false;
                         this.bool2 = false;
                         this.bool3 = false;
                         this.bool4 = false;
-                        this.bool5 = !this.bool5;
+						this.bool5 = !this.bool5;
+						this.bool6 = false;
+						break;
+					 case 5:
+                        this.bool1 = false;
+                        this.bool2 = false;
+                        this.bool3 = false;
+                        this.bool4 = false;
+						this.bool5 = false;
+						this.bool6 = !this.bool6;
                         break;
                 }
 
@@ -244,7 +261,11 @@
                     return false;
                 }
                 if (string == 'LinkPhone') {
-                    this.titleNow = '电话回拨管理';
+                    this.titleNow = '委托找房';
+                    return false;
+				}
+				 if (string == 'LinkRenting') {
+                    this.titleNow = '委托好租';
                     return false;
                 }
 				if (string == 'HouseResources') {
@@ -347,6 +368,11 @@
 		margin-top: 0px;
 		height: 100px;
 	}
+	#aside-menu dl.h222 {
+		margin-top: 0px;
+		height: 150px;
+	}
+
 
 	#aside-menu dl dt {
 		height: 50px;

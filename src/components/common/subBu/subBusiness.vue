@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="unitId" v-on:change="unitChange()">
+    <select class="form-control" v-model="id" v-on:change="buChange()">
         <option value="0">--未选择--</option>
-        <option v-for="(item,index) in unitIdList" :key="index" v-bind:value="item.upId">{{item.begPrice}}-{{item.endPrice}}</option>
+        <option v-for="(item,index) in buList" :key="index" v-bind:value="item.id">{{item.buName}}</option>
     </select>
 </template>
 
@@ -9,52 +9,52 @@
     export default {
         data() {
             return {
-                unitId: '0',
-                type: '',
-                unitIdList: []
+                id: '0',
+                ldId:'',
+                buList: []
             };
         },
         methods: {
 
-            unitChange: function() {
-                for (var i = 0; i < this.unitIdList.length; i++) {
-                    if(this.unitId === '0'){
-                        this.$emit('unitChange', null)
+            buChange: function() {
+                for (var i = 0; i < this.buList.length; i++) {
+                    if(this.id === '0'){
+                        this.$emit('buChange', null)
                         return
                     }else{
-                        if (this.unitIdList[i].upId === this.unitId) {
+                        if (this.buList[i].id === this.id) {
 
-                            this.$emit('unitChange', this.unitIdList[i])
+                            this.$emit('buChange', this.buList[i].id)
                             return
                         }
                     }
                 }
             },
-            setType: function(type) {
-                this.type = type
+            setBuId: function(buId) {
+                this.id = buId
                 this.queryData()
             },
-            setUpId: function(upId) {
-                this.unitId = upId
+            setLdId: function(ldId) {
+                this.ldId = ldId
                 this.queryData()
             },
             async queryData() {
-                var url = this.url + '/unitPriceTypeBean/getAllUnitPrice?type=' + this.type
+                var url = this.url + '/businessDistrictBean/getBusinessDistrict'
                 this.$ajax({
-                    method: 'GET',
+                    method: 'POST',
                     url: url,
                     headers: {
                         'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        type: this.type
+                        ldId:this.ldId
                     },
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.unitIdList = res.retData
+                        this.buList = res.retData
                     } else {
                         alert(res.retMsg)
                     }
@@ -64,7 +64,7 @@
             },
         },
         created() {
-
+            this.queryData()
         },
     }
 </script>

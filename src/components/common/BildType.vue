@@ -1,7 +1,7 @@
 <template>
     <select class="form-control" v-model="btId" v-on:change="btChange()">
         <option value="0">--未选择--</option>
-		<option v-for="(item,index) in buildTypeList" :key="index" v-bind:value="item.btId">{{item.btName}}</option>
+        <option v-for="(item,index) in buildTypeList" :key="index" v-bind:value="item.btId">{{item.btName}}</option>
     </select>
 </template>
 
@@ -14,13 +14,13 @@
             };
         },
         methods: {
-            
-            btChange: function() {
+
+            btChange: function () {
                 for (var i = 0; i < this.buildTypeList.length; i++) {
-                    if(this.btId == 0){
-                         this.$emit('btChange', null)
-                         return
-                    }else{
+                    if (this.btId == 0) {
+                        this.$emit('btChange', null)
+                        return
+                    } else {
                         if (this.buildTypeList[i].btId == this.btId) {
                             this.$emit('btChange', this.buildTypeList[i].btId)
                             return
@@ -28,21 +28,19 @@
                     }
                 }
             },
-            setBtId: function(btId) {
+            setBtId: function (btId) {
                 this.btId = btId
                 this.queryData()
             },
             async queryData() {
-                var url = this.url + '/buildingTypeBean/getAllBuildingType'
+                var url = this.url + '/buildingTypeBean/getAllBuildingType?type=' + 1
                 this.$ajax({
                     method: 'GET',
                     url: url,
                     headers: {
-                        'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
                     data: {},
-                    dataType: 'json',
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {

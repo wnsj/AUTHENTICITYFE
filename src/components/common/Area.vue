@@ -10,6 +10,7 @@
         data() {
             return {
                 areaId: '0',
+                type: '',
                 areaList: []
             };
         },
@@ -33,8 +34,12 @@
                 this.areaId = arId
                 this.queryData()
             },
+            setType: function(type) {
+                this.type = type
+                this.queryData()
+            },
             async queryData() {
-                var url = this.url + '/areaBean/getAllArea'
+                var url = this.url + '/areaBean/getAllArea?type=' + this.type
                 this.$ajax({
                     method: 'GET',
                     url: url,
@@ -42,7 +47,9 @@
                         'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
-                    data: {},
+                    data: {
+                        type: this.type
+                    },
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data
@@ -57,7 +64,6 @@
             },
         },
         created() {
-            this.queryData()
         },
     }
 </script>

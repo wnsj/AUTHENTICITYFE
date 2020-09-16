@@ -7,25 +7,21 @@
             <!--咨询师-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">咨询师</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <!-- <cou @couChange="fatherCou" ref="couRef"></cou> -->
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">商圈</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                 </div>
             </div>
-            <!--咨询师特长-->
-<!--            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">-->
-<!--                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">-->
-<!--                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">特长</p><span-->
-<!--                    class="sign-left">:</span>-->
-<!--                </div>-->
-<!--                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">-->
-<!--                    <cou-chara @couCharaChange="fatherCouChara">-->
-<!--                    </cou-chara>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
              <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
@@ -41,12 +37,11 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">咨询师</th>
-                            <th class="text-center">毕业院校</th>
-                            <th class="text-center">特长</th>
-                            <th class="text-center">标签</th>
-                            <th class="text-center">联系方式</th>
-                            <!-- <th class="text-center">自我介绍</th> -->
+                            <th class="text-center">所属区域</th>
+                            <th class="text-center">商圈名称</th>
+                            <th class="text-center">能否注册</th>
+                            <th class="text-center">商圈描述</th>
+                           
                         </tr>
                         </thead>
                         <tbody>
@@ -55,8 +50,7 @@
                             <td class="text-center" style="line-height:33px;">{{item.graduate}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.charaName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.couLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.tel}}</td>
-                            <!-- <td class="text-center" style="line-height:33px;">{{item.introduce}}</td> -->
+                            
                         </tr>
                         </tbody>
                     </table>

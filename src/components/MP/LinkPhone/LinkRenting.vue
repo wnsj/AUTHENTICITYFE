@@ -7,11 +7,33 @@
 
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">联系电话</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">楼盘</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <input type="text" class="form-control" v-model="phone"/>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <select name="" id="" class="form-control">
+                        <option value="未选择">未选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">商圈</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <select name="" id="" class="form-control">
+                        <option value="未选择">未选择</option>
+                    </select>
                 </div>
             </div>
 
@@ -27,9 +49,12 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            
-                            <th class="text-center">联系方式</th>
-                            <th class="text-center">来源</th>
+                            <th class="text-center">姓名</th>
+                            <th class="text-center">手机号</th>
+                            <th class="text-center">座机号</th>
+                            <th class="text-center">区域</th>
+                            <th class="text-center">商圈</th>
+                            <th class="text-center">写字楼</th>
                             <th class="text-center">创建时间</th>
                             <th class="text-center">备注</th>
                             <th class="text-center">是否回拨</th>
@@ -37,14 +62,17 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule(item)">
-                            
+                            <td class="text-center" style="line-height:33px;">{{item.name}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.phone}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.moLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.form}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.tel}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.buName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.obName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.createDate}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.remark}}</td>
                             <td class="text-center">
-                                <button type="button" :class="item.remarks == 2 ? 'btn btn-primary': 'btn btn-warning' "
-                                        data-toggle="modal" :disabled="item.remarks == 2 ? false : true"
+                                <button type="button" :class="item.isContact == 3 ? 'btn btn-primary': 'btn btn-warning' "
+                                        data-toggle="modal" :disabled="item.isContact == 3 ? false : true"
                                         v-on:click="patchReMarks(item)">{{item.remarksLabel}}
                                 </button>
                             </td>
@@ -74,7 +102,7 @@
 
 
     import paging from '../../common/Paging.vue'
-    import phoneDialog from '../../common/subLinkPhone/subLinkPhone.vue'
+    import phoneDialog from '../../common/subLinkPhone/subLinkRentin.vue'
 
     var that = null
     export default {
@@ -85,7 +113,6 @@
         name: 'LinkPhone',
         data() {
             return {
-                
                 // 联系人的姓名
                 phone: '',
                 lpId: '',
@@ -98,7 +125,14 @@
             };
         },
         methods: {
-
+            //查询商圈；
+            // findsq(data){
+            //      var url = this.url + '/locationDistinguishBean/getAllDistinguish';
+            //      this.$ajax({
+            //         method: 'POST',
+            //         url: url,
+            //      })
+            // },
             fatherBuild(data) {
                 this.buildId = ''
                 if (null !== data) {
@@ -111,7 +145,7 @@
                 this.couQueryData(page)
             },
             async couQueryData(page) {
-                var url = this.url + '/linkPhoneBean/getPhone'
+                var url = this.url + '/entrustRentBean/getEnByPage'
                 this.$ajax({
                     method: 'POST',
                     url: url,
@@ -120,7 +154,7 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        phone: this.phone,
+                       // phone: this.phone,
                         current: page,
                         pageSize: this.pageSize
                     },
@@ -150,25 +184,26 @@
                 $("#phoneDialog").modal('hide')
             },
             async patchReMarks(item) {
-                if (this.isBlank(item.form)) {
+                if (this.isBlank(item.remark)) {
                     alert("请添加该客户备注")
                     return;
                 }
                 if (!confirm("确定已回拨该客户？")) {
                     return;
                 }
-                var url = this.url + '/linkPhoneBean/patchLinkById'
+                var url = this.url + '/entrustRentBean/updateEntrustRent?enId='+item.enId + "&isContact" + '=' +2
 
                 this.$ajax({
-                    method: 'POST',
+                    method: 'GET',
                     url: url,
                     headers: {
                         'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        lpId: item.lpId,
-                        remarks: '1',
+                        // enId: item.enId,
+                        // isContact: 2,
+                        
                     },
                     dataType: 'json',
                 }).then((response) => {
