@@ -38,7 +38,7 @@
                           </select>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">照片</label><span
@@ -58,7 +58,7 @@
                     <div class="col-md-6 form-group clearfix" style="width: 100%">
 
                     </div>
-                   
+
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
                     <div class="col-md-12">
@@ -94,13 +94,13 @@
         data() {
             return {
                 addCou: {
-                   
+
                    buName:'', //商圈名字
                    buPath:'',  //图片路径
                    buLabel:'', //商圈描述
-                   ldId:'', 
+                   ldId:'',
                    isHot:'',
-                   
+
                 },
                 buPath: [],
                 pictureFile: [],
@@ -143,27 +143,27 @@
                 $('#couDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.couCharaRef.setCcId('0');
-                  
+
                     this.title = '新增';
                     this.addCou = {
-                          
+
                         buName:'', //商圈名字
                         buPath:'',  //图片路径
                         buLabel:'', //商圈描述
-                        ldId:'', 
+                        ldId:'',
                         isHot:'',
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
-                    if (null != addCou && null != addCou.picturePath) {
+                    if (null != addCou && null != addCou.buPath) {
                         var en = []
-                        en.push(this.url + addCou.picturePath)
+                        en.push(this.url + addCou.buPath)
                         this.buPath = en
                     }
                     this.title = '修改'
                     // this.$refs.couCharaRef.setCcId(addCou.ccId);
-                   
+
                     Object.assign(this.addCou, addCou)
                 }
             },
@@ -200,7 +200,7 @@
                 for (let i = 0; i < this.pictureFile.length; i++) {
                     fd.append("picture", this.pictureFile[i]);
                 }
-                fd.append("bdPath", JSON.stringify(this.addCou));
+                fd.append("param", JSON.stringify(this.addCou));
 
 
                 switch (this.title) {

@@ -204,7 +204,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最小工位</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control " v-model="addParam.minStationNum" placeholder=""/><span
+                            <input type="text" class="form-control " v-model="addParam.minStationNum" placeholder=""/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -326,8 +326,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-
+                    <div class="col-md-12 form-group clearfix">
+                        <div class="col-md-6  clearfix" style="padding: 0;">
+                            <label class="col-md-3 control-label text-right nopad end-aline"
+                                   style="padding:0;line-height:34px;">楼盘介绍</label><span class="sign-left">:</span>
+                        </div>
+                        <div class="col-md-12 ">
+                            <textarea class="form-control wdType03" v-model="addParam.projectIntroduction"
+                                      placeholder="楼盘介绍"></textarea>
+                        </div>
                     </div>
                 </div>
 

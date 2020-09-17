@@ -112,11 +112,11 @@
                             <build-dialog ref='buildDialog' @certainAction='feedBack'></build-dialog>
                         </div>
                     </div>
-                    <div class="modal fade" id="mobileDialog" style="margin-left: 69%">
-                        <div class="modal-dialog" style="width: 90%">
-                            <MobileDialog ref='mobileDialogRef' @certainAction='feedBackMobile'></MobileDialog>
-                        </div>
-                    </div>
+<!--                    <div class="modal fade" id="mobileDialog" style="margin-left: 69%">-->
+<!--                        <div class="modal-dialog" style="width: 90%">-->
+<!--                            <MobileDialog ref='mobileDialogRef' @certainAction='feedBackMobile'></MobileDialog>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
                 <!--分页插件-->
                 <div class="page">
