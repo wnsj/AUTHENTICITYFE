@@ -33,15 +33,14 @@
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">照片</label><span
-                        class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">图片</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="picture" @change="pictureChange" accept="image/*" />
-							<p class="redtips">*注意：宽82px*高82px</p>
-                            <div id="pictureOutDiv">
-                                <div v-for="(item,index) of buPath" :key="index"
-                                     v-show="buPath.length!==0">
-                                    <div @click="fileDel(index)">x</div>
+                            <input type="file" id="pic" @change="headImgChange" accept="image/*"/>
+                            <p class="redtips">*注意：宽378px*高228px</p>
+
+                            <div id="picOutDiv">
+                                <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
+                                    <div @click="fileDel(index,5,item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -99,19 +98,22 @@
             return {
                 addParam: {
                     bdName:'',  //资讯名称
-                    
+
                     bdContent:'',  // 动态内容
-                    
+
                     bdLabel:'',   // 描述
-                   
+
                     buildId:'',    // 资讯类型id
-                    
-                   
-                   
+
+
+
                 },
                  bdPath:'',     // 图片路径
-                 buPath: [],
-                pictureFile: [],
+
+                headImgList:
+                    [],
+                headImgFileList:
+                    [],
                 title: '',
                 isDisable:false,
                 imgData: {
@@ -122,8 +124,9 @@
         methods: {
             // Initialization projcet’s content
             initDyRef(param, addParam) {
-                this.buPath = []
-                this.pictureFile = []
+                this.headImgList = []
+                this.headImgFileList = []
+                $("#pic").val("");
                 $('#dyDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.rn.setData('')
@@ -132,21 +135,21 @@
                     this.title = '新增'
                     this.addParam = {
                         bdName:'',  //资讯名称
-                    
+
                     bdContent:'',  // 动态内容
-                    
+
                     bdLabel:'',   // 描述
-                   
+
                     buildId:'1',    // 资讯类型id
-                   
+
                     }
 
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
-                     if (null != addParam && null != addParam.buPath) {
+                     if (null != addParam && null != addParam.bdPath) {
                         var en = []
-                        en.push(this.url + addParam.buPath)
-                        this.buPath = en
+                        en.push(this.url + addParam.bdPath)
+                        this.headImgList = en
                     }
                     this.title = '修改';
                     this.$refs.sn.setData(addParam.bdContent)
@@ -162,7 +165,17 @@
                     this.addParam.buildId = data.buildId
                 }
             },
+            headImgChange() {
 
+                var files = $("#pic")[0].files; //获取file对象
+                if (null != files) {
+                    this.headImgList = []
+                }
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file, i, 5)
+                }
+            },
             certainAction() {
                 this.isDisable = true
                 setTimeout(() => {
@@ -170,12 +183,13 @@
                 }, 1000)
                 // this.addParam.bdContent = this.$refs.rn.getData()
 //                 const fd = new FormData();
-// 
+//
 //                 fd.append("param", JSON.stringify(this.addParam));
                  this.addParam.bdContent = this.$refs.sn.getData()
                 const fd = new FormData();
-                for (let i = 0; i < this.pictureFile.length; i++) {
-                    fd.append("picture", this.pictureFile[i]);
+                // 头图
+                for (let i = 0; i < this.headImgFileList.length; i++) {
+                    fd.append("picture", this.headImgFileList[i]);
                 }
                 fd.append("param", JSON.stringify(this.addParam));
 
@@ -192,10 +206,10 @@
                     method: 'POST',
                     url: url,
                     headers: {
-                        'Content-Type': this.contentType,
+                        'Content-Type': 'multipart/form-data',
                         'Access-Token': this.accessToken
                     },
-                    data: this.addParam,
+                    data: fd,
                     dataType: 'json',
                 }).then((response) => {
                     const res = response.data
@@ -256,15 +270,14 @@
                     var dataUrl = reader.result;
 
                     file.src = this.result;
-
-                    that.pictureFile.push(file)
-                    that.buPath.push(dataUrl)
+                    that.headImgFileList.push(file)
+                    that.headImgList.push(dataUrl)
 
                 }
             },
             fileDel(index) {
-                this.buPath.splice(index, 1);
-                this.pictureFile.splice(index, 1)
+                this.headImgList.splice(index, 1)
+                this.headImgFileList.splice(index, 1)
             }
 
         },
