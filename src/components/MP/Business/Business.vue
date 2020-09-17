@@ -124,17 +124,17 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                       ldId:this.ldId,
                         current: page,
-                        pageSize: this.pageSize
+                        pageSize: this.pageSize,
+                        ldId:this.ldId,
                     },
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
                         this.pages = res.retData.pages //总页数
-                        this.current = res.retData.current //当前页码
-                        this.pageSize = res.retData.size //一页显示的数量  必须是奇数
+                        this.current = res.retData.pageNum //当前页码
+                       // this.pageSize = res.retData.size //一页显示的数量  必须是奇数
                         this.total = res.retData.total //数据的数量
                         this.$refs.paging.setParam(this.pages, this.current, this.total)
                         this.couData = res.retData.list

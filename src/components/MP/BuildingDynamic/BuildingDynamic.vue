@@ -109,7 +109,7 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        buildId:this.buildId,
+                       // buildId:this.buildId,
                         current: page,
                         pageSize: 10,
                     },
