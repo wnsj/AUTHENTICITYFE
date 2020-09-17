@@ -35,6 +35,9 @@
 							<dd @click="addCheck('Business')" v-bind:class="{'li-active':onString=='Business'}">
 								<router-link to="/MP/Business/Business"><i class="fa" aria-hidden="true">商圈管理</i></router-link>
 							</dd>
+							<dd @click="addCheck('Office')" v-bind:class="{'li-active':onString=='Office'}">
+								<router-link to="/MP/HouseResources/Office/Office"><i class="fa" aria-hidden="true">共享办公室</i></router-link>
+							</dd>
 						</dl>
 						<dl v-bind:class="{h4:bool4}">
 							<dt @click="onShow(3)" v-bind:class="{'li-active':bool4}">
@@ -275,6 +278,10 @@
 				}
 				if (string == 'Business') {
 				    this.titleNow = '商圈管理';
+				    return false;
+				}
+				if (string == 'Office') {
+				    this.titleNow = '共享办公相关';
 				    return false;
 				}
             },
