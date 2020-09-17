@@ -47,8 +47,8 @@
                             <input type="file" id="picture" @change="pictureChange" accept="image/*" />
 							<p class="redtips">*注意：宽82px*高82px</p>
                             <div id="pictureOutDiv">
-                                <div v-for="(item,index) of picture" :key="index"
-                                     v-show="picture.length!==0">
+                                <div v-for="(item,index) of buPath" :key="index"
+                                     v-show="buPath.length!==0">
                                     <div @click="fileDel(index)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
@@ -102,7 +102,7 @@
                    isHot:'',
                    
                 },
-                picture: [],
+                buPath: [],
                 pictureFile: [],
                 title: '',
                 size: 0,
@@ -135,7 +135,7 @@
             },
 
             initData(param, addCou) {
-                this.picture = []
+                this.buPath = []
                 this.pictureFile = []
 
                 $("#picture").val("");
@@ -159,7 +159,7 @@
                     if (null != addCou && null != addCou.picturePath) {
                         var en = []
                         en.push(this.url + addCou.picturePath)
-                        this.picture = en
+                        this.buPath = en
                     }
                     this.title = '修改'
                     // this.$refs.couCharaRef.setCcId(addCou.ccId);
@@ -200,7 +200,7 @@
                 for (let i = 0; i < this.pictureFile.length; i++) {
                     fd.append("picture", this.pictureFile[i]);
                 }
-                fd.append("param", JSON.stringify(this.addCou));
+                fd.append("bdPath", JSON.stringify(this.addCou));
 
 
                 switch (this.title) {
@@ -249,7 +249,7 @@
                 var files = $("#picture")[0].files; //获取file对象
 
                 if (null != files) {
-                    this.picture = []
+                    this.buPath = []
                 }
                 for (let i = 0; i < files.length; i++) {
                     var file = files[i]
@@ -282,12 +282,12 @@
                     file.src = this.result;
 
                     that.pictureFile.push(file)
-                    that.picture.push(dataUrl)
+                    that.buPath.push(dataUrl)
 
                 }
             },
             fileDel(index) {
-                this.picture.splice(index, 1);
+                this.buPath.splice(index, 1);
                 this.pictureFile.splice(index, 1)
             }
         },

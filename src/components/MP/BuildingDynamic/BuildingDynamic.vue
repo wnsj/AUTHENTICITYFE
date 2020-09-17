@@ -7,7 +7,7 @@
             <!--楼盘-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">楼盘</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">资讯类型</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
@@ -29,15 +29,17 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">楼盘</th>
-                            <th class="text-center">动态标题</th>
+                            <th class="text-center">资讯类型</th>
+                            <th class="text-center">资讯标题</th>
+                            <th class="text-center">资讯描述</th>
                             <th class="text-center">发布时间</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.htName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.bdLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
                         </tr>
                         </tbody>
@@ -98,7 +100,7 @@
                 this.couQueryData(page)
             },
             async couQueryData(page) {
-                var url = this.url + '/buildingDynamicBean/getDynamicByPage'
+                var url = this.url + '/buildingDynamicBean/getDynamicByBid'
                 this.$ajax({
                     method: 'POST',
                     url: url,
@@ -109,7 +111,7 @@
                     data: {
                         buildId:this.buildId,
                         current: page,
-                        pageSize: this.pageSize
+                        pageSize: 10,
                     },
                     dataType: 'json',
                 }).then((response) => {
@@ -120,7 +122,7 @@
                         this.pageSize = res.retData.size //一页显示的数量  必须是奇数
                         this.total = res.retData.total //数据的数量
                         this.$refs.paging.setParam(this.pages, this.current, this.total)
-                        this.couData = res.retData.records
+                        this.couData = res.retData.list
                     } else {
                         alert(res.retMsg)
                     }

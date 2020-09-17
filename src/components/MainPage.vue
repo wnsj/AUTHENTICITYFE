@@ -29,15 +29,11 @@
 							<dd @click="addCheck('HouseResources')" v-bind:class="{'li-active':onString=='HouseResources'}">
 								<router-link to="/MP/HouseResources/HouseResources"><i class="fa" aria-hidden="true">房源管理</i></router-link>
 							</dd>
-							<dd @click="addCheck('EntrustRent')" v-bind:class="{'li-active':onString=='EntrustRent'}">
-								<router-link to="/MP/HouseResources/EntrustRent"><i class="fa" aria-hidden="true">委托管理</i></router-link>
-							</dd>
+							
 							<dd @click="addCheck('Business')" v-bind:class="{'li-active':onString=='Business'}">
 								<router-link to="/MP/Business/Business"><i class="fa" aria-hidden="true">商圈管理</i></router-link>
 							</dd>
-							<dd @click="addCheck('Office')" v-bind:class="{'li-active':onString=='Office'}">
-								<router-link to="/MP/HouseResources/Office/Office"><i class="fa" aria-hidden="true">共享办公室</i></router-link>
-							</dd>
+							
 						</dl>
 						<dl v-bind:class="{h4:bool4}">
 							<dt @click="onShow(3)" v-bind:class="{'li-active':bool4}">
@@ -72,13 +68,14 @@
 						<dl v-bind:class="{h1:bool2}">
 							<dt @click="onShow(1)" v-bind:class="{'li-active':bool2}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool2,'fa-folder':!bool2}" aria-hidden="true">
-									楼盘动态
+									资讯管理
 								</i>
 							</dt>
 							<dd @click="addCheck('BuildingDynamic')" v-bind:class="{'li-active':onString=='BuildingDynamic'}">
-								<router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">动态管理</i></router-link>
+								<router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">资讯管理</i></router-link>
 							</dd>
 						</dl>
+						
 						<dl v-bind:class="{h222:bool3}" v-show=phoneFlag>
 							<dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
@@ -257,7 +254,7 @@
                     return false;
                 }
                 if (string == 'BuildingDynamic') {
-                    this.titleNow = '动态管理';
+                    this.titleNow = '资讯管理';
                     return false;
                 }
                 if (string == 'LinkPhone') {
