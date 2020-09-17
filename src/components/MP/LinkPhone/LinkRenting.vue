@@ -20,9 +20,7 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <select name="" id="" class="form-control">
-                        <option value="未选择">未选择</option>
-                    </select>
+                   <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
                 </div>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -31,9 +29,7 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <select name="" id="" class="form-control">
-                        <option value="未选择">未选择</option>
-                    </select>
+                    <Business @buChange='fatherBuReceive' ref="buRef"></Business>
                 </div>
             </div>
 
@@ -73,7 +69,7 @@
                             <td class="text-center">
                                 <button type="button" :class="item.isContact == 3 ? 'btn btn-primary': 'btn btn-warning' "
                                         data-toggle="modal" :disabled="item.isContact == 3 ? false : true"
-                                        v-on:click="patchReMarks(item)">{{item.remarksLabel}}
+                                        v-on:click="patchReMarks(item)">{{item.contactName}}
                                 </button>
                             </td>
 
@@ -103,12 +99,15 @@
 
     import paging from '../../common/Paging.vue'
     import phoneDialog from '../../common/subLinkPhone/subLinkRentin.vue'
-
+    import ldt from '../../common/LocationDType.vue'
+    import Business from "../../common/subBu/subBusiness";
     var that = null
     export default {
         components: {
             paging,
-            phoneDialog
+            phoneDialog,
+            Business,
+            ldt
         },
         name: 'LinkPhone',
         data() {
@@ -116,34 +115,47 @@
                 // 联系人的姓名
                 phone: '',
                 lpId: '',
+                ldId: '',
                 couData: [],
+                quyu:[],
                 //分页需要的数据
                 pages: '', //总页数
                 current: 1, //当前页码
                 pageSize: 10, //一页显示的数量
                 total: '', //数据的数量
+                businessId:'',
             };
         },
         methods: {
-            //查询商圈；
-            // findsq(data){
-            //      var url = this.url + '/locationDistinguishBean/getAllDistinguish';
-            //      this.$ajax({
-            //         method: 'POST',
-            //         url: url,
-            //      })
-            // },
+           
             fatherBuild(data) {
                 this.buildId = ''
                 if (null !== data) {
                     this.buildId = data.buildId
                 }
             },
+            fatherLdtReceive(data) {
+                this.ldId = ''
+                if (null != data) {
+                    this.ldId = data
+                }
+                this.$refs.buRef.setLdId(data)
+            },
+            
+               fatherBuReceive(data) {
+                this.businessId = ''
+                if (null != data) {
+                    this.businessId = data
+                }
+
+            },
             //子级传值到父级上来的动态拿去
             pageChange: function (page) {
                 this.current = page
-                this.couQueryData(page)
+                this.couQueryData(page);
+                
             },
+            
             async couQueryData(page) {
                 var url = this.url + '/entrustRentBean/getEnByPage'
                 this.$ajax({
@@ -156,7 +168,9 @@
                     data: {
                        // phone: this.phone,
                         current: page,
-                        pageSize: this.pageSize
+                        pageSize: this.pageSize,
+                        ldId:this.ldId,
+                        taId:this.businessId,
                     },
                     dataType: 'json',
                 }).then((response) => {
@@ -175,6 +189,7 @@
                     console.log('数据请求失败处理')
                 });
             },
+           
             selectRule(item) {
                 this.$refs.phoneDialog.initPhoneRef(item)
                 $("#phoneDialog").modal('show')
@@ -218,7 +233,9 @@
         created: function () {
             this.couQueryData()
         },
+        
     }
+    
 </script>
 
 <style scoped>

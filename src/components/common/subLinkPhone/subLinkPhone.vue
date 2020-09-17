@@ -11,7 +11,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">姓名</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <label class="form-control" disabled="false">{{addParam.lpName}}</label>
+                            <label class="form-control" disabled="false">{{addParam.name}}</label>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -21,6 +21,7 @@
                             <input type="text" class="form-control" disabled="false" v-model="addParam.phone"/>
                         </div>
                     </div>
+                    
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">回访销售</label><span class="sign-left">:</span>

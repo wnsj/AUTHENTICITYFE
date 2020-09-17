@@ -9,16 +9,23 @@
                 <div class="dialogInutBox clearfix">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">姓111名</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">姓名</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <label class="form-control" disabled="false">{{addParam.lpName}}</label>
+                            <label class="form-control" disabled="false">{{addParam.name}}</label>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">联系方式</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">手机号</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" disabled="false" v-model="addParam.phone"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">座机号</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" disabled="false" v-model="addParam.tel"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -33,7 +40,7 @@
                             <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">反馈</label><span class="sign-left">:</span>
                          </div>
                         <div class="col-md-12">
-                            <textarea  class="form-control wdType03" v-model="addParam.form" placeholder="反馈"></textarea>
+                            <textarea  class="form-control wdType03" v-model="addParam.remark" placeholder="反馈"></textarea>
                         </div>
                     </div>
 
@@ -64,14 +71,16 @@
         data() {
             return {
                 addParam: {
+                    enId:'',
                     // 联系人姓名
                     lpName:'',
                     // 联系方式
                     phone:'',
                     // 备注
-                    form:'',
+                    remark:'',
                     // 回访销售
-                    returnSale:''
+                    returnSale:'',
+                    tel:'',
                 },
                 title: '添加',
                 isDisable:false
@@ -80,6 +89,7 @@
         methods: {
             // Initialization projcet’s content
             initPhoneRef(addParam) {
+                console.log(addParam)
                 $('#phoneDialog').modal({backdrop: 'static', keyboard: false});
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                     Object.assign(this.addParam, addParam)
@@ -96,18 +106,18 @@
                     alert("请添加回访销售")
                     return
                 }
-                if (this.isBlank(this.addParam.form)) {
+                if (this.isBlank(this.addParam.remark)) {
                     alert("请添加备注")
                     return
                 }
                 this.$ajax({
-                    method: 'POST',
-                    url: this.url + '/linkPhoneBean/patchFormById',
+                    method: 'GET',
+                    url: this.url + '/entrustRentBean/updateEntrustRent?enId='+this.addParam.enId+"&remark="+this.addParam.remark+"&returnSale="+this.addParam.returnSale,
                     headers: {
                         'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
-                    data: this.addParam,
+                    //data: this.addParam,
                     dataType: 'json',
                 }).then((response) => {
                     const res = response.data

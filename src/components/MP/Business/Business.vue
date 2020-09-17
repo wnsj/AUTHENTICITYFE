@@ -11,18 +11,10 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <cou @couChange="fatherCou" ref="couRef"></cou>
+                    <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">商圈</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <cou @couChange="fatherCou" ref="couRef"></cou>
-                </div>
-            </div>
+            
              <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
@@ -40,18 +32,19 @@
                         <tr>
                             <th class="text-center">所属区域</th>
                             <th class="text-center">商圈名称</th>
-                            <th class="text-center">能否注册</th>
+                            <th class="text-center">是否热门</th>
                             <th class="text-center">商圈描述</th>
+                            <th class="text-center">创建时间</th>
                            
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.couName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.graduate}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.charaName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.couLabel}}</td>
-                            
+                            <td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.buName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.isHotName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.buLabel}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -78,47 +71,51 @@
     import cou from '../../common/subCou/Counselor.vue'
     import paging from '../../common/Paging.vue'
     import couDialog from '../../common/subCou/busicou.vue'
+    import ldt from '../../common/LocationDType.vue'
+   
     var that = null
     export default {
         components: {
             couChara,
             cou,
             paging,
-            couDialog
+            couDialog,
+            
+            ldt,
         },
         name: 'CounselorControl',
         data() {
             return {
-                couId:'',
-                charaName:'',
+                ldId:'',
+                lpId: '',
                 couData:[],
                 //分页需要的数据
                 pages: '', //总页数
                 current: 1, //当前页码
                 pageSize: 10, //一页显示的数量
                 total: '', //数据的数量
+                businessId:'',
             };
         },
         methods:{
-          fatherCou(data) {
-              this.couId = '';
-              if (null !== data) {
-                  this.couId = data
-              }
-          },
-            fatherCouChara(data) {
-                this.charaName = '';
-              if (null !== data) {
-                  this.charaName = data
-              }
+         
+            fatherLdtReceive(data) {
+                this.ldId = ''
+                if (null != data) {
+                    this.ldId = data
+                }
+                this.$refs.buRef.setLdId(data)
             },
+            
+              
+            
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
                 this.couQueryData(page)
             },
             async couQueryData(page) {
-                var url = this.url + '/counselorBean/getAllCouselorByPage'
+                var url = this.url + '/businessDistrictBean/getBusinessDistrictPage'
                 this.$ajax({
                     method: 'POST',
                     url: url,
@@ -127,8 +124,7 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        couId: this.couId,
-                        charaName: this.charaName,
+                       
                         current: page,
                         pageSize: this.pageSize
                     },
@@ -141,7 +137,7 @@
                         this.pageSize = res.retData.size //一页显示的数量  必须是奇数
                         this.total = res.retData.total //数据的数量
                         this.$refs.paging.setParam(this.pages, this.current, this.total)
-                        this.couData = res.retData.records
+                        this.couData = res.retData.list
                     } else {
                         alert(res.retMsg)
                     }

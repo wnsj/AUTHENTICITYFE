@@ -11,30 +11,28 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">所属区域</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                          <select name="" id="" class="form-control">
-                             <option value="未选择">未选择</option>
-                          </select>
+                          <ldt ref="ldtRef" @ldtChange='fatherLdtReceive'></ldt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">商圈名字</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" v-model="addCou.buName"/>
                         </div>
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-2 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">商圈描述</label>
                         <div class="col-md-10">
-                            <textarea type="text" class="form-control"></textarea>
+                            <textarea type="text" class="form-control" v-model="addCou.buLabel"></textarea>
                         </div>
                     </div>
                      <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">是否热门</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                          <select name="" id="" class="form-control">
+                          <select name="" id="" class="form-control" v-model="addCou.isHot">
                              <option value="2">是</option>
                              <option value="3">否</option>
                           </select>
@@ -60,15 +58,7 @@
                     <div class="col-md-6 form-group clearfix" style="width: 100%">
 
                     </div>
-                    <div class="col-md-12 form-group clearfix">
-                        <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">自我介绍</label><span class="sign-left">:</span>
-                         </div>
-                        <div class="col-md-12">
-                            <textarea class="form-control wdType03" v-model="addCou.introduce"  placeholder="自我介绍"></textarea>
-                        </div>
-                    </div>
-
+                   
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
                     <div class="col-md-12">
@@ -94,29 +84,23 @@
     var that = null
     import couChara from '../subCou/CouChara.vue'
     import couLabel from '../subCou/CouLabel.vue'
-
+    import ldt from '../../common/LocationDType.vue'
     export default {
         components: {
             couChara,
-            couLabel
+            couLabel,
+            ldt,
         },
         data() {
             return {
                 addCou: {
-                    // 咨询师
-                    couName: '',
-                    //毕业院校
-                    graduate: '',
-                    // 特长
-                    ccId: '',
-					// 特长名
-					charaName:'',
-                    // 联系方式
-                    tel: '',
-                    // 标签
-                    labelList: [],
-                    // 介绍
-                    introduce: ''
+                   
+                   buName:'', //商圈名字
+                   buPath:'',  //图片路径
+                   buLabel:'', //商圈描述
+                   ldId:'', 
+                   isHot:'',
+                   
                 },
                 picture: [],
                 pictureFile: [],
@@ -142,6 +126,14 @@
                     this.addCou.labelList = data
                 }
             },
+             fatherLdtReceive(data) {
+                this.ldId = ''
+                if (null != data) {
+                    this.addCou.ldId = data
+                }
+                this.$refs.ldtRef.setLdtId(data)
+            },
+
             initData(param, addCou) {
                 this.picture = []
                 this.pictureFile = []
@@ -151,23 +143,15 @@
                 $('#couDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.couCharaRef.setCcId('0');
-                    this.$refs.couLabel.setClId([]);
-                    this.title = '新增'
+                  
+                    this.title = '新增';
                     this.addCou = {
-                        // 咨询师
-                        couName: '',
-                        //毕业院校
-                        graduate: '',
-                        // 特长
-                        ccId: '',
-						// 特长名
-						charaName:'',
-                        // 联系方式
-                        tel: '',
-                        // 标签
-                        labelList: [],
-                        // 介绍
-                        introduce: ''
+                          
+                        buName:'', //商圈名字
+                        buPath:'',  //图片路径
+                        buLabel:'', //商圈描述
+                        ldId:'', 
+                        isHot:'',
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
@@ -179,7 +163,7 @@
                     }
                     this.title = '修改'
                     // this.$refs.couCharaRef.setCcId(addCou.ccId);
-                    this.$refs.couLabel.setClId(addCou.labelList);
+                   
                     Object.assign(this.addCou, addCou)
                 }
             },
@@ -192,23 +176,23 @@
                 }, 1000)
 
 
-                if (!this.isBlank(this.addCou.tel)) {
-                    if (!(/^1[3456789]\d{9}$/).test(this.addCou.tel)) {
-                        alert('请输入正确的联系方式')
-                        return;
-                    }
-                } else {
-                    alert('请输入联系方式')
-                    return;
-                }
-                if (this.isBlank(this.addCou.couName)) {
-                    alert('咨询师名字不能为空')
-                    return
-                }
-                if (this.isBlank(this.addCou.graduate)) {
-                    alert('毕业院校不能为空')
-                    return
-                }
+                // if (!this.isBlank(this.addCou.tel)) {
+                //     if (!(/^1[3456789]\d{9}$/).test(this.addCou.tel)) {
+                //         alert('请输入正确的联系方式')
+                //         return;
+                //     }
+                // } else {
+                //     alert('请输入联系方式')
+                //     return;
+                // }
+                // if (this.isBlank(this.addCou.couName)) {
+                //     alert('咨询师名字不能为空')
+                //     return
+                // }
+                // if (this.isBlank(this.addCou.graduate)) {
+                //     alert('毕业院校不能为空')
+                //     return
+                // }
 
                 const fd = new FormData();
                 // 效果图
@@ -221,10 +205,10 @@
 
                 switch (this.title) {
                     case '新增':
-                        var url = this.url + '/counselorBean/insertCou'
+                        var url = this.url + '/businessDistrictBean/addBusinessDistrict'
                         break;
                     case '修改':
-                        var url = this.url + '/counselorBean/patchCou'
+                        var url = this.url + '/businessDistrictBean/updateBusinessDistrict'
                         break;
                 }
 
