@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <div class="col-md-12 col-lg-12 main-title">
-            <h1 class="titleCss">咨询师管理</h1>
+            <h1 class="titleCss">商圈管理</h1>
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
             <!--咨询师-->
@@ -104,7 +104,7 @@
                 if (null != data) {
                     this.ldId = data
                 }
-                this.$refs.buRef.setLdId(data)
+                this.$refs.ldtRef.setLdId(data)
             },
             
               

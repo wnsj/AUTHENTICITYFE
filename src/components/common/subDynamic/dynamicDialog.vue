@@ -18,7 +18,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">资讯类别</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <!-- <Building @buildChange="fatherBuild" ref="buildRef"></Building> -->
+                             <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI>
                         </div>
                     </div>
 
@@ -87,12 +87,14 @@
     import datePicker from 'vue2-datepicker'
     import Building from '../Building.vue'
     import SummerNote from '../subArticle/SummerNote.vue'
+    import mtI from '../../common/InformationType.vue'
     var that = null
     export default {
         components: {
             datePicker,
             Building,
-            SummerNote
+            SummerNote,
+            mtI
         },
         data() {
             return {
@@ -104,6 +106,7 @@
                     bdLabel:'',   // 描述
 
                     buildId:'',    // 资讯类型id
+                    mtId:'',
 
 
 
@@ -122,6 +125,13 @@
             };
         },
         methods: {
+             fathermtIReceive(data) {
+                this.mtId = ''
+                if (null != data) {
+                    this.mtId = data
+                }
+                this.$refs.mtIRef.setmtId(data)
+            },
             // Initialization projcet’s content
             initDyRef(param, addParam) {
                 this.headImgList = []
@@ -140,7 +150,8 @@
 
                     bdLabel:'',   // 描述
 
-                    buildId:'1',    // 资讯类型id
+                    buildId:'',    // 资讯类型id
+                    mtId:'',
 
                     }
 

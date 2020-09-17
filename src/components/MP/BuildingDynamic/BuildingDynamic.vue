@@ -11,7 +11,7 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <Building @buildChange="fatherBuild" ref="buildRef"></Building>
+                    <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI>
                 </div>
             </div>
             
@@ -37,7 +37,7 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.typeName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.bdLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
@@ -67,12 +67,14 @@
     import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
     import paging from '../../common/Paging.vue'
     import Building from '../../common/Building.vue'
+    import mtI from '../../common/InformationType.vue'
     var that = null
     export default {
         components: {
             paging,
             Building,
-            dynamicDialog
+            dynamicDialog,
+            mtI
         },
         name: 'BuildingDynamic',
         data() {
@@ -84,16 +86,18 @@
                 current: 1, //当前页码
                 pageSize: 10, //一页显示的数量
                 total: '', //数据的数量
+                mtId:'',
             };
         },
         methods:{
-
-            fatherBuild(data) {
-                this.buildId = ''
-                if (null !== data) {
-                    this.buildId = data.buildId
+            fathermtIReceive(data) {
+                this.mtId = ''
+                if (null != data) {
+                    this.mtId = data
                 }
+                this.$refs.mtIRef.setmtId(data)
             },
+          
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
@@ -112,6 +116,7 @@
                        // buildId:this.buildId,
                         current: page,
                         pageSize: 10,
+                        buildId:this.mtId,
                     },
                     dataType: 'json',
                 }).then((response) => {
