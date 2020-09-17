@@ -9,39 +9,51 @@
                 <div class="dialogInutBox clearfix">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">商铺名称</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">业态</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <!-- <input type="text" class="form-control" v-model="addCou.couName"/> -->
+                              <Commercial @comChange="comRe" ref="comRef"></Commercial>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">区域</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">层高</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addCou.graduate"/>
+                            <input type="text" class="form-control"  v-model="storeParam.highLevel"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">商圈</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">餐饮</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addCou.charaName"/>
-                            <!-- <cou-chara @couCharaChange="fatherCouChara" ref="couCharaRef"></cou-chara> -->
+                            <select class="form-control" v-model="storeParam.isEat">
+                                <option value="1">--是--</option>
+                                <option value="2">--否--</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">楼盘</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">空置</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addCou.tel"/>
+                            <select class="form-control" v-model="storeParam.isUse">
+                                <option value="1">--是--</option>
+                                <option value="2">--否--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">最短租期</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input class="form-control" v-model="storeParam.minLeaseTerm"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">是否可注册</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">面积信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <!-- <cou-label @couClChange="fatherCouLabel" ref="couLabel"></cou-label> -->
+                            <input class="form-control" v-model="storeParam.area"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -163,7 +175,7 @@
                     produce: '',
 
                     //特点
-                    chaList: '',
+                    chaList: [],
 
                     // 短标签
                     label: '',
@@ -181,7 +193,7 @@
                     minLeaseTerm: '',
 
                     //业态
-                    suitableStore: '',
+                    suitable: [],
 
                     // 商铺介绍
                     storeProduce: '',
@@ -238,6 +250,12 @@
                 this.addCou.ccId = '';
                 if (null !== data) {
                     this.addCou.ccId = data
+                }
+            },
+            comRe(data) {
+                this.storeParam.suitable = []
+                if (null != data) {
+                    this.storeParam.suitable = data
                 }
             },
             fatherCouLabel(data) {
