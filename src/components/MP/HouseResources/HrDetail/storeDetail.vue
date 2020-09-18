@@ -536,11 +536,11 @@
                                 }
                                 this.buildRealImgList = buildRea
                             }
-                            // if (null != addParam && null != addParam.headPath) {
-                            //     var img = []
-                            //     img.push(this.url + addParam.headPath)
-                            //     this.headImgList = img
-                            // }
+                            if (this.storeParam.headPath) {
+                                var img = []
+                                img.push(this.url + this.storeParam.headPath)
+                                this.headImgList = img
+                            }
                             this.$refs.comRef.setCharaList(this.storeParam.suitable)
                             this.$refs.proRef.setIdList(this.storeParam.properInfo)
 
