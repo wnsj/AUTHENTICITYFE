@@ -5,90 +5,33 @@
         </div> -->
 		<div class="row newRow" style="margin-top: 1%;">
 			<!--类型-->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			<!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
 					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">类型</p><span class="sign-left">:</span>
 				</div>
 				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 					<bt @btChange='fatherBtReceive'></bt>
 				</div>
+			</div> -->
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+						<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">类型</p><span class="sign-left">:</span>
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+						<select class="form-control" v-model="roomType" v-on:change="roomTypeChange()">
+							<option value="0">--未选择--</option>
+							<option value="1">--写字楼--</option>
+							<option value="2">--共享办公--</option>
+							<option value="3">--商铺--</option>
+						</select>
+					</div>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">出租类型</p><span class="sign-left">:</span>
+					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">面积</p><span class="sign-left">:</span>
 				</div>
 				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<select class="form-control" v-model="roomType">
-						<option value="1">--写字楼--</option>
-						<option value="2">--共享办公--</option>
-						<option value="3">--商铺--</option>
-					</select>
-				</div>
-			</div>
-
-			<!--户型-->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">户型</p><span class="sign-left">:</span>
-				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<bht @bhtChange='fatherBhtReceive'></bht>
-				</div>
-			</div>
-			<!--出售情况-->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">出售情况</p><span class="sign-left">:</span>
-				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<is-sale @isSaleChange='fatherIsSaleReceive'></is-sale>
-				</div>
-			</div>
-			<!--特色-->
-			<!--            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">-->
-			<!--                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">-->
-			<!--                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">特色</p><span-->
-			<!--                    class="sign-left">:</span>-->
-			<!--                </div>-->
-			<!--                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">-->
-			<!--                    <chara @charaChange='fatherChReceive'></chara>-->
-			<!--                </div>-->
-			<!--            </div>-->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">环线</p><span class="sign-left">:</span>
-				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<Region @regionChange='fatherRegReceive' ref="regionRef"></Region>
-				</div>
-			</div>
-		</div>
-
-		<div class="row newRow" style="margin-top: 1%">
-			<!--位置-->
-			<!--            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">-->
-			<!--                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">-->
-			<!--                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">位置类型</p><span-->
-			<!--                    class="sign-left">:</span>-->
-			<!--                </div>-->
-			<!--                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">-->
-			<!--                    <lt @ltChange='fatherLtReceive' ref="lt"></lt>-->
-			<!--                </div>-->
-			<!--            </div>-->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">地铁</p><span class="sign-left">:</span>
-				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<Metro @metroChange='fatherMetroReceive' ref="metroRef"></Metro>
-				</div>
-			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span class="sign-left">:</span>
-				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
+					<ar @areaChange='fatherAreaReceive' ref="ar"></ar>
 				</div>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -107,27 +50,63 @@
 					<to @totalChange='fatherToReceive'></to>
 				</div>
 			</div>
-			<!--            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">-->
-			<!--                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">-->
-			<!--                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">供应商</p><span-->
-			<!--                    class="sign-left">:</span>-->
-			<!--                </div>-->
-			<!--                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">-->
-			<!--                    <dev @devChange = 'fatherDevReceive'></dev>-->
-			<!--                </div>-->
-			<!--            </div>-->
+				<!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+						<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">出租类型</p><span class="sign-left">:</span>
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+						<select class="form-control" v-model="roomType">
+							<option value="1">--写字楼--</option>
+							<option value="2">--共享办公--</option>
+							<option value="3">--商铺--</option>
+						</select>
+					</div>
+				</div> -->
+
+		</div>
+
+		<div class="row newRow" style="margin-top: 1%">
+			<!-- 区域 -->
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span class="sign-left">:</span>
+				</div>
+				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+					<ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
+				</div>
+			</div>
+			
+			<!-- 商圈 -->
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">商圈</p><span class="sign-left">:</span>
+				</div>
+				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+					<subBu @buChange='fathersubBuReceive' ref="subBu"></subBu>
+				</div>
+			</div>
+
+			<!-- 楼盘 -->
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">楼盘</p><span class="sign-left">:</span>
+				</div>
+				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+					<buildCompent @buildChange='fatherbuildCompentReceive' ref="subBu"></buildCompent>
+				</div>
+			</div>
 		</div>
 
 		<div class="row newRow" style="margin-top: 1%">
 
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			<!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
 					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">面积</p><span class="sign-left">:</span>
 				</div>
 				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 					<ar @areaChange='fatherAreaReceive'></ar>
 				</div>
-			</div>
+			</div> -->
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
 					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span class="sign-left">:</span>
@@ -175,13 +154,15 @@
 						</thead>
 						<tbody>
 							<tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
-								<td class="text-center" style="line-height:33px;">{{item.htName}}</td>
+								<td class="text-center" style="line-height:33px;">{{item.room}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.saleLabel}}</td>
 								<!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
 								<td class="text-center" style="line-height:33px;">{{item.caName}}</td>
-								<td class="text-center" style="line-height:33px;">{{item.btName}}</td>
+								<td class="text-center" style="line-height:33px;" v-if="item.roomType==1">写字楼</td>
+								<td class="text-center" style="line-height:33px;" v-if="item.roomType==2">共享办公</td>
+								<td class="text-center" style="line-height:33px;" v-if="item.roomType==3">商铺</td>
 								<!--                            <td class="text-center" style="line-height:33px;">{{item.chaName}}</td>-->
-								<td class="text-center" style="line-height:33px;">{{item.minArea}}-{{item.maxArea}}</td>
+								<td class="text-center" style="line-height:33px;">{{item.buildArea}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.averagePrice}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.minTitlePrice}}-{{item.maxTitlePrice}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.openDateTime}}</td>
@@ -248,7 +229,8 @@
 	import Region from '../../common/Region.vue'
 	import Metro from '../../common/Metro.vue'
 	import PlayAV from "../../common/PlayAV";
-	
+	import subBu from "../../common/subBu/subBusiness";
+	import buildCompent from "../../common/Building";
 	
 	
 	import Hb from "../HouseResources/HrDetail/Hb";
@@ -266,6 +248,8 @@
 			ar,
 			un,
 			to,
+			subBu,
+			buildCompent,
 			dev,
 			chara,
 			paging,
@@ -292,6 +276,8 @@
 				areaSon: [],
 				unSon: [],
 				toSon: [],
+				subBuSon: [],
+				buildCompentSon: [],
 				devSon: [],
 				charaSon: [],
 				regionId: '',
@@ -302,11 +288,38 @@
 				pageSize: 10, //一页显示的数量
 				total: '', //数据的数量
 				
-				roomType:'2',//房源类型
+				roomType:'0',//房源类型
 			};
 		},
 		name: "BuildingControl",
 		methods: {
+
+			roomTypeChange: function() {
+				console.log(this.roomType)
+                // for (var i = 0; i < this.totalIdList.length; i++) {
+                //     if(this.totalId === '0'){
+                //         this.$emit('totalChange', null)
+                //         return
+                //     }else{
+                //         if (this.totalIdList[i].tpId === this.totalId) {
+
+                //             this.$emit('totalChange', this.totalIdList[i])
+                //             return
+                //         }
+                //     }
+				// }
+				
+
+
+				// this.btSon = []
+				// if (null !== data) {
+				// 	this.btSon.push(data)
+				// }
+				// if(data == null){
+				// 	data = ""
+				// }
+				// this.$refs.ar.setType(data)
+            },
 
 			//子级传值到父级上来的动态拿去
 			pageChange: function(page) {
@@ -320,10 +333,16 @@
 				}
 			},
 			fatherBtReceive(data) {
+				
 				this.btSon = []
 				if (null !== data) {
 					this.btSon.push(data)
 				}
+				if(data == null){
+					data = ""
+				}
+				this.$refs.ar.setType(data)
+				
 			},
 			fatherIsSaleReceive(data) {
 				this.isSaleSon = []
@@ -343,7 +362,22 @@
 				if (null !== data) {
 					this.ltSon.push(data)
 				}
+				console.log('11112312312312',data)
+				this.$refs.subBu.setLdId(data)
 
+			},
+			fathersubBuReceive(data) {
+				this.subBuSon = []
+				if(data != null){
+					this.subBuSon.push(data)
+				}
+
+			},
+			fatherbuildCompentReceive(data){
+				this.buildCompentSon = []
+				if(data != null){
+					this.buildCompentSon.push(data)
+				}
 			},
 			fatherAreaReceive(data) {
 				this.areaSon = []
@@ -416,8 +450,8 @@
 					var res = response.data
 					if (res.retCode === '0000') {
 						this.pages = res.retData.pages //总页数
-						this.current = res.retData.current //当前页码
-						this.pageSize = res.retData.size //一页显示的数量  必须是奇数
+						this.current = res.retData.pageNum //当前页码
+						this.pageSize = res.retData.pageSize //一页显示的数量  必须是奇数
 						this.total = res.retData.total //数据的数量
 						this.$refs.paging.setParam(this.pages, this.current, this.total)
 						this.tableData = res.retData.list
