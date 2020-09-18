@@ -43,7 +43,7 @@
                 });
             },
 
-            setLdId: function(ldId) {
+            setLdtId: function(ldId) {
                 this.ldId = ldId
                 this.locationTypeChange()
             },
