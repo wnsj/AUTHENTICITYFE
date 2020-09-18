@@ -16,6 +16,8 @@ import HouseResources from '../components/MP/HouseResources/HouseResources.vue'
 import EntrustRent from '../components/MP/HouseResources/EntrustRent.vue'
 import Business from '../components/MP/Business/Business.vue'
 import Office from '../components/MP/HouseResources/Office/Office.vue'
+import Independent from '../components/MP/Office/Independent.vue'
+
 
 Vue.use(Router)
 
@@ -41,6 +43,15 @@ export default new Router({
                     name: 'BuildingControl',
                     component: BuildingControl,
                 },
+
+                {
+                    path: '/MP/Office/Independent',
+                    name: 'Independent',
+                    component: Independent,
+                },
+               
+
+
                 {
                     path: '/MP/BuildingAnalysis/BuildingAnalysis',
                     name: 'BuildingAnalysis',

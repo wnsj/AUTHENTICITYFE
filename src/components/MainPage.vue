@@ -89,18 +89,16 @@
 								<router-link to="/MP/LinkPhone/LinkRenting"><i class="fa" aria-hidden="true">委托好租</i></router-link>
 							</dd>
 						</dl>
-						<dl v-bind:class="{h222:bool7}">
+						<dl v-bind:class="{h1:bool7}">
 							<dt @click="onShow(6)" v-bind:class="{'li-active':bool7}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool7,'fa-folder':!bool7}" aria-hidden="false">
 									共享办公
 								</i>
 							</dt>
 							<dd @click="addCheck('Independent')" v-bind:class="{'li-active':onString=='Independent'}">
-								<router-link to="/MP/Office/Independent.vue"><i class="fa" aria-hidden="true">独立办公室</i></router-link>
+								<router-link to="/MP/Office/Independent"><i class="fa" aria-hidden="true">共享办公</i></router-link>
 							</dd>
-							<dd @click="addCheck('Openstation')" v-bind:class="{'li-active':onString=='Openstation'}">
-								<router-link to="/MP/Office/Openstation.vue"><i class="fa" aria-hidden="true">开放工位</i></router-link>
-							</dd>
+							
 						</dl>
 						<dl v-bind:class="{h1:bool5}">
 							<dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
@@ -304,13 +302,10 @@
 				    return false;
 				}
 				if (string == 'Independent') {
-                    this.titleNow = '独立办公室';
+                    this.titleNow = '共享办公';
                     return false;
 				}
-				if (string == 'Openstation') {
-                    this.titleNow = '开放工位';
-                    return false;
-				}
+				
 				
             },
             gainFun(data) {
