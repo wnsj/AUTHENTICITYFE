@@ -67,7 +67,7 @@
     import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
     import paging from '../../common/Paging.vue'
     import Building from '../../common/Building.vue'
-    // import mtI from '../../common/InformationType.vue'
+    import mtI from '../../common/InformationType.vue'
     var that = null
     export default {
         components: {

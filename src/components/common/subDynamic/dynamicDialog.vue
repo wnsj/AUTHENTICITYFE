@@ -87,7 +87,7 @@
     import datePicker from 'vue2-datepicker'
     import Building from '../Building.vue'
     import SummerNote from '../subArticle/SummerNote.vue'
-    // import mtI from '../../common/InformationType.vue'
+    import mtI from '../../common/InformationType.vue'
     var that = null
     export default {
         components: {
