@@ -18,7 +18,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">资讯类别</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                             <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI>
+                             <!-- <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI> -->
                         </div>
                     </div>
 
@@ -87,14 +87,14 @@
     import datePicker from 'vue2-datepicker'
     import Building from '../Building.vue'
     import SummerNote from '../subArticle/SummerNote.vue'
-    import mtI from '../../common/InformationType.vue'
+    // import mtI from '../../common/InformationType.vue'
     var that = null
     export default {
         components: {
             datePicker,
             Building,
             SummerNote,
-            mtI
+            // mtI
         },
         data() {
             return {
