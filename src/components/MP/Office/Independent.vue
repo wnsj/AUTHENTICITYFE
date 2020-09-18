@@ -7,11 +7,14 @@
             <!--楼盘-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">资讯类型</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">工位类型</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI>
+                    <select name="" id="">
+                        <option value="">独立办公室</option>
+                        <option value="">开放工位</option>
+                    </select>
                 </div>
             </div>
             
@@ -29,18 +32,18 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">资讯类型</th>
-                            <th class="text-center">资讯标题</th>
-                            <th class="text-center">资讯描述</th>
-                            <th class="text-center">发布时间</th>
+                            <th class="text-center">工位类型</th>
+                            <th class="text-center">房源名称</th>
+                            <th class="text-center">工位个数</th>
+                            <th class="text-center">价格</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.typeName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.officeTypeName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.bdLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.stationNum}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.nowPrice}}</td>
                         </tr>
                         </tbody>
                     </table>
