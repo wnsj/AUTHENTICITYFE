@@ -75,7 +75,7 @@
 					<ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
 				</div>
 			</div>
-			
+
 			<!-- 商圈 -->
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
@@ -178,31 +178,12 @@
 					</table>
 				</div>
 				<div class="row row_edit">
-					<div class="modal fade" id="buildDialog">
-						<div class="modal-dialog">
-							<build-dialog ref='buildDialog' @certainAction='feedBack'></build-dialog>
-						</div>
-					</div>
-					<div class="modal fade" id="hbDialog" style="margin-left: 69%">
-						<div class="modal-dialog" style="width: 90%">
-							<Hb ref='hb'></Hb>
-						</div>
-					</div>
-					<div class="modal fade" id="buildDetailDialog" style="margin-left: 69%">
-						<div class="modal-dialog" style="width: 90%">
-							<Hb ref='hb'></Hb>
-						</div>
-					</div>
-					<div class="modal fade" id="hbDialog" style="margin-left: 69%">
-						<div class="modal-dialog" style="width: 90%">
-							<Hb ref='hb'></Hb>
-						</div>
-					</div>
-					<div class="modal fade" id="hbDialog" style="margin-left: 69%">
-						<div class="modal-dialog" style="width: 90%">
-							<Hb ref='hb'></Hb>
-						</div>
-					</div>
+                    <div class="modal fade" id="storeDialog" >
+                        <div class="modal-dialog">
+                            <storeDetail ref='storeRef' @certainAction='feedBack'></storeDetail>
+                        </div>
+                    </div>
+
 				</div>
 				<!--分页插件-->
 				<div class="page">
@@ -233,12 +214,12 @@
 	import PlayAV from "../../common/PlayAV";
 	import subBu from "../../common/subBu/subBusiness";
 	import buildCompent from "../../common/Building";
-	
-	
+
+
 	import Hb from "../HouseResources/HrDetail/Hb";
 	import BuildDetail from "../HouseResources/HrDetail/BuildDetail";
 	import ShareDetail from "../HouseResources/HrDetail/ShareDetail";
-	import storeDetail from "../HouseResources/HrDetail/storeDetail";
+	import storeDetail from "./HrDetail/storeDetail";
 	export default {
 		components: {
 			datePicker,
@@ -288,8 +269,8 @@
 				pages: 0, //总页数
 				current: 1, //当前页码
 				pageSize: 10, //一页显示的数量
-				total: 0, //数据的数量
-				
+				total: '', //数据的数量
+                reStore:{},
 				roomType:'0',//房源类型
 			};
 		},
@@ -319,7 +300,7 @@
 				}
 			},
 			fatherBtReceive(data) {
-				
+
 				this.btSon = []
 				if (null !== data) {
 					this.btSon.push(data)
@@ -328,7 +309,7 @@
 					data = ""
 				}
 				this.$refs.ar.setType(data)
-				
+
 			},
 			fatherIsSaleReceive(data) {
 				this.isSaleSon = []
@@ -451,11 +432,21 @@
 				if(item.roomType=='1'){
 					console.log('写字楼')
 				}else if(item.roomType=='2'){
-					console.log('共享办公')
+                    console.log('共享办公')
 				}else if(item.roomType=='3'){
-					console.log('商铺')
+
+                    // setTimeout(() => {
+                    //     if (this.reStore) {
+                    //         this.$refs.storeRef.initData(this.reStore)
+                    //     } else {
+                            this.$refs.storeRef.initData(item)
+                    //     }
+                    // }, 1)
+
+                    $("#storeDialog").modal('show')
 				}
 			},
+
 			selectRule(param, item) {
 				this.roomType='1'
 				if (param === "1") {
@@ -469,7 +460,7 @@
 			},
 			feedBack() {
 				this.queryData(1)
-				$("#buildDialog").modal('hide')
+				$("#storeDialog").modal('hide')
 			},
 
 			feedBackMobile() {

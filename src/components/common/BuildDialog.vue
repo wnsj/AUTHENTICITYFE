@@ -1079,7 +1079,6 @@
             },
             //预览图
             effectImgChange() {
-
                 var files = $("#effectImg")[0].files; //获取file对象
                 for (let i = 0; i < files.length; i++) {
                     var file = files[i]
@@ -1087,7 +1086,6 @@
                 }
             },
             enPlanImgChange() {
-
                 var files = $("#enPlanImg")[0].files; //获取file对象
                 for (let i = 0; i < files.length; i++) {
                     var file = files[i]
