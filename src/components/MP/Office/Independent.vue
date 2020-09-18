@@ -11,10 +11,14 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+
                     <select name="" id="">
-                        <option value="">独立办公室</option>
-                        <option value="">开放工位</option>
+                        <option value="3">独立办公室</option>
+                        <option value="2">开放工位</option>
                     </select>
+
+                    
+
                 </div>
             </div>
             
@@ -67,17 +71,17 @@
 
 <script>
 
-    import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
+    import dynamicDialog from '../../common/subDynamic/SharedOffice.vue'
     import paging from '../../common/Paging.vue'
     import Building from '../../common/Building.vue'
-    import mtI from '../../common/InformationType.vue'
+    
     var that = null
     export default {
         components: {
             paging,
             Building,
             dynamicDialog,
-            mtI
+            
         },
         name: 'BuildingDynamic',
         data() {
@@ -89,17 +93,11 @@
                 current: 1, //当前页码
                 pageSize: 10, //一页显示的数量
                 total: '', //数据的数量
-                mtId:'',
+                
             };
         },
         methods:{
-            fathermtIReceive(data) {
-                this.mtId = ''
-                if (null != data) {
-                    this.mtId = data
-                }
-                this.$refs.mtIRef.setmtId(data)
-            },
+            
           
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {

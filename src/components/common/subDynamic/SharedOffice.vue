@@ -2,66 +2,95 @@
 <template>
     <div class="modal-content">
         <div class="modal-header">
-            <h4 id="myModalLabel" class="modal-title">{{title}}资讯</h4>
+            <h4 id="myModalLabel" class="modal-title">{{title}}共享工位</h4>
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
                 <div class="dialogInutBox clearfix">
-                    <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">标题</label><span class="sign-left">:</span>
-                        <div class="col-md-9">
-                            <textarea type="text" class="form-control" v-model="addParam.bdName" style="height:100px"></textarea>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">工位类型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                           <select name="" id="" class="form-control " v-model="addParam.officeType" >
+                                <option value="3">独立办公室</option>
+                                <option value="2">开放工位</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">资讯类别</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">匹配楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                             <!-- <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI> -->
+                           <select name="" id="" class="form-control " >
+                                
+                            </select>
                         </div>
                     </div>
-
-                    <!-- <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">发布时间</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <datePicker v-model="addParam.createDate" type="date" value-type="format"
-                                        style="width: 97%"></datePicker>
-                        </div>
-                    </div> -->
-
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">图片</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="pic" @change="headImgChange" accept="image/*"/>
-                            <p class="redtips">*注意：宽378px*高228px</p>
+                            <input type="text" class="form-control " v-model="addParam.area" placeholder="必填"/>
+                        </div>
+                        <div style="padding:0;line-height:34px;">M²</div>
+                    </div>
 
-                            <div id="picOutDiv">
-                                <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
-                                    <div @click="fileDel(index,5,item)">x</div>
-                                    <img :src="item" style="width: 100%">
-                                </div>
-                            </div>
+                   
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">工位个数</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.stationNum" placeholder="必填"/>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group clearfix">
-                        <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">资讯描述</label><span class="sign-left">:</span>
-                         </div>
-                        <div class="col-md-12 form-group clearfix">
-                            <textarea class="form-control wdType03" v-model="addParam.bdLabel" placeholder="资讯描述"></textarea>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">剩余工位</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.surpluseNum" placeholder="必填"/>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group clearfix">
-                        <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">资讯内容</label><span class="sign-left">:</span>
-                         </div>
-                        <div class="col-md-12 form-group clearfix">
-                             <SummerNote ref="sn"></SummerNote>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">原价</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.sorcePrice" placeholder="必填"/>
                         </div>
                     </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">现价</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.nowPrice" placeholder="必填"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">房型</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.houseType" placeholder="必填"/>
+                        </div>
+                    </div>                   
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">是否靠墙</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                           <select name="" id="" class="form-control " v-model="addParam.isWall">
+                                <option value="3">否</option>
+                                <option value="2">是</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">是否带窗</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                           <select name="" class="form-control " v-model="addParam.isWindow">
+                                <option value="3">否</option>
+                                <option value="2">是</option>
+                            </select>
+                        </div>
+                    </div>    
+
+
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
                     <div class="col-md-12">
@@ -87,28 +116,29 @@
     import datePicker from 'vue2-datepicker'
     import Building from '../Building.vue'
     import SummerNote from '../subArticle/SummerNote.vue'
-    // import mtI from '../../common/InformationType.vue'
+    
     var that = null
     export default {
         components: {
             datePicker,
             Building,
             SummerNote,
-            // mtI
+            
         },
         data() {
             return {
                 addParam: {
-                    bdName:'',  //资讯名称
-
-                    bdContent:'',  // 动态内容
-
-                    bdLabel:'',   // 描述
-
-                    buildId:'',    // 资讯类型id
-                    mtId:'',
-
-
+                   sorcePrice:'',  //原价
+                   nowPrice:'',    //现价
+                   stationNum:'',  //工位数
+                   surpluseNum:'',  //剩余工位
+                   officeType:'',   //工位类型
+                   area:'',         //面积
+                   houseType:'',    //房型
+                   isWall:'',       //是否靠墙
+                   isWindow:'',     //是否带窗
+                    roomId:7,      //房源ID
+ 
 
                 },
                  bdPath:'',     // 图片路径
@@ -125,13 +155,13 @@
             };
         },
         methods: {
-             fathermtIReceive(data) {
-                this.mtId = ''
-                if (null != data) {
-                    this.mtId = data
-                }
-                this.$refs.mtIRef.setmtId(data)
-            },
+            //  fathermtIReceive(data) {
+            //     this.mtId = ''
+            //     if (null != data) {
+            //         this.mtId = data
+            //     }
+            //     this.$refs.mtIRef.setmtId(data)
+            // },
             // Initialization projcet’s content
             initDyRef(param, addParam) {
                 this.headImgList = []
@@ -144,14 +174,16 @@
                    this.$refs.sn.setData('')
                     this.title = '新增'
                     this.addParam = {
-                        bdName:'',  //资讯名称
-
-                    bdContent:'',  // 动态内容
-
-                    bdLabel:'',   // 描述
-
-                    buildId:'',    // 资讯类型id
-                    mtId:'',
+                         sorcePrice:'',  //原价
+                            nowPrice:'',    //现价
+                            stationNum:'',  //工位数
+                            surpluseNum:'',  //剩余工位
+                            officeType:'',   //工位类型
+                            area:'',         //面积
+                            houseType:'',    //房型
+                            isWall:'',       //是否靠墙
+                            isWindow:'',     //是否带窗
+                            roomId:7,      //房源ID
 
                     }
 
@@ -206,10 +238,10 @@
 
                 switch (this.title) {
                     case '新增':
-                        var url = this.url + '/buildingDynamicBean/addDynamic'
+                        var url = this.url + '/officeBean/addOffice'
                         break;
                     case '修改':
-                        var url = this.url + '/buildingDynamicBean/patchDyById'
+                        var url = this.url + '/officeBean/patchOffice'
                         break;
                 }
 
