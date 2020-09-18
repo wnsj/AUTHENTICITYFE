@@ -39,7 +39,7 @@
 					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">单价</p><span class="sign-left">:</span>
 				</div>
 				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<un @unitChange='fatherUnReceive'></un>
+					<un @unitChange='fatherUnReceive' ref="un"></un>
 				</div>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -47,7 +47,7 @@
 					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">总价</p><span class="sign-left">:</span>
 				</div>
 				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<to @totalChange='fatherToReceive'></to>
+					<to @totalChange='fatherToReceive' ref="to"></to>
 				</div>
 			</div>
 				<!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -92,7 +92,7 @@
 					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">楼盘</p><span class="sign-left">:</span>
 				</div>
 				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<buildCompent @buildChange='fatherbuildCompentReceive' ref="subBu"></buildCompent>
+					<buildCompent @buildChange='fatherbuildCompentReceive' ref="buildCompent"></buildCompent>
 				</div>
 			</div>
 		</div>
@@ -141,30 +141,32 @@
 					<table class="table table-bordered table-hover" id="datatable">
 						<thead class="datathead">
 							<tr>
-								<th class="text-center">楼盘名</th>
-								<th class="text-center">出售状态</th>
-								<th class="text-center">户型</th>
+								<th class="text-center">房源名</th>
+								<th class="text-center">区域</th>
+								<th class="text-center">商圈</th>
+								<th class="text-center">楼盘</th>
 								<th class="text-center">类型</th>
 								<th class="text-center">面积</th>
-								<th class="text-center">均价(元)</th>
-								<th class="text-center">参考总价(万)</th>
-								<th class="text-center">开盘时间</th>
+								<th class="text-center">单价</th>
+								<th class="text-center">总价</th>
+								<th class="text-center">创建时间</th>
 								<th class="text-center">编辑详情</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
 								<td class="text-center" style="line-height:33px;">{{item.room}}</td>
-								<td class="text-center" style="line-height:33px;">{{item.saleLabel}}</td>
+								<td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
 								<!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
-								<td class="text-center" style="line-height:33px;">{{item.caName}}</td>
+								<td class="text-center" style="line-height:33px;">{{item.bussinessName}}</td>
+								<td class="text-center" style="line-height:33px;">{{item.buildName}}</td>
 								<td class="text-center" style="line-height:33px;" v-if="item.roomType==1">写字楼</td>
 								<td class="text-center" style="line-height:33px;" v-if="item.roomType==2">共享办公</td>
 								<td class="text-center" style="line-height:33px;" v-if="item.roomType==3">商铺</td>
 								<!--                            <td class="text-center" style="line-height:33px;">{{item.chaName}}</td>-->
 								<td class="text-center" style="line-height:33px;">{{item.buildArea}}</td>
-								<td class="text-center" style="line-height:33px;">{{item.averagePrice}}</td>
-								<td class="text-center" style="line-height:33px;">{{item.minTitlePrice}}-{{item.maxTitlePrice}}</td>
+								<td class="text-center" style="line-height:33px;">{{item.unitPrice}}</td>
+								<td class="text-center" style="line-height:33px;">{{item.totalPrice}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.openDateTime}}</td>
 								<td class="text-center" style="line-height:33px;">
 									<button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
@@ -269,7 +271,7 @@
 				buildTypeList: [],
 				buildHorseTypeList: [],
 				bhtSon: [],
-				btSon: [],
+				btSon: '',
 				isSaleSon: [],
 				ltSon: [],
 				locationType: '',
@@ -283,10 +285,10 @@
 				regionId: '',
 				metroId: '',
 				//分页需要的数据
-				pages: '', //总页数
+				pages: 0, //总页数
 				current: 1, //当前页码
 				pageSize: 10, //一页显示的数量
-				total: '', //数据的数量
+				total: 0, //数据的数量
 				
 				roomType:'0',//房源类型
 			};
@@ -296,29 +298,13 @@
 
 			roomTypeChange: function() {
 				console.log(this.roomType)
-                // for (var i = 0; i < this.totalIdList.length; i++) {
-                //     if(this.totalId === '0'){
-                //         this.$emit('totalChange', null)
-                //         return
-                //     }else{
-                //         if (this.totalIdList[i].tpId === this.totalId) {
-
-                //             this.$emit('totalChange', this.totalIdList[i])
-                //             return
-                //         }
-                //     }
-				// }
+				if (this.roomType != null) {
+					this.btSon = this.roomType
+					this.$refs.ar.setType(this.roomType)
+					this.$refs.un.setType(this.roomType)
+					this.$refs.to.setType(this.roomType)
+				}
 				
-
-
-				// this.btSon = []
-				// if (null !== data) {
-				// 	this.btSon.push(data)
-				// }
-				// if(data == null){
-				// 	data = ""
-				// }
-				// this.$refs.ar.setType(data)
             },
 
 			//子级传值到父级上来的动态拿去
@@ -351,9 +337,6 @@
 				}
 
 			},
-			// fatherLtReceive(data) {
-			//     this.$refs.ldt.locationTypeChange(data)
-			// },
 			fatherMetroReceive(data) {
 				this.metroId = data
 			},
@@ -443,16 +426,18 @@
 						'Access-Token': this.accessToken
 					},
 					data: {
+						"current":this.current,
+						"pageSize":this.pageSize,
 						"type":this.roomType
 					},
 					dataType: 'json',
 				}).then((response) => {
 					var res = response.data
 					if (res.retCode === '0000') {
-						this.pages = res.retData.pages //总页数
-						this.current = res.retData.pageNum //当前页码
-						this.pageSize = res.retData.pageSize //一页显示的数量  必须是奇数
-						this.total = res.retData.total //数据的数量
+						this.pages = res.retData.pages 
+						this.current = res.retData.pageNum
+						this.pageSize = res.retData.pageSize 
+						this.total = res.retData.total 
 						this.$refs.paging.setParam(this.pages, this.current, this.total)
 						this.tableData = res.retData.list
 					} else {
