@@ -1,21 +1,21 @@
 <template>
     <div>
         <!-- <div class="col-md-12 col-lg-12 main-title">
-            <h1 class="titleCss">商圈管理</h1>
+            <h1 class="titleCss">动态管理</h1>
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
-            <!--咨询师-->
+            <!--楼盘-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">资讯类型</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
+                    <!-- <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI> -->
                 </div>
             </div>
             
-             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+            <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
@@ -23,36 +23,32 @@
             </button>
         </div>
 
-
         <div class="" style="padding-top: 30px;">
             <div class="col-md-12 col-lg-12">
-                <div class="table-responsive table-bg">
+                <div class="table-responsive  table-bg">
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">所属区域</th>
-                            <th class="text-center">商圈名称</th>
-                            <th class="text-center">是否热门</th>
-                            <th class="text-center">商圈描述</th>
-                            <th class="text-center">创建时间</th>
-                           
+                            <th class="text-center">资讯类型</th>
+                            <th class="text-center">资讯标题</th>
+                            <th class="text-center">资讯描述</th>
+                            <th class="text-center">发布时间</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.buName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.isHotName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.buLabel}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.typeName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.bdLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="row row_edit">
-                    <div class="modal fade" id="couDialog">
+                    <div class="modal fade" id="dyDialog">
                         <div class="modal-dialog">
-                            <cou-dialog  ref='couDialog' @certainAction='feedBack'></cou-dialog>
+                            <dynamicDialog  ref='dyDialog' @certainAction='feedBack'></dynamicDialog>
                         </div>
                     </div>
                 </div>
@@ -67,55 +63,48 @@
 </template>
 
 <script>
-    import couChara from '../../common/subCou/CouChara.vue'
-    import cou from '../../common/subCou/Counselor.vue'
+
+    import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
     import paging from '../../common/Paging.vue'
-    import couDialog from '../../common/subCou/busicou.vue'
-    import ldt from '../../common/LocationDType.vue'
-   
+    import Building from '../../common/Building.vue'
+    import mtI from '../../common/InformationType.vue'
     var that = null
     export default {
         components: {
-            couChara,
-            cou,
             paging,
-            couDialog,
-            
-            ldt,
+            Building,
+            dynamicDialog,
+            // mtI
         },
-        name: 'CounselorControl',
+        name: 'BuildingDynamic',
         data() {
             return {
-                ldId:'',
-                lpId: '',
+                buildId:'',
                 couData:[],
                 //分页需要的数据
                 pages: '', //总页数
                 current: 1, //当前页码
                 pageSize: 10, //一页显示的数量
                 total: '', //数据的数量
-                businessId:'',
+                mtId:'',
             };
         },
         methods:{
-         
-            fatherLdtReceive(data) {
-                this.ldId = ''
+            fathermtIReceive(data) {
+                this.mtId = ''
                 if (null != data) {
-                    this.ldId = data
+                    this.mtId = data
                 }
-                this.$refs.ldtRef.setLdId(data)
+                this.$refs.mtIRef.setmtId(data)
             },
-            
-              
-            
+          
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
                 this.couQueryData(page)
             },
             async couQueryData(page) {
-                var url = this.url + '/businessDistrictBean/getBusinessDistrictPage'
+                var url = this.url + '/officeBean/getAllOffice'
                 this.$ajax({
                     method: 'POST',
                     url: url,
@@ -124,9 +113,10 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
+                       // buildId:this.buildId,
                         current: page,
-                        pageSize: this.pageSize,
-                        ldId:this.ldId,
+                        pageSize: 10,
+                       // buildId:this.mtId,
                     },
                     dataType: 'json',
                 }).then((response) => {
@@ -134,7 +124,7 @@
                     if (res.retCode === '0000') {
                         this.pages = res.retData.pages //总页数
                         this.current = res.retData.pageNum //当前页码
-                       // this.pageSize = res.retData.size //一页显示的数量  必须是奇数
+                        this.pageSize = res.retData.size //一页显示的数量  必须是奇数
                         this.total = res.retData.total //数据的数量
                         this.$refs.paging.setParam(this.pages, this.current, this.total)
                         this.couData = res.retData.list
@@ -147,16 +137,16 @@
             },
             selectRule(param, item) {
                 if (param === "1") {
-                    this.$refs.couDialog.initData('add')
-                    $("#couDialog").modal('show')
+                    this.$refs.dyDialog.initDyRef('add')
+                    $("#dyDialog").modal('show')
                 } else if (param === "3") {
-                    this.$refs.couDialog.initData('modify', item)
-                    $("#couDialog").modal('show')
+                    this.$refs.dyDialog.initDyRef('modify', item)
+                    $("#dyDialog").modal('show')
                 }
             },
             feedBack() {
                 this.couQueryData(1)
-                $("#couDialog").modal('hide')
+                $("#dyDialog").modal('hide')
             }
         },
         created: function () {

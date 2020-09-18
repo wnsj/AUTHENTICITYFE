@@ -89,6 +89,17 @@
 								<router-link to="/MP/LinkPhone/LinkRenting"><i class="fa" aria-hidden="true">委托好租</i></router-link>
 							</dd>
 						</dl>
+						<dl v-bind:class="{h1:bool7}">
+							<dt @click="onShow(6)" v-bind:class="{'li-active':bool7}">
+								<i class="fa" v-bind:class="{'fa-folder-open':bool7,'fa-folder':!bool7}" aria-hidden="false">
+									共享办公
+								</i>
+							</dt>
+							<dd @click="addCheck('Independent')" v-bind:class="{'li-active':onString=='Independent'}">
+								<router-link to="/MP/Office/Independent"><i class="fa" aria-hidden="true">共享办公</i></router-link>
+							</dd>
+							
+						</dl>
 						<dl v-bind:class="{h1:bool5}">
 							<dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
@@ -164,6 +175,7 @@
                 bool4: true,
 				bool5: false,
 				bool6: false,
+				bool7: false,
                 onString: 'MemberSummary',
                 titleNow: '楼盘管理'
             }
@@ -182,6 +194,7 @@
                         this.bool4 = false;
 						this.bool5 = false;
 						this.bool6 = false;
+						this.bool7 = false;
                         break;
                     case 1:
                         this.bool1 = false;
@@ -190,6 +203,7 @@
                         this.bool4 = false;
 						this.bool5 = false;
 						this.bool6 = false;
+						this.bool7 = false;
                         break;
                     case 2:
                         this.bool1 = false;
@@ -198,6 +212,7 @@
                         this.bool4 = false;
 						this.bool5 = false;
 						this.bool6 = false;
+						this.bool7 = false;
                         break;
                     case 3:
                         this.bool1 = false;
@@ -206,6 +221,7 @@
                         this.bool4 = !this.bool4;
 						this.bool5 = false;
 						this.bool6 = false;
+						this.bool7 = false;
                         break;
                     case 4:
                         this.bool1 = false;
@@ -214,6 +230,7 @@
                         this.bool4 = false;
 						this.bool5 = !this.bool5;
 						this.bool6 = false;
+						this.bool7 = false;
 						break;
 					 case 5:
                         this.bool1 = false;
@@ -222,6 +239,16 @@
                         this.bool4 = false;
 						this.bool5 = false;
 						this.bool6 = !this.bool6;
+						this.bool7 = false;
+						break;
+					case 6:
+                        this.bool1 = false;
+                        this.bool2 = false;
+                        this.bool3 = false;
+                        this.bool4 = false;
+						this.bool5 = false;
+						this.bool6 = false;
+						this.bool7 = !this.bool7;
                         break;
                 }
 
@@ -269,18 +296,17 @@
 				    this.titleNow = '房源管理';
 				    return false;
 				}
-				if (string == 'EntrustRent') {
-				    this.titleNow = '委托管理';
-				    return false;
-				}
+				
 				if (string == 'Business') {
 				    this.titleNow = '商圈管理';
 				    return false;
 				}
-				if (string == 'Office') {
-				    this.titleNow = '共享办公相关';
-				    return false;
+				if (string == 'Independent') {
+                    this.titleNow = '共享办公';
+                    return false;
 				}
+				
+				
             },
             gainFun(data) {
                 this.onString = data;

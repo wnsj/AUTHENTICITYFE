@@ -1,8 +1,10 @@
+
+
 <template>
     <div>
-        <select class="form-control" v-model="ldId" v-on:change="ldtChange()">
+        <select class="form-control" v-model="mtId" v-on:change="mtIdChange()">
             <option value="0">--未选择--</option>
-            <option v-for="(item,index) in ldtList" :key="index" v-bind:value="item.ldId">{{item.ldName}}</option>
+            <option v-for="(item,index) in ldtList" :key="index" v-bind:value="item.mtId">{{item.mtName}}</option>
         </select>
     </div>
 </template>
@@ -11,26 +13,27 @@
     export default {
         data() {
             return {
-                ldId:'0',
+                mtId:'0',
                 proId: '',
-                ldtList: []
+                ldtList: [],
+                mtName:'',
             };
         },
         methods: {
 
             locationTypeChange: function() {
-                var url = this.url + '/locationDistinguishBean/getAllDis'
+                var url = this.url + '/messageTypeBean/getAllMessageType'
                 this.$ajax({
-                    method: 'POST',
+                    method: 'GET',
                     url: url,
                     headers: {
-                        'Content-Type': this.contentType,
+                       // 'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
                     data: {
-                        proId: this.proId
+                       
                     },
-                    dataType: 'json',
+                    //dataType: 'json',
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
@@ -43,22 +46,22 @@
                 });
             },
 
-            setLdId: function(ldId) {
-                this.ldId = ldId
+            setmtId: function(mtId) {
+                this.mtId = mtId
                 this.locationTypeChange()
             },
             setProId: function(proId) {
                 this.proId = proId
                 this.locationTypeChange()
             },
-            ldtChange: function() {
+            mtIdChange: function() {
                 for (var i = 0; i < this.ldtList.length; i++) {
-                    if(this.ldId === '0'){
-                        this.$emit('ldtChange', null)
+                    if(this.mtId === '0'){
+                        this.$emit('mtIdChange', null)
                         return
                     }else{
-                        if (this.ldtList[i].ldId === this.ldId) {
-                            this.$emit('ldtChange', this.ldtList[i].ldId)
+                        if (this.ldtList[i].mtId === this.mtId) {
+                            this.$emit('mtIdChange', this.ldtList[i].mtId)
                             return
                         }
                     }
