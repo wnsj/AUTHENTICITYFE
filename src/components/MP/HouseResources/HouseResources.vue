@@ -167,7 +167,7 @@
 								<td class="text-center" style="line-height:33px;">{{item.buildArea}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.unitPrice}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.totalPrice}}</td>
-								<td class="text-center" style="line-height:33px;">{{item.openDateTime}}</td>
+								<td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
 								<td class="text-center" style="line-height:33px;">
 									<button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
 									 v-on:click="addDetail(item)">编辑详情
@@ -178,9 +178,9 @@
 					</table>
 				</div>
 				<div class="row row_edit">
-                    <div class="modal fade" id="storeDialog" >
+                    <div class="modal fade" id="roomMainDialog" >
                         <div class="modal-dialog">
-                            <storeDetail ref='storeRef' @certainAction='feedBack'></storeDetail>
+                            <roomMainDialog ref='roomMainDialog' @certainAction='feedBack'></roomMainDialog>
                         </div>
                     </div>
 
@@ -209,6 +209,7 @@
 	import chara from '../../common/Chara.vue'
 	import paging from '../../common/Paging.vue'
 	import buildDialog from '../../common/BuildDialog.vue'
+	import roomMainDialog from '../../common/RoomMainDialog'
 	import Region from '../../common/Region.vue'
 	import Metro from '../../common/Metro.vue'
 	import PlayAV from "../../common/PlayAV";
@@ -237,6 +238,7 @@
 			chara,
 			paging,
 			buildDialog,
+			roomMainDialog,
 			Region,
 			Metro,
 			MobileDialog,
@@ -450,11 +452,11 @@
 			selectRule(param, item) {
 				this.roomType='1'
 				if (param === "1") {
-					this.$refs.hb.initData('add')
-					$("#hbDialog").modal('show')
+					this.$refs.roomMainDialog.initData('add')
+					$("#roomMainDialog").modal('show')
 				} else if (param === "3") {
-					this.$refs.hb.initData('modify', item)
-					$("#hbDialog").modal('show')
+					this.$refs.roomMainDialog.initData('modify', item)
+					$("#roomMainDialog").modal('show')
 				}
 
 			},

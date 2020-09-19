@@ -38,8 +38,16 @@
             },
 			setBuildingId: function(buildId) {
 			    this.buildId = buildId
+            },
+            setBuildingList: function(buildList) {
+                console.log('111111111111')
+                this.buildList = buildList
+                console.log('22222222222')
+                this.queryData()
+                
 			},
             async queryData() {
+                console.log('333333333333333')
                 var url = this.url + '/buildingBean/getAllBuild'
                 this.$ajax({
                     method: 'GET',
