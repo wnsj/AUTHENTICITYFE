@@ -184,6 +184,18 @@
                         </div>
                     </div>
 
+					<div class="modal fade" id="storeDialog" >
+                        <div class="modal-dialog">
+                            <storeDetail ref='storeRef'></storeDetail>
+                        </div>
+                    </div>
+
+					<div class="modal fade" id="roomDialog" >
+                        <div class="modal-dialog">
+                            <roomDetail ref='roomRef'></roomDetail>
+                        </div>
+                    </div>
+
 				</div>
 				<!--分页插件-->
 				<div class="page">
@@ -221,6 +233,7 @@
 	import BuildDetail from "../HouseResources/HrDetail/BuildDetail";
 	import ShareDetail from "../HouseResources/HrDetail/ShareDetail";
 	import storeDetail from "./HrDetail/storeDetail";
+	import roomDetail  from "./HrDetail/RoomDetail"
 	export default {
 		components: {
 			datePicker,
@@ -245,7 +258,8 @@
 			Hb,
 			BuildDetail,
 			ShareDetail,
-			storeDetail
+			storeDetail,
+			roomDetail
 		},
 		data() {
 			return {
@@ -346,13 +360,17 @@
 				}
 			},
 			fatherAreaReceive(data) {
+				console.log('data',data)
 				this.areaSon = []
 				if (null != data) {
 					let areaParam = {
 						minArea: data.begArea,
 						maxArea: data.endArea
 					}
+					console.log('data',data)
+					
 					this.areaSon.push(areaParam)
+					console.log('data',this.areaSon)
 				}
 			},
 			fatherUnReceive(data) {
@@ -409,9 +427,16 @@
 						'Access-Token': this.accessToken
 					},
 					data: {
-						"current":this.current,
-						"pageSize":this.pageSize,
-						"type":this.roomType
+						current:page,
+						pageSize:this.pageSize,
+						type:this.roomType,
+						areaList:this.areaSon,
+						unitPriceList:this.unSon,
+						totalPriceList:this.toSon,
+						bdIdList:this.subBuSon,
+						buildIdList:this.buildCompentSon,
+						startTime:this.openTime[0],
+                        endTime:this.openTime[1],
 					},
 					dataType: 'json',
 				}).then((response) => {
@@ -432,25 +457,19 @@
 			},
 			addDetail(item){
 				if(item.roomType=='1'){
+					this.$refs.roomRef.initData(item)
+					$("#roomDialog").modal('show')
 					console.log('写字楼')
 				}else if(item.roomType=='2'){
                     console.log('共享办公')
 				}else if(item.roomType=='3'){
-
-                    // setTimeout(() => {
-                    //     if (this.reStore) {
-                    //         this.$refs.storeRef.initData(this.reStore)
-                    //     } else {
-                            this.$refs.storeRef.initData(item)
-                    //     }
-                    // }, 1)
-
+                    this.$refs.storeRef.initData(item)
                     $("#storeDialog").modal('show')
 				}
 			},
 
 			selectRule(param, item) {
-				this.roomType='1'
+				// this.roomType='1'
 				if (param === "1") {
 					this.$refs.roomMainDialog.initData('add')
 					$("#roomMainDialog").modal('show')

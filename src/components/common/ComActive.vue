@@ -31,7 +31,7 @@
                     }
                 }
             },
-            setCharaList: function (comActiveList) {
+            setComActiveList: function (comActiveList) {
                 this.comActiveList = comActiveList
                 this.queryData()
             },

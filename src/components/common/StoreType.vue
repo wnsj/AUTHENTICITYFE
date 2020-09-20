@@ -28,8 +28,7 @@
                     }
                 }
             },
-            setStId: function (type) {
-                console.log('1111111111111111111111'+type)
+            setType: function (type) {
                 if(type == 3){
                     this.queryData()
                 }else{
@@ -37,6 +36,11 @@
                 }
                 
             },
+            setStId: function (stId) {
+                this.stId = stId
+                this.storeTypeList = []
+            },
+
             async queryData() {
                 var url = this.url + '/storeTypeBean/getAllStoreType'
                 this.$ajax({

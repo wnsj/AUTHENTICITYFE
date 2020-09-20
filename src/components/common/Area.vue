@@ -24,7 +24,7 @@
                     }else{
                         if (this.areaList[i].arId == this.areaId) {
 
-                            this.$emit('areaChange', this.areaList[i].areaId)
+                            this.$emit('areaChange', this.areaList[i])
                             return
                         }
                     }
