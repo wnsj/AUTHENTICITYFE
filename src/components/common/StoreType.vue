@@ -38,7 +38,7 @@
             },
             setStId: function (stId) {
                 this.stId = stId
-                this.storeTypeList = []
+                this.queryData()
             },
 
             async queryData() {

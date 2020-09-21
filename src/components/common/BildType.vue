@@ -31,7 +31,7 @@
             },
             setBtId: function (btId) {
                 this.btId = btId
-                this.buildTypeList = []
+                this.queryData()
             },
             setType: function (type) {
                 this.type = type

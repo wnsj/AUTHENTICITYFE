@@ -17,6 +17,14 @@
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">房源编号</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="addParam.roomCode" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">区域</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
@@ -214,29 +222,29 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">商铺类型类型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">商铺类别</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <storeType @stChange='fatherStReceive' ref="stRef"></storeType>
                         </div>
-                    </div>
+                    </div> -->
                     
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特色标签</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <Charas @charsChange='fatherChReceive' ref="charsRef"></Charas>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">业态</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <comActive @comActiveChange='fatherComActiveReceive' ref="comActiveRef"></comActive>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -365,8 +373,11 @@
         data() {
             return {
                 addParam: {
-                    // 楼盘名称
+                    // 房源名称
                     room: '',
+
+                    // 房源编号
+                    roomCode: '',
 
                     // 区域ID
                     ldId: '',
@@ -498,19 +509,18 @@
                 if (param === 'add') {
                     this.title = '新增'
                     this.$refs.ldtRef.setLdtId('0')
-                    // this.$refs.btRef.setBtId('0')
                     this.$refs.couRef.setCouId('0')
 
-                    this.$refs.buRef.setBuId('0')
                     this.roomType = '0'
-                    this.$refs.btRef.setBtId('0')
-                    this.$refs.stRef.setStId('0')
                     this.$refs.buildCompentRef.setBuildingList([])
                     
                     // this.$refs.proRef.setProId('0')
                     this.addParam = {
-                        // 楼盘名称
+                    // 房源名称
                     room: '',
+
+                     // 房源编号
+                    roomCode: '',
 
                     // 区域ID
                     ldId: '',
@@ -621,23 +631,22 @@
                     //     img.push(this.url + addParam.headPath)
                     //     this.headImgList = img
                     // }
-
                     this.$refs.buRef.setBuId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
                     this.roomType = addParam.roomType
                     
-                    this.$refs.stRef.setStId(addParam.stId)
+                    // this.$refs.stRef.setStId(addParam.stId)
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
 
 
-                    console.log('cacacacacacaca',this.addParam.caId)
-                    if(this.addParam.caId != null){
-                        var ca = this.addParam.caId.split(',')
-                        this.$refs.comActiveRef.setComActiveList(ca)
-                    }
+                    // console.log('cacacacacacaca',this.addParam.caId)
+                    // if(this.addParam.caId != null){
+                    //     var ca = this.addParam.caId.split(',')
+                    //     this.$refs.comActiveRef.setComActiveList(ca)
+                    // }
                     if (addParam.chaIdList) {
-                        this.$refs.charsRef.setCharaList(addParam.chaIdList)
+                        // this.$refs.charsRef.setCharaList(addParam.chaIdList)
                     }
 
                     // this.$refs.proRef.setProId(addParam.proId)
@@ -806,10 +815,10 @@
                 this.addParam.btId = data
             },
 
-            fatherStReceive(data) {
-                this.addParam.stId = ''
-                this.addParam.stId = data
-            },
+            // fatherStReceive(data) {
+            //     this.addParam.stId = ''
+            //     this.addParam.stId = data
+            // },
 
             fatherCouReceive(data) {
                 this.addParam.couId = ''
@@ -854,21 +863,21 @@
             //     this.addParam.devId = ''
             //     this.addParam.devId = data
             // },
-            fatherChReceive(data) {
-                console.log('cscscscscscs',data)
-                this.addParam.chaIdList = []
-                this.addParam.chaIdList = data
-            },
-            fatherComActiveReceive(data) {
-                var s = ''
-                if(data != null){
-                    data.forEach(element => {
-                        s=s+element+','
-                    });
-                }
-                s=s.substring(0,s.length-1)
-                this.addParam.caId=s
-            },
+            // fatherChReceive(data) {
+            //     console.log('cscscscscscs',data)
+            //     this.addParam.chaIdList = []
+            //     this.addParam.chaIdList = data
+            // },
+            // fatherComActiveReceive(data) {
+            //     var s = ''
+            //     if(data != null){
+            //         data.forEach(element => {
+            //             s=s+element+','
+            //         });
+            //     }
+            //     s=s.substring(0,s.length-1)
+            //     this.addParam.caId=s
+            // },
             fatherRegReceive(data) {
                 this.addParam.regionId = ''
                 this.addParam.regionId = data
@@ -1017,7 +1026,7 @@
 				if (this.roomType != null) {
                     this.addParam.roomType = this.roomType
                     this.$refs.btRef.setType(this.roomType)
-                    this.$refs.stRef.setType(this.roomType)
+                    // this.$refs.stRef.setType(this.roomType)
 				}
 				
             },
