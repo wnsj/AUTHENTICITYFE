@@ -115,8 +115,8 @@
                         <div class="col-md-8">
                             <select class="form-control" v-model="addParam.recommend">
                                 <option value=0>--未选择--</option>
-                                <option value=1>--是--</option>
-                                <option value=2>--否--</option>
+                                <option value=2>--是--</option>
+                                <option value=3>--否--</option>
                             </select>
                         </div>
                     </div>
@@ -585,7 +585,7 @@
                 // $("#regionImg").val("");
                 $("#headImg").val("");
                 $("#video").val("");
-
+                this.$refs.btRef.setType(1)
                 $('#buildDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     this.title = '新增'

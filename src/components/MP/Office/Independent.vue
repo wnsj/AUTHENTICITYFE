@@ -7,11 +7,24 @@
             <!--楼盘-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">资讯类型</p><span
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">工位类型</p><span
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <!-- <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI> -->
+                    <select name="" id="" class="form-control" v-model="officeType">
+                        <option value="">未选择</option>
+                        <option value="3">独立办公室</option>
+                        <option value="2">开放工位</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">房源名称</p><span
+                    class="sign-left">:</span>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                    <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
                 </div>
             </div>
             
@@ -29,18 +42,18 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">资讯类型</th>
-                            <th class="text-center">资讯标题</th>
-                            <th class="text-center">资讯描述</th>
-                            <th class="text-center">发布时间</th>
+                            <th class="text-center">工位类型</th>
+                            <th class="text-center">房源名称</th>
+                            <th class="text-center">工位个数</th>
+                            <th class="text-center">价格</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.typeName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.bdLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.officeTypeName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.roomName}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.stationNum}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.nowPrice}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -64,19 +77,22 @@
 
 <script>
 
-    import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
+    import dynamicDialog from '../../common/subDynamic/SharedOffice.vue'
     import paging from '../../common/Paging.vue'
     import Building from '../../common/Building.vue'
-    import mtI from '../../common/InformationType.vue'
+   import rmt from '../../common/getRoomOffice.vue'
+
     var that = null
     export default {
         components: {
             paging,
             Building,
             dynamicDialog,
-            // mtI
+            rmt,
+            
+            
         },
-        name: 'BuildingDynamic',
+        //name: 'BuildingDynamic',
         data() {
             return {
                 buildId:'',
@@ -86,18 +102,20 @@
                 current: 1, //当前页码
                 pageSize: 10, //一页显示的数量
                 total: '', //数据的数量
-                mtId:'',
+                officeType:'',
+                roomId:'' ,
             };
         },
         methods:{
-            fathermtIReceive(data) {
-                this.mtId = ''
+            
+          fatherrmtReceive(data) {
+              console.log(data)
+                this.roomId = ''
                 if (null != data) {
-                    this.mtId = data
+                    this.roomId = data
                 }
-                this.$refs.mtIRef.setmtId(data)
+                //this.$refs.rmtRef.setroomId(data)
             },
-          
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
@@ -113,10 +131,11 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                       // buildId:this.buildId,
-                        current: page,
-                        pageSize: 10,
-                       // buildId:this.mtId,
+                       
+                       current: page,
+                       pageSize: 10,
+                       roomId:this.roomId,
+                       officeType:this.officeType,
                     },
                     dataType: 'json',
                 }).then((response) => {
@@ -150,7 +169,7 @@
             }
         },
         created: function () {
-            this.couQueryData()
+            this.couQueryData(1)
         },
     }
 </script>

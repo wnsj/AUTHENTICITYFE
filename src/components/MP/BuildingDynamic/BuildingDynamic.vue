@@ -11,7 +11,7 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <!-- <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI> -->
+                    <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI>
                 </div>
             </div>
             
@@ -67,14 +67,18 @@
     import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
     import paging from '../../common/Paging.vue'
     import Building from '../../common/Building.vue'
+   
+
     import mtI from '../../common/InformationType.vue'
+
     var that = null
     export default {
         components: {
             paging,
             Building,
             dynamicDialog,
-            // mtI
+            mtI,
+           
         },
         name: 'BuildingDynamic',
         data() {
@@ -95,7 +99,7 @@
                 if (null != data) {
                     this.mtId = data
                 }
-                this.$refs.mtIRef.setmtId(data)
+               // this.$refs.mtIRef.setmtId(data)
             },
           
             //子级传值到父级上来的动态拿去
@@ -150,7 +154,7 @@
             }
         },
         created: function () {
-            this.couQueryData()
+            this.couQueryData(1)
         },
     }
 </script>
