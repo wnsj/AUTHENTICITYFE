@@ -11,7 +11,7 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <bt @btChange='fatherBtReceive'></bt>
+                    <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                 </div>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -369,6 +369,7 @@
             this.$refs.unRef.setType(1)
             this.$refs.toRef.setType(1)
             this.$refs.arRef.setType(1)
+            this.$refs.btRef.setType(1)
         },
         created: function () {
             this.queryData()
