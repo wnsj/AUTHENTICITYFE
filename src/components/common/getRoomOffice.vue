@@ -3,7 +3,7 @@
 <template>
     <div>
         <select class="form-control" v-model="roomId" v-on:change="roomIdChange()">
-            <option value="0">--未选择--</option>
+            <option value="" >--未选择--</option>
             <option v-for="(item,index) in ldtList" :key="index" v-bind:value="item.id">{{item.room}}</option>
         </select>
     </div>

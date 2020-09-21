@@ -15,6 +15,7 @@
                                 <option value="3">独立办公室</option>
                                 <option value="2">开放工位</option>
                             </select>
+
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -87,22 +88,52 @@
                             </select>
                         </div>
                     </div>    
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
+                    <div class="col-md-12 form-group clearfix">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                             <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
                             <p class="redtips">*注意：宽378px*高228px</p>
 
                             <div id="headImgOutDiv">
-                                <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
+                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <div @click="fileDel(index,5,item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    <div class="col-md-12 form-group clearfix">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">视频</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-9">
+                            <input type="file" id="video" @change="videoChange"
+                            />
+                            <div id="playAvOutDiv" v-if="playAvOutDivFlag">
+                                <!--                                <PlayAV ref="playRef"></PlayAV>-->
+                                <label class="col-md-3 control-label text-right nopad end-aline"
+                                       style="padding:0;line-height:34px;">{{this.videoName}}</label>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-md-12 form-group clearfix">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">图片列表</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-9">
+                            <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
+                                   multiple="multiple"/>
+                            <p class="redtips">*注意：宽620px*高380px</p>
+                            <div id="buildRealImgOutDiv">
+                                <div v-for="(item,index) of buildRealImgList" :key="index"
+                                     v-show="buildRealImgList.length!==0">
+                                    <div @click="fileDel(index,3,item)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
                     <div class="col-md-12">
@@ -152,11 +183,18 @@
                    isWindow:'',     //是否带窗
                    roomId:'',      //房源ID
                 },
+                imgName:'',
                  headImg:'',    //头图
                  picture:[],   //图片
-                 video:[],      //视频
+                 video:'',      //视频
+                  headImgList:[],
                  headImgFileList:[],
-                 headImgList:[],
+                playAvOutDivFlag: true,
+                buildRealImgList:
+                    [],
+                buildRealImgFileList:
+                    [],
+                videoName: '',
                 title: '',
                 isDisable:false,
                 imgData: {
@@ -178,9 +216,14 @@
 
             // Initialization projcet’s content
             initDyRef(param, addParam) {
+                this.videoName = ''
                 this.headImgList = []
                 this.headImgFileList = []
-                $("#pic").val("");
+                this.buildRealImgList = []
+                this.buildRealImgFileList = []
+                // $("#headImg").val("");
+                // ("#buildRealImg").val("");
+                // $("#video").val("");
                 $('#dyDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.rn.setData('')
@@ -203,15 +246,38 @@
                     
 
                 } else if (param === 'modify') {
+                    
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                      if (null != addParam && null != addParam.bdPath) {
                         var en = []
-                        en.push(this.url + addParam.bdPath)
+                        en.push(this.url +"/fileController/getFile?type=IMG&path=D:ildStoreDir"+ addParam.bdPath)
                         this.headImgList = en
                     }
+                    if (this.isBlank(addParam.videoPath)) {
+                        this.playAvOutDivFlag = false
+                        $("#playAvOutDiv").modal("hide")
+                    } else {
+                        this.videoName = addParam.videoName
+                        // this.$refs.playRef.initData(this.url + addParam.videoPath)
+                    }
                     this.title = '修改';
-                    
+                  
+                    if (null != addParam && null != addParam.imgName) {
+                        var img = []
+                        img.push(this.url+"/fileController/getFile?type=IMG&path=D:ildStoreDir" + addParam.imgName)
+                        this.headImgList = img
+                    }
+                     if (null !== addParam.pictureList) {
+                        var buildRea = []
+                        for (var i = 0; i < addParam.pictureList.length; i++) {
+                            buildRea.push(this.url +"/fileController/getFile?type=IMG&path=D:ildStoreDir"+ addParam.pictureList[i])
+                        }
+                        this.buildRealImgList = buildRea
+                    }
+                     this.$refs.rmtRef.setroomId(addParam.roomId)
                     Object.assign(this.addParam, addParam)
+                    console.log(this.addParam)
+                    // this.imgName="http://172.16.3.58:8080/build-store"+this.addParam.imgName;
 					// this.$refs.rn.setData(this.addParam.bdContent)
 					//this.$refs.buildRef.setBuildingId(this.addParam.buildId)
                 }
@@ -223,9 +289,19 @@
                     this.addParam.buildId = data.buildId
                 }
             },
+            buildRealImgChange() {
+
+                var files = $("#buildRealImg")[0].files; //获取file对象
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file, i, 3)
+                }
+            },    
+
             headImgChange() {
 
-                var files = $("#pic")[0].files; //获取file对象
+                var files = $("#headImg")[0].files; //获取file对象
+                debugger
                 if (null != files) {
                     this.headImgList = []
                 }
@@ -239,20 +315,29 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
-                // this.addParam.bdContent = this.$refs.rn.getData()
-//                 const fd = new FormData();
-//
-//               fd.append("param", JSON.stringify(this.addParam));
+
                  
                 const fd = new FormData();
                 // 头图
                 for (let i = 0; i < this.headImgFileList.length; i++) {
-                    fd.append("picture", this.headImgFileList[i]);
+                    fd.append("headImg", this.headImgFileList[i]);
                 }
                 fd.append("addParam", JSON.stringify(this.addParam));
-                 fd.append("headImg",JSON.stringify(this.headImg))
-            //    fd.append("picture", JSON.stringify(this.picture));
-            //     fd.append("video",JSON.stringify(this.video))
+                
+            for (let i = 0; i < this.buildRealImgFileList.length; i++) {
+                    fd.append("picture", this.buildRealImgFileList[i]);
+                }
+                var videoFile = $("#video")[0].files[0]
+                fd.append("video", videoFile);
+                if (null != videoFile) {
+                    var Mb = videoFile.size / 1024 / 1024
+                    console.log("文件大小" + Mb);
+                    if (Mb > 100) {
+                        alert("您的视频超出限制，请选择100Mb内视频")
+                        return
+                    }
+                }
+                console.log( this.buildRealImgList.length)
                 switch (this.title) {
                     case '新增':
                         var url = this.url + '/officeBean/addOffice'
@@ -275,7 +360,8 @@
                     const res = response.data
                     if (res.retCode === '0000') {
                         alert(res.retMsg)
-                        this.$emit('certainAction')
+                        this.$emit('certainAction');
+                    console.log( this.buildRealImgList.length)
                     }
                     else{
                         alert(res.retMsg) 
@@ -297,20 +383,26 @@
                 return this.formatFileSize(fileSize / 1024, ++idx);
             },
              //预览图
-            pictureChange() {
+            headImgChange() {
 
-                var files = $("#picture")[0].files; //获取file对象
+                var files = $("#headImg")[0].files; //获取file对象
 
                 if (null != files) {
                     this.buPath = []
                 }
                 for (let i = 0; i < files.length; i++) {
                     var file = files[i]
-                    this.fileAdd(file)
+                    this.fileAdd(file,i,5)
                 }
 
             },
-            fileAdd(file) {
+             videoChange() {
+                var files = $("#video")[0].files;
+                if (null != files) {
+                    this.videoName = ''
+                }
+            },
+            fileAdd(file, i, pictureType) {
                 let type = file.type;//文件的类型，判断是否是图片
                 let size = file.size;//文件的大小，判断图片的大小
                 if (this.imgData.accept.indexOf(type) === -1) {
@@ -331,16 +423,31 @@
                 // 监听reader对象的onload事件，当图片加载完成时，把base64编码賦值给预览图片
                 reader.onload = function () {
                     var dataUrl = reader.result;
-
-                    file.src = this.result;
-                    that.headImgFileList.push(file)
-                    that.headImgList.push(dataUrl)
+                   file.src = this.result;
+                     if (pictureType === 3) {
+                        that.buildRealImgFileList.push(file)
+                        that.buildRealImgList.push(dataUrl)
+                    }else if (pictureType === 5) {
+                        that.headImgFileList.push(file)
+                        that.headImgList.push(dataUrl)
+                    }
 
                 }
             },
-            fileDel(index) {
-                this.headImgList.splice(index, 1)
-                this.headImgFileList.splice(index, 1)
+            fileDel(index, type, item) {
+                if (this.title == '修改') {
+                    if (!confirm("确定删除该图片？")) {
+                        return;
+                    }
+                }
+            if (type === 3) {
+                    this.buildRealImgList.splice(index, 1)
+                    this.buildRealImgFileList.splice(index, 1)
+                } else if (type === 5) {
+                    this.headImgList.splice(index, 1)
+                    this.headImgFileList.splice(index, 1)
+                }
+                
             }
 
         },
