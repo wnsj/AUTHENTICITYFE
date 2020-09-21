@@ -68,7 +68,7 @@
             },
         },
         created() {
-            // this.queryData()
+            this.queryData()
         },
     }
 </script>
