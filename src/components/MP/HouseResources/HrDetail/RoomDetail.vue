@@ -2,130 +2,124 @@
 <template>
     <div class="modal-content">
         <div class="modal-header">
-            <h4 id="myModalLabel" class="modal-title">{{title}}商铺</h4>
+            <h4 id="myModalLabel" class="modal-title">{{title}}写字楼</h4>
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
                 <div class="dialogInutBox clearfix">
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">业态</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <Commercial @comChange="comRe" ref="comRef"></Commercial>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">层高</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最早可租</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="storeParam.highLevel"/>
+                            <input type="text" class="form-control" v-model="roomParam.earliestRent"/>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">餐饮</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <select class="form-control" v-model="storeParam.isEat">
-                                <option value="2">--是--</option>
-                                <option value="3">--否--</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">空置</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <select class="form-control" v-model="storeParam.isUse">
-                                <option value="2">--是--</option>
-                                <option value="3">--否--</option>
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最短租期</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input class="form-control" v-model="storeParam.minLeaseTerm"/>
+                            <input type="text" class="form-control" v-model="roomParam.minTenancy"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">面积信息</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">所在楼层</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input class="form-control" v-model="storeParam.area"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">物业信息</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <Property ref="proRef" @proChange="proRe"></Property>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">地铁信息</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="storeParam.stationInfo"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">公交信息</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="storeParam.transitInfo"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">周边小区</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="storeParam.surroundingCommunity"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">银行信息</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="storeParam.bankInfo"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">学校信息</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="storeParam.schoolInfo"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">医院信息</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="storeParam.hospitalInfo"/>
+                            <input type="text" class="form-control" v-model="roomParam.floor"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">商场信息</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">最小工位数</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="storeParam.storeInfo"/>
+                            <input type="text" class="form-control" v-model="roomParam.minStationNum"/>
                         </div>
                     </div>
 
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">最大工位数</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="roomParam.maxStationNum"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">户型介绍</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="roomParam.horseLabel"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">交通出行</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="roomParam.traffic"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">路途</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="roomParam.way"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">装修描述</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="roomParam.renovationLabel"/>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">楼盘介绍</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="roomParam.buildIntroduce"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">使用率</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="roomParam.usageRate"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">周边配套</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="roomParam.rimMating"/>
+                        </div>
+                    </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">图片</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="storePicture" @change="buildRealImgChange" accept="image/*"
+                            <input type="file" id="roomPicture" @change="buildRealImgChange" accept="image/*"
                                    multiple="multiple"/>
                             <p class="redtips">*注意：宽620px*高380px</p>
                             <div id="buildRealImgOutDiv">
-                                <div v-for="(item,index) of buildRealImgList" :key="index"
-                                     v-show="buildRealImgList.length!==0">
+                                <div v-for="(item,index) of buildRealImgList" :key="index" v-show="buildRealImgList.length!==0">
                                     <div @click="fileDel(index,3,item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
@@ -136,7 +130,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="storeImg" @change="headImgChange" accept="image/*"/>
+                            <input type="file" id="roomImg" @change="headImgChange" accept="image/*"/>
                             <p class="redtips">*注意：宽378px*高228px</p>
 
                             <div id="headImgOutDiv">
@@ -152,24 +146,13 @@
                                style="padding:0;line-height:34px;">视频</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="storeVideo" @change="videoChange"
+                            <input type="file" id="roomVideo" @change="videoChange"
                             />
                             <div id="playAvOutDiv" v-if="playAvOutDivFlag">
                                 <!--                                <PlayAV ref="playRef"></PlayAV>-->
                                 <label class="col-md-3 control-label text-right nopad end-aline"
                                        style="padding:0;line-height:34px;">{{this.videoName}}</label>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 form-group clearfix">
-                        <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline"
-                                   style="padding:0;line-height:34px;">网点介绍</label><span class="sign-left">:</span>
-                        </div>
-                        <div class="col-md-12">
-                            <textarea class="form-control wdType03" v-model="storeParam.produce"
-                                      placeholder="网点介绍"></textarea>
                         </div>
                     </div>
 
@@ -207,75 +190,52 @@
         },
         data() {
             return {
-                storeParam: {
-                    // 共享房源详情ID
-                    storeId: '',
-
-                    //网点介绍
-                    produce: '',
-
-                    //特点
-                    chaList: '',
-
-                    // 短标签
-                    label: '',
-
-                    // 层高
-                    highLevel: '',
-
-                    // 是否 可餐饮
-                    isEat: '',
-
-                    //是否 空置中
-                    isUse: '',
-
-                    // 最短租期
-                    minLeaseTerm: '',
-
-                    //业态
-                    suitable: [],
-
-                    // 商铺介绍
-                    storeProduce: '',
-
-                    // 面积信息
-                    area: '',
-
-                    // 价格优势
-                    priceAdvantage: '',
-
-                    // 物业信息
-                    properInfo: [],
-
-                    // 地铁信息
-                    stationInfo: '',
-
-                    // 公交信息
-                    transitInfo: '',
-
-                    // 周边小区
-                    surroundingCommunity: '',
-
-                    //写字楼信息
-                    buildingInfo: '',
-
-                    //银行信息
-                    bankInfo: '',
-
-                    // 学校信息
-                    schoolInfo: '',
-
-                    // 医院信息
-                    hospitalInfo: '',
-
-                    // 商场信息
-                    storeInfo: '',
+                roomParam: {
+                    // 写字楼房源详情ID
+                    id: '',
 
                     // 房源id
                     roomId: '',
 
-                    picList:[]
+                    // 最早租期
+                    earliestRent: '',
+
+                    // 最短租期
+                    minTenancy: '',
+
+                    // 所在楼层
+                    floor: '',
+
+                     // 最小工位数
+                    minStationNum: '',
+
+                     // 最大工位数
+                    maxStationNum: '', 
+
+                     // 户型介绍
+                    horseLabel: '', 
+
+                     // 交通出行
+                    traffic: '', 
+
+                    // 路途
+                    way: '', 
+
+                     // 装修描述
+                    renovationLabel: '', 
+
+                    // 楼盘介绍
+                    buildIntroduce: '', 
+
+                     // 使用率
+                    usageRate: '', 
+
+                     // 周边配套
+                    rimMating: ''
+
                 },
+                picture: [],
+                pictureFile: [],
                 title: '',
                 size: 0,
                 playAvOutDivFlag: true,
@@ -299,28 +259,15 @@
         },
         methods: {
             // Initialization projcet’s content
-            fatherCouChara(data) {
-                this.addCou.ccId = '';
-                if (null !== data) {
-                    this.addCou.ccId = data
-                }
-            },
-            comRe(data) {
-                this.storeParam.suitable = []
-                if (null != data) {
-                    this.storeParam.suitable = data
-                }
-            },
-            fatherCouLabel(data) {
-                this.addCou.labelList = [];
-                if (null !== data) {
-                    this.addCou.labelList = data
-                }
-            },
+            // comRe(data) {
+            //     this.roomParam.suitable = []
+            //     if (null != data) {
+            //         this.roomParam.suitable = data
+            //     }
+            // },
 
             headImgChange() {
-
-                var files = $("#storeImg")[0].files; //获取file对象
+                var files = $("#roomImg")[0].files; //获取file对象
                 if (null != files) {
                     this.headImgList = []
                 }
@@ -329,16 +276,20 @@
                     this.fileAdd(file, i, 5)
                 }
             },
-            buildRealImgChange() {
 
-                var files = $("#storePicture")[0].files; //获取file对象
+            buildRealImgChange() {
+                console.log('进入多图1111111')
+                var files = $("#roomPicture")[0].files; //获取file对象
+                console.log('进入多图1111111',files)
                 for (let i = 0; i < files.length; i++) {
                     var file = files[i]
+                    console.log('进入多图1111111','循环循环')
                     this.fileAdd(file, i, 3)
                 }
             },
+
             videoChange() {
-                var files = $("#storeVideo")[0].files;
+                var files = $("#roomVideo")[0].files;
                 if (null != files) {
                     this.videoName = ''
                 }
@@ -402,25 +353,30 @@
                 }
                 if (this.title == '新增') return;
                 if (this.isBlank(item)) return;
+                console.log('item',item)
                 var index = item.lastIndexOf('=');
+                console.log('index',index)
                 var str = item.substring(index + 1, item.length)
+                console.log('str',str)
                 if (this.isBlank(str)) return;
                 var id = '';
                 id = parseInt(str)
-                this.$ajax({
-                    method: 'POST',
-                    url: this.url + '/buildingBean/deleteImgFile',
-                    headers: {
-                        'Content-Type': this.contentType,
-                        'Access-Token': this.accessToken
-                    },
-                    data: {imgId: id},
-                    dataType: 'json',
-                }).then((response) => {
-                }).catch((error) => {
-                    console.log('楼盘信息提交失败')
-                });
+                console.log('id',id)
+                // this.$ajax({
+                //     method: 'POST',
+                //     url: this.url + '/buildingBean/deleteImgFile',
+                //     headers: {
+                //         'Content-Type': this.contentType,
+                //         'Access-Token': this.accessToken
+                //     },
+                //     data: {imgId: id},
+                //     dataType: 'json',
+                // }).then((response) => {
+                // }).catch((error) => {
+                //     console.log('楼盘信息提交失败')
+                // });
             },
+
             formatFileSize: function (fileSize, idx) {
                 var units = ["B", "KB", "MB", "GB"];
                 idx = idx || 0;
@@ -429,125 +385,95 @@
                 }
                 return this.formatFileSize(fileSize / 1024, ++idx);
             },
+
             initData(addCou) {
-
-                $('#storeDialog').modal({backdrop: 'static', keyboard: false});
-                this.storeParam = {
-                    // 共享房源详情ID
-                    storeId: '',
-
-                    //网点介绍
-                    produce: '',
-
-                    //特点
-                    chaList: '',
-
-                    // 短标签
-                    label: '',
-
-                    // 层高
-                    highLevel: '',
-
-                    // 是否 可餐饮
-                    isEat: '2',
-
-                    //是否 空置中
-                    isUse: '2',
-
-                    // 最短租期
-                    minLeaseTerm: '',
-
-                    //业态
-                    suitable: [],
-
-                    // 商铺介绍
-                    storeProduce: '',
-
-                    // 面积信息
-                    area: '',
-
-                    // 价格优势
-                    priceAdvantage: '',
-
-                    // 物业信息
-                    properInfo: [],
-
-                    // 地铁信息
-                    stationInfo: '',
-
-                    // 公交信息
-                    transitInfo: '',
-
-                    // 周边小区
-                    surroundingCommunity: '',
-
-                    //写字楼信息
-                    buildingInfo: '',
-
-                    //银行信息
-                    bankInfo: '',
-
-                    // 学校信息
-                    schoolInfo: '',
-
-                    // 医院信息
-                    hospitalInfo: '',
-
-                    // 商场信息
-                    storeInfo: '',
+                $('#roomDialog').modal({backdrop: 'static', keyboard: false});
+                this.roomParam = {
+                    // 写字楼房源详情ID
+                    id: '',
 
                     // 房源id
-                    roomId: ''
+                    roomId: '',
+
+                    // 最早租期
+                    earliestRent: '',
+
+                    // 最短租期
+                    minTenancy: '',
+
+                    // 所在楼层
+                    floor: '',
+
+                     // 最小工位数
+                    minStationNum: '',
+
+                     // 最大工位数
+                    maxStationNum: '', 
+
+                     // 户型介绍
+                    horseLabel: '', 
+
+                     // 交通出行
+                    traffic: '', 
+
+                    // 路途
+                    way: '', 
+
+                     // 装修描述
+                    renovationLabel: '', 
+
+                    // 楼盘介绍
+                    buildIntroduce: '', 
+
+                     // 使用率
+                    usageRate: '', 
+
+                     // 周边配套
+                    rimMating: ''
                 }
-                this.buildRealImgList=[]
-                this.buildRealImgFileList=[]
-                this.headImgList=[]
-                this.headImgFileList=[]
-                $("#storePicture").val("");
-                $("#storeImg").val("");
+                this.picture = []
+                this.pictureFile = []
+                $("#picture").val("");
 
-                this.$refs.comRef.setCharaList([])
-                this.$refs.proRef.setIdList([])
-
-                this.getStoreByRoomId(addCou.id)
+                this.getRoomDetails(addCou.id)
 
             },
-            getStoreByRoomId(item) {
-                var url = this.url + '/storeRoomBean/getStoreByRoomId'
+
+            getRoomDetails(item) {
+                var url = this.url + '/roomMainBean/getRoomDetails?roomMainId='+item
                 this.$ajax({
-                    method: 'POST',
+                    method: 'GET',
                     url: url,
                     headers: {
                         'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
-                    data: {
-                        roomId: item
-                    },
+                    // data: {
+                    //     roomId: item
+                    // },
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        if (res.retData) {
-                            this.storeParam = res.retData
+                        if (res.retData.roomDetail) {
+                            
+                            this.roomParam = res.retData.roomDetail
                             this.title = '修改'
-                            if (this.storeParam.picList) {
+                            if (res.retData.picture) {
                                 var buildRea = []
-                                for (var i = 0; i < this.storeParam.picList.length; i++) {
-                                    buildRea.push(this.url + this.storeParam.picList[i])
+                                for (var i = 0; i < res.retData.picture.length; i++) {
+                                    buildRea.push(this.url + '/fileController/getFile?path=D:/buildStoreDir' + res.retData.picture[i].imgPath)
                                 }
                                 this.buildRealImgList = buildRea
                             }
-                            if (this.storeParam.headPath) {
+                            if (res.retData.head) {
                                 var img = []
-                                img.push(this.url + this.storeParam.headPath)
+                                img.push(this.url + '/fileController/getFile?path=D:/buildStoreDir' + res.retData.head[0].imgPath)
                                 this.headImgList = img
                             }
-                            this.$refs.comRef.setCharaList(this.storeParam.suitable)
-                            this.$refs.proRef.setIdList(this.storeParam.properInfo)
 
                         } else {
-                            this.storeParam.roomId = item
+                            this.roomParam.roomId = item
                             this.title = '新增'
                         }
                     } else {
@@ -557,24 +483,47 @@
                     console.log('数据请求失败处理')
                 });
             },
+
             certainAction() {
+
+                if (this.roomParam.minStationNum != null && this.roomParam.minStationNum !== '' && parseInt(this.roomParam.minStationNum) !== 0) {
+                    if (!(/^([0-9]*$)$/).test(this.roomParam.minStationNum)) {
+                        alert('最小工位数只能是整数')
+                        return;
+                    }
+                }
+
+                if (this.roomParam.maxStationNum != null && this.roomParam.maxStationNum !== '' && parseInt(this.roomParam.maxStationNum) !== 0) {
+                    if (!(/^([0-9]*$)$/).test(this.roomParam.maxStationNum)) {
+                        alert('最大工位数只能是整数')
+                        return;
+                    }
+                }
+
+                if (this.roomParam.usageRate != null && this.roomParam.usageRate !== '' && parseInt(this.roomParam.usageRate) !== 0) {
+                    if (!(/^([0-100]*$)$/).test(this.roomParam.usageRate)) {
+                        alert('使用率只能是整数')
+                        return;
+                    }
+                }
+
                 this.loading = true
                 this.btnName = '提交中...'
 
                 const fd = new FormData();
 
                 for (let i = 0; i < this.buildRealImgFileList.length; i++) {
-                    fd.append("buildRealImg", this.buildRealImgFileList[i]);
+                    fd.append("picture", this.buildRealImgFileList[i]);
                 }
 
 
                 // 头图
                 for (let i = 0; i < this.headImgFileList.length; i++) {
-                    fd.append("headImg", this.headImgFileList[0]);
+                    fd.append("headPicture", this.headImgFileList[0]);
                 }
 
                 // 视频
-                var videoFile = $("#storeVideo")[0].files[0]
+                var videoFile = $("#roomVideo")[0].files[0]
                 fd.append("video", videoFile);
                 if (null != videoFile) {
                     var Mb = videoFile.size / 1024 / 1024
@@ -584,13 +533,13 @@
                         return
                     }
                 }
-                fd.append("addParam", JSON.stringify(this.storeParam));
+                fd.append("param", JSON.stringify(this.roomParam));
                 switch (this.title) {
                     case '新增':
-                        var url = this.url + '/storeRoomBean/addStoreRoom'
+                        var url = this.url + '/roomBean/addRoom'
                         break;
                     case '修改':
-                        var url = this.url + '/storeRoomBean/updateStoreRoom'
+                        var url = this.url + '/roomBean/updateRoom'
                         break;
                 }
 
@@ -607,10 +556,11 @@
                 }).then((response) => {
                     const res = response.data
                     if (res.retCode === '0000') {
-                        alert(res.retMsg)
+                        alert("提交成功！")
                         this.$emit('certainAction')
                     } else {
                         alert(res.retMsg)
+                        this.$emit('certainAction')
                     }
                 }).catch((error) => {
                     console.log(error);
@@ -618,13 +568,27 @@
             },
 
             closeCurrentPage() {
-                $("#storeDialog").modal("hide")
+                $("#roomDialog").modal("hide")
             },
             proRe(data) {
-                this.storeParam.properInfo = []
+                this.roomParam.properInfo = []
                 if (null != data) {
-                    this.storeParam.properInfo = data
+                    this.roomParam.properInfo = data
                 }
+            },
+            //预览图
+            pictureChange() {
+
+                var files = $("#picture")[0].files; //获取file对象
+
+                if (null != files) {
+                    this.picture = []
+                }
+                for (let i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    this.fileAdd(file)
+                }
+
             },
         },
 

@@ -35,6 +35,10 @@
                 this.queryData()
             },
             setLdId: function(ldId) {
+                if(ldId == null){
+                    this.buList = []
+                    return
+                }
                 this.ldId = ldId
                 this.queryData()
             },
@@ -64,7 +68,7 @@
             },
         },
         created() {
-            this.queryData()
+            // this.queryData()
         },
     }
 </script>

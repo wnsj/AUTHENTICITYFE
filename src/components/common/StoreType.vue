@@ -1,7 +1,7 @@
 <template>
-    <select class="form-control" v-model="btId" v-on:change="btChange()">
+    <select class="form-control" v-model="stId" v-on:change="stChange()">
         <option value="0">--未选择--</option>
-        <option v-for="(item,index) in buildTypeList" :key="index" v-bind:value="item.btId">{{item.btName}}</option>
+        <option v-for="(item,index) in storeTypeList" :key="index" v-bind:value="item.stId">{{item.stName}}</option>
     </select>
 </template>
 
@@ -9,36 +9,40 @@
     export default {
         data() {
             return {
-                btId: '0',
-                buildTypeList: [],
-                type: '',
+                stId: '0',
+                storeTypeList: [],
             };
         },
         methods: {
 
-            btChange: function () {
-                for (var i = 0; i < this.buildTypeList.length; i++) {
-                    if (this.btId == 0) {
-                        this.$emit('btChange', null)
+            stChange: function () {
+                for (var i = 0; i < this.storeTypeList.length; i++) {
+                    if (this.stId == 0) {
+                        this.$emit('stChange', null)
                         return
                     } else {
-                        if (this.buildTypeList[i].btId == this.btId) {
-                            this.$emit('btChange', this.buildTypeList[i].btId)
+                        if (this.storeTypeList[i].stId == this.stId) {
+                            this.$emit('stChange', this.storeTypeList[i].stId)
                             return
                         }
                     }
                 }
             },
-            setBtId: function (btId) {
-                this.btId = btId
-                this.buildTypeList = []
-            },
             setType: function (type) {
-                this.type = type
-                this.queryData()
+                if(type == 3){
+                    this.queryData()
+                }else{
+                    this.storeTypeList = []
+                }
+                
             },
+            setStId: function (stId) {
+                this.stId = stId
+                this.storeTypeList = []
+            },
+
             async queryData() {
-                var url = this.url + '/buildingTypeBean/getAllBuildingType?type=' + this.type
+                var url = this.url + '/storeTypeBean/getAllStoreType'
                 this.$ajax({
                     method: 'GET',
                     url: url,
@@ -49,7 +53,7 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.buildTypeList = res.retData
+                        this.storeTypeList = res.retData
                     } else {
                         alert(res.retMsg)
                     }

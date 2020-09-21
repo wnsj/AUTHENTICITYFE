@@ -3,7 +3,7 @@
 <!--        <option value="">&#45;&#45;未选择&#45;&#45;</option>-->
 <!--        <option v-for="(item,index) in buildList" :key="index" v-bind:value="item.buildId">{{item.htName}}</option>-->
 <!--    </select>-->
-        <el-select size="medium" v-model="buildId" v-on:change="buildChange()" clearable filterable placeholder="未选择">
+        <el-select size="medium" v-model="buildId" v-on:change="buildChange()" clearable filterable placeholder="--未选择--">
             <el-option
                 v-for="item in buildList"
                 :key="item.buildId"
@@ -30,7 +30,7 @@
                         return
                     }else{
                         if (this.buildList[i].buildId === this.buildId) {
-                            this.$emit('buildChange',this.buildList[i])
+                            this.$emit('buildChange',this.buildList[i].buildId)
                             return
                         }
                     }
@@ -38,8 +38,16 @@
             },
 			setBuildingId: function(buildId) {
 			    this.buildId = buildId
+            },
+            setBuildingList: function(buildList) {
+                console.log('111111111111')
+                this.buildList = buildList
+                console.log('22222222222')
+                this.queryData()
+                
 			},
             async queryData() {
+                console.log('333333333333333')
                 var url = this.url + '/buildingBean/getAllBuild'
                 this.$ajax({
                     method: 'GET',

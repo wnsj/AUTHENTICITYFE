@@ -1,10 +1,11 @@
 <template>
-    <el-select v-model="charaList" multiple
-               collapse-tags style="height: 9px" v-on:change="comChange()" placeholder="--未选择--">
-        <el-option v-for="item in chars"
+    <el-select v-model="comActiveList" multiple
+               collapse-tags style="height: 9px" v-on:change="comActiveChange()" placeholder="--未选择--">
+        <el-option v-for="item in comActive"
                    :key="item.caId"
                    :label="item.cacName"
                    :value="item.caId">
+
         </el-option>
     </el-select>
 </template>
@@ -13,25 +14,25 @@
     export default {
         data() {
             return {
-                charaList: [],
-                chars: []
+                comActiveList: [],
+                comActive: []
             };
         },
         methods: {
 
-            comChange: function () {
-                for (var i = 0; i < this.chars.length; i++) {
-                    if (this.charaList === []) {
-                        this.$emit('comChange', null);
+            comActiveChange: function () {
+                for (var i = 0; i < this.comActive.length; i++) {
+                    if (this.comActiveList === []) {
+                        this.$emit('comActiveChange', null);
                         return
                     } else {
-                        this.$emit('comChange', this.charaList)
+                        this.$emit('comActiveChange', this.comActiveList)
                         return
                     }
                 }
             },
-            setCharaList: function (charaList) {
-                this.charaList = charaList
+            setComActiveList: function (comActiveList) {
+                this.comActiveList = comActiveList
                 this.queryData()
             },
             async queryData() {
@@ -48,7 +49,7 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.chars = res.retData
+                        this.comActive = res.retData
                     } else {
                         alert(res.retMsg)
                     }

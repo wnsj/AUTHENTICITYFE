@@ -1,10 +1,11 @@
 <template>
-    <el-select v-model="charaList" multiple
-               collapse-tags style="height: 9px" v-on:change="comChange()" placeholder="--未选择--">
-        <el-option v-for="item in chars"
-                   :key="item.caId"
-                   :label="item.cacName"
-                   :value="item.caId">
+    <el-select v-model="idList" multiple v-on:change="proChange()"
+               collapse-tags style="height: 9px"  placeholder="--未选择--">
+        <el-option v-for="item in proList"
+                   :key="item.id"
+                   :label="item.label"
+                   :value="item.id">
+
         </el-option>
     </el-select>
 </template>
@@ -13,29 +14,29 @@
     export default {
         data() {
             return {
-                charaList: [],
-                chars: []
+                idList: [],
+                proList: []
             };
         },
         methods: {
 
-            comChange: function () {
-                for (var i = 0; i < this.chars.length; i++) {
-                    if (this.charaList === []) {
-                        this.$emit('comChange', null);
+            proChange: function() {
+                for (var i = 0; i < this.proList.length; i++) {
+                    if (this.idList === []) {
+                        this.$emit('proChange', null);
                         return
                     } else {
-                        this.$emit('comChange', this.charaList)
+                        this.$emit('proChange', this.idList)
                         return
                     }
                 }
             },
-            setCharaList: function (charaList) {
-                this.charaList = charaList
+            setIdList: function(idList) {
+                this.idList = idList
                 this.queryData()
             },
             async queryData() {
-                var url = this.url + '/commercialActivitieBean/getAllComAc'
+                var url = this.url + '/propertyInfoBean/getAllPInfo'
                 this.$ajax({
                     method: 'GET',
                     url: url,
@@ -48,12 +49,12 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.chars = res.retData
+                        this.proList = res.retData
                     } else {
                         alert(res.retMsg)
                     }
                 }).catch((error) => {
-                    console.log('数据请求失败处理' + error)
+                    console.log('数据请求失败处理')
                 });
             },
         },
@@ -63,6 +64,6 @@
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>
