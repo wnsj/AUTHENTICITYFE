@@ -180,19 +180,19 @@
 				<div class="row row_edit">
                     <div class="modal fade" id="roomMainDialog" >
                         <div class="modal-dialog">
-                            <roomMainDialog ref='roomMainDialog' @certainAction='feedBack'></roomMainDialog>
+                            <roomMainDialog ref='roomMainDialog' @certainAction='feedBack(1)'></roomMainDialog>
                         </div>
                     </div>
 
 					<div class="modal fade" id="storeDialog" >
                         <div class="modal-dialog">
-                            <storeDetail ref='storeRef'></storeDetail>
+                            <storeDetail ref='storeRef' @certainAction='feedBack(2)'></storeDetail>
                         </div>
                     </div>
 
 					<div class="modal fade" id="roomDialog" >
                         <div class="modal-dialog">
-                            <roomDetail ref='roomRef'></roomDetail>
+                            <roomDetail ref='roomRef' @certainAction='feedBack(3)'></roomDetail>
                         </div>
                     </div>
 
@@ -301,7 +301,7 @@
 					this.$refs.un.setType(this.roomType)
 					this.$refs.to.setType(this.roomType)
 				}
-				
+
             },
 
 			//子级传值到父级上来的动态拿去
@@ -368,7 +368,7 @@
 						maxArea: data.endArea
 					}
 					console.log('data',data)
-					
+
 					this.areaSon.push(areaParam)
 					console.log('data',this.areaSon)
 				}
@@ -442,10 +442,10 @@
 				}).then((response) => {
 					var res = response.data
 					if (res.retCode === '0000') {
-						this.pages = res.retData.pages 
+						this.pages = res.retData.pages
 						this.current = res.retData.pageNum
-						this.pageSize = res.retData.pageSize 
-						this.total = res.retData.total 
+						this.pageSize = res.retData.pageSize
+						this.total = res.retData.total
 						this.$refs.paging.setParam(this.pages, this.current, this.total)
 						this.tableData = res.retData.list
 					} else {
@@ -479,9 +479,16 @@
 				}
 
 			},
-			feedBack() {
-				this.queryData(1)
-				$("#storeDialog").modal('hide')
+			feedBack(item) {
+				this.queryData(this.current)
+                if(item === 1) {
+                    $("#roomMainDialog").modal('hide')
+                } else if (item === 2) {
+                    $("#storeDialog").modal('hide')
+                } else if (item === 3) {
+                    $("#roomDialog").modal('hide')
+                }
+
 			},
 
 			feedBackMobile() {

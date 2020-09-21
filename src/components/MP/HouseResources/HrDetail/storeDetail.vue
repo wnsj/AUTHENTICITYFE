@@ -276,8 +276,6 @@
 
                     picList:[]
                 },
-                picture: [],
-                pictureFile: [],
                 title: '',
                 size: 0,
                 playAvOutDivFlag: true,
@@ -451,10 +449,10 @@
                     highLevel: '',
 
                     // 是否 可餐饮
-                    isEat: '',
+                    isEat: '2',
 
                     //是否 空置中
-                    isUse: '',
+                    isUse: '2',
 
                     // 最短租期
                     minLeaseTerm: '',
@@ -501,9 +499,13 @@
                     // 房源id
                     roomId: ''
                 }
-                this.picture = []
-                this.pictureFile = []
-                $("#picture").val("");
+                this.buildRealImgList=[]
+                this.buildRealImgFileList=[]
+                this.headImgList=[]
+                this.headImgFileList=[]
+                $("#storePicture").val("");
+                $("#storeImg").val("");
+
                 this.$refs.comRef.setCharaList([])
                 this.$refs.proRef.setIdList([])
 
@@ -605,11 +607,10 @@
                 }).then((response) => {
                     const res = response.data
                     if (res.retCode === '0000') {
-                        alert("提交成功！")
+                        alert(res.retMsg)
                         this.$emit('certainAction')
                     } else {
                         alert(res.retMsg)
-                        this.$emit('certainAction')
                     }
                 }).catch((error) => {
                     console.log(error);
@@ -624,20 +625,6 @@
                 if (null != data) {
                     this.storeParam.properInfo = data
                 }
-            },
-            //预览图
-            pictureChange() {
-
-                var files = $("#picture")[0].files; //获取file对象
-
-                if (null != files) {
-                    this.picture = []
-                }
-                for (let i = 0; i < files.length; i++) {
-                    var file = files[i]
-                    this.fileAdd(file)
-                }
-
             },
         },
 
