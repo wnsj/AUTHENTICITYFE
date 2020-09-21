@@ -2,35 +2,99 @@
 <template>
     <div class="modal-content">
         <div class="modal-header">
-            <h4 id="myModalLabel" class="modal-title">{{title}}资讯</h4>
+            <h4 id="myModalLabel" class="modal-title">{{title}}共享工位</h4>
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
                 <div class="dialogInutBox clearfix">
-                    <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">标题</label><span class="sign-left">:</span>
-                        <div class="col-md-9">
-                            <textarea type="text" class="form-control" v-model="addParam.bdName" style="height:100px"></textarea>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">工位类型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                           <select name="" id="" class="form-control " v-model="addParam.officeType" >
+                                <option value="3">独立办公室</option>
+                                <option value="2">开放工位</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">资讯类别</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">匹配楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                             <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI>
+                           <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">面积</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control " v-model="addParam.area" placeholder="必填"/>
+                        </div>
+                        <div style="padding:0;line-height:34px;">M²</div>
+                    </div>
+
+                   
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">工位个数</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.stationNum" placeholder="必填"/>
                         </div>
                     </div>
 
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">剩余工位</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.surpluseNum" placeholder="必填"/>
+                        </div>
+                    </div>
 
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">原价</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.sorcePrice" placeholder="必填"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">现价</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.nowPrice" placeholder="必填"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">房型</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.houseType" placeholder="必填"/>
+                        </div>
+                    </div>                   
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">是否靠墙</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                           <select name="" id="" class="form-control" v-model="addParam.isWall">
+                                <option value="3">否</option>
+                                <option value="2">是</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">是否带窗</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                           <select name="" class="form-control " v-model="addParam.isWindow">
+                                <option value="3">否</option>
+                                <option value="2">是</option>
+                            </select>
+                        </div>
+                    </div>    
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="pic" @change="headImgChange" accept="image/*"/>
+                            <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
                             <p class="redtips">*注意：宽378px*高228px</p>
 
-                            <div id="picOutDiv">
+                            <div id="headImgOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <div @click="fileDel(index,5,item)">x</div>
                                     <img :src="item" style="width: 100%">
@@ -38,55 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group clearfix">
-                        <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">资讯描述</label><span class="sign-left">:</span>
-                         </div>
-                        <div class="col-md-12 form-group clearfix">
-                            <textarea class="form-control wdType03" v-model="addParam.bdLabel" placeholder="资讯描述"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">视频</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="video" @change="videoChange"
-                            />
-                            <div id="playAvOutDiv" v-if="playAvOutDivFlag">
-                                <!--                                <PlayAV ref="playRef"></PlayAV>-->
-                                <label class="col-md-3 control-label text-right nopad end-aline"
-                                       style="padding:0;line-height:34px;">{{this.videoName}}</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">图片列表</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
-                                   multiple="multiple"/>
-                            <p class="redtips">*注意：宽620px*高380px</p>
-                            <div id="buildRealImgOutDiv">
-                                <div v-for="(item,index) of buildRealImgList" :key="index"
-                                     v-show="buildRealImgList.length!==0">
-                                    <div @click="fileDel(index,3,item)">x</div>
-                                    <img :src="item" style="width: 100%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-
-                    <div class="col-md-12 form-group clearfix">
-                        <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">资讯内容</label><span class="sign-left">:</span>
-                         </div>
-                        <div class="col-md-12 form-group clearfix">
-                             <SummerNote ref="sn"></SummerNote>
-                        </div>
-                    </div>
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
                     <div class="col-md-12">
@@ -112,79 +128,79 @@
     import datePicker from 'vue2-datepicker'
     import Building from '../Building.vue'
     import SummerNote from '../subArticle/SummerNote.vue'
-    import mtI from '../../common/InformationType.vue'
+    import rmt from '../../common/getRoomOffice.vue'    
     var that = null
     export default {
         components: {
             datePicker,
             Building,
             SummerNote,
-             mtI,
+            rmt
+            
         },
         data() {
             return {
                 addParam: {
-                    bdName:'',  //资讯名称
-
-                    bdContent:'',  // 动态内容
-
-                    bdLabel:'',   // 描述
-
-                    buildId:'',    // 资讯类型id
-                    //mtId:'',
-
+                   sorcePrice:'',  //原价
+                   nowPrice:'',    //现价
+                   stationNum:'',  //工位数
+                   surpluseNum:'',  //剩余工位
+                   officeType:'',   //工位类型
+                   area:'',         //面积
+                   houseType:'',    //房型
+                   isWall:'',       //是否靠墙
+                   isWindow:'',     //是否带窗
+                   roomId:'',      //房源ID
                 },
-                videoName:'',
-                 bdPath:'',     // 图片路径
-
-                headImgList:
-                    [],
-                buildRealImgList:[],
-                buildRealImgFileList:
-                    [],
-                headImgFileList:
-                    [],
+                 headImg:'',    //头图
+                 picture:[],   //图片
+                 video:[],      //视频
+                 headImgFileList:[],
+                 headImgList:[],
                 title: '',
                 isDisable:false,
-                playAvOutDivFlag: true,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
                 }
             };
         },
         methods: {
-            //  fathermtIReceive(data) {
-            //     this.addParam.mtId = ''
-            //     if (null != data) {
-            //         this.addParam.mtId = data
-            //     }
-            //     //this.$refs.mtIRef.setmtId(data)
-            // },
             
+            fatherrmtReceive(data) {
+              console.log(data)
+                this.addParam.roomId = ''
+                if (null != data) {
+                    this.addParam.roomId = data;
+
+                }
+               // this.$refs.rmtRef.setroomId(data)
+            },
+
             // Initialization projcet’s content
             initDyRef(param, addParam) {
                 this.headImgList = []
                 this.headImgFileList = []
-                this.videoName = ''
-                this.buildRealImgList = []
                 $("#pic").val("");
                 $('#dyDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.rn.setData('')
                    // this.$refs.buildRef.setBuildingId("")
-                   this.$refs.sn.setData('')
+                   
                     this.title = '新增'
                     this.addParam = {
-                        bdName:'',  //资讯名称
-
-                    bdContent:'',  // 动态内容
-
-                    bdLabel:'',   // 描述
-
-                    buildId:'',    // 资讯类型id
-                    //mtId:'',
-
-                    }
+                         sorcePrice:'',  //原价
+                            nowPrice:'',    //现价
+                            stationNum:'',  //工位数
+                            surpluseNum:'',  //剩余工位
+                            officeType:'',   //工位类型
+                            area:'',         //面积
+                            houseType:'',    //房型
+                            isWall:'',       //是否靠墙
+                            isWindow:'',     //是否带窗
+                            roomId:'',      //房源ID
+                         
+                    };
+                    
 
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
@@ -192,33 +208,19 @@
                         var en = []
                         en.push(this.url + addParam.bdPath)
                         this.headImgList = en
-                    }else if (this.isBlank(addParam.videoPath)) {
-                        this.playAvOutDivFlag = false
-                        $("#playAvOutDiv").modal("hide")
-                    } else {
-                        this.videoName = addParam.videoName
-                        // this.$refs.playRef.initData(this.url + addParam.videoPath)
                     }
                     this.title = '修改';
-                    if (null !== addParam.picturePath) {
-                        var buildRea = []
-                        for (var i = 0; i < addParam.picturePath.length; i++) {
-                            buildRea.push(this.url + addParam.picturePath[i])
-                        }
-                        this.buildRealImgList = buildRea
-                    }
-
-                    this.$refs.sn.setData(addParam.bdContent)
+                    
                     Object.assign(this.addParam, addParam)
 					// this.$refs.rn.setData(this.addParam.bdContent)
 					//this.$refs.buildRef.setBuildingId(this.addParam.buildId)
                 }
             },
 
-            fathermtIReceive(data) {
+            fatherBuild(data) {
                 this.addParam.buildId = ''
                 if (null !== data) {
-                    this.addParam.buildId = data
+                    this.addParam.buildId = data.buildId
                 }
             },
             headImgChange() {
@@ -240,21 +242,23 @@
                 // this.addParam.bdContent = this.$refs.rn.getData()
 //                 const fd = new FormData();
 //
-//                 fd.append("param", JSON.stringify(this.addParam));
-                 this.addParam.bdContent = this.$refs.sn.getData()
+//               fd.append("param", JSON.stringify(this.addParam));
+                 
                 const fd = new FormData();
                 // 头图
                 for (let i = 0; i < this.headImgFileList.length; i++) {
                     fd.append("picture", this.headImgFileList[i]);
                 }
-                fd.append("param", JSON.stringify(this.addParam));
-
+                fd.append("addParam", JSON.stringify(this.addParam));
+                 fd.append("headImg",JSON.stringify(this.headImg))
+            //    fd.append("picture", JSON.stringify(this.picture));
+            //     fd.append("video",JSON.stringify(this.video))
                 switch (this.title) {
                     case '新增':
-                        var url = this.url + '/buildingDynamicBean/addDynamic'
+                        var url = this.url + '/officeBean/addOffice'
                         break;
                     case '修改':
-                        var url = this.url + '/buildingDynamicBean/patchDyById'
+                        var url = this.url + '/officeBean/patchOffice'
                         break;
                 }
 
@@ -273,14 +277,15 @@
                         alert(res.retMsg)
                         this.$emit('certainAction')
                     }
+                    else{
+                        alert(res.retMsg) 
+                    }
                 }).catch((error) => {
                     console.log('楼盘信息提交失败')
                 });
             },
             closeCurrentPage() {
-                this.playAvOutDivFlag = true
-                this.$emit('certainAction')
-                $("#buildDialog").modal("hide")
+                $("#dyDialog").modal("hide")
             },
 
             formatFileSize: function (fileSize, idx) {
@@ -305,22 +310,7 @@
                 }
 
             },
-             buildRealImgChange() {
-
-                var files = $("#buildRealImg")[0].files; //获取file对象
-                for (let i = 0; i < files.length; i++) {
-                    var file = files[i]
-                    this.fileAdd(file, i, 3)
-                }
-            },
-
-            videoChange() {
-                var files = $("#video")[0].files;
-                if (null != files) {
-                    this.videoName = ''
-                }
-            },
-            fileAdd(file,i, pictureType) {
+            fileAdd(file) {
                 let type = file.type;//文件的类型，判断是否是图片
                 let size = file.size;//文件的大小，判断图片的大小
                 if (this.imgData.accept.indexOf(type) === -1) {
@@ -343,29 +333,14 @@
                     var dataUrl = reader.result;
 
                     file.src = this.result;
-                     if (pictureType === 3) {
-                        that.buildRealImgFileList.push(file)
-                        that.buildRealImgList.push(dataUrl)
-                    }else if (pictureType === 5) {
-                        that.headImgFileList.push(file)
-                        that.headImgList.push(dataUrl)
-                    }
+                    that.headImgFileList.push(file)
+                    that.headImgList.push(dataUrl)
+
                 }
             },
-            fileDel(index, type, item) {
-                if (this.title == '修改') {
-                    if (!confirm("确定删除该图片？")) {
-                        return;
-                    }
-                }
-                
-                if (type === 3) {
-                    this.buildRealImgList.splice(index, 1)
-                    this.buildRealImgFileList.splice(index, 1)
-                } else if (type === 5) {
-                    this.headImgList.splice(index, 1)
-                    this.headImgFileList.splice(index, 1)
-                }
+            fileDel(index) {
+                this.headImgList.splice(index, 1)
+                this.headImgFileList.splice(index, 1)
             }
 
         },
