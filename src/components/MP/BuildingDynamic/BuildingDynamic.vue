@@ -67,13 +67,17 @@
     import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
     import paging from '../../common/Paging.vue'
     import Building from '../../common/Building.vue'
-    import  from '../../common/Building.vue'
+   
+
+    import mtI from '../../common/InformationType.vue'
+
     var that = null
     export default {
         components: {
             paging,
             Building,
             dynamicDialog,
+            mtI,
            
         },
         name: 'BuildingDynamic',
@@ -95,7 +99,7 @@
                 if (null != data) {
                     this.mtId = data
                 }
-                this.$refs.mtIRef.setmtId(data)
+               // this.$refs.mtIRef.setmtId(data)
             },
           
             //子级传值到父级上来的动态拿去
@@ -150,7 +154,7 @@
             }
         },
         created: function () {
-            this.couQueryData()
+            this.couQueryData(1)
         },
     }
 </script>

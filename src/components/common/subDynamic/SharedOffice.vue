@@ -21,9 +21,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">匹配楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                           <select name="" id="" class="form-control " >
-                                
-                            </select>
+                           <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -73,7 +71,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">是否靠墙</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                           <select name="" id="" class="form-control " v-model="addParam.isWall">
+                           <select name="" id="" class="form-control" v-model="addParam.isWall">
                                 <option value="3">否</option>
                                 <option value="2">是</option>
                             </select>
@@ -89,7 +87,21 @@
                             </select>
                         </div>
                     </div>    
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
+                            <p class="redtips">*注意：宽378px*高228px</p>
 
+                            <div id="headImgOutDiv">
+                                <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
+                                    <div @click="fileDel(index,5,item)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
@@ -116,13 +128,14 @@
     import datePicker from 'vue2-datepicker'
     import Building from '../Building.vue'
     import SummerNote from '../subArticle/SummerNote.vue'
-    
+    import rmt from '../../common/getRoomOffice.vue'    
     var that = null
     export default {
         components: {
             datePicker,
             Building,
             SummerNote,
+            rmt
             
         },
         data() {
@@ -137,16 +150,13 @@
                    houseType:'',    //房型
                    isWall:'',       //是否靠墙
                    isWindow:'',     //是否带窗
-                    roomId:7,      //房源ID
- 
-
+                   roomId:'',      //房源ID
                 },
-                 bdPath:'',     // 图片路径
-
-                headImgList:
-                    [],
-                headImgFileList:
-                    [],
+                 headImg:'',    //头图
+                 picture:[],   //图片
+                 video:[],      //视频
+                 headImgFileList:[],
+                 headImgList:[],
                 title: '',
                 isDisable:false,
                 imgData: {
@@ -155,13 +165,17 @@
             };
         },
         methods: {
-            //  fathermtIReceive(data) {
-            //     this.mtId = ''
-            //     if (null != data) {
-            //         this.mtId = data
-            //     }
-            //     this.$refs.mtIRef.setmtId(data)
-            // },
+            
+            fatherrmtReceive(data) {
+              console.log(data)
+                this.addParam.roomId = ''
+                if (null != data) {
+                    this.addParam.roomId = data;
+
+                }
+               // this.$refs.rmtRef.setroomId(data)
+            },
+
             // Initialization projcet’s content
             initDyRef(param, addParam) {
                 this.headImgList = []
@@ -171,7 +185,7 @@
                 if (param === 'add') {
                     // this.$refs.rn.setData('')
                    // this.$refs.buildRef.setBuildingId("")
-                   this.$refs.sn.setData('')
+                   
                     this.title = '新增'
                     this.addParam = {
                          sorcePrice:'',  //原价
@@ -183,9 +197,10 @@
                             houseType:'',    //房型
                             isWall:'',       //是否靠墙
                             isWindow:'',     //是否带窗
-                            roomId:7,      //房源ID
-
-                    }
+                            roomId:'',      //房源ID
+                         
+                    };
+                    
 
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
@@ -195,7 +210,7 @@
                         this.headImgList = en
                     }
                     this.title = '修改';
-                    this.$refs.sn.setData(addParam.bdContent)
+                    
                     Object.assign(this.addParam, addParam)
 					// this.$refs.rn.setData(this.addParam.bdContent)
 					//this.$refs.buildRef.setBuildingId(this.addParam.buildId)
@@ -227,15 +242,17 @@
                 // this.addParam.bdContent = this.$refs.rn.getData()
 //                 const fd = new FormData();
 //
-//                 fd.append("param", JSON.stringify(this.addParam));
-                 this.addParam.bdContent = this.$refs.sn.getData()
+//               fd.append("param", JSON.stringify(this.addParam));
+                 
                 const fd = new FormData();
                 // 头图
                 for (let i = 0; i < this.headImgFileList.length; i++) {
                     fd.append("picture", this.headImgFileList[i]);
                 }
-                fd.append("param", JSON.stringify(this.addParam));
-
+                fd.append("addParam", JSON.stringify(this.addParam));
+                 fd.append("headImg",JSON.stringify(this.headImg))
+            //    fd.append("picture", JSON.stringify(this.picture));
+            //     fd.append("video",JSON.stringify(this.video))
                 switch (this.title) {
                     case '新增':
                         var url = this.url + '/officeBean/addOffice'
@@ -259,6 +276,9 @@
                     if (res.retCode === '0000') {
                         alert(res.retMsg)
                         this.$emit('certainAction')
+                    }
+                    else{
+                        alert(res.retMsg) 
                     }
                 }).catch((error) => {
                     console.log('楼盘信息提交失败')
