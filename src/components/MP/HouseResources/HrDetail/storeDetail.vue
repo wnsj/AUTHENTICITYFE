@@ -16,6 +16,13 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">类别</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <StoreType @stChange="stRe" ref="stRef"></StoreType>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">层高</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="storeParam.highLevel"/>
@@ -198,12 +205,14 @@
     import Commercial from "../../../common/subCommercial/subCommercial";
     import Property from "../../../common/subProperty/subProperty";
     import Charas from "../../../common/Charas";
+    import StoreType from "../../../common/StoreType";
 
     export default {
         components: {
             Commercial,
             Property,
-            Charas
+            Charas,
+            StoreType
         },
         data() {
             return {
@@ -274,7 +283,9 @@
                     // 房源id
                     roomId: '',
 
-                    picList:[]
+                    picList: [],
+
+                    stId: ''
                 },
                 title: '',
                 size: 0,
@@ -292,9 +303,7 @@
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
                 },
-                reStore:{
-
-                }
+                reStore: {}
             };
         },
         methods: {
@@ -303,6 +312,12 @@
                 this.addCou.ccId = '';
                 if (null !== data) {
                     this.addCou.ccId = data
+                }
+            },
+            stRe(data) {
+                this.storeParam.stId = ''
+                if (null != data) {
+                    this.storeParam.stId = data
                 }
             },
             comRe(data) {
@@ -497,16 +512,19 @@
                     storeInfo: '',
 
                     // 房源id
-                    roomId: ''
+                    roomId: '',
+
+                    stId: ''
                 }
-                this.buildRealImgList=[]
-                this.buildRealImgFileList=[]
-                this.headImgList=[]
-                this.headImgFileList=[]
+                this.buildRealImgList = []
+                this.buildRealImgFileList = []
+                this.headImgList = []
+                this.headImgFileList = []
                 $("#storePicture").val("");
                 $("#storeImg").val("");
 
                 this.$refs.comRef.setCharaList([])
+                this.$refs.stRef.setStId('0')
                 this.$refs.proRef.setIdList([])
 
                 this.getStoreByRoomId(addCou.id)
@@ -528,6 +546,7 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
+                        this.$refs.stRef.setType(3)
                         if (res.retData) {
                             this.storeParam = res.retData
                             this.title = '修改'
@@ -545,7 +564,7 @@
                             }
                             this.$refs.comRef.setCharaList(this.storeParam.suitable)
                             this.$refs.proRef.setIdList(this.storeParam.properInfo)
-
+                            this.$refs.stRef.setStId(this.storeParam.stId)
                         } else {
                             this.storeParam.roomId = item
                             this.title = '新增'

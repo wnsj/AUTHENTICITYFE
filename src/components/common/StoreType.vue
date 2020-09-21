@@ -34,7 +34,7 @@
                 }else{
                     this.storeTypeList = []
                 }
-                
+
             },
             setStId: function (stId) {
                 this.stId = stId
