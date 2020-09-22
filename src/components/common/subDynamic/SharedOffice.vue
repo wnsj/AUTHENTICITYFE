@@ -266,11 +266,11 @@
                     }
                     
                     this.title = '修改';
-                    if (this.isBlank(addParam.videoPath)) {
+                    if (this.isBlank(addParam.videoName)) {
                         this.playAvOutDivFlag = false
                         $("#playAvOutDiv").modal("hide")
                     } else {
-                        this.videoName = addParam.videoPath
+                        this.videoName = addParam.videoName
                         // this.$refs.playRef.initData(this.url + addParam.videoPath)
                     }
 
