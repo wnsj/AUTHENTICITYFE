@@ -297,9 +297,6 @@
                     this.$refs.btRef.setBtId(addParam.officeType)
                     Object.assign(this.addParam, addParam)
                    
-                    // this.imgName="http://172.16.3.58:8080/build-store"+this.addParam.imgName;
-					// this.$refs.rn.setData(this.addParam.bdContent)
-					//this.$refs.buildRef.setBuildingId(this.addParam.buildId)
                 }
             },
 
