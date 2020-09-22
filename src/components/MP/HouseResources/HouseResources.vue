@@ -435,6 +435,7 @@
 						unitPriceList:this.unSon,
 						totalPriceList:this.toSon,
 						bdIdList:this.subBuSon,
+						ldIdList:this.ltSon,
 						buildIdList:this.buildCompentSon,
 						startTime:this.openTime[0],
                         endTime:this.openTime[1],
