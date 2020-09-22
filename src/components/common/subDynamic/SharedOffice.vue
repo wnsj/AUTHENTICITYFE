@@ -11,11 +11,12 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">工位类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                           <select name="" id="" class="form-control " v-model="addParam.officeType" >
-                                <option value="3">独立办公室</option>
-                                <option value="2">开放工位</option>
-                            </select>
+<!--                           <select name="" id="" class="form-control " v-model="addParam.officeType" >-->
+<!--                                <option value="3">独立办公室</option>-->
+<!--                                <option value="2">开放工位</option>-->
+<!--                            </select>-->
 
+                            <BuildType @btChange="btRe" ref="btRef"></BuildType>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -34,7 +35,7 @@
                         <div style="padding:0;line-height:34px;">M²</div>
                     </div>
 
-                   
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">工位个数</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
@@ -67,12 +68,12 @@
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.houseType" placeholder="必填"/>
                         </div>
-                    </div>                   
+                    </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">是否靠墙</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                           <select name="" id="" class="form-control" v-model="addParam.isWall">
+                           <select name=""  class="form-control" v-model="addParam.isWall">
                                 <option value="3">否</option>
                                 <option value="2">是</option>
                             </select>
@@ -87,7 +88,7 @@
                                 <option value="2">是</option>
                             </select>
                         </div>
-                    </div>    
+                    </div>
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-2 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
@@ -116,7 +117,7 @@
                                        
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-2 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">图片列表</label><span
@@ -133,7 +134,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                
+                    </div>
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
                     <div class="col-md-12">
@@ -159,15 +160,17 @@
     import datePicker from 'vue2-datepicker'
     import Building from '../Building.vue'
     import SummerNote from '../subArticle/SummerNote.vue'
-    import rmt from '../../common/getRoomOffice.vue'    
+    import rmt from '../../common/getRoomOffice.vue'
+    import BuildType from "../BildType";
     var that = null
     export default {
         components: {
             datePicker,
             Building,
             SummerNote,
-            rmt
-            
+            rmt,
+            BuildType
+
         },
         data() {
             return {
@@ -203,7 +206,7 @@
             };
         },
         methods: {
-            
+
             fatherrmtReceive(data) {
               console.log(data)
                 this.addParam.roomId = ''
@@ -214,6 +217,12 @@
                // this.$refs.rmtRef.setroomId(data)
             },
 
+            btRe(data) {
+                this.addParam.officeType = ''
+                if (null != data) {
+                    this.addParam.officeType = data
+                }
+            },
             // Initialization projcet’s content
             initDyRef(param, addParam) {
                 this.videoName = ''
@@ -221,6 +230,8 @@
                 this.headImgFileList = []
                 this.buildRealImgList = []
                 this.buildRealImgFileList = []
+                this.$refs.btRef.setType(2)
+                this.$refs.btRef.setBtId('0')
                 // $("#headImg").val("");
                 // ("#buildRealImg").val("");
                 // $("#video").val("");
@@ -228,7 +239,7 @@
                 if (param === 'add') {
                     // this.$refs.rn.setData('')
                    // this.$refs.buildRef.setBuildingId("")
-                   
+
                     this.title = '新增'
                     this.addParam = {
                          sorcePrice:'',  //原价
@@ -241,12 +252,12 @@
                             isWall:'',       //是否靠墙
                             isWindow:'',     //是否带窗
                             roomId:'',      //房源ID
-                         
+
                     };
-                    
+
 
                 } else if (param === 'modify') {
-                    
+
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                      if (null != addParam && null != addParam.bdPath) {
                         var en = []
@@ -262,8 +273,13 @@
                         this.videoName = addParam.videoPath
                         // this.$refs.playRef.initData(this.url + addParam.videoPath)
                     }
+
                   
                     //头图
+
+                    this.title = '修改';
+
+
                     if (null != addParam && null != addParam.imgName) {
                         var img = []
                         img.push(this.url+addParam.imgName)
@@ -278,6 +294,7 @@
                         this.buildRealImgList = buildRea
                     }
                      this.$refs.rmtRef.setroomId(addParam.roomId)
+                    this.$refs.btRef.setBtId(addParam.officeType)
                     Object.assign(this.addParam, addParam)
                    
                     // this.imgName="http://172.16.3.58:8080/build-store"+this.addParam.imgName;
@@ -299,7 +316,7 @@
                     var file = files[i]
                     this.fileAdd(file, i, 3)
                 }
-            },    
+            },
 
             headImgChange() {
 
@@ -319,14 +336,14 @@
                     this.isDisable = false
                 }, 1000)
 
-                 
+
                 const fd = new FormData();
                 // 头图
                 for (let i = 0; i < this.headImgFileList.length; i++) {
                     fd.append("headImg", this.headImgFileList[i]);
                 }
                 fd.append("addParam", JSON.stringify(this.addParam));
-                
+
             for (let i = 0; i < this.buildRealImgFileList.length; i++) {
                     fd.append("picture", this.buildRealImgFileList[i]);
                 }
@@ -367,7 +384,7 @@
                    // console.log( this.buildRealImgList.length)
                     }
                     else{
-                        alert(res.retMsg) 
+                        alert(res.retMsg)
                     }
                 }).catch((error) => {
                     console.log('楼盘信息提交失败')
@@ -443,6 +460,7 @@
                         return;
                     }
                 }
+
                 if (type === 3) {
                         this.buildRealImgList.splice(index, 1)
                         this.buildRealImgFileList.splice(index, 1)
@@ -476,6 +494,16 @@
                     console.log('共享办公信息提交失败')
                 });
                 
+
+            if (type === 3) {
+                    this.buildRealImgList.splice(index, 1)
+                    this.buildRealImgFileList.splice(index, 1)
+                } else if (type === 5) {
+                    this.headImgList.splice(index, 1)
+                    this.headImgFileList.splice(index, 1)
+                }
+
+
             }
             
 

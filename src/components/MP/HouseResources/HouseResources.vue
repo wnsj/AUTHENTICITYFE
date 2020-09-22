@@ -163,6 +163,7 @@
 								<td class="text-center" style="line-height:33px;" v-if="item.roomType==1">写字楼</td>
 								<td class="text-center" style="line-height:33px;" v-if="item.roomType==2">共享办公</td>
 								<td class="text-center" style="line-height:33px;" v-if="item.roomType==3">商铺</td>
+								<td class="text-center" style="line-height:33px;" v-if="item.roomType==null"></td>
 								<!--                            <td class="text-center" style="line-height:33px;">{{item.chaName}}</td>-->
 								<td class="text-center" style="line-height:33px;">{{item.buildArea}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.unitPrice}}</td>
@@ -434,6 +435,7 @@
 						unitPriceList:this.unSon,
 						totalPriceList:this.toSon,
 						bdIdList:this.subBuSon,
+						ldIdList:this.ltSon,
 						buildIdList:this.buildCompentSon,
 						startTime:this.openTime[0],
                         endTime:this.openTime[1],
