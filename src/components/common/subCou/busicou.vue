@@ -163,7 +163,11 @@
                     }
                     this.title = '修改'
                      this.$refs.ldtRef.setLdtId(addCou.ldId);
-
+                    if (null != addCou && null != addCou.buPath) {
+                        var img = []
+                        img.push(this.url+ addCou.buPath)
+                        this.headImgList = img
+                    }
                     Object.assign(this.addCou, addCou)
                 }
             },

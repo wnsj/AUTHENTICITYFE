@@ -105,15 +105,15 @@
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">视频</label><span
-                        class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">视频</label><span class="sign-left">:</span>
                         <div class="col-md-9">
-                            <input type="file" id="video" @change="videoChange"
+                            <input type="file" id="video" @change="videoChange" 
                             />
                             <div id="playAvOutDiv" v-if="playAvOutDivFlag">
                                 <!--                                <PlayAV ref="playRef"></PlayAV>-->
                                 <label class="col-md-3 control-label text-right nopad end-aline"
                                        style="padding:0;line-height:34px;">{{this.videoName}}</label>
+                                       
                             </div>
                         </div>
                     </div>                    
@@ -250,33 +250,36 @@
                     console.log('Initialization evaluation’s content, which modifies evaluation')
                      if (null != addParam && null != addParam.bdPath) {
                         var en = []
-                        en.push(this.url +"/fileController/getFile?type=IMG&path=D:ildStoreDir"+ addParam.bdPath)
+                        en.push(this.url + addParam.bdPath)
                         this.headImgList = en
                     }
+                    
+                    this.title = '修改';
                     if (this.isBlank(addParam.videoPath)) {
                         this.playAvOutDivFlag = false
                         $("#playAvOutDiv").modal("hide")
                     } else {
-                        this.videoName = addParam.videoName
+                        this.videoName = addParam.videoPath
                         // this.$refs.playRef.initData(this.url + addParam.videoPath)
                     }
-                    this.title = '修改';
                   
+                    //头图
                     if (null != addParam && null != addParam.imgName) {
                         var img = []
-                        img.push(this.url+"/fileController/getFile?type=IMG&path=D:ildStoreDir" + addParam.imgName)
+                        img.push(this.url+addParam.imgName)
                         this.headImgList = img
                     }
+                    //多图列表
                      if (null !== addParam.pictureList) {
                         var buildRea = []
                         for (var i = 0; i < addParam.pictureList.length; i++) {
-                            buildRea.push(this.url +"/fileController/getFile?type=IMG&path=D:ildStoreDir"+ addParam.pictureList[i])
+                            buildRea.push(this.url + addParam.pictureList[i])
                         }
                         this.buildRealImgList = buildRea
                     }
                      this.$refs.rmtRef.setroomId(addParam.roomId)
                     Object.assign(this.addParam, addParam)
-                    console.log(this.addParam)
+                   
                     // this.imgName="http://172.16.3.58:8080/build-store"+this.addParam.imgName;
 					// this.$refs.rn.setData(this.addParam.bdContent)
 					//this.$refs.buildRef.setBuildingId(this.addParam.buildId)
@@ -361,7 +364,7 @@
                     if (res.retCode === '0000') {
                         alert(res.retMsg)
                         this.$emit('certainAction');
-                    console.log( this.buildRealImgList.length)
+                   // console.log( this.buildRealImgList.length)
                     }
                     else{
                         alert(res.retMsg) 
@@ -440,15 +443,41 @@
                         return;
                     }
                 }
-            if (type === 3) {
-                    this.buildRealImgList.splice(index, 1)
-                    this.buildRealImgFileList.splice(index, 1)
-                } else if (type === 5) {
-                    this.headImgList.splice(index, 1)
-                    this.headImgFileList.splice(index, 1)
-                }
+                if (type === 3) {
+                        this.buildRealImgList.splice(index, 1)
+                        this.buildRealImgFileList.splice(index, 1)
+                    } else if (type === 5) {
+                        this.headImgList.splice(index, 1)
+                        this.headImgFileList.splice(index, 1)
+                    }
+                 if (this.title == '新增') return;
+                if (this.isBlank(item)) return;
+                var index = item.lastIndexOf('=');
+                var str = item.substring(index + 1, item.length)
+                // console.log(index)
+                // console.log(str)
+                if (this.isBlank(str)) return;
+
+                var id = '';
+                
+                id = parseInt(str)
+                //console.log(id)
+                this.$ajax({
+                    method: 'POST',
+                    url: this.url + '/buildingBean/deleteImgFile',
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {imgId: id},
+                    dataType: 'json',
+                }).then((response) => {
+                }).catch((error) => {
+                    console.log('共享办公信息提交失败')
+                });
                 
             }
+            
 
         },
         computed: {
