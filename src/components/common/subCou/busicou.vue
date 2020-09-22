@@ -175,6 +175,18 @@
                     this.isDisable = false
                 }, 1000)
 
+                if (this.isBlank(this.addCou.ldId)) {
+                    alert('所属区域不能为空')
+                    return
+                }
+                if (this.isBlank(this.addCou.buName)) {
+                    alert('商圈名字不能为空')
+                    return
+                }
+                if (this.isBlank(this.addCou.buLabel)) {
+                    alert('商圈描述不能为空')
+                    return
+                }
 
                 // if (!this.isBlank(this.addCou.tel)) {
                 //     if (!(/^1[3456789]\d{9}$/).test(this.addCou.tel)) {

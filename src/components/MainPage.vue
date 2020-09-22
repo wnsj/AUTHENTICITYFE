@@ -20,7 +20,7 @@
 					<p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #047EB1;text-align: left; margin-bottom:10px;">
 						功能列表</p>
 					<div id="aside-menu">
-						<dl v-bind:class="{h4:bool6}">
+						<dl v-bind:class="{h2:bool6}">
 							<dt @click="onShow(5)" v-bind:class="{'li-active':bool6}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool6,'fa-folder':!bool6}" aria-hidden="false">
 									房源管理
