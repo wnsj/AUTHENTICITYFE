@@ -18,6 +18,7 @@
         data() {
             return {
                 buildId: '',
+                buildType: '',
                 buildList: []
             };
         },
@@ -40,23 +41,24 @@
 			    this.buildId = buildId
             },
             setBuildingList: function(buildList) {
-                console.log('111111111111')
                 this.buildList = buildList
-                console.log('22222222222')
                 this.queryData()
-                
 			},
+
+            setBuildType(type) {
+                this.buildType = type
+                this.queryData()
+            },
             async queryData() {
-                console.log('333333333333333')
-                var url = this.url + '/buildingBean/getAllBuild'
+                var url = this.url + '/buildingBean/getAllBuild?buildType=' + this.buildType
                 this.$ajax({
                     method: 'GET',
                     url: url,
                     headers: {
-                        'Content-Type': this.contentType,
                         'Access-Token': this.accessToken
                     },
-                    data: {},
+                    data: {
+                    },
                     dataType: 'json',
                 }).then((response) => {
                     var res = response.data
