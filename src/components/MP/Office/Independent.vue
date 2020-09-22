@@ -11,11 +11,12 @@
                     class="sign-left">:</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <select name="" id="" class="form-control" v-model="officeType">
-                        <option value="">未选择</option>
-                        <option value="3">独立办公室</option>
-                        <option value="2">开放工位</option>
-                    </select>
+<!--                    <select name="" id="" class="form-control" v-model="officeType">-->
+<!--                        <option value="">未选择</option>-->
+<!--                        <option value="3">独立办公室</option>-->
+<!--                        <option value="2">开放工位</option>-->
+<!--                    </select>-->
+                    <BuildType @btChange="btRe" ref="btRef"></BuildType>
                 </div>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -27,7 +28,7 @@
                     <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
                 </div>
             </div>
-            
+
             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
@@ -82,6 +83,7 @@
     import Building from '../../common/Building.vue'
    import rmt from '../../common/getRoomOffice.vue'
 
+    import BuildType from "../../common/BildType";
     var that = null
     export default {
         components: {
@@ -89,8 +91,8 @@
             Building,
             dynamicDialog,
             rmt,
-            
-            
+            BuildType
+
         },
         //name: 'BuildingDynamic',
         data() {
@@ -107,7 +109,7 @@
             };
         },
         methods:{
-            
+
           fatherrmtReceive(data) {
               console.log(data)
                 this.roomId = ''
@@ -121,6 +123,12 @@
                 this.current = page
                 this.couQueryData(page)
             },
+            btRe(data) {
+                this.officeType = ''
+                if (null != data) {
+                    this.officeType = data
+                }
+            },
             async couQueryData(page) {
                 var url = this.url + '/officeBean/getAllOffice'
                 this.$ajax({
@@ -131,7 +139,7 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                       
+
                        current: page,
                        pageSize: 10,
                        roomId:this.roomId,
@@ -168,7 +176,11 @@
                 $("#dyDialog").modal('hide')
             }
         },
+        mounted() {
+            this.$refs.btRef.setType(2)
+        },
         created: function () {
+
             this.couQueryData(1)
         },
     }
