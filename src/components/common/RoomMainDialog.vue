@@ -19,7 +19,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">房源编号</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.roomCode" placeholder="">
+                            <input type="text" class="form-control" v-model="addParam.roomCode" placeholder="房源编号必填">
                         </div>
                     </div>
 
@@ -659,8 +659,13 @@
 
             certainAction() {
                 
-                if (this.isBlank(this.addParam.buildId)) {
-                    alert('楼盘不能为空')
+                if (this.isBlank(this.addParam.room)) {
+                    alert('房源名不能为空')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.roomCode)) {
+                    alert('房源编号不能为空')
                     return
                 }
 
