@@ -162,7 +162,7 @@
                         this.buPath = en
                     }
                     this.title = '修改'
-                    // this.$refs.couCharaRef.setCcId(addCou.ccId);
+                     this.$refs.ldtRef.setLdtId(addCou.ldId);
 
                     Object.assign(this.addCou, addCou)
                 }

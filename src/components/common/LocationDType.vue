@@ -1,7 +1,7 @@
 <template>
     <div>
         <select class="form-control" v-model="ldId" v-on:change="ldtChange()">
-            <option value="0">--未选择--</option>
+            <option value="">--未选择--</option>
             <option v-for="(item,index) in ldtList" :key="index" v-bind:value="item.ldId">{{item.ldName}}</option>
         </select>
     </div>
