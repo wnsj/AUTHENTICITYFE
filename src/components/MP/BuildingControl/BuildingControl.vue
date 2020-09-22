@@ -173,7 +173,7 @@
                 buildTypeList: [],
                 buildHorseTypeList: [],
                 bhtSon: [],
-                btSon: [],
+                buildType: '',
                 isSaleSon: [],
                 ltSon: [],
                 locationType:'',
@@ -207,9 +207,9 @@
                 }
             },
             fatherBtReceive(data) {
-                this.btSon = []
+                this.buildType = ''
                 if (null !== data) {
-                    this.btSon.push(data)
+                    this.buildType = data
                 }
             },
             fatherIsSaleReceive(data) {
@@ -304,7 +304,7 @@
                     },
                     data: {
                         bhtIdList: this.bhtSon,
-                        btIdList: this.btSon,
+                        buildType: this.buildType,
                         isSaleList: this.isSaleSon,
                         ldIdList: this.ltSon,
                         startTime:this.openTime[0],
