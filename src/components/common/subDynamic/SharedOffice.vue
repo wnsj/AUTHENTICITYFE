@@ -182,8 +182,8 @@
                    officeType:'',   //工位类型
                    area:'',         //面积
                    houseType:'',    //房型
-                   isWall:'',       //是否靠墙
-                   isWindow:'',     //是否带窗
+                   isWall:3,       //是否靠墙
+                   isWindow:3,     //是否带窗
                    roomId:'',      //房源ID
                 },
                 imgName:'',
@@ -250,8 +250,8 @@
                             officeType:'',   //工位类型
                             area:'',         //面积
                             houseType:'',    //房型
-                            isWall:'',       //是否靠墙
-                            isWindow:'',     //是否带窗
+                            isWall:3,       //是否靠墙
+                            isWindow:3,     //是否带窗
                             roomId:'',      //房源ID
 
                     };
@@ -317,7 +317,6 @@
             },
 
             headImgChange() {
-
                 var files = $("#headImg")[0].files; //获取file对象
                 debugger
                 if (null != files) {
@@ -328,7 +327,74 @@
                     this.fileAdd(file, i, 5)
                 }
             },
+
+
             certainAction() {
+                if (this.isBlank(this.addParam.officeType)) {
+                    alert('工位类型必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.roomId)) {
+                    alert('匹配楼盘必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.area) || this.addParam.area == 0) {
+                    alert('面积必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.area)) {
+                        alert('面积必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+
+                if (this.isBlank(this.addParam.stationNum) || this.addParam.stationNum == 0) {
+                    alert('工位个数必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.stationNum)) {
+                        alert('工位个数必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+
+                if (this.isBlank(this.addParam.surpluseNum) || this.addParam.surpluseNum == 0) {
+                    alert('剩余工位必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.surpluseNum)) {
+                        alert('剩余工位必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+
+                if (this.isBlank(this.addParam.sorcePrice) || this.addParam.sorcePrice == 0) {
+                    alert('原价必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.sorcePrice)) {
+                        alert('原价必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+
+                if (this.isBlank(this.addParam.nowPrice) || this.addParam.nowPrice == 0) {
+                    alert('现价必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.nowPrice)) {
+                        alert('现价必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+
+                if (this.isBlank(this.addParam.houseType)) {
+                    alert('房型必选')
+                    return
+                }
+
                 this.isDisable = true
                 setTimeout(() => {
                     this.isDisable = false
@@ -400,20 +466,7 @@
                 }
                 return this.formatFileSize(fileSize / 1024, ++idx);
             },
-             //预览图
-            headImgChange() {
 
-                var files = $("#headImg")[0].files; //获取file对象
-
-                if (null != files) {
-                    this.buPath = []
-                }
-                for (let i = 0; i < files.length; i++) {
-                    var file = files[i]
-                    this.fileAdd(file,i,5)
-                }
-
-            },
              videoChange() {
                 var files = $("#video")[0].files;
                 if (null != files) {

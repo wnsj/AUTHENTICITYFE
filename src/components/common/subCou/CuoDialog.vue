@@ -190,11 +190,15 @@
 
 
             certainAction() {
-                this.isDisable = true
-                setTimeout(() => {
-                    this.isDisable = false
-                }, 1000)
+               if (this.isBlank(this.addCou.couName)) {
+                   alert('咨询师名字必填')
+                   return
+               }
 
+               if (this.isBlank(this.addCou.graduate)) {
+                   alert('毕业院校必填')
+                   return
+               }
 
                 if (!this.isBlank(this.addCou.tel)) {
                     if (!(/^1[3456789]\d{9}$/).test(this.addCou.tel)) {
@@ -205,14 +209,16 @@
                     alert('请输入联系方式')
                     return;
                 }
-                if (this.isBlank(this.addCou.couName)) {
-                    alert('咨询师名字不能为空')
+
+                if (this.isBlank(this.addCou.introduce)) {
+                    alert('自我介绍必填')
                     return
                 }
-                if (this.isBlank(this.addCou.graduate)) {
-                    alert('毕业院校不能为空')
-                    return
-                }
+
+                this.isDisable = true
+                setTimeout(() => {
+                    this.isDisable = false
+                }, 1000)
 
                 const fd = new FormData();
                 // 效果图

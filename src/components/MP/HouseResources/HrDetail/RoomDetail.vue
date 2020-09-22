@@ -40,17 +40,6 @@
             <label
               class="col-md-3 control-label text-right nopad end-aline"
               style="padding:0;line-height:34px;"
-            >所在楼层</label>
-            <span class="sign-left">:</span>
-            <div class="col-md-8">
-              <input type="text" class="form-control" v-model="roomParam.floor" />
-            </div>
-          </div>
-
-          <div class="col-md-6 form-group clearfix">
-            <label
-              class="col-md-3 control-label text-right nopad end-aline"
-              style="padding:0;line-height:34px;"
             >最小工位数</label>
             <span class="sign-left">:</span>
             <div class="col-md-8">
@@ -66,6 +55,17 @@
             <span class="sign-left">:</span>
             <div class="col-md-8">
               <input type="text" class="form-control" v-model="roomParam.maxStationNum" />
+            </div>
+          </div>
+
+          <div class="col-md-6 form-group clearfix">
+            <label
+              class="col-md-3 control-label text-right nopad end-aline"
+              style="padding:0;line-height:34px;"
+            >所在楼层</label>
+            <span class="sign-left">:</span>
+            <div class="col-md-8">
+              <input type="text" class="form-control" v-model="roomParam.floor" />
             </div>
           </div>
 
@@ -110,17 +110,6 @@
             <span class="sign-left">:</span>
             <div class="col-md-8">
               <input type="text" class="form-control" v-model="roomParam.renovationLabel" />
-            </div>
-          </div>
-
-          <div class="col-md-6 form-group clearfix">
-            <label
-              class="col-md-3 control-label text-right nopad end-aline"
-              style="padding:0;line-height:34px;"
-            >楼盘介绍</label>
-            <span class="sign-left">:</span>
-            <div class="col-md-8">
-              <input type="text" class="form-control" v-model="roomParam.buildIntroduce" />
             </div>
           </div>
 
@@ -210,6 +199,17 @@
                   style="padding:0;line-height:34px;"
                 >{{this.videoName}}</label>
               </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12 form-group clearfix">
+            <label
+              class="col-md-2 control-label text-right nopad end-aline"
+              style="padding:0;line-height:34px;width: 12%;">楼盘介绍</label>
+            <span class="sign-left">:</span>
+            <div class="col-md-10">
+              <textarea class="form-control" v-model="roomParam.buildIntroduce" style="min-height: 100px;"></textarea>
             </div>
           </div>
         </div>
@@ -563,7 +563,60 @@ export default {
     },
 
     certainAction() {
-      if (
+        if (this.isBlank(this.roomParam.earliestRent)) {
+            alert('最早可租必填')
+            return
+        }
+
+        if (this.isBlank(this.roomParam.minTenancy)) {
+            alert('最短租期必填')
+            return
+        }
+
+        if (this.isBlank(this.roomParam.minStationNum) || this.roomParam.minStationNum == 0) {
+            alert('最小工位必填，且只能填正数，最多保留2位小数')
+            return
+        } else {
+            if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.roomParam.minStationNum)) {
+                alert('最小工位必填，且只能填正数，最多保留2位小数')
+                return;
+            }
+        }
+        if (this.isBlank(this.roomParam.maxStationNum) || this.roomParam.maxStationNum == 0) {
+            alert('最大工位必填，且只能填正数，最多保留2位小数')
+            return
+        } else {
+            if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.roomParam.maxStationNum)) {
+                alert('最大工位必填，且只能填正数，最多保留2位小数')
+                return;
+            }
+        }
+        if (parseFloat(this.roomParam.minStationNum) > parseFloat(this.roomParam.maxStationNum)) {
+            alert('最大工位不能小于最小工位')
+            return;
+        }
+
+        if (this.isBlank(this.roomParam.renovationLabel)) {
+            alert('装修描述必填')
+            return
+        }
+
+        if (this.isBlank(this.roomParam.usageRate) || this.roomParam.usageRate == 0) {
+            alert('使用率必填，且只能填正数，最多保留2位小数')
+            return
+        } else {
+            if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.roomParam.usageRate)) {
+                alert('使用率必填，且只能填正数，最多保留2位小数')
+                return;
+            }
+        }
+
+        if (this.isBlank(this.roomParam.buildIntroduce)) {
+            alert('楼盘介绍必填')
+            return
+        }
+
+     /* if (
         this.roomParam.minStationNum != null &&
         this.roomParam.minStationNum !== "" &&
         parseInt(this.roomParam.minStationNum) !== 0
@@ -594,7 +647,7 @@ export default {
           alert("使用率只能是整数");
           return;
         }
-      }
+      }*/
 
       this.loading = true;
       this.btnName = "提交中...";

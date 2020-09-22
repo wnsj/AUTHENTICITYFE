@@ -453,7 +453,7 @@
                     projectIntroduction: '',
 
                     // 人气值
-                    popularity: '',
+                    popularity: 1,
 
                     // 热搜值
                     hotSearch: '',
@@ -462,7 +462,7 @@
                     specialOffer: '',
 
                     // 热销值
-                    sellWell: '',
+                    sellWell: 1,
 
                     // 是否推荐户型（1：是；2：否）
                     recommend: '',
@@ -643,7 +643,7 @@
                         projectIntroduction: '',
 
                         // 人气值
-                        popularity: '',
+                        popularity: 1,
 
                         // 热搜值
                         hotSearch: '',
@@ -652,7 +652,7 @@
                         specialOffer: '',
 
                         // 热销值
-                        sellWell: '',
+                        sellWell: 1,
 
                         // 是否推荐户型（1：是；2：否）
                         recommend: '',
@@ -798,51 +798,50 @@
 
 
             certainAction() {
-
-
-                if (this.isBlank(this.addParam.longitude)) {
-                    alert('经度不能为空或0')
-                    return
-                }
-                if (this.isBlank(this.addParam.latitude)) {
-                    alert('纬度不能为空或0')
-                    return
-                }
                 if (this.isBlank(this.addParam.htName)) {
-                    alert('楼盘不能为空')
+                    alert('楼盘名称必填')
                     return
                 }
 
+                if (this.isBlank(this.addParam.longitude) || this.addParam.longitude == 0) {
+                    alert('经度必填，且不能为0')
+                    return
+                } 
 
-                if (this.addParam.coveredArea != null && this.addParam.coveredArea !== '' && parseFloat(this.addParam.coveredArea) !== 0) {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.coveredArea)) {
-                        alert('占地面积只能是整数或者1-2位小数的正实数')
-                        return;
-                    }
-                }
+                if (this.isBlank(this.addParam.latitude) || this.addParam.latitude == 0) {
+                    alert('纬度必填，且不能为0')
+                    return
+                } 
 
-
-                if (this.addParam.floorage != null && this.addParam.floorage !== '' && parseFloat(this.addParam.floorage) !== 0) {
+                if (this.isBlank(this.addParam.floorage) || this.addParam.floorage == 0) {
+                    alert('建筑面积必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.floorage)) {
-                        alert('建筑面积只能是整数或者1-2位小数的正实数')
+                        alert('建筑面积必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
-
-
-                // if (this.addParam.specialOffer != null && this.addParam.specialOffer !== '' && parseInt(this.addParam.specialOffer) !== 0) {
-                //     if (!(/^([0-9]*$)$/).test(this.addParam.specialOffer)) {
-                //         alert('特价值只能是整数')
-                //         return;
-                //     }
-                // }
-
 
                 if (this.isBlank(this.addParam.propertyCompany)) {
-                    alert('物业公司不能为空')
-                    return
+                   alert('物业公司必填')
+                   return
                 }
 
+                if (this.isBlank(this.addParam.proId)) {
+                   alert('省份必选')
+                   return
+                }
+
+                if (this.isBlank(this.addParam.ldId)) {
+                   alert('区域必选')
+                   return
+                }
+
+                if (this.isBlank(this.addParam.businessId)) {
+                   alert('商圈必选')
+                   return
+                }
 
                 if (this.addParam.sellWell != null && this.addParam.sellWell !== '' && parseInt(this.addParam.sellWell) !== 0) {
                     if (!(/^([0-9]*$)$/).test(this.addParam.sellWell)) {
@@ -852,14 +851,6 @@
                 }
 
 
-                // if (this.addParam.hotSearch != null && this.addParam.hotSearch !== '' && parseInt(this.addParam.hotSearch) !== 0) {
-                //     if (!(/^([0-9]*$)$/).test(this.addParam.hotSearch)) {
-                //         alert('热搜值只能是整数')
-                //         return;
-                //     }
-                // }
-
-
                 if (this.addParam.popularity != null && this.addParam.popularity !== '' && parseInt(this.addParam.popularity) !== 0) {
                     if (!(/^([0-9]*$)$/).test(this.addParam.popularity)) {
                         alert('人气值只能是整数')
@@ -867,35 +858,56 @@
                     }
                 }
 
+                if (this.isBlank(this.addParam.recommend)) {
+                   alert('推荐楼盘必选')
+                   return
+                }
 
-                if (this.addParam.minArea != null && this.addParam.minArea !== '' && parseFloat(this.addParam.minArea) !== 0) {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minArea)) {
-                        alert('最小面积只能是整数或者1-2位小数的正实数')
+                if (this.isBlank(this.addParam.enterprises)) {
+                   alert('入驻企业必填')
+                   return
+                }
+
+                if (this.isBlank(this.addParam.minUnitPrice) || this.addParam.minUnitPrice == 0) {
+                    alert('最低单价必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minUnitPrice)) {
+                        alert('最低单价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
-                if (this.addParam.maxArea != null && this.addParam.maxArea !== '' && parseFloat(this.addParam.maxArea) !== 0) {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxArea)) {
-                        alert('最大面积只能是整数或者1-2位小数的正实数')
+                if (this.isBlank(this.addParam.maxUnitPrice) || this.addParam.maxUnitPrice == 0) {
+                    alert('最高单价必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxUnitPrice)) {
+                        alert('最高单价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
-
-                if (parseFloat(this.addParam.minArea) > parseFloat(this.addParam.maxArea)) {
-                    alert('最大面积不能小于最小面积')
+                if (parseFloat(this.addParam.minUnitPrice) > parseFloat(this.addParam.maxUnitPrice)) {
+                    alert('最高单价不能小于最低单价')
                     return;
                 }
 
 
-                if (this.addParam.minTitlePrice != null && this.addParam.minTitlePrice !== '' && parseInt(this.addParam.minTitlePrice) !== 0) {
+
+                if (this.isBlank(this.addParam.minTitlePrice) || this.addParam.minTitlePrice == 0) {
+                    alert('最低总价必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minTitlePrice)) {
-                        alert('最低总价只能是整数或者1-2位小数的正实数')
+                        alert('最低总价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
-                if (this.addParam.maxTitlePrice != null && this.addParam.maxTitlePrice !== '' && parseFloat(this.addParam.maxTitlePrice) !== 0) {
+                if (this.isBlank(this.addParam.maxTitlePrice) || this.addParam.maxTitlePrice == 0) {
+                    alert('最高总价必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxTitlePrice)) {
-                        alert('最高总价只能是整数或者1-2位小数的正实数')
+                        alert('最高总价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
@@ -904,14 +916,114 @@
                     return;
                 }
 
-                if (!this.isBlank(this.addParam.tel)) {
+
+
+                if (this.isBlank(this.addParam.minArea) || this.addParam.minArea == 0) {
+                    alert('最小面积必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minArea)) {
+                        alert('最小面积必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+                if (this.isBlank(this.addParam.maxArea) || this.addParam.maxArea == 0) {
+                    alert('最大面积必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxArea)) {
+                        alert('最大面积必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+                if (parseFloat(this.addParam.minArea) > parseFloat(this.addParam.maxArea)) {
+                    alert('最大面积不能小于最小面积')
+                    return;
+                }
+
+                if (this.isBlank(this.addParam.minStationNum) || this.addParam.minStationNum == 0) {
+                    alert('最小工位必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minStationNum)) {
+                        alert('最小工位必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+                if (this.isBlank(this.addParam.maxStationNum) || this.addParam.maxStationNum == 0) {
+                    alert('最大工位必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxStationNum)) {
+                        alert('最大工位必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+                if (parseFloat(this.addParam.minStationNum) > parseFloat(this.addParam.maxStationNum)) {
+                    alert('最大工位不能小于最小工位')
+                    return;
+                }
+
+                if (this.isBlank(this.addParam.devId)) {
+                    alert('开发商必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.adress)) {
+                    alert('楼盘地址必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.tel)) {
+                   alert('请输入正确的联系方式')
+                   return;
+                } else {
                     if (!((/^((1[345678]\d{9})|(\d{2,3}\d{7,8})|(\d{2,3}-\d{7,8}))$/).test(this.addParam.tel))) {
                         alert('请输入正确的联系方式')
                         return;
                     }
                 }
 
+                if (this.isBlank(this.addParam.couId)) {
+                    alert('咨询师必选')
+                    return
+                }
+                if (this.isBlank(this.addParam.projectIntroduction)) {
+                    alert('楼盘介绍必填')
+                    return
+                }
 
+                // projectIntroduction
+
+
+
+
+
+                // if (this.addParam.coveredArea != null && this.addParam.coveredArea !== '' && parseFloat(this.addParam.coveredArea) !== 0) {
+                //     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.coveredArea)) {
+                //         alert('占地面积只能是整数或者1-2位小数的正实数')
+                //         return;
+                //     }
+                // }
+
+
+                // if (this.addParam.specialOffer != null && this.addParam.specialOffer !== '' && parseInt(this.addParam.specialOffer) !== 0) {
+                //     if (!(/^([0-9]*$)$/).test(this.addParam.specialOffer)) {
+                //         alert('特价值只能是整数')
+                //         return;
+                //     }
+                // }
+
+                // if (this.addParam.hotSearch != null && this.addParam.hotSearch !== '' && parseInt(this.addParam.hotSearch) !== 0) {
+                //     if (!(/^([0-9]*$)$/).test(this.addParam.hotSearch)) {
+                //         alert('热搜值只能是整数')
+                //         return;
+                //     }
+                // }
+
+
+                alert(123)
+                return;
                 this.loading = true
                 this.btnName = '提交中...'
 

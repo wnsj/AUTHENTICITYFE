@@ -577,6 +577,44 @@
                 });
             },
             certainAction() {
+                if (this.storeParam.suitable.length == 0) {
+                    alert('业态必选')
+                    return
+                }
+
+                if (this.isBlank(this.storeParam.stId)) {
+                    alert('类别必选')
+                    return
+                }
+
+                if (this.isBlank(this.storeParam.isEat)) {
+                    alert('餐饮必选')
+                    return
+                }
+
+                if (this.isBlank(this.storeParam.isUse)) {
+                    alert('空置必选')
+                    return
+                }
+                if (this.isBlank(this.storeParam.minLeaseTerm)) {
+                    alert('最短租期必填')
+                    return
+                }
+                if (this.isBlank(this.storeParam.area)) {
+                    alert('面积信息必填')
+                    return
+                }
+
+                if (this.storeParam.properInfo.length == 0) {
+                    alert('物业信息必选')
+                    return
+                }
+
+                if (this.isBlank(this.storeParam.produce)) {
+                    alert('网点介绍必填')
+                    return
+                }
+                
                 this.loading = true
                 this.btnName = '提交中...'
 

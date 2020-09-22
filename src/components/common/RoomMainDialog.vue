@@ -761,24 +761,14 @@
                 }
 
                 if (this.isBlank(this.addParam.longitude) || this.addParam.longitude == 0) {
-                    alert('经度必填，且只能填正数，最多保留2位小数')
+                    alert('经度必填，且不能为0')
                     return
-                } else {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.longitude)) {
-                        alert('经度必填，且只能填正数，最多保留2位小数')
-                        return;
-                    }
-                }
+                } 
 
                 if (this.isBlank(this.addParam.latitude) || this.addParam.latitude == 0) {
-                    alert('纬度必填，且只能填正数，最多保留2位小数')
+                    alert('纬度必填，且不能为0')
                     return
-                } else {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.latitude)) {
-                        alert('纬度必填，且只能填正数，最多保留2位小数')
-                        return;
-                    }
-                }
+                } 
 
                 if (this.isBlank(this.addParam.areaInfo)) {
                     alert('面积信息必填')
