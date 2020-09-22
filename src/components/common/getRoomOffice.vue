@@ -31,7 +31,7 @@
                         'Access-Token': this.accessToken
                     },
                     data: {
-                       
+
                     },
                     //dataType: 'json',
                 }).then((response) => {
@@ -55,10 +55,10 @@
                 this.locationTypeChange()
             },
             roomIdChange: function() {
-                
+
                 for (var i = 0; i < this.ldtList.length; i++) {
                    // console.log(this.roomId)
-                    if(this.roomId === '0'){
+                    if(this.roomId === ''){
                         this.$emit('roomIdChange', null)
                         //console.log(this.roomId)
                         return
@@ -67,7 +67,7 @@
                         if (this.ldtList[i].id === this.roomId) {
                             //console.log(this.roomId)
                             this.$emit('roomIdChange', this.ldtList[i].id)
-                            
+
                             return
                         }
                     }
