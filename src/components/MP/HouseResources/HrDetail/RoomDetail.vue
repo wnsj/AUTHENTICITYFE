@@ -590,7 +590,7 @@ export default {
         this.roomParam.usageRate !== "" &&
         parseInt(this.roomParam.usageRate) !== 0
       ) {
-        if (!/^([0-100]*$)$/.test(this.roomParam.usageRate)) {
+        if (!/^([0-9]*$)$/.test(this.roomParam.usageRate)) {
           alert("使用率只能是整数");
           return;
         }
