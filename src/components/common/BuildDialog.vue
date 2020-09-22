@@ -230,22 +230,23 @@
                             <input type="text" class="form-control " v-model="addParam.floorHeight" placeholder=""/>
                         </div>
                     </div>
-
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">客梯数</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">楼盘地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input class="form-control " v-model="addParam.elevatorNum" placeholder=""/>
+                            <textarea class="form-control wdType02" style="resize:none" placeholder=""
+                                      v-model="addParam.adress"/>
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">周边</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input class="form-control " v-model="addParam.periphery" placeholder=""/>
-                        </div>
-                    </div>
+
+<!--                    <div class="col-md-6 form-group clearfix">-->
+<!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                               style="padding:0;line-height:34px;">周边</label><span class="sign-left">:</span>-->
+<!--                        <div class="col-md-8">-->
+<!--                            <input class="form-control " v-model="addParam.periphery" placeholder=""/>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
 
                     <div class="col-md-6 form-group clearfix">
@@ -258,10 +259,9 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">楼盘地址</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">客梯数</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <textarea class="form-control wdType02" style="resize:none" placeholder=""
-                                      v-model="addParam.adress"/>
+                            <input class="form-control " v-model="addParam.elevatorNum" placeholder=""/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -806,12 +806,12 @@
                 if (this.isBlank(this.addParam.longitude) || this.addParam.longitude == 0) {
                     alert('经度必填，且不能为0')
                     return
-                } 
+                }
 
                 if (this.isBlank(this.addParam.latitude) || this.addParam.latitude == 0) {
                     alert('纬度必填，且不能为0')
                     return
-                } 
+                }
 
                 if (this.isBlank(this.addParam.floorage) || this.addParam.floorage == 0) {
                     alert('建筑面积必填，且只能填正数，最多保留2位小数')
