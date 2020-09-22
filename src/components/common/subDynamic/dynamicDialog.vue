@@ -9,9 +9,10 @@
                 <div class="dialogInutBox clearfix">
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">标题</label><span class="sign-left">:</span>
-                        <div class="col-md-9">
-                            <textarea type="text" class="form-control" v-model="addParam.bdName" style="height:100px"></textarea>
+                               style="padding:0;line-height:34px;width: 12%;">标题</label><span class="sign-left">:</span>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" v-model="addParam.bdName">
+                            <!-- <textarea type="text" class="form-control" v-model="addParam.bdName" style="height:100px"></textarea> -->
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -100,23 +101,14 @@
             return {
                 addParam: {
                     bdName:'',  //资讯名称
-
                     bdContent:'',  // 动态内容
-
                     bdLabel:'',   // 描述
-
                     buildId:'',    // 资讯类型id
                     mtId:'',
-
-
-
                 },
-                 bdPath:'',     // 图片路径
-
-                headImgList:
-                    [],
-                headImgFileList:
-                    [],
+                bdPath:'',     // 图片路径
+                headImgList: [],
+                headImgFileList: [],
                 title: '',
                 isDisable:false,
                 imgData: {
@@ -125,13 +117,14 @@
             };
         },
         methods: {
-             fathermtIReceive(data) {
-                this.addParam.mtId = ''
-                if (null != data) {
-                    this.addParam.mtId = data
-                }
-                //this.$refs.mtIRef.setmtId(data)
-            },
+            //  fathermtIReceive(data) {
+            //      console.log(data)
+            //     this.addParam.mtId = ''
+            //     if (null != data) {
+            //         this.addParam.mtId = data
+            //     }
+            //     //this.$refs.mtIRef.setmtId(data)
+            // },
             // Initialization projcet’s content
             initDyRef(param, addParam) {
                 this.headImgList = []
@@ -142,17 +135,13 @@
                     // this.$refs.rn.setData('')
                    // this.$refs.buildRef.setBuildingId("")
                    this.$refs.sn.setData('')
-                    this.title = '新增'
-                    this.addParam = {
-                        bdName:'',  //资讯名称
-
-                    bdContent:'',  // 动态内容
-
-                    bdLabel:'',   // 描述
-
-                    buildId:'',    // 资讯类型id
-                    mtId:'',
-
+                   this.title = '新增'
+                   this.addParam = {
+                        bdName:'',      // 资讯名称
+                        bdContent:'',   // 动态内容
+                        bdLabel:'',     // 描述
+                        buildId:'',     // 资讯类型id
+                        mtId:''
                     }
 
                 } else if (param === 'modify') {
@@ -172,6 +161,7 @@
             },
 
             fathermtIReceive(data) {
+                console.log(data)
                 this.addParam.buildId = ''
                 if (null !== data) {
                     this.addParam.buildId = data
@@ -194,11 +184,30 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
+
+                if (this.isBlank(this.addParam.bdName)) {
+                    alert('标题必填')
+                    return
+                }
+                if (this.isBlank(this.addParam.buildId)) {
+                    alert('资讯类别必选')
+                    return
+                }
+                if (this.isBlank(this.addParam.bdLabel)) {
+                    alert('资讯描述必填')
+                    return
+                }
+                
+                this.addParam.bdContent = this.$refs.sn.getData()
+                if (this.isBlank(this.addParam.bdContent)) {
+                    alert('资讯内容必填')
+                    return
+                }
+
                 // this.addParam.bdContent = this.$refs.rn.getData()
 //                 const fd = new FormData();
-//
 //                 fd.append("param", JSON.stringify(this.addParam));
-                 this.addParam.bdContent = this.$refs.sn.getData()
+
                 const fd = new FormData();
                 // 头图
                 for (let i = 0; i < this.headImgFileList.length; i++) {

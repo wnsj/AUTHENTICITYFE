@@ -22,6 +22,26 @@
                             <input type="text" class="form-control" v-model="addParam.roomCode" placeholder="房源编号必填">
                         </div>
                     </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">房源类型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()">
+                    		<option value="0">--未选择--</option>
+                    		<option value="1">--写字楼--</option>
+                    		<option value="2">--共享办公--</option>
+                    		<option value="3">--商铺--</option>
+                    	</select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <bt @btChange='fatherBtReceive' ref="btRef"></bt>
+                        </div>
+                    </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -104,7 +124,7 @@
                                style="padding:0;line-height:34px;">单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.unitPrice"
-                                   placeholder="数值,可填:30.002"><span class="pos-ab pos-tr">万元</span>
+                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">万元</span>
                         </div>
                     </div>
 
@@ -113,7 +133,7 @@
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.totalPrice"
-                                   placeholder="数值,可填:30.002"><span class="pos-ab pos-tr">万元</span>
+                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">万元</span>
                         </div>
                     </div>
 
@@ -179,7 +199,7 @@
                                style="padding:0;line-height:34px;">楼盘经度</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.longitude"
-                                   placeholder="数值,可填:30.002">
+                                   placeholder="数值,可填:30.02">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -187,7 +207,7 @@
                                style="padding:0;line-height:34px;">楼盘纬度</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.latitude"
-                                   placeholder="数值,可填:30.002">
+                                   placeholder="数值,可填:30.02">
                         </div>
                     </div>
 
@@ -199,28 +219,6 @@
                                    placeholder="数值,可填:1"><span class="pos-ab pos-tr">㎡</span>
                         </div>
                     </div> -->
-                    
-
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">房源类型</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()">
-							<option value="0">--未选择--</option>
-							<option value="1">--写字楼--</option>
-							<option value="2">--共享办公--</option>
-							<option value="3">--商铺--</option>
-						</select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <bt @btChange='fatherBtReceive' ref="btRef"></bt>
-                        </div>
-                    </div>
 
                     <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -229,7 +227,7 @@
                             <storeType @stChange='fatherStReceive' ref="stRef"></storeType>
                         </div>
                     </div> -->
-                    
+
                     <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">特色标签</label><span class="sign-left">:</span>
@@ -259,7 +257,7 @@
                                style="padding:0;line-height:34px;">转让费</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.transferFee"
-                                   placeholder="数值,可填:30.002"><span class="pos-ab pos-tr">万元</span>
+                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">万元</span>
                         </div>
                     </div>
 
@@ -270,15 +268,6 @@
                             <input type="text" class="form-control" v-model="addParam.payType">
                         </div>
                     </div>
-
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">网点介绍</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.produce">
-                        </div>
-                    </div>
-
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">是否在租</label><span class="sign-left">:</span>
@@ -290,8 +279,15 @@
                             </select>
                         </div>
                     </div>
-                    
-                    
+
+                     <div class="col-md-12 form-group clearfix">
+                         <label class="col-md-2 control-label text-right nopad end-aline"
+                                style="padding:0;line-height:34px;width: 12%;">网点介绍</label><span class="sign-left">:</span>
+                         <div class="col-md-10">
+                             <textarea type="text" class="form-control" style="width: 100%;min-height: 100px;" v-model="addParam.produce"></textarea>
+                         </div>
+                     </div>
+
                 </div>
 
                 <div class="dialogBtnBox form-group clearfix">
@@ -368,7 +364,7 @@
             // Region,
             // Metros,
             PlayAV,
-            
+
         },
         data() {
             return {
@@ -465,7 +461,7 @@
 
                     // 特点list集合
                     chaList: '',
-                   
+
                 },
                 title: '',
                 buildRealImgList:
@@ -513,7 +509,7 @@
 
                     this.roomType = '0'
                     this.$refs.buildCompentRef.setBuildingList([])
-                    
+
                     // this.$refs.proRef.setProId('0')
                     this.addParam = {
                     // 房源名称
@@ -634,7 +630,7 @@
                     this.$refs.buRef.setBuId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
                     this.roomType = addParam.roomType
-                    
+
                     // this.$refs.stRef.setStId(addParam.stId)
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
@@ -658,33 +654,154 @@
 
 
             certainAction() {
-                
+
                 if (this.isBlank(this.addParam.room)) {
                     alert('房源名不能为空')
                     return
                 }
 
-                if (this.isBlank(this.addParam.roomCode)) {
-                    alert('房源编号不能为空')
+                if (this.isBlank(this.addParam.roomType)) {
+                    alert('房源类型必选')
                     return
                 }
 
-                if (this.addParam.unitPrice != null && this.addParam.unitPrice !== '' && parseFloat(this.addParam.unitPrice) !== 0) {
+                if (this.isBlank(this.addParam.btId)) {
+                    alert('类型必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.ldId)) {
+                    alert('区域必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.businessId)) {
+                    alert('商圈必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.buildId)) {
+                    alert('楼盘必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.isRegister)) {
+                    alert('是否可注册必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.isHome)) {
+                    alert('是否首页共享必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.isHot)) {
+                    alert('是否热销必选')
+                    return
+                }
+
+
+                if (this.isBlank(this.addParam.unitPrice) || this.addParam.unitPrice == 0) {
+                    alert('单价必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.unitPrice)) {
-                        alert('总价只能是整数或者1-2位小数的正实数')
+                        alert('单价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
 
-                if (this.addParam.totalPrice != null && this.addParam.totalPrice !== '' && parseFloat(this.addParam.totalPrice) !== 0) {
+                if (this.isBlank(this.addParam.totalPrice) || this.addParam.totalPrice == 0) {
+                    alert('总价必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.totalPrice)) {
-                        alert('单价只能是整数或者1-2位小数的正实数')
+                        alert('总价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
 
+                if (this.isBlank(this.addParam.buildArea) || this.addParam.buildArea == 0) {
+                    alert('建筑面积必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.buildArea)) {
+                        alert('建筑面积必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+                if (this.isBlank(this.addParam.detailedAddress)) {
+                    alert('详细地址必填')
+                    return
+                }
 
-                if (this.isBlank(this.addParam.longitude)) {
+                if (this.isBlank(this.addParam.stationAddress)) {
+                    alert('地铁地址必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.couId)) {
+                    alert('咨询师必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.renovationCondition)) {
+                    alert('装修情况必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.surround)) {
+                    alert('距地铁必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.labelList)) {
+                    alert('标签集合必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.longitude) || this.addParam.longitude == 0) {
+                    alert('经度必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.longitude)) {
+                        alert('经度必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+
+                if (this.isBlank(this.addParam.latitude) || this.addParam.latitude == 0) {
+                    alert('纬度必填，且只能填正数，最多保留2位小数')
+                    return
+                } else {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.latitude)) {
+                        alert('纬度必填，且只能填正数，最多保留2位小数')
+                        return;
+                    }
+                }
+
+                if (this.isBlank(this.addParam.areaInfo)) {
+                    alert('面积信息必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.payType)) {
+                    alert('支付方式必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.isRent)) {
+                    alert('是否在租必选')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.produce)) {
+                    alert('网点介绍必填')
+                    return
+                }
+
+
+                /*if (this.isBlank(this.addParam.longitude)) {
                     alert('经度不能为空或0')
                     return
                 }
@@ -693,6 +810,22 @@
                     return
                 }
 
+                if (this.addParam.unitPrice !== null && this.addParam.unitPrice !== '' && parseFloat(this.addParam.unitPrice) !== 0) {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.unitPrice)) {
+                        alert('单价只能是整数或者1-2位小数的正实数')
+                        return;
+                    }
+                }
+
+                if (this.addParam.totalPrice !== null && this.addParam.totalPrice !== '' && parseFloat(this.addParam.totalPrice) !== 0) {
+                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.totalPrice)) {
+                        alert('总价只能是整数或者1-2位小数的正实数')
+                        return;
+                    }
+                }
+
+
+
                 if (this.addParam.transferFee != null && this.addParam.transferFee !== '' && parseFloat(this.addParam.transferFee) !== 0) {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.transferFee)) {
                         alert('转让费只能是整数或者1-2位小数的正实数')
@@ -700,24 +833,24 @@
                     }
                 }
 
-                // if (this.addParam.specialOffer != null && this.addParam.specialOffer !== '' && parseInt(this.addParam.specialOffer) !== 0) {
-                //     if (!(/^([0-9]*$)$/).test(this.addParam.specialOffer)) {
-                //         alert('特价值只能是整数')
-                //         return;
-                //     }
-                // }
+                if (this.addParam.specialOffer != null && this.addParam.specialOffer !== '' && parseInt(this.addParam.specialOffer) !== 0) {
+                    if (!(/^([0-9]*$)$/).test(this.addParam.specialOffer)) {
+                        alert('特价值只能是整数')
+                        return;
+                    }
+                }
 
 
-                // if (parseFloat(this.addParam.minArea) > parseFloat(this.addParam.maxArea)) {
-                //     alert('最大面积不能小于最小面积')
-                //     return;
-                // }
-                // if (!this.isBlank(this.addParam.tel)) {
-                //     if (!((/^((1[345678]\d{9})|(\d{2,3}\d{7,8})|(\d{2,3}-\d{7,8}))$/).test(this.addParam.tel))) {
-                //         alert('请输入正确的联系方式')
-                //         return;
-                //     }
-                // }
+                if (parseFloat(this.addParam.minArea) > parseFloat(this.addParam.maxArea)) {
+                    alert('最大面积不能小于最小面积')
+                    return;
+                }
+                if (!this.isBlank(this.addParam.tel)) {
+                    if (!((/^((1[345678]\d{9})|(\d{2,3}\d{7,8})|(\d{2,3}-\d{7,8}))$/).test(this.addParam.tel))) {
+                        alert('请输入正确的联系方式')
+                        return;
+                    }
+                }*/
 
 
                 this.loading = true
@@ -727,7 +860,7 @@
                 // for (let i = 0; i < this.buildRealImgFileList.length; i++) {
                 //     fd.append("buildRealImg", this.buildRealImgFileList[i]);
                 // }
-        
+
 
                 // // 头图
                 // for (let i = 0; i < this.headImgFileList.length; i++) {
@@ -844,11 +977,11 @@
 			},
 
             fatherLdtReceive(data) {
-                
+
                 this.addParam.ldId = ''
                 if (null != data) {
                     this.addParam.ldId = data
-                    
+
                 }
                 this.$refs.buRef.setLdId(data)
             },
@@ -1033,7 +1166,7 @@
                     this.$refs.btRef.setType(this.roomType)
                     // this.$refs.stRef.setType(this.roomType)
 				}
-				
+
             },
 
         },
