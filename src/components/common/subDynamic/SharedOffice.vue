@@ -108,13 +108,13 @@
                         <label class="col-md-2 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">视频</label><span class="sign-left">:</span>
                         <div class="col-md-9">
-                            <input type="file" id="video" @change="videoChange" 
+                            <input type="file" id="video" @change="videoChange"
                             />
                             <div id="playAvOutDiv" v-if="playAvOutDivFlag">
                                 <!--                                <PlayAV ref="playRef"></PlayAV>-->
                                 <label class="col-md-3 control-label text-right nopad end-aline"
                                        style="padding:0;line-height:34px;">{{this.videoName}}</label>
-                                       
+
                             </div>
                         </div>
                     </div>
@@ -232,6 +232,7 @@
                 this.buildRealImgFileList = []
                 this.$refs.btRef.setType(2)
                 this.$refs.btRef.setBtId('0')
+                this.$refs.rmtRef.setroomId('')
                 // $("#headImg").val("");
                 // ("#buildRealImg").val("");
                 // $("#video").val("");
@@ -264,7 +265,7 @@
                         en.push(this.url + addParam.bdPath)
                         this.headImgList = en
                     }
-                    
+
                     this.title = '修改';
                     if (this.isBlank(addParam.videoName)) {
                         this.playAvOutDivFlag = false
@@ -274,7 +275,7 @@
                         // this.$refs.playRef.initData(this.url + addParam.videoPath)
                     }
 
-                  
+
                     //头图
 
                     this.title = '修改';
@@ -296,7 +297,7 @@
                      this.$refs.rmtRef.setroomId(addParam.roomId)
                     this.$refs.btRef.setBtId(addParam.officeType)
                     Object.assign(this.addParam, addParam)
-                   
+
                 }
             },
 
@@ -474,7 +475,7 @@
                 if (this.isBlank(str)) return;
 
                 var id = '';
-                
+
                 id = parseInt(str)
                 //console.log(id)
                 this.$ajax({
@@ -490,7 +491,7 @@
                 }).catch((error) => {
                     console.log('共享办公信息提交失败')
                 });
-                
+
 
             if (type === 3) {
                     this.buildRealImgList.splice(index, 1)
@@ -502,7 +503,7 @@
 
 
             }
-            
+
 
         },
         computed: {
