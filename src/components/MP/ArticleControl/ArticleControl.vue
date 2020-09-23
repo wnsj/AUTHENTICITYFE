@@ -19,14 +19,13 @@
                         <option value=5>企业文化</option>
                         <option value=6>联系我们</option>
                         <option value=7>服务声明</option>
-                        <option value=8>楼盘合作</option>
                     </select>
                 </div>
             </div>
 
 
-<!--             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"-->
-<!--                    v-on:click="selectRule('1')">添加</button>-->
+             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+                    v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
                     v-on:click="queryData(1)">查询
