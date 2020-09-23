@@ -64,5 +64,5 @@
 </script>
 
 <style scoped>
-
+.el-select__tags{ max-width: fit-content !important;}
 </style>

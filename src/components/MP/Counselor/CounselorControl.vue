@@ -6,10 +6,10 @@
         <div class="row newRow" style="margin-top: 1%">
             <!--咨询师-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
-                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; padding-left:20px;">咨询师：</p>
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-12 col-lg-12" style="padding-right:5px; padding-left:20px;">咨询师：</p>
                 </div>
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding: 0; width:40%">
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                     <cou @couChange="fatherCou" ref="couRef"></cou>
                 </div>
             </div>
@@ -31,7 +31,11 @@
                             <th class="text-center">咨询师</th>
                             <th class="text-center">毕业院校</th>
                             <th class="text-center">特长</th>
-                            <th class="text-center">标签</th>
+
+                            
+
+<!--                            <th class="text-center">标签</th>-->
+
                             <th class="text-center">联系方式</th>
                             <!-- <th class="text-center">自我介绍</th> -->
                         </tr>
@@ -41,7 +45,11 @@
                             <td class="text-center">{{item.couName}}</td>
                             <td class="text-center">{{item.graduate}}</td>
                             <td class="text-center">{{item.charaName}}</td>
+                           
+
+<!--                            <td class="text-center">{{item.charaName}}</td>-->
                             <td class="text-center">{{item.couLabel}}</td>
+
                             <td class="text-center">{{item.tel}}</td>
                             <!-- <td class="text-center">{{item.introduce}}</td> -->
                         </tr>
@@ -162,6 +170,5 @@
 </script>
 
 <style scoped>
-.textcenter{ text-align: center;
- text-align-last: center; padding:0}
+
 </style>

@@ -4,7 +4,7 @@
             <h1 class="titleCss">楼盘管理</h1>
         </div> -->
 		<div class="row newRow" style="margin-top: 1%;">
-			
+
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
 						<p class="end-aline col-md-12 col-lg-12 textcenter">类型：</p>
@@ -60,7 +60,7 @@
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 					<buildCompent @buildChange='fatherbuildCompentReceive' ref="buildCompent"></buildCompent>
 				</div>
-			</div>	
+			</div>
 
 		</div>
 
@@ -75,15 +75,15 @@
 				</div>
 			</div>
 
-			
+
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding: 0; line-height: 30px;">
 					<p class="end-aline col-md-12 col-lg-12 textcenter">时间：</p>
 				</div>
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9"  style="padding:0">
-					<datePicker v-model="openTime" type="date" value-type="format" range style="width:250px"></datePicker>
+					<datePicker v-model="openTime" type="date" value-type="format" range style="width:250px" id="datedate"></datePicker>
 				</div>
-			
+
 			</div>
 
 			<button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
@@ -110,12 +110,12 @@
 								<th class="text-center">单价</th>
 								<th class="text-center">总价</th>
 								<th class="text-center">创建时间</th>
-								<th class="text-center">编辑详情</th>
+								<th class="text-center">操作</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
-								<td class="text-center" style="line-height:33px;">{{item.room}}</td>
+								<td class="text-left" style="line-height:33px;">{{item.room}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
 								<!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
 								<td class="text-center" style="line-height:33px;">{{item.bussinessName}}</td>
@@ -130,9 +130,18 @@
 								<td class="text-center" style="line-height:33px;">{{item.totalPrice}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
 								<td class="text-center" style="line-height:33px;">
-									<button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+									<button type="button" class="btn btn-primary m_r_10" style="margin-right:1.5%;" data-toggle="modal"
 									 v-on:click="addDetail(item)">编辑详情
 									</button>
+
+                                    <button type="button" class="btn btn-danger pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+                                            v-on:click="offOrOnTheShelf(item,3)">删除
+                                    </button>
+
+                                    <button type="button" :class="item.flag == 1 ? 'btn btn-primary': 'btn btn-warning' "
+                                            data-toggle="modal"
+                                            v-on:click="offOrOnTheShelf(item,null)">{{item.flag == 2 ? '上架':'下架'}}
+                                    </button>
 								</td>
 							</tr>
 						</tbody>
@@ -378,8 +387,57 @@
 				this.regionId = ''
 				this.regionId = data
 			},
+            offOrOnTheShelf(item,param) {
+                var flag = null;
+                if (param == null) {
+                    if (item.flag === 1) {
+                        flag = 2
+                    } else if (item.flag === 2) {
+                        flag = 1
+                    } else {
+                        flag = item.flag
+                    }
+                } else {
+                    flag = 3
+                }
+
+                if (flag === 2) {
+                    if (!confirm("确定下架"+ item.room + "?")) {
+                        return;
+                    }
+                }
+
+                if (flag === 3) {
+                    if (!confirm("确定删除"+ item.room + "?")) {
+                        return;
+                    }
+                }
+
+                var url = this.url + '/roomMainBean/offOrOnTheShelf'
+
+                this.$ajax({
+                    method: 'POST',
+                    url: url,
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {
+                        id: item.id,
+                        roomType: item.roomType,
+                        flag: flag
+                    },
+                    dataType: 'json',
+                }).then((response) => {
+                    var res = response.data
+                    alert(res.retMsg)
+                    this.queryData(this.current)
+                }).catch((error) => {
+                    console.log('数据请求失败处理')
+                });
+            },
 			async queryData(page) {
-				var url = this.url + '/roomMainBean/getRoomByConditions'
+				var url = this.url + '/roomMainBean/getRoomByConditionsBe'
 				this.$ajax({
 					method: 'POST',
 					url: url,
@@ -474,5 +532,7 @@
 
 <style>
 .textcenter{ text-align: center;
-    text-align-last: center; padding:0}
+	text-align-last: center; padding:0}
+	#datedate input{ height: 30px;}
+	.el-input__inner{    border: 1px solid #ccc; }
 </style>

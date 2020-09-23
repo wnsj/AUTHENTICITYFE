@@ -13,7 +13,7 @@
                     <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI>
                 </div>
             </div>
-            
+
             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
@@ -32,14 +32,22 @@
                             <th class="text-center">资讯标题</th>
                             <th class="text-center">资讯描述</th>
                             <th class="text-center">发布时间</th>
+                            <th class="text-center">操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center">{{item.typeName}}</td>
-                            <td class="text-center">{{item.bdName}}</td>
+                            <td class="text-center" style="width:10%">{{item.typeName}}</td>
+                            <td class="text-center" style="width:15%">{{item.bdName}}</td>
                             <td class="text-center">{{item.bdLabel}}</td>
+
+                            <td class="text-center"  style="width:10%">{{item.createTime}}</td>
+
                             <td class="text-center">{{item.createTime}}</td>
+                            <td class="text-center"><button type="button" class="btn btn-danger pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+                                                            v-on:click="deleteDynamicById(item)">删除
+                            </button></td>
+
                         </tr>
                         </tbody>
                     </table>
@@ -66,7 +74,7 @@
     import dynamicDialog from '../../common/subDynamic/dynamicDialog.vue'
     import paging from '../../common/Paging.vue'
     import Building from '../../common/Building.vue'
-   
+
 
     import mtI from '../../common/InformationType.vue'
 
@@ -77,7 +85,7 @@
             Building,
             dynamicDialog,
             mtI,
-           
+
         },
         name: 'BuildingDynamic',
         data() {
@@ -100,7 +108,7 @@
                 }
                // this.$refs.mtIRef.setmtId(data)
             },
-          
+
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
@@ -138,6 +146,36 @@
                     console.log('数据请求失败处理')
                 });
             },
+
+            deleteDynamicById(item) {
+                if (!confirm("确定删除"+ item.bdName + "?")) {
+                    return;
+                }
+                var url = this.url + '/buildingDynamicBean/deleteDynamicById'
+                this.$ajax({
+                    method: 'POST',
+                    url: url,
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: {
+                        bdId: item.bdId,
+                    },
+                    dataType: 'json',
+                }).then((response) => {
+                    var res = response.data
+                    if (res.retCode === '0000') {
+                        alert(res.retMsg)
+                        this.couQueryData(this.current)
+                    } else {
+                        alert(res.retMsg)
+                    }
+                }).catch((error) => {
+                    console.log('数据请求失败处理')
+                });
+            },
+
             selectRule(param, item) {
                 if (param === "1") {
                     this.$refs.dyDialog.initDyRef('add')

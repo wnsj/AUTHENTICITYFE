@@ -26,32 +26,13 @@
         <div class="" style="padding-top: 30px;">
             <div class="col-md-12 col-lg-12">
                 <div class="table-responsive table-bg">
-                    <!--<table class="table table-bordered table-hover" id="datatable">
-                        <thead class="datathead">
-                        <tr>
-                            <th class="text-center">所属区域</th>
-                            <th class="text-center">商圈名称</th>
-                            <th class="text-center">是否热门</th>
-                            <th class="text-center">商圈描述</th>
-                            <th class="text-center">创建时间</th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="width:10%">{{item.ldName}}</td>
-                            <td class="text-center" style="width:10%">{{item.buName}}</td>
-                            <td class="text-center" style="width:10%">{{item.isHotName}}</td>
-                            <td class="text-center" style="">{{item.buLabel}}</td>
-                            <td class="text-center" style="width:10%">{{item.createTime}}</td>
-                        </tr>
-                        </tbody>
-                    </table>-->
+                    
                     <el-table
                         :data="couData"
                         :cell-style="cellStyle"
                         :header-cell-style="headerStyle"
-                        max-height="530"
+                        :row-style="{height:'30px'}"
+                        max-height="450"
                         @row-dblclick="tableDb"
                         style="width: 99%;margin-left:0.5%;"
                         border>
@@ -60,32 +41,37 @@
                             prop="ldName"
                             label="所属区域"
                             fixed="left"
-                            min-width="100">
+                            min-width="80"
+                           >
                         </el-table-column>
                         <el-table-column
                             align="center"
                             prop="buName"
                             label="商圈名称"
-                            min-width="100">
+                            min-width="80"
+                           >
                         </el-table-column>
                         <el-table-column
                             align="center"
                             prop="isHotName"
                             label="是否热门"
-                            min-width="100">
+                            min-width="60"
+                           >
                         </el-table-column>
                         <el-table-column
                             align="center"
                             prop="buLabel"
                             :show-overflow-tooltip="true"
                             label="商圈描述"
-                            min-width="100">
+                            min-width="180"
+                           >
                         </el-table-column>
                         <el-table-column
                             align="center"
                             prop="createTime"
                             label="创建时间"
-                            min-width="100">
+                            min-width="100"
+                           >
                         </el-table-column>
                     </el-table>
                 </div>
@@ -96,6 +82,7 @@
                         </div>
                     </div>
                 </div>
+                <br/>
                 <!--分页插件-->
                 <div class="page">
                     <!--这里时通过props传值到子级，并有一个回调change的函数，来获取自己传值到父级的值-->
@@ -219,4 +206,5 @@
 <style scoped>
 .textcenter{ text-align: center;
  text-align-last: center; padding:0}
+ .el-table td{ padding: 6px 0 !important;}
 </style>

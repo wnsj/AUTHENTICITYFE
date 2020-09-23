@@ -4,19 +4,17 @@
             <h1 class="titleCss">电话回拨管理</h1>
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
-
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+ 
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding-right:0">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
                     <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; padding-left:20px;">联系电话：</p>
                 </div>
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding:0">
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="padding:0">
                     <input type="text" class="form-control" v-model="phone"/>
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
-                    data-toggle="modal"
-                    v-on:click="couQueryData(1)">查询
+            <button type="button" class="btn btn-primary pull-left m_r_10" data-toggle="modal" style="height:30px; line-height:18px" v-on:click="couQueryData(1)">查询
             </button>
         </div>
 
