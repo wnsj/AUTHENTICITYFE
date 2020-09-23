@@ -14,7 +14,7 @@
                     <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
                 </div>
             </div>
-            
+
              <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
@@ -27,7 +27,7 @@
         <div class="" style="padding-top: 30px;">
             <div class="col-md-12 col-lg-12">
                 <div class="table-responsive table-bg">
-                    <table class="table table-bordered table-hover" id="datatable">
+                    <!--<table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
                             <th class="text-center">所属区域</th>
@@ -35,7 +35,7 @@
                             <th class="text-center">是否热门</th>
                             <th class="text-center">商圈描述</th>
                             <th class="text-center">创建时间</th>
-                           
+
                         </tr>
                         </thead>
                         <tbody>
@@ -47,7 +47,48 @@
                             <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
                         </tr>
                         </tbody>
-                    </table>
+                    </table>-->
+                    <el-table
+                        :data="couData"
+                        :cell-style="cellStyle"
+                        :header-cell-style="headerStyle"
+                        max-height="530"
+                        @row-dblclick="tableDb"
+                        style="width: 99%;margin-left:0.5%;"
+                        border>
+                        <el-table-column
+                            align="center"
+                            prop="ldName"
+                            label="所属区域"
+                            fixed="left"
+                            min-width="100">
+                        </el-table-column>
+                        <el-table-column
+                            align="center"
+                            prop="buName"
+                            label="商圈名称"
+                            min-width="100">
+                        </el-table-column>
+                        <el-table-column
+                            align="center"
+                            prop="isHotName"
+                            label="是否热门"
+                            min-width="100">
+                        </el-table-column>
+                        <el-table-column
+                            align="center"
+                            prop="buLabel"
+                            :show-overflow-tooltip="true"
+                            label="商圈描述"
+                            min-width="100">
+                        </el-table-column>
+                        <el-table-column
+                            align="center"
+                            prop="createTime"
+                            label="创建时间"
+                            min-width="100">
+                        </el-table-column>
+                    </el-table>
                 </div>
                 <div class="row row_edit">
                     <div class="modal fade" id="couDialog">
@@ -72,7 +113,7 @@
     import paging from '../../common/Paging.vue'
     import couDialog from '../../common/subCou/busicou.vue'
     import ldt from '../../common/LocationDType.vue'
-   
+
     var that = null
     export default {
         components: {
@@ -80,7 +121,7 @@
             cou,
             paging,
             couDialog,
-            
+
             ldt,
         },
         name: 'CounselorControl',
@@ -98,7 +139,7 @@
             };
         },
         methods:{
-         
+
             fatherLdtReceive(data) {
                 this.ldId = ''
                 if (null != data) {
@@ -106,9 +147,16 @@
                 }
                 this.$refs.ldtRef.setLdId(data)
             },
-            
-              
-            
+
+            // 表格表头样式
+            headerStyle() {
+                return 'text-align: center;color: black;'
+            },
+            // 表格样式
+            cellStyle() {
+                return 'text-align: center;'
+            },
+
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
@@ -153,6 +201,10 @@
                     this.$refs.couDialog.initData('modify', item)
                     $("#couDialog").modal('show')
                 }
+            },
+            tableDb(row,column) {
+                this.$refs.couDialog.initData('modify', row)
+                $("#couDialog").modal('show')
             },
             feedBack() {
                 this.couQueryData(1)
