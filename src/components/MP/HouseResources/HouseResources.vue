@@ -81,7 +81,7 @@
 					<p class="end-aline col-md-12 col-lg-12 textcenter">时间：</p>
 				</div>
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9"  style="padding:0">
-					<datePicker v-model="openTime" type="date" value-type="format" range style="width:250px"></datePicker>
+					<datePicker v-model="openTime" type="date" value-type="format" range style="width:250px" id="datedate"></datePicker>
 				</div>
 			
 			</div>
@@ -115,7 +115,7 @@
 						</thead>
 						<tbody>
 							<tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
-								<td class="text-center" style="line-height:33px;">{{item.room}}</td>
+								<td class="text-left" style="line-height:33px;">{{item.room}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
 								<!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
 								<td class="text-center" style="line-height:33px;">{{item.bussinessName}}</td>
@@ -130,7 +130,7 @@
 								<td class="text-center" style="line-height:33px;">{{item.totalPrice}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
 								<td class="text-center" style="line-height:33px;">
-									<button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+									<button type="button" class="btn btn-primary m_r_10" style="margin-right:1.5%;" data-toggle="modal"
 									 v-on:click="addDetail(item)">编辑详情
 									</button>
 								</td>
@@ -474,5 +474,7 @@
 
 <style>
 .textcenter{ text-align: center;
-    text-align-last: center; padding:0}
+	text-align-last: center; padding:0}
+	#datedate input{ height: 30px;}
+	.el-input__inner{    border: 1px solid #ccc; }
 </style>

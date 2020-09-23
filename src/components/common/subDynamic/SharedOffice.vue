@@ -29,7 +29,7 @@
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">面积</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
+                        <div class="col-md-7" style="padding-right:0">
                             <input type="text" class="form-control " v-model="addParam.area" placeholder="必填"/>
                         </div>
                         <div style="padding:0;line-height:30px;">M²</div>

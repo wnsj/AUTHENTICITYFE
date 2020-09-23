@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+            <button type="button" class="btn btn-primary pull-left m_r_10" style="margin-left:1.5%;height:30px; line-height:18px"
                     data-toggle="modal"
                     v-on:click="couQueryData(1)">查询
             </button>

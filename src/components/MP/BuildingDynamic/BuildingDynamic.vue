@@ -36,10 +36,10 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center">{{item.typeName}}</td>
-                            <td class="text-center">{{item.bdName}}</td>
+                            <td class="text-center" style="width:10%">{{item.typeName}}</td>
+                            <td class="text-center" style="width:15%">{{item.bdName}}</td>
                             <td class="text-center">{{item.bdLabel}}</td>
-                            <td class="text-center">{{item.createTime}}</td>
+                            <td class="text-center"  style="width:10%">{{item.createTime}}</td>
                         </tr>
                         </tbody>
                     </table>

@@ -6,7 +6,7 @@
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
-                <div class="dialogInutBox clearfix">
+                <div class="dialogInutBox clearfix" style="padding-top:15px">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">业态</label><span class="sign-left">:</span>
@@ -120,6 +120,20 @@
                             <input type="text" class="form-control" v-model="storeParam.storeInfo"/>
                         </div>
                     </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">视频</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="file" id="storeVideo" @change="videoChange"
+                            />
+                            <div id="playAvOutDiv" v-if="playAvOutDivFlag">
+                                <!--                                <PlayAV ref="playRef"></PlayAV>-->
+                                <label class="col-md-3 control-label text-right nopad end-aline"
+                                       style="padding:0;line-height:34px;">{{this.videoName}}</label>
+                            </div>
+                        </div>
+                    </div>
 
 
                     <div class="col-md-6 form-group clearfix">
@@ -154,21 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">视频</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="storeVideo" @change="videoChange"
-                            />
-                            <div id="playAvOutDiv" v-if="playAvOutDivFlag">
-                                <!--                                <PlayAV ref="playRef"></PlayAV>-->
-                                <label class="col-md-3 control-label text-right nopad end-aline"
-                                       style="padding:0;line-height:34px;">{{this.videoName}}</label>
-                            </div>
-                        </div>
-                    </div>
-
+                    
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
                             <label class="col-md-3 control-label text-right nopad end-aline"
