@@ -31,7 +31,11 @@
                             <th class="text-center">咨询师</th>
                             <th class="text-center">毕业院校</th>
                             <th class="text-center">特长</th>
+
                             
+
+<!--                            <th class="text-center">标签</th>-->
+
                             <th class="text-center">联系方式</th>
                             <!-- <th class="text-center">自我介绍</th> -->
                         </tr>
@@ -42,6 +46,10 @@
                             <td class="text-center">{{item.graduate}}</td>
                             <td class="text-center">{{item.charaName}}</td>
                            
+
+<!--                            <td class="text-center">{{item.charaName}}</td>-->
+                            <td class="text-center">{{item.couLabel}}</td>
+
                             <td class="text-center">{{item.tel}}</td>
                             <!-- <td class="text-center">{{item.introduce}}</td> -->
                         </tr>
