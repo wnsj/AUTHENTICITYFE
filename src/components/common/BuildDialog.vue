@@ -1021,9 +1021,6 @@
                 //     }
                 // }
 
-
-                alert(123)
-                return;
                 this.loading = true
                 this.btnName = '提交中...'
 

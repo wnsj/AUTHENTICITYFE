@@ -41,12 +41,15 @@
 			    this.buildId = buildId
             },
             setBuildingList: function(buildList) {
-                this.buildList = []
+                // this.buildList = []
                 this.buildId = ''
                 this.queryData()
 			},
 
             setBuildType(type) {
+                if(type == 3){
+                    type = 1
+                }
                 this.buildType = type
                 this.queryData()
             },
