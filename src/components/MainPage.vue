@@ -3,7 +3,7 @@
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 aside-logo">
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 con-cen" style="height:100%;">
 				<h2 class="pull-left">
-					<img style="width: 156px; height: 57px;" src="../assets/img/lp_logo.jpg" />
+					<img style="width: 156px; height: 57px;" src="../assets/img/lp_logo.png" />
 				</h2>
 			</div>
 			<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-right">
@@ -29,11 +29,11 @@
 							<dd @click="addCheck('HouseResources')" v-bind:class="{'li-active':onString=='HouseResources'}">
 								<router-link to="/MP/HouseResources/HouseResources"><i class="fa" aria-hidden="true">房源管理</i></router-link>
 							</dd>
-							
+
 							<dd @click="addCheck('Business')" v-bind:class="{'li-active':onString=='Business'}">
 								<router-link to="/MP/Business/Business"><i class="fa" aria-hidden="true">商圈管理</i></router-link>
 							</dd>
-							
+
 						</dl>
 						<dl v-bind:class="{h222:bool4}">
 							<dt @click="onShow(3)" v-bind:class="{'li-active':bool4}">
@@ -45,11 +45,11 @@
 							<dd @click="addCheck('BuildingControl')" v-bind:class="{'li-active':onString=='BuildingControl'}">
 								<router-link to="/MP/BuildingControl/BuildingControl"><i class="fa" aria-hidden="true">楼盘管理</i></router-link>
 							</dd>
-							
+
 							<dd @click="addCheck('CounselorControl')" v-bind:class="{'li-active':onString=='CounselorControl'}">
 								<router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
 							</dd>
-							
+
 						</dl>
 						<!-- <dl v-bind:class="{h1:bool1}">
 							<dt @click="onShow(0)" v-bind:class="{'li-active':bool1}">
@@ -71,7 +71,7 @@
 								<router-link to="/MP/BuildingDynamic/BuildingDynamic"><i class="fa" aria-hidden="true">资讯管理</i></router-link>
 							</dd>
 						</dl>
-						
+
 						<dl v-bind:class="{h222:bool3}" v-show=phoneFlag>
 							<dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
@@ -94,7 +94,7 @@
 							<dd @click="addCheck('Independent')" v-bind:class="{'li-active':onString=='Independent'}">
 								<router-link to="/MP/Office/Independent"><i class="fa" aria-hidden="true">共享办公</i></router-link>
 							</dd>
-							
+
 						</dl>
 						<dl v-bind:class="{h1:bool5}">
 							<dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
@@ -106,9 +106,9 @@
 								<router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">其他模块</i></router-link>
 							</dd>
 						</dl>
-						
+
 					</div>
-					
+
 				</div>
 				<div id="Sdiv" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="overflow: inherit;position: relative; width:86%">
 					<div id="SdivInnerBox">
@@ -264,7 +264,7 @@
 				    this.titleNow = '房源管理';
 				    return false;
 				}
-				
+
 				if (string == 'Business') {
 				    this.titleNow = '商圈管理';
 				    return false;
@@ -273,8 +273,8 @@
                     this.titleNow = '共享办公';
                     return false;
 				}
-				
-				
+
+
             },
             gainFun(data) {
                 this.onString = data;
