@@ -41,7 +41,8 @@
 			    this.buildId = buildId
             },
             setBuildingList: function(buildList) {
-                this.buildList = buildList
+                this.buildList = []
+                this.buildId = ''
                 this.queryData()
 			},
 

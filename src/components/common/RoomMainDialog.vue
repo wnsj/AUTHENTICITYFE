@@ -506,7 +506,8 @@
                     this.title = '新增'
                     this.$refs.ldtRef.setLdtId('0')
                     this.$refs.couRef.setCouId('0')
-
+                    this.$refs.btRef.setBtId('0')
+                    this.$refs.buRef.setBuId('0')
                     this.roomType = '0'
                     this.$refs.buildCompentRef.setBuildingList([])
 
