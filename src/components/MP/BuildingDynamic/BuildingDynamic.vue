@@ -6,11 +6,10 @@
         <div class="row newRow" style="margin-top: 1%">
             <!--楼盘-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">资讯类型</p><span
-                    class="sign-left">:</span>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter">资讯类型：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding:0">
                     <mtI @mtIdChange='fathermtIReceive' ref="mtIRef"></mtI>
                 </div>
             </div>
@@ -37,10 +36,10 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.typeName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.bdName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.bdLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
+                            <td class="text-center">{{item.typeName}}</td>
+                            <td class="text-center">{{item.bdName}}</td>
+                            <td class="text-center">{{item.bdLabel}}</td>
+                            <td class="text-center">{{item.createTime}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -160,5 +159,6 @@
 </script>
 
 <style scoped>
-
+.textcenter{ text-align: center;
+ text-align-last: center; padding:0}
 </style>

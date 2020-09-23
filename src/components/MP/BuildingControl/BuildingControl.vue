@@ -5,62 +5,53 @@
         </div> -->
         <div class="row newRow" style="margin-top: 1%;">
             <!--类型-->
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">类型</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">类型：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
                     <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">单价</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">单价：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
                     <un @unitChange = 'fatherUnReceive' ref="unRef"></un>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">总价</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">总价：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
                     <to @totalChange = 'fatherToReceive' ref="toRef"></to>
                 </div>
             </div>
 
-        </div>
 
-        <div class="row newRow" style="margin-top: 1%">
-
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">区域：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
                     <ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">商圈</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">商圈：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
                     <Business @buChange='fatherBuReceive' ref="buRef"></Business>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">面积</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">面积：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
                     <ar @areaChange = 'fatherAreaReceive' ref="arRef"></ar>
                 </div>
             </div>
@@ -94,14 +85,14 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.htName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
-                            <!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
-                            <td class="text-center" style="line-height:33px;">{{item.buName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.btName}}</td>
-<!--                            <td class="text-center" style="line-height:33px;">{{item.chaName}}</td>-->
-                            <td class="text-center" style="line-height:33px;">{{item.floorage}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.counselorBean==null ?"-":item.counselorBean.couName }}</td>
+                            <td class="text-center">{{item.htName}}</td>
+                            <td class="text-center">{{item.ldName}}</td>
+                            <!-- <td class="text-center">{{item.adress}}</td> -->
+                            <td class="text-center">{{item.buName}}</td>
+                            <td class="text-center">{{item.btName}}</td>
+<!--                            <td class="text-center">{{item.chaName}}</td>-->
+                            <td class="text-center">{{item.floorage}}</td>
+                            <td class="text-center">{{item.counselorBean==null ?"-":item.counselorBean.couName }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -378,5 +369,6 @@
 </script>
 
 <style>
-
+.textcenter{ text-align: center;
+    text-align-last: center;}
 </style>

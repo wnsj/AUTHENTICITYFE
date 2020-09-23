@@ -4,126 +4,86 @@
             <h1 class="titleCss">楼盘管理</h1>
         </div> -->
 		<div class="row newRow" style="margin-top: 1%;">
-			<!--类型-->
-			<!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">类型</p><span class="sign-left">:</span>
-				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<bt @btChange='fatherBtReceive'></bt>
-				</div>
-			</div> -->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-						<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">类型</p><span class="sign-left">:</span>
+			
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+						<p class="end-aline col-md-12 col-lg-12 textcenter">类型：</p>
 					</div>
-					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+					<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 						<select class="form-control" v-model="roomType" v-on:change="roomTypeChange()">
 							<option value="0">--未选择--</option>
-							<option value="1">--写字楼--</option>
-							<option value="2">--共享办公--</option>
-							<option value="3">--商铺--</option>
+							<option value="1">写字楼</option>
+							<option value="2">共享办公</option>
+							<option value="3">商铺</option>
 						</select>
 					</div>
 			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">面积</p><span class="sign-left">:</span>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+					<p class="end-aline col-md-12 col-lg-12 textcenter">面积：</p>
 				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 					<ar @areaChange='fatherAreaReceive' ref="ar"></ar>
 				</div>
 			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">单价</p><span class="sign-left">:</span>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+					<p class="end-aline col-md-12 col-lg-12 textcenter">单价：</p>
 				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 					<un @unitChange='fatherUnReceive' ref="un"></un>
 				</div>
 			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">总价</p><span class="sign-left">:</span>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+					<p class="end-aline col-md-12 col-lg-12 textcenter">总价：</p>
 				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 					<to @totalChange='fatherToReceive' ref="to"></to>
 				</div>
 			</div>
-				<!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-						<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">出租类型</p><span class="sign-left">:</span>
-					</div>
-					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-						<select class="form-control" v-model="roomType">
-							<option value="1">--写字楼--</option>
-							<option value="2">--共享办公--</option>
-							<option value="3">--商铺--</option>
-						</select>
-					</div>
-				</div> -->
-
-		</div>
-
-		<div class="row newRow" style="margin-top: 1%">
-			<!-- 区域 -->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span class="sign-left">:</span>
-				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
-				</div>
-			</div>
-
 			<!-- 商圈 -->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">商圈</p><span class="sign-left">:</span>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+					<p class="end-aline col-md-12 col-lg-12 textcenter">商圈：</p>
 				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 					<subBu @buChange='fathersubBuReceive' ref="subBu"></subBu>
 				</div>
 			</div>
 
 			<!-- 楼盘 -->
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">楼盘</p><span class="sign-left">:</span>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+					<p class="end-aline col-md-12 col-lg-12 textcenter">楼盘：</p>
 				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 					<buildCompent @buildChange='fatherbuildCompentReceive' ref="buildCompent"></buildCompent>
 				</div>
-			</div>
+			</div>	
+
 		</div>
 
 		<div class="row newRow" style="margin-top: 1%">
+			<!-- 区域 -->
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+					<p class="end-aline col-md-12 col-lg-12 textcenter">区域：</p>
+				</div>
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
+					<ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
+				</div>
+			</div>
 
-			<!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">面积</p><span class="sign-left">:</span>
-				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-					<ar @areaChange='fatherAreaReceive'></ar>
-				</div>
-			</div> -->
+			
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-					<p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">时间</p><span class="sign-left">:</span>
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding: 0; line-height: 30px;">
+					<p class="end-aline col-md-12 col-lg-12 textcenter">时间：</p>
 				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-					<datePicker v-model="openTime" type="date" value-type="format" range></datePicker>
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9"  style="padding:0">
+					<datePicker v-model="openTime" type="date" value-type="format" range style="width:250px"></datePicker>
 				</div>
-				<!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">结束时间</p><span
-                    class="sign-left">:</span>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <datePicker v-model="endTime" type="datetime" value-type="format"
-                                format="YYYY-MM-DD HH:mm:ss"></datePicker>
-                </div>
-            </div>-->
+			
 			</div>
 
 			<button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
@@ -513,5 +473,6 @@
 </script>
 
 <style>
-
+.textcenter{ text-align: center;
+    text-align-last: center; padding:0}
 </style>

@@ -11,7 +11,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">姓名</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <label class="form-control" disabled="false">{{addParam.name}}</label>
+                            <input type="text" bel class="form-control" v-model="addParam.name" />
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">

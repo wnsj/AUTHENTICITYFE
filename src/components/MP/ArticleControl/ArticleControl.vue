@@ -6,11 +6,10 @@
         <div class="row newRow" style="margin-top: 1%">
             <!--文章类型-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">文章类型</p><span
-                    class="sign-left">:</span>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 34px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter">文章类型：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding:0">
                     <select class="form-control" v-model="articleType">
                         <option value=0>--未选择--</option>
                         <option value=1>公司简介</option>
@@ -49,10 +48,10 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
-<!--                            <td class="text-center" style="line-height:33px;">{{item.id}}</td>-->
-                            <td class="text-center" style="line-height:33px;">{{item.articleTypeLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.title}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createDate}}</td>
+<!--                            <td class="text-center">{{item.id}}</td>-->
+                            <td class="text-center">{{item.articleTypeLabel}}</td>
+                            <td class="text-center">{{item.title}}</td>
+                            <td class="text-center">{{item.createDate}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -154,5 +153,6 @@
 </script>
 
 <style>
-
+.textcenter{ text-align: center;
+ text-align-last: center; padding:0}
 </style>

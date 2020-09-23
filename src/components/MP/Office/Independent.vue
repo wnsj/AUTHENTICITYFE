@@ -6,25 +6,19 @@
         <div class="row newRow" style="margin-top: 1%">
             <!--楼盘-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">工位类型</p><span
-                    class="sign-left">:</span>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px; ">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" >工位类型：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-<!--                    <select name="" id="" class="form-control" v-model="officeType">-->
-<!--                        <option value="">未选择</option>-->
-<!--                        <option value="3">独立办公室</option>-->
-<!--                        <option value="2">开放工位</option>-->
-<!--                    </select>-->
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding:0">
+
                     <BuildType @btChange="btRe" ref="btRef"></BuildType>
                 </div>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">房源名称</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" >房源名称：</p>
                 </div>
-                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding:0">
                     <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
                 </div>
             </div>
@@ -51,10 +45,10 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.officeTypeName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.roomName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.stationNum}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.nowPrice}}</td>
+                            <td class="text-center">{{item.officeTypeName}}</td>
+                            <td class="text-center">{{item.roomName}}</td>
+                            <td class="text-center">{{item.stationNum}}</td>
+                            <td class="text-center">{{item.nowPrice}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -187,5 +181,6 @@
 </script>
 
 <style scoped>
-
+.textcenter{ text-align: center;
+ text-align-last: center; padding:0}
 </style>
