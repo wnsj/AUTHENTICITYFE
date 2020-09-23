@@ -37,13 +37,13 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">标签</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <cou-label @couClChange="fatherCouLabel" ref="couLabel"></cou-label>
-                        </div>
-                    </div>
+<!--                    <div class="col-md-6 form-group clearfix">-->
+<!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                               style="padding:0;line-height:34px;">标签</label><span class="sign-left">:</span>-->
+<!--                        <div class="col-md-8">-->
+<!--                            <cou-label @couClChange="fatherCouLabel" ref="couLabel"></cou-label>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -195,10 +195,10 @@
                    return
                }
 
-               if (this.isBlank(this.addCou.graduate)) {
-                   alert('毕业院校必填')
-                   return
-               }
+               // if (this.isBlank(this.addCou.graduate)) {
+               //     alert('毕业院校必填')
+               //     return
+               // }
 
                 if (!this.isBlank(this.addCou.tel)) {
                     if (!(/^1[3456789]\d{9}$/).test(this.addCou.tel)) {
