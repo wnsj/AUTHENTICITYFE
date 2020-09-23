@@ -596,6 +596,13 @@
                     alert('空置必选')
                     return
                 }
+
+                if (this.storeParam.highLevel != null && this.storeParam.highLevel !== '' && parseInt(this.storeParam.highLevel) !== 0) {
+                    if (!(/^([0-9]*$)$/).test(this.addParam.sellWell)) {
+                        alert('层高只能是整数')
+                        return;
+                    }
+                }
                 if (this.isBlank(this.storeParam.minLeaseTerm)) {
                     alert('最短租期必填')
                     return
@@ -614,7 +621,7 @@
                     alert('网点介绍必填')
                     return
                 }
-                
+
                 this.loading = true
                 this.btnName = '提交中...'
 
