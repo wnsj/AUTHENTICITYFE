@@ -16,8 +16,8 @@
 		</div>
 		<div class="container-fluid clear-mp" id="Odiv">
 			<div class="row clear-mp">
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-aside clear-mp" id="Adiv" style="padding-top: 10px;">
-					<p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 30px;font-weight: bold;color: #047EB1;text-align: left; margin-bottom:10px;">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-aside clear-mp" id="Adiv" style="padding-top: 10px; width:14%">
+					<p style=" display:block; width:190px; height:50px;margin:0 auto; line-height:50px; font-size: 20px;font-weight: bold;color: #047EB1;text-align: left; margin-bottom:10px;">
 						功能列表</p>
 					<div id="aside-menu">
 						<dl v-bind:class="{h2:bool6}">
@@ -35,7 +35,7 @@
 							</dd>
 							
 						</dl>
-						<dl v-bind:class="{h4:bool4}">
+						<dl v-bind:class="{h222:bool4}">
 							<dt @click="onShow(3)" v-bind:class="{'li-active':bool4}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool4,'fa-folder':!bool4}" aria-hidden="true">
 									楼盘相关
@@ -45,17 +45,13 @@
 							<dd @click="addCheck('BuildingControl')" v-bind:class="{'li-active':onString=='BuildingControl'}">
 								<router-link to="/MP/BuildingControl/BuildingControl"><i class="fa" aria-hidden="true">楼盘管理</i></router-link>
 							</dd>
-							<dd @click="addCheck('BuildingAnalysis')" v-bind:class="{'li-active':onString=='BuildingAnalysis'}">
-								<router-link to="/MP/BuildingAnalysis/BuildingAnalysis"><i class="fa" aria-hidden="true">户型分析管理</i></router-link>
-							</dd>
+							
 							<dd @click="addCheck('CounselorControl')" v-bind:class="{'li-active':onString=='CounselorControl'}">
 								<router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
 							</dd>
-							<dd @click="addCheck('Comment')" v-bind:class="{'li-active':onString=='Comment'}">
-								<router-link to="/MP/Comment/Comment"><i class="fa" aria-hidden="true">点评管理</i></router-link>
-							</dd>
+							
 						</dl>
-						<dl v-bind:class="{h1:bool1}">
+						<!-- <dl v-bind:class="{h1:bool1}">
 							<dt @click="onShow(0)" v-bind:class="{'li-active':bool1}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool1,'fa-folder':!bool1}" aria-hidden="true">
 									招聘相关
@@ -64,7 +60,7 @@
 							<dd @click="addCheck('RecruitControl')" v-bind:class="{'li-active':onString=='RecruitControl'}">
 								<router-link to="/MP/RecruitControl/RecruitControl"><i class="fa" aria-hidden="true">招聘管理</i></router-link>
 							</dd>
-						</dl>
+						</dl> -->
 						<dl v-bind:class="{h1:bool2}">
 							<dt @click="onShow(1)" v-bind:class="{'li-active':bool2}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool2,'fa-folder':!bool2}" aria-hidden="true">
@@ -110,39 +106,11 @@
 								<router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">其他模块</i></router-link>
 							</dd>
 						</dl>
-						<!--                        <el-row class="tac">-->
-						<!--                            <el-col :span="24">-->
-						<!--                                <el-menu :unique-opened="true" :router="true"-->
-						<!--                                         class="el-menu-vertical-demo">-->
-						<!--                                    <template v-for="item in menuList">-->
-						<!--                                        <el-submenu :index="item.menuPath" :key="item.menuPath">-->
-						<!--                                            <template slot="title"><span>{{item.menuName}}</span></template>-->
-						<!--                                            <template v-for="itemChild in item.menuBeanList">-->
-						<!--                                                &lt;!&ndash;三级菜单&ndash;&gt;-->
-						<!--                                                <el-submenu-->
-						<!--                                                    v-if="itemChild.menuBeanList && itemChild.menuBeanList.length"-->
-						<!--                                                    :index="itemChild.menuPath" :key="itemChild.menuPath">-->
-						<!--                                                    <template slot="title"><span>{{itemChild.menuName}}</span>-->
-						<!--                                                    </template>-->
-						<!--                                                    <el-menu-item v-for="itemChildChild in itemChild.menuBeanList"-->
-						<!--                                                                  :index="itemChildChild.menuPath"-->
-						<!--                                                                  :key="itemChildChild.menuPath">-->
-						<!--                                                        <span slot="title">{{itemChildChild.menuName}}</span>-->
-						<!--                                                    </el-menu-item>-->
-						<!--                                                </el-submenu>-->
-						<!--                                                &lt;!&ndash;二级菜单&ndash;&gt;-->
-						<!--                                                <el-menu-item v-else :index="itemChild.menuPath" :key="itemChild.menuPath">-->
-						<!--                                                    <span slot="title">{{itemChild.menuName}}</span></el-menu-item>-->
-						<!--                                            </template>-->
-						<!--                                        </el-submenu>-->
-						<!--                                    </template>-->
-						<!--                                </el-menu>-->
-						<!--                            </el-col>-->
-						<!--                        </el-row>-->
+						
 					</div>
-					`
+					
 				</div>
-				<div id="Sdiv" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="overflow: inherit;position: relative; ">
+				<div id="Sdiv" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="overflow: inherit;position: relative; width:86%">
 					<div id="SdivInnerBox">
 						<router-view />
 					</div>
@@ -368,7 +336,7 @@
 		height: 50px;
 		overflow: hidden;
 		color: #047EB1;
-		font-size: 20px;
+		font-size: 16px;
 		background: #f1f1f1;
 		transition: height .5s
 	}
@@ -423,6 +391,7 @@
 		text-align: left;
 		line-height: 50px;
 		text-indent: 25px;
+		margin-left: 15px;
 	}
 
 	#aside-menu dl i:before {

@@ -7,10 +7,10 @@
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
                 <div class="dialogInutBox clearfix">
-                    <div class="col-md-12 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix" style="padding-right:0">
                         <label class="col-md-2 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;width: 12%;">标题</label><span class="sign-left">:</span>
-                        <div class="col-md-10">
+                        <div class="col-md-10" style="padding-right:6px">
                             <input type="text" class="form-control" v-model="addParam.bdName">
                             <!-- <textarea type="text" class="form-control" v-model="addParam.bdName" style="height:100px"></textarea> -->
                         </div>
@@ -23,14 +23,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">发布时间</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <datePicker v-model="addParam.createDate" type="date" value-type="format"
-                                        style="width: 97%"></datePicker>
-                        </div>
-                    </div> -->
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -51,15 +43,15 @@
                         <div class="col-md-6  clearfix" style="padding: 0;">
                             <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">资讯描述</label><span class="sign-left">:</span>
                          </div>
-                        <div class="col-md-12 form-group clearfix">
-                            <textarea class="form-control wdType03" v-model="addParam.bdLabel" placeholder="资讯描述"></textarea>
+                        <div class="col-md-12 form-group clearfix" style="padding-left: 0;">
+                            <textarea class="form-control wdType03" v-model="addParam.bdLabel" placeholder="资讯描述" style="padding-right:0"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
                             <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">资讯内容</label><span class="sign-left">:</span>
                          </div>
-                        <div class="col-md-12 form-group clearfix">
+                        <div class="col-md-12 form-group clearfix" style="padding-left: 0;">
                              <SummerNote ref="sn"></SummerNote>
                         </div>
                     </div>

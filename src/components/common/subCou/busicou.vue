@@ -10,7 +10,7 @@
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">所属区域</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
+                        <div class="col-md-8" style="margin-left:6px">
                           <ldt ref="ldtRef" @ldtChange='fatherLdtReceive'></ldt>
                         </div>
                     </div>
@@ -21,17 +21,11 @@
                             <input type="text" class="form-control" v-model="addCou.buName"/>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">商圈描述</label>
-                        <div class="col-md-10">
-                            <textarea type="text" class="form-control" v-model="addCou.buLabel"></textarea>
-                        </div>
-                    </div>
+                   
                      <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">是否热门</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
+                        <div class="col-md-8" style="margin-left:6px">
                           <select name="" id="" class="form-control" v-model="addCou.isHot">
                              <option value="2">是</option>
                              <option value="3">否</option>
@@ -55,8 +49,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix" style="width: 100%">
-
+                    <div class="col-md-12 form-group clearfix" style="">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
+                               style="line-height:30px;padding:0;text-align: left;
+ text-align-last: left; padding:0;letter-spacing:3px">商圈描述：</label>
+                        <div class="col-md-10" style="padding:0">
+                            <textarea type="text" class="form-control" v-model="addCou.buLabel" style="height:150px"></textarea>
+                        </div>
                     </div>
 
                 </div>

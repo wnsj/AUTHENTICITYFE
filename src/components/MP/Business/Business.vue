@@ -5,16 +5,15 @@
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
             <!--咨询师-->
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter">区域：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                     <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
                 </div>
             </div>
-            
+
              <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
@@ -27,7 +26,7 @@
         <div class="" style="padding-top: 30px;">
             <div class="col-md-12 col-lg-12">
                 <div class="table-responsive table-bg">
-                    <table class="table table-bordered table-hover" id="datatable">
+                    <!--<table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
                             <th class="text-center">所属区域</th>
@@ -35,19 +34,60 @@
                             <th class="text-center">是否热门</th>
                             <th class="text-center">商圈描述</th>
                             <th class="text-center">创建时间</th>
-                           
+
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.buName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.isHotName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.buLabel}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
+                            <td class="text-center" style="width:10%">{{item.ldName}}</td>
+                            <td class="text-center" style="width:10%">{{item.buName}}</td>
+                            <td class="text-center" style="width:10%">{{item.isHotName}}</td>
+                            <td class="text-center" style="">{{item.buLabel}}</td>
+                            <td class="text-center" style="width:10%">{{item.createTime}}</td>
                         </tr>
                         </tbody>
-                    </table>
+                    </table>-->
+                    <el-table
+                        :data="couData"
+                        :cell-style="cellStyle"
+                        :header-cell-style="headerStyle"
+                        max-height="530"
+                        @row-dblclick="tableDb"
+                        style="width: 99%;margin-left:0.5%;"
+                        border>
+                        <el-table-column
+                            align="center"
+                            prop="ldName"
+                            label="所属区域"
+                            fixed="left"
+                            min-width="100">
+                        </el-table-column>
+                        <el-table-column
+                            align="center"
+                            prop="buName"
+                            label="商圈名称"
+                            min-width="100">
+                        </el-table-column>
+                        <el-table-column
+                            align="center"
+                            prop="isHotName"
+                            label="是否热门"
+                            min-width="100">
+                        </el-table-column>
+                        <el-table-column
+                            align="center"
+                            prop="buLabel"
+                            :show-overflow-tooltip="true"
+                            label="商圈描述"
+                            min-width="100">
+                        </el-table-column>
+                        <el-table-column
+                            align="center"
+                            prop="createTime"
+                            label="创建时间"
+                            min-width="100">
+                        </el-table-column>
+                    </el-table>
                 </div>
                 <div class="row row_edit">
                     <div class="modal fade" id="couDialog">
@@ -72,7 +112,7 @@
     import paging from '../../common/Paging.vue'
     import couDialog from '../../common/subCou/busicou.vue'
     import ldt from '../../common/LocationDType.vue'
-   
+
     var that = null
     export default {
         components: {
@@ -80,7 +120,7 @@
             cou,
             paging,
             couDialog,
-            
+
             ldt,
         },
         name: 'CounselorControl',
@@ -98,7 +138,7 @@
             };
         },
         methods:{
-         
+
             fatherLdtReceive(data) {
                 this.ldId = ''
                 if (null != data) {
@@ -106,9 +146,16 @@
                 }
                 this.$refs.ldtRef.setLdId(data)
             },
-            
-              
-            
+
+            // 表格表头样式
+            headerStyle() {
+                return 'text-align: center;color: black;'
+            },
+            // 表格样式
+            cellStyle() {
+                return 'text-align: center;'
+            },
+
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
                 this.current = page
@@ -154,6 +201,10 @@
                     $("#couDialog").modal('show')
                 }
             },
+            tableDb(row,column) {
+                this.$refs.couDialog.initData('modify', row)
+                $("#couDialog").modal('show')
+            },
             feedBack() {
                 this.couQueryData(1)
                 $("#couDialog").modal('hide')
@@ -166,5 +217,6 @@
 </script>
 
 <style scoped>
-
+.textcenter{ text-align: center;
+ text-align-last: center; padding:0}
 </style>

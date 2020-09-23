@@ -5,30 +5,27 @@
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
 
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">写字楼</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" >楼盘：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
                     <input type="text" class="form-control" />
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">区域</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0;line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" >区域：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
                    <ldt @ldtChange='fatherLdtReceive' ref="ldtRef"></ldt>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-11 col-lg-11" style="padding-right:5px; padding-left:20px;">商圈</p><span
-                    class="sign-left">:</span>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0;line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" >商圈：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
                     <Business @buChange='fatherBuReceive' ref="buRef"></Business>
                 </div>
             </div>
@@ -127,7 +124,7 @@
             };
         },
         methods: {
-
+           
             fatherBuild(data) {
                 this.buildId = ''
                 if (null !== data) {
@@ -141,7 +138,7 @@
                 }
                 this.$refs.buRef.setLdId(data)
             },
-
+            
                fatherBuReceive(data) {
                 this.businessId = ''
                 if (null != data) {
@@ -153,9 +150,9 @@
             pageChange: function (page) {
                 this.current = page
                 this.couQueryData(page);
-
+                
             },
-
+            
             async couQueryData(page) {
                 var url = this.url + '/entrustRentBean/getEnByPage'
                 this.$ajax({
@@ -189,7 +186,7 @@
                     console.log('数据请求失败处理')
                 });
             },
-
+           
             selectRule(item) {
                 this.$refs.phoneDialog.initPhoneRef(item)
                 $("#phoneDialog").modal('show')
@@ -218,7 +215,7 @@
                     data: {
                         // enId: item.enId,
                         // isContact: 2,
-
+                        
                     },
                     dataType: 'json',
                 }).then((response) => {
@@ -233,12 +230,13 @@
         created: function () {
             this.couQueryData()
         },
-
+        
     }
-
+    
 </script>
 
 <style scoped>
 
-
+.textcenter{ text-align: center;
+ text-align-last: center; padding:0}
 </style>

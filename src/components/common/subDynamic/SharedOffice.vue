@@ -9,7 +9,7 @@
                 <div class="dialogInutBox clearfix">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">工位类型</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:30px;">工位类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
 <!--                           <select name="" id="" class="form-control " v-model="addParam.officeType" >-->
 <!--                                <option value="3">独立办公室</option>-->
@@ -21,57 +21,57 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">匹配楼盘</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:30px;">匹配楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                            <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">面积</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:30px;">面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.area" placeholder="必填"/>
                         </div>
-                        <div style="padding:0;line-height:34px;">M²</div>
+                        <div style="padding:0;line-height:30px;">M²</div>
                     </div>
 
 
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">工位个数</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">工位个数</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.stationNum" placeholder="必填"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">剩余工位</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">剩余工位</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.surpluseNum" placeholder="必填"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">原价</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">原价</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.sorcePrice" placeholder="必填"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">现价</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">现价</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.nowPrice" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">房型</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">房型</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.houseType" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">是否靠墙</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:30px;">是否靠墙</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                            <select name=""  class="form-control" v-model="addParam.isWall">
                                 <option value="3">否</option>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">是否带窗</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:30px;">是否带窗</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                            <select name="" class="form-control " v-model="addParam.isWindow">
                                 <option value="3">否</option>
@@ -91,8 +91,8 @@
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
-                        <div class="col-md-9">
+                               style="padding-left:0;line-height:30px; width:15.5%">头图：</label>
+                        <div class="col-md-9" style="padding:0">
                             <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
                             <p class="redtips">*注意：宽378px*高228px</p>
 
@@ -106,23 +106,22 @@
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">视频</label><span class="sign-left">:</span>
-                        <div class="col-md-9">
+                               style="padding-left:0;line-height:30px;  width:15.5%">视频：</label>
+                        <div class="col-md-9" style="padding:0">
                             <input type="file" id="video" @change="videoChange"
                             />
                             <div id="playAvOutDiv" v-if="playAvOutDivFlag">
                                 <!--                                <PlayAV ref="playRef"></PlayAV>-->
                                 <label class="col-md-3 control-label text-right nopad end-aline"
-                                       style="padding:0;line-height:34px;">{{this.videoName}}</label>
+                                       style="padding-left:0;line-height:30px;">{{this.videoName}}</label>
 
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">图片列表</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-9">
+                               style="padding-left:0;line-height:30px; width:15.5%">图片列表:</label>
+                        <div class="col-md-9" style="padding:0">
                             <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
                                    multiple="multiple"/>
                             <p class="redtips">*注意：宽620px*高380px</p>
