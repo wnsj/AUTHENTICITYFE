@@ -137,6 +137,7 @@
                 this.buPath = []
                 this.pictureFile = []
 
+                this.$refs.ldtRef.setLdtId('0')
                 $("#picture").val("");
 
                 $('#couDialog').modal({backdrop: 'static', keyboard: false});

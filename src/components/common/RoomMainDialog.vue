@@ -95,7 +95,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">是否首页共享</label><span class="sign-left">:</span>
                         <div class="col-md-8">
@@ -105,7 +105,7 @@
                                 <option value=3>--否--</option>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -280,6 +280,14 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">基础服务</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <baseService @baseServiceChange='baseServiceCompentReceive' ref="baseServiceCompentRef"></baseService>
+                        </div>
+                    </div>
+
                      <div class="col-md-12 form-group clearfix">
                          <label class="col-md-2 control-label text-right nopad end-aline"
                                 style="padding:0;line-height:34px;width: 12%;">网点介绍</label><span class="sign-left">:</span>
@@ -331,6 +339,7 @@
     import buildCompent from "../common/Building";
     import storeType from "../common/StoreType";
     import comActive from "../common/ComActive";
+    import baseService from "../common/BaseService"
 
     var that = null
     // $(function () {
@@ -350,6 +359,7 @@
             datePicker,
             storeType,
             comActive,
+            baseService,
             bt,
             // BuildHorseTypes,
             // isSale,
@@ -510,6 +520,7 @@
                     this.$refs.buRef.setBuId('0')
                     this.roomType = '0'
                     this.$refs.buildCompentRef.setBuildingList([])
+                    this.$refs.baseServiceCompentRef.setBaseServiceList([])
 
                     // this.$refs.proRef.setProId('0')
                     this.addParam = {
@@ -635,6 +646,7 @@
                     // this.$refs.stRef.setStId(addParam.stId)
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
+                    this.$refs.baseServiceCompentRef.setBaseServiceList(addParam.chaList)
 
 
                     // console.log('cacacacacacaca',this.addParam.caId)
@@ -955,6 +967,13 @@
                     this.addParam.couId = data
                 }
             },
+
+            baseServiceCompentReceive(data) {
+                this.addParam.chaList = []
+                if (null != data) {
+                    this.addParam.chaList = data
+                }
+            },
             // fatherIsSaleReceive(data) {
             //     this.addParam.isSale = ''
             //     this.addParam.isSale = data
@@ -966,7 +985,7 @@
 					this.addParam.buildId = data
 				}
 			},
-
+            
             fatherLdtReceive(data) {
 
                 this.addParam.ldId = ''
@@ -1155,6 +1174,7 @@
                     this.addParam.roomType = this.roomType
                     this.$refs.btRef.setType(this.roomType)
                     this.$refs.buildCompentRef.setBuildType(this.roomType)
+                    this.$refs.baseServiceCompentRef.setBaseServiceList(this.chaList)
                     // this.$refs.stRef.setType(this.roomType)
 				}
 

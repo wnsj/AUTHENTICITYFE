@@ -122,6 +122,7 @@
                 this.headImgList = []
                 this.headImgFileList = []
                 $("#pic").val("");
+                this.$refs.mtIRef.setmtId('0')
                 $('#dyDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.rn.setData('')
