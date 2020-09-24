@@ -776,12 +776,22 @@
                 if (this.isBlank(this.addParam.longitude) || this.addParam.longitude == 0) {
                     alert('经度必填，且不能为0')
                     return
-                } 
+                } else {
+                    if (this.formatResultToAbs(parseFloat(this.addParam.longitude)) > 180) {
+                        alert('经度范围 -180~180，请填写正确的经度')
+                        return
+                    }
+                }
 
                 if (this.isBlank(this.addParam.latitude) || this.addParam.latitude == 0) {
                     alert('纬度必填，且不能为0')
                     return
-                } 
+                }  else {
+                    if (this.formatResultToAbs(parseFloat(this.addParam.latitude)) > 90) {
+                        alert('纬度范围 -90~90，请填写正确的纬度')
+                        return
+                    }
+                }
 
                 if (this.isBlank(this.addParam.areaInfo)) {
                     alert('面积信息必填')
@@ -985,7 +995,7 @@
 					this.addParam.buildId = data
 				}
 			},
-            
+
             fatherLdtReceive(data) {
 
                 this.addParam.ldId = ''
@@ -1167,6 +1177,9 @@
                 }).catch((error) => {
                     console.log('楼盘信息提交失败')
                 });
+            },
+            formatResultToAbs(input) {
+                return Math.abs(input);
             },
             roomTypeChange: function() {
 				if (this.roomType != null) {
