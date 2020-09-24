@@ -130,7 +130,7 @@
 								<td class="text-center" style="line-height:33px;">{{item.totalPrice}}</td>
 								<td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
 								<td class="text-center" style="line-height:33px;">
-									<button type="button" class="btn btn-primary m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+									<button :disabled="item.roomType == 2 ? true : false" type="button" class="btn btn-primary m_r_10" style="margin-right:1.5%;" data-toggle="modal"
 									 v-on:click="addDetail(item)">编辑详情
 									</button>
 
