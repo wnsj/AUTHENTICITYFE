@@ -168,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
                             <label class="col-md-3 control-label text-right nopad end-aline"
@@ -565,6 +565,7 @@
                             this.$refs.comRef.setCharaList(this.storeParam.suitable)
                             this.$refs.proRef.setIdList(this.storeParam.properInfo)
                             this.$refs.stRef.setStId(this.storeParam.stId)
+                            this.videoName = this.storeParam.videoName
                         } else {
                             this.storeParam.roomId = item
                             this.title = '新增'

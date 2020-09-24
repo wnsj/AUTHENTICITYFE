@@ -711,13 +711,13 @@
 
                     }
                 } else if (param === 'modify') {
-                    if (this.isBlank(addParam.videoPath)) {
-                        this.playAvOutDivFlag = false
-                        $("#playAvOutDiv").modal("hide")
-                    } else {
+                    // if (this.isBlank(addParam.videoPath)) {
+                    //     this.playAvOutDivFlag = false
+                    //     $("#playAvOutDiv").modal("hide")
+                    // } else {
                         this.videoName = addParam.videoName
                         // this.$refs.playRef.initData(this.url + addParam.videoPath)
-                    }
+                    // }
                     // console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
 
