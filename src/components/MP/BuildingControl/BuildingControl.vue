@@ -245,11 +245,11 @@
                 if (null != data) {
                     var begPrice = null;
                     if (null != data.begPrice) {
-                        begPrice = data.begPrice*10000
+                        begPrice = data.begPrice
                     }
                     var endPrice = null;
                     if (null != data.endPrice) {
-                        endPrice = data.endPrice*10000
+                        endPrice = data.endPrice
                     }
                     let unParam = {
                         minUnitPrice:begPrice,

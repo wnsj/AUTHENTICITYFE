@@ -711,13 +711,13 @@
 
                     }
                 } else if (param === 'modify') {
-                    if (this.isBlank(addParam.videoPath)) {
-                        this.playAvOutDivFlag = false
-                        $("#playAvOutDiv").modal("hide")
-                    } else {
+                    // if (this.isBlank(addParam.videoPath)) {
+                    //     this.playAvOutDivFlag = false
+                    //     $("#playAvOutDiv").modal("hide")
+                    // } else {
                         this.videoName = addParam.videoName
                         // this.$refs.playRef.initData(this.url + addParam.videoPath)
-                    }
+                    // }
                     // console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
 
@@ -976,15 +976,15 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.tel)) {
-                   alert('请输入正确的联系方式')
-                   return;
-                } else {
-                    if (!((/^((1[345678]\d{9})|(\d{2,3}\d{7,8})|(\d{2,3}-\d{7,8}))$/).test(this.addParam.tel))) {
-                        alert('请输入正确的联系方式')
-                        return;
-                    }
-                }
+                // if (this.isBlank(this.addParam.tel)) {
+                //    alert('请输入正确的联系方式')
+                //    return;
+                // } else {
+                //     if (!((/^((1[345678]\d{9})|(\d{2,3}\d{7,8})|(\d{2,3}-\d{7,8}))$/).test(this.addParam.tel))) {
+                //         alert('请输入正确的联系方式')
+                //         return;
+                //     }
+                // }
 
                 if (this.isBlank(this.addParam.couId)) {
                     alert('咨询师必选')
