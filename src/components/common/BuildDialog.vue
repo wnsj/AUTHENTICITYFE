@@ -240,13 +240,13 @@
                     </div>
 
 
-<!--                    <div class="col-md-6 form-group clearfix">-->
-<!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
-<!--                               style="padding:0;line-height:34px;">周边</label><span class="sign-left">:</span>-->
-<!--                        <div class="col-md-8">-->
-<!--                            <input class="form-control " v-model="addParam.periphery" placeholder=""/>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="col-md-6 form-group clearfix">-->
+                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+                    <!--                               style="padding:0;line-height:34px;">周边</label><span class="sign-left">:</span>-->
+                    <!--                        <div class="col-md-8">-->
+                    <!--                            <input class="form-control " v-model="addParam.periphery" placeholder=""/>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
 
                     <div class="col-md-6 form-group clearfix">
@@ -715,8 +715,8 @@
                     //     this.playAvOutDivFlag = false
                     //     $("#playAvOutDiv").modal("hide")
                     // } else {
-                        this.videoName = addParam.videoName
-                        // this.$refs.playRef.initData(this.url + addParam.videoPath)
+                    this.videoName = addParam.videoName
+                    // this.$refs.playRef.initData(this.url + addParam.videoPath)
                     // }
                     // console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
@@ -808,11 +808,21 @@
                 if (this.isBlank(this.addParam.longitude) || this.addParam.longitude == 0) {
                     alert('经度必填，且不能为0')
                     return
+                } else {
+                    if (this.formatResultToAbs(parseFloat(this.addParam.longitude)) > 180) {
+                        alert('经度范围 -180~180，请填写正确的经度')
+                        return
+                    }
                 }
 
                 if (this.isBlank(this.addParam.latitude) || this.addParam.latitude == 0) {
                     alert('纬度必填，且不能为0')
                     return
+                } else {
+                    if (this.formatResultToAbs(parseFloat(this.addParam.latitude)) > 90) {
+                        alert('纬度范围 -90~90，请填写正确的纬度')
+                        return
+                    }
                 }
 
                 if (this.isBlank(this.addParam.floorage) || this.addParam.floorage == 0) {
@@ -826,23 +836,23 @@
                 }
 
                 if (this.isBlank(this.addParam.propertyCompany)) {
-                   alert('物业公司必填')
-                   return
+                    alert('物业公司必填')
+                    return
                 }
 
                 if (this.isBlank(this.addParam.proId)) {
-                   alert('省份必选')
-                   return
+                    alert('省份必选')
+                    return
                 }
 
                 if (this.isBlank(this.addParam.ldId)) {
-                   alert('区域必选')
-                   return
+                    alert('区域必选')
+                    return
                 }
 
                 if (this.isBlank(this.addParam.businessId)) {
-                   alert('商圈必选')
-                   return
+                    alert('商圈必选')
+                    return
                 }
 
                 if (this.addParam.sellWell != null && this.addParam.sellWell !== '' && parseInt(this.addParam.sellWell) !== 0) {
@@ -861,13 +871,13 @@
                 }
 
                 if (this.isBlank(this.addParam.recommend)) {
-                   alert('推荐楼盘必选')
-                   return
+                    alert('推荐楼盘必选')
+                    return
                 }
 
                 if (this.isBlank(this.addParam.enterprises)) {
-                   alert('入驻企业必填')
-                   return
+                    alert('入驻企业必填')
+                    return
                 }
 
                 if (this.isBlank(this.addParam.minUnitPrice) || this.addParam.minUnitPrice == 0) {
@@ -894,7 +904,6 @@
                 }
 
 
-
                 if (this.isBlank(this.addParam.minTitlePrice) || this.addParam.minTitlePrice == 0) {
                     alert('最低总价必填，且只能填正数，最多保留2位小数')
                     return
@@ -917,7 +926,6 @@
                     alert('最高总价不能小于最低总价')
                     return;
                 }
-
 
 
                 if (this.isBlank(this.addParam.minArea) || this.addParam.minArea == 0) {
@@ -996,9 +1004,6 @@
                 }
 
                 // projectIntroduction
-
-
-
 
 
                 // if (this.addParam.coveredArea != null && this.addParam.coveredArea !== '' && parseFloat(this.addParam.coveredArea) !== 0) {
@@ -1269,20 +1274,20 @@
                     var dataUrl = reader.result;
 
                     file.src = this.result;
-                     if (pictureType === 3) {
+                    if (pictureType === 3) {
                         that.buildRealImgFileList.push(file)
                         that.buildRealImgList.push(dataUrl)
-                    }else if (pictureType === 5) {
+                    } else if (pictureType === 5) {
                         that.headImgFileList.push(file)
                         that.headImgList.push(dataUrl)
                     }
 
-                        // if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
-                        //     "<div id='matchingRealImgInnDiv_" + i + "' >" +
-                        //     "<img id='matchingRealImg_" + i + "' src='#' style='width: 100%' />" +
-                        //     "</div>"
-                        // );
-                        // $("#matchingRealImg_" + i).attr("src", dataUrl);
+                    // if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
+                    //     "<div id='matchingRealImgInnDiv_" + i + "' >" +
+                    //     "<img id='matchingRealImg_" + i + "' src='#' style='width: 100%' />" +
+                    //     "</div>"
+                    // );
+                    // $("#matchingRealImg_" + i).attr("src", dataUrl);
 
 
                 }
@@ -1321,14 +1326,37 @@
                 }).catch((error) => {
                     console.log('楼盘信息提交失败')
                 });
-            },//
+            },
+            numberValidate(input) {
+                if (typeof (input) === 'boolean') {
+                    // validate input is boolean
+                    return false;
+                }
+                let inputStr = input.trim() + '';
+                if (inputStr.length === 0) {
+                    // input is empty string or empty array
+                    return false;
+                }
+                let inputNum = Number(inputStr);
+                if (typeof (inputNum) === 'number' && !isNaN(inputNum)) {
+                    // inputNum type is number && it is not NaN
+                    return true;
+//		return inputNum; // or you can return a number
+                }
+                return false;
+            },
+
+            formatResultToAbs(input) {
+                return Math.abs(input);
+            }
 
         },
         computed: {
             editor() {
                 return this.$refs.myQuillEditor.quill
             }
-        },
+        }
+        ,
     }
 </script>
 
