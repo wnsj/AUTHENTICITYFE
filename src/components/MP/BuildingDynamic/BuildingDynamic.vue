@@ -41,6 +41,10 @@
                             <td class="text-center" style="width:15%">{{item.bdName}}</td>
                             <td class="text-center">{{item.bdLabel}}</td>
                             <td class="text-center">{{item.createTime}}</td>
+
+                            <td class="text-center"  style="width:10%">{{item.createTime}}</td>
+
+                            <td class="text-center" style="width:8%">{{item.createTime}}</td>
                             <td class="text-center"><button type="button" class="btn btn-danger pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                                                             v-on:click="deleteDynamicById(item)">删除
                             </button></td>

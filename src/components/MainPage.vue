@@ -47,7 +47,7 @@
 							</dd>
 
 							<dd @click="addCheck('CounselorControl')" v-bind:class="{'li-active':onString=='CounselorControl'}">
-								<router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">咨询师管理</i></router-link>
+								<router-link to="/MP/Counselor/CounselorControl"><i class="fa" aria-hidden="true">经纪人管理</i></router-link>
 							</dd>
 
 						</dl>
@@ -75,7 +75,7 @@
 						<dl v-bind:class="{h222:bool3}" v-show=phoneFlag>
 							<dt @click="onShow(2)" v-bind:class="{'li-active':bool3}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool3,'fa-folder':!bool3}" aria-hidden="false">
-									电话回拨
+									访客信息
 								</i>
 							</dt>
 							<dd @click="addCheck('LinkPhone')" v-bind:class="{'li-active':onString=='LinkPhone'}">
@@ -233,7 +233,7 @@
                     return false;
                 }
                 if (string == 'CounselorControl') {
-                    this.titleNow = '咨询师管理';
+                    this.titleNow = '经纪人管理';
                     return false;
                 }
                 if (string == 'Comment') {
