@@ -148,7 +148,6 @@
                     this.addCou = {
 
                         buName:'', //商圈名字
-                        buPath:[],  //图片路径
                         buLabel:'', //商圈描述
                         ldId:'',
                         isHot:'',

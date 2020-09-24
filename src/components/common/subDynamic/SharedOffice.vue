@@ -346,7 +346,7 @@
                     if (!(/^([0-9]*$)$/).test(this.addParam.area)) {
                         alert('面积必填，且只能是整数')
                         return;
-                    }         
+                    }
                 }
 
                 if (this.isBlank(this.addParam.stationNum) || this.addParam.stationNum == 0) {
@@ -390,7 +390,7 @@
                 }
 
                 if (this.isBlank(this.addParam.houseType)) {
-                    alert('房型必选')
+                    alert('房型必填')
                     return
                 }
 

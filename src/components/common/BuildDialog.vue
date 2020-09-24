@@ -239,22 +239,19 @@
                         </div>
                     </div>
 
-
-                    <!--                    <div class="col-md-6 form-group clearfix">-->
-                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
-                    <!--                               style="padding:0;line-height:34px;">周边</label><span class="sign-left">:</span>-->
-                    <!--                        <div class="col-md-8">-->
-                    <!--                            <input class="form-control " v-model="addParam.periphery" placeholder=""/>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">开发商</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <textarea class="form-control wdType02" style="resize:none" placeholder=""
                                       v-model="addParam.devId"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">距地铁</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input class="form-control " v-model="addParam.periphery" placeholder=""/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
