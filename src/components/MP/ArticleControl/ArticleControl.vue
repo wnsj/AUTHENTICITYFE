@@ -6,30 +6,30 @@
         <div class="row newRow" style="margin-top: 1%">
             <!--文章类型-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-12 col-lg-12 textcenter">文章类型：</p>
-                </div>
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding:0">
-                    <select class="form-control" v-model="articleType">
-                        <option value=0>--未选择--</option>
-                        <option value=1>公司简介</option>
-                        <option value=2>发展历程</option>
-                        <option value=3>公司荣誉</option>
-                        <option value=4>企业团队</option>
-                        <option value=5>企业文化</option>
-                        <option value=6>联系我们</option>
-                        <option value=7>服务声明</option>
-                    </select>
-                </div>
+<!--                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 34px;">-->
+<!--                    <p class="end-aline col-md-12 col-lg-12 textcenter">文章类型：</p>-->
+<!--                </div>-->
+<!--                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding:0">-->
+<!--                    <select class="form-control" v-model="articleType">-->
+<!--                        <option value=0>&#45;&#45;未选择&#45;&#45;</option>-->
+<!--                        <option value=1>公司简介</option>-->
+<!--                        <option value=2>发展历程</option>-->
+<!--                        <option value=3>公司荣誉</option>-->
+<!--                        <option value=4>企业团队</option>-->
+<!--                        <option value=5>企业文化</option>-->
+<!--                        <option value=6>联系我们</option>-->
+<!--                        <option value=7>服务声明</option>-->
+<!--                    </select>-->
+<!--                </div>-->
             </div>
 
 
-             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-                    v-on:click="selectRule('1')">添加</button>
-            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
-                    data-toggle="modal"
-                    v-on:click="queryData(1)">查询
-            </button>
+<!--             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"-->
+<!--                    v-on:click="selectRule('1')">添加</button>-->
+<!--            <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"-->
+<!--                    data-toggle="modal"-->
+<!--                    v-on:click="queryData(1)">查询-->
+<!--            </button>-->
         </div>
 
 
@@ -43,6 +43,7 @@
                             <th class="text-center">文章类型</th>
                             <th class="text-center">文章标题</th>
                             <th class="text-center">创建时间</th>
+                            <th class="text-center">操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -51,6 +52,10 @@
                             <td class="text-center">{{item.articleTypeLabel}}</td>
                             <td class="text-center">{{item.title}}</td>
                             <td class="text-center">{{item.createDate}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-warning m_r_10" data-toggle="modal"
+                                        v-on:click="openArticle(item)">浏览</button>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -99,6 +104,9 @@
             pageChange: function(page) {
                 this.current = page
                 this.queryData(page)
+            },
+            openArticle(item) {
+                window.open('http://www.baidu.com');
             },
             async queryData(page) {
                 var url = this.url + '/articleBean/getArticleByPage'
