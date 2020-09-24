@@ -106,7 +106,7 @@
                 this.queryData(page)
             },
             openArticle(item) {
-                window.open('http://www.baidu.com');
+                window.open('http://www.baidu.com?article=' + item.articleType);
             },
             async queryData(page) {
                 var url = this.url + '/articleBean/getArticleByPage'
