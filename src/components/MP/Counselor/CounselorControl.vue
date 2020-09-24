@@ -30,9 +30,9 @@
                         <tr>
                             <th class="text-center">咨询师</th>
                             <th class="text-center">毕业院校</th>
-                            <th class="text-center">特长</th>
+                            <th class="text-center">岗位名字</th>
 
-                            
+
 
 <!--                            <th class="text-center">标签</th>-->
 
@@ -45,7 +45,7 @@
                             <td class="text-center">{{item.couName}}</td>
                             <td class="text-center">{{item.graduate}}</td>
                             <td class="text-center">{{item.charaName}}</td>
-                           
+
 
 <!--                            <td class="text-center">{{item.charaName}}</td>-->
                             <!-- <td class="text-center">{{item.couLabel}}</td> -->

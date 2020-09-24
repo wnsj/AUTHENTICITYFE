@@ -23,9 +23,9 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">特长</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">岗位名字</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-							<input type="text" class="form-control" v-model="addCou.charaName"/>
+							<input type="text" class="form-control" placeholder="xxx专属顾问" v-model="addCou.charaName"/>
                             <!-- <cou-chara @couCharaChange="fatherCouChara" ref="couCharaRef"></cou-chara> -->
                         </div>
                     </div>
