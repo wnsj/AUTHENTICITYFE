@@ -21,7 +21,7 @@
                             <input type="text" class="form-control" v-model="addCou.buName"/>
                         </div>
                     </div>
-                   
+
                      <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">是否热门</label><span class="sign-left">:</span>
@@ -148,7 +148,7 @@
                     this.addCou = {
 
                         buName:'', //商圈名字
-                        buPath:'',  //图片路径
+                        buPath:[],  //图片路径
                         buLabel:'', //商圈描述
                         ldId:'',
                         isHot:'',
@@ -156,18 +156,13 @@
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')
 
-                    if (null != addCou && null != addCou.buPath) {
+                    if (null != addCou && null != addCou.buPath && addCou.buPath !== '') {
                         var en = []
                         en.push(this.url + addCou.buPath)
                         this.buPath = en
                     }
                     this.title = '修改'
                      this.$refs.ldtRef.setLdtId(addCou.ldId);
-                    if (null != addCou && null != addCou.buPath) {
-                        var img = []
-                        img.push(this.url+ addCou.buPath)
-                        this.headImgList = img
-                    }
                     Object.assign(this.addCou, addCou)
                 }
             },
