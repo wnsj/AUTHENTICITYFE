@@ -264,7 +264,6 @@
 		methods: {
 
 			roomTypeChange: function() {
-				console.log(this.roomType)
 				if (this.roomType != null) {
 					this.btSon = this.roomType
 					this.$refs.ar.setType(this.roomType)
@@ -312,7 +311,6 @@
 				if (null !== data) {
 					this.ltSon.push(data)
 				}
-				console.log('11112312312312',data)
 				this.$refs.subBu.setLdId(data)
 
 			},
@@ -330,17 +328,14 @@
 				}
 			},
 			fatherAreaReceive(data) {
-				console.log('data',data)
 				this.areaSon = []
 				if (null != data) {
 					let areaParam = {
 						minArea: data.begArea,
 						maxArea: data.endArea
 					}
-					console.log('data',data)
 
 					this.areaSon.push(areaParam)
-					console.log('data',this.areaSon)
 				}
 			},
 			fatherUnReceive(data) {

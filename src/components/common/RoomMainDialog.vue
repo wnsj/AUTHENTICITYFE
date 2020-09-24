@@ -703,10 +703,10 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.isHome)) {
-                    alert('是否首页共享必选')
-                    return
-                }
+                // if (this.isBlank(this.addParam.isHome)) {
+                //     alert('是否首页共享必选')
+                //     return
+                // }
 
                 if (this.isBlank(this.addParam.isHot)) {
                     alert('是否热销必选')
@@ -999,7 +999,6 @@
                 this.addParam.businessId = ''
                 if (null != data) {
                     this.addParam.businessId = data
-                    console.log('ldldldlldld',this.addParam.businessId)
                 }
 
             },
