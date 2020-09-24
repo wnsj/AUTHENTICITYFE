@@ -534,6 +534,11 @@ export default {
                 this.headImgIdList.push(res.retData.head[0].imgId);
                 this.headImgList = img;
               }
+
+              if (res.retData.video.length != 0) {
+                this.videoName = res.retData.video[0].imgName
+              }
+
             } else {
               this.buildRealImgList = [],
         this.buildRealImgFileList = [],
