@@ -155,7 +155,7 @@
                 $('#couDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.couCharaRef.setCcId('0');
-                    this.$refs.couLabel.setClId([]);
+                    // this.$refs.couLabel.setClId([]);
                     this.title = '新增'
                     this.addCou = {
                         // 咨询师
@@ -183,7 +183,7 @@
                     }
                     this.title = '修改'
                     // this.$refs.couCharaRef.setCcId(addCou.ccId);
-                    this.$refs.couLabel.setClId(addCou.labelList);
+                    // this.$refs.couLabel.setClId(addCou.labelList);
                     Object.assign(this.addCou, addCou)
                 }
             },
