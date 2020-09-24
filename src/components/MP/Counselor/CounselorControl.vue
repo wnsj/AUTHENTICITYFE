@@ -48,7 +48,7 @@
                            
 
 <!--                            <td class="text-center">{{item.charaName}}</td>-->
-                            <td class="text-center">{{item.couLabel}}</td>
+                            <!-- <td class="text-center">{{item.couLabel}}</td> -->
 
                             <td class="text-center">{{item.tel}}</td>
                             <!-- <td class="text-center">{{item.introduce}}</td> -->
