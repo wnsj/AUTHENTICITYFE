@@ -7,7 +7,7 @@
             <!--咨询师-->
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 34px;">
-                    <p class="end-aline col-md-12 col-lg-12" style="padding-right:5px; padding-left:20px;">咨询师：</p>
+                    <p class="end-aline col-md-12 col-lg-12" style="padding-right:5px; padding-left:20px;">经纪人：</p>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                     <cou @couChange="fatherCou" ref="couRef"></cou>
@@ -28,7 +28,7 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            <th class="text-center">咨询师</th>
+                            <th class="text-center">经纪人</th>
                             <th class="text-center">毕业院校</th>
                             <th class="text-center">岗位名字</th>
 

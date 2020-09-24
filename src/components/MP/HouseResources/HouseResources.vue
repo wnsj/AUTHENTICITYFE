@@ -26,7 +26,7 @@
 					<ar @areaChange='fatherAreaReceive' ref="ar"></ar>
 				</div>
 			</div>
-			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			<!-- <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
 					<p class="end-aline col-md-12 col-lg-12 textcenter">单价：</p>
 				</div>
@@ -41,7 +41,7 @@
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 					<to @totalChange='fatherToReceive' ref="to"></to>
 				</div>
-			</div>
+			</div> -->
 			<!-- 商圈 -->
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
@@ -267,8 +267,8 @@
 				if (this.roomType != null) {
 					this.btSon = this.roomType
 					this.$refs.ar.setType(this.roomType)
-					this.$refs.un.setType(this.roomType)
-					this.$refs.to.setType(this.roomType)
+					// this.$refs.un.setType(this.roomType)
+					// this.$refs.to.setType(this.roomType)
 				}
 
             },
@@ -338,34 +338,34 @@
 					this.areaSon.push(areaParam)
 				}
 			},
-			fatherUnReceive(data) {
-				this.unSon = []
-				if (null != data) {
-					var begPrice = null;
-					if (null != data.begPrice) {
-						begPrice = data.begPrice * 10000
-					}
-					var endPrice = null;
-					if (null != data.endPrice) {
-						endPrice = data.endPrice * 10000
-					}
-					let unParam = {
-						minUnitPrice: begPrice,
-						maxUnitPrice: endPrice
-					}
-					this.unSon.push(unParam)
-				}
-			},
-			fatherToReceive(data) {
-				this.toSon = []
-				if (null != data) {
-					let toParam = {
-						minTitlePrice: data.begPrice,
-						maxTitlePrice: data.endPrice
-					}
-					this.toSon.push(toParam)
-				}
-			},
+			// fatherUnReceive(data) {
+			// 	this.unSon = []
+			// 	if (null != data) {
+			// 		var begPrice = null;
+			// 		if (null != data.begPrice) {
+			// 			begPrice = data.begPrice * 10000
+			// 		}
+			// 		var endPrice = null;
+			// 		if (null != data.endPrice) {
+			// 			endPrice = data.endPrice * 10000
+			// 		}
+			// 		let unParam = {
+			// 			minUnitPrice: begPrice,
+			// 			maxUnitPrice: endPrice
+			// 		}
+			// 		this.unSon.push(unParam)
+			// 	}
+			// },
+			// fatherToReceive(data) {
+			// 	this.toSon = []
+			// 	if (null != data) {
+			// 		let toParam = {
+			// 			minTitlePrice: data.begPrice,
+			// 			maxTitlePrice: data.endPrice
+			// 		}
+			// 		this.toSon.push(toParam)
+			// 	}
+			// },
 			fatherDevReceive(data) {
 				this.devSon = []
 				if (null !== data) {

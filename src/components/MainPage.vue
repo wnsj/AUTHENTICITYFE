@@ -99,7 +99,7 @@
 						<dl v-bind:class="{h1:bool5}">
 							<dt @click="onShow(4)" v-bind:class="{'li-active':bool5}">
 								<i class="fa" v-bind:class="{'fa-folder-open':bool5,'fa-folder':!bool5}" aria-hidden="true">
-									其他模块
+									企业信息
 								</i>
 							</dt>
 							<dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">

@@ -238,6 +238,10 @@
                         alert(res.retMsg)
                         this.$emit('certainAction')
                     }
+                    if (res.retCode === '9999') {
+                        alert(res.retMsg)
+                        this.$emit('certainAction')
+                    }
                 }).catch((error) => {
                     console.log('信息提交失败')
                 });
