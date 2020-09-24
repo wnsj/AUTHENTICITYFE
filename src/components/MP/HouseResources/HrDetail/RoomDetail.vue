@@ -335,12 +335,9 @@ export default {
     },
 
     buildRealImgChange() {
-      console.log("进入多图1111111");
       var files = $("#roomPicture")[0].files; //获取file对象
-      console.log("进入多图1111111", files);
       for (let i = 0; i < files.length; i++) {
         var file = files[i];
-        console.log("进入多图1111111", "循环循环");
         this.fileAdd(file, i, 3);
       }
     },
@@ -410,14 +407,9 @@ export default {
       }
       if (this.title == "新增") return;
       if (this.isBlank(item)) return;
-      console.log("item", item);
       var index = item.lastIndexOf("=");
-      console.log("index", index);
       var str = item.substring(index + 1, item.length);
-      console.log("str", str);
       if (this.isBlank(str)) return;
-
-      console.log("id", id);
       this.$ajax({
         method: "POST",
         url: this.url + "/buildingBean/deleteImgFile",

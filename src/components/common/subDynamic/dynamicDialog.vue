@@ -154,7 +154,6 @@
             },
 
             fathermtIReceive(data) {
-                console.log(data)
                 this.addParam.buildId = ''
                 if (null !== data) {
                     this.addParam.buildId = data
