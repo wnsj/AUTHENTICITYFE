@@ -40,12 +40,7 @@
                             <td class="text-center" style="width:10%">{{item.typeName}}</td>
                             <td class="text-center" style="width:15%">{{item.bdName}}</td>
                             <td class="text-center">{{item.bdLabel}}</td>
-<<<<<<< HEAD
-
-                            <td class="text-center"  style="width:10%">{{item.createTime}}</td>
-=======
                             <td class="text-center" style="width:8%">{{item.createTime}}</td>
->>>>>>> 1c01e82e59007f0bca60116321f55c9c2255a619
                             <td class="text-center"><button type="button" class="btn btn-danger pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                                                             v-on:click="deleteDynamicById(item)">删除
                             </button></td>
