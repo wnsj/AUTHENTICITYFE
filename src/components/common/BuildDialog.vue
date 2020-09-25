@@ -124,7 +124,8 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">入驻企业</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input class="form-control " v-model="addParam.enterprises" placeholder=""/>
+                            <textarea class="form-control wdType02" style="resize:none" placeholder=""
+                                      v-model="addParam.enterprises"/>
                         </div>
                     </div>
                     <!--                    <div class="col-md-6 form-group clearfix">-->
@@ -949,20 +950,20 @@
                 }
 
                 if (this.isBlank(this.addParam.minStationNum) || this.addParam.minStationNum == 0) {
-                    alert('最小工位必填，且只能填正数，最多保留2位小数')
+                    alert('最小工位必填，且只能填正数')
                     return
                 } else {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.minStationNum)) {
-                        alert('最小工位必填，且只能填正数，最多保留2位小数')
+                    if (!(/^([0-9]*$)$/).test(this.addParam.minStationNum)) {
+                        alert('最小工位必填，且只能填正数')
                         return;
                     }
                 }
                 if (this.isBlank(this.addParam.maxStationNum) || this.addParam.maxStationNum == 0) {
-                    alert('最大工位必填，且只能填正数，最多保留2位小数')
+                    alert('最大工位必填，且只能填正数')
                     return
                 } else {
-                    if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.maxStationNum)) {
-                        alert('最大工位必填，且只能填正数，最多保留2位小数')
+                    if (!(/^([0-9]*$)$/).test(this.addParam.maxStationNum)) {
+                        alert('最大工位必填，且只能填正数')
                         return;
                     }
                 }
