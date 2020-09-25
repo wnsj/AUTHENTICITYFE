@@ -32,7 +32,8 @@
             },
             setBuId: function(buId) {
                 this.id = buId
-                this.queryData()
+                this.buList = []
+                // this.queryData()
             },
             setLdId: function(ldId) {
                 if(ldId == null){
@@ -68,7 +69,7 @@
             },
         },
         created() {
-            this.queryData()
+            // this.queryData()
         },
     }
 </script>

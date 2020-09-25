@@ -19,7 +19,9 @@
             return {
                 buildId: '',
                 buildType: '',
-                buildList: []
+                buildList: [],
+                ldId : '',
+                bussId : ''
             };
         },
         methods: {
@@ -43,7 +45,8 @@
             setBuildingList: function(buildList) {
                 // this.buildList = []
                 this.buildId = ''
-                this.queryData()
+                this.buildList = []
+                // this.queryData()
 			},
 
             setBuildType(type) {
@@ -53,15 +56,29 @@
                 this.buildType = type
                 this.queryData()
             },
+
+            setLdId: function(ldId) {
+                this.ldId = ldId
+                this.queryData()
+            },
+
+            setBussId: function(bussId) {
+                this.bussId = bussId
+                this.queryData()
+            },
+            
             async queryData() {
-                var url = this.url + '/buildingBean/getAllBuild?buildType=' + this.buildType
+                var url = this.url + '/buildingBean/getAllBuild'
                 this.$ajax({
-                    method: 'GET',
+                    method: 'POST',
                     url: url,
                     headers: {
                         'Access-Token': this.accessToken
                     },
                     data: {
+                        ldId:this.ldId,
+                        businessId:this.bussId,
+                        buildType:this.buildType
                     },
                     dataType: 'json',
                 }).then((response) => {
@@ -81,7 +98,7 @@
             },
         },
         created() {
-            this.queryData()
+            // this.queryData()
         },
     }
 </script>

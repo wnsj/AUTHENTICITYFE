@@ -44,6 +44,19 @@
 				</div>
 			</div> -->
 
+		</div>
+
+		<div class="row newRow" style="margin-top: 1%">
+			<!-- 区域 -->
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+					<p class="end-aline col-md-12 col-lg-12 textcenter">区域：</p>
+				</div>
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
+					<ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
+				</div>
+			</div>
+
 			<!-- 商圈 -->
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
@@ -61,19 +74,6 @@
 				</div>
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
 					<buildCompent @buildChange='fatherbuildCompentReceive' ref="buildCompent"></buildCompent>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="row newRow" style="margin-top: 1%">
-			<!-- 区域 -->
-			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
-					<p class="end-aline col-md-12 col-lg-12 textcenter">区域：</p>
-				</div>
-				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
-					<ldt @ldtChange='fatherLdtReceive' ref="ldt"></ldt>
 				</div>
 			</div>
 
@@ -314,6 +314,7 @@
 					this.ltSon.push(data)
 				}
 				this.$refs.subBu.setLdId(data)
+				this.$refs.buildCompent.setLdId(data)
 
 			},
 			fathersubBuReceive(data) {
@@ -321,7 +322,7 @@
 				if(data != null){
 					this.subBuSon.push(data)
 				}
-
+				this.$refs.buildCompent.setBussId(data)
 			},
 			fatherbuildCompentReceive(data){
 				this.buildCompentSon = []
@@ -521,6 +522,7 @@
 			//     list.join('\')
 			// }
 		},
+
 		created: function() {
 			this.queryData()
 		}

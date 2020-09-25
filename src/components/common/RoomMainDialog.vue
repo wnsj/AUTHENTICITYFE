@@ -194,22 +194,22 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘经度</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.longitude"
                                    placeholder="数值,可填:30.02">
                         </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
+                    </div> -->
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼盘纬度</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.latitude"
                                    placeholder="数值,可填:30.02">
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -773,25 +773,25 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.longitude) || this.addParam.longitude == 0) {
-                    alert('经度必填，且不能为0')
-                    return
-                } else {
-                    if (this.formatResultToAbs(parseFloat(this.addParam.longitude)) > 180) {
-                        alert('经度范围 -180~180，请填写正确的经度')
-                        return
-                    }
-                }
+                // if (this.isBlank(this.addParam.longitude) || this.addParam.longitude == 0) {
+                //     alert('经度必填，且不能为0')
+                //     return
+                // } else {
+                //     if (this.formatResultToAbs(parseFloat(this.addParam.longitude)) > 180) {
+                //         alert('经度范围 -180~180，请填写正确的经度')
+                //         return
+                //     }
+                // }
 
-                if (this.isBlank(this.addParam.latitude) || this.addParam.latitude == 0) {
-                    alert('纬度必填，且不能为0')
-                    return
-                }  else {
-                    if (this.formatResultToAbs(parseFloat(this.addParam.latitude)) > 90) {
-                        alert('纬度范围 -90~90，请填写正确的纬度')
-                        return
-                    }
-                }
+                // if (this.isBlank(this.addParam.latitude) || this.addParam.latitude == 0) {
+                //     alert('纬度必填，且不能为0')
+                //     return
+                // }  else {
+                //     if (this.formatResultToAbs(parseFloat(this.addParam.latitude)) > 90) {
+                //         alert('纬度范围 -90~90，请填写正确的纬度')
+                //         return
+                //     }
+                // }
 
                 if (this.isBlank(this.addParam.areaInfo)) {
                     alert('面积信息必填')
@@ -944,7 +944,7 @@
             },
             closeCurrentPage() {
                 this.playAvOutDivFlag = true
-                this.$emit('certainAction')
+                // this.$emit('certainAction')
                 $("#roomMainDialog").modal("hide")
             },
 
@@ -1004,12 +1004,14 @@
 
                 }
                 this.$refs.buRef.setLdId(data)
+                this.$refs.buildCompentRef.setLdId(data)
             },
             fatherBuReceive(data) {
                 this.addParam.businessId = ''
                 if (null != data) {
                     this.addParam.businessId = data
                 }
+                this.$refs.buildCompentRef.setBussId(data)
 
             },
             // fatherMetrosReceive(data) {
