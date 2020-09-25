@@ -251,6 +251,7 @@
                     const res = response.data
                     if (res.retCode === '0000') {
                         alert(res.retMsg)
+                        this.$parent.$refs.couRef.queryData()
                         this.$emit('certainAction')
                     }
                 }).catch((error) => {
