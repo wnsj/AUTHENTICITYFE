@@ -185,6 +185,10 @@
                     alert('商圈描述不能为空')
                     return
                 }
+                if(this.buPath.length == 0){
+                    alert('请添加商圈图片')
+                    return
+                }
 
                 // if (!this.isBlank(this.addCou.tel)) {
                 //     if (!(/^1[3456789]\d{9}$/).test(this.addCou.tel)) {

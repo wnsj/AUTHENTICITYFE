@@ -120,7 +120,7 @@
                             <input type="text" class="form-control" v-model="storeParam.storeInfo"/>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">视频</label><span
                         class="sign-left">:</span>
@@ -136,7 +136,7 @@
                     </div>
 
 
-                    <div class="col-md-6 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">图片</label><span
                         class="sign-left">:</span>
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
@@ -622,6 +622,16 @@
                     alert('网点介绍必填')
                     return
                 }
+
+                if(this.headImgList.length == 0){
+                    alert('请选择头图')
+                    return
+                }
+
+                if(this.buildRealImgList.length == 0){
+                    alert('请选择图片')
+                    return
+                }   
 
                 this.loading = true
                 this.btnName = '提交中...'

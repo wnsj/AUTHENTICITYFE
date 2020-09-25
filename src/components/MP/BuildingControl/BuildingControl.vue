@@ -80,7 +80,7 @@
                              <th class="text-center">商圈</th>
                             <th class="text-center">类型</th>
                             <th class="text-center">面积</th>
-                            <th class="text-center">咨询师</th>
+                            <th class="text-center">经纪人</th>
                         </tr>
                         </thead>
                         <tbody>

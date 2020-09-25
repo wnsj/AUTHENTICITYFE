@@ -273,12 +273,12 @@
                     </div> -->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">咨询师</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">经纪人</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <Counselor @couChange='fatherCouReceive' ref="couRef"></Counselor>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">图片</label><span
                         class="sign-left">:</span>
@@ -295,7 +295,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
@@ -310,7 +310,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                    <div class="col-md-12 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">视频</label><span
                         class="sign-left">:</span>
@@ -595,7 +595,7 @@
                     // this.$refs.devRef.setDevId(addParam.devId)
                     this.$refs.charsRef.setCharaList([])
                     // this.$refs.bhtsRef.setBhtIdList([])
-                    this.$refs.proRef.setProId('0')
+                    this.$refs.proRef.setProId('2')
                     // this.$refs.regionRef.setRegionId('0')
                     // this.$refs.metrosRef.setMetroIdList([])
                     this.addParam = {
@@ -993,7 +993,7 @@
                 // }
 
                 if (this.isBlank(this.addParam.couId)) {
-                    alert('咨询师必选')
+                    alert('经纪人必选')
                     return
                 }
                 if (this.isBlank(this.addParam.projectIntroduction)) {
@@ -1001,6 +1001,15 @@
                     return
                 }
 
+                if(this.headImgList.length == 0){
+                    alert('请选择头图')
+                    return
+                }
+
+                if(this.buildRealImgList.length == 0){
+                    alert('请选择图片')
+                    return
+                }
                 // projectIntroduction
 
 

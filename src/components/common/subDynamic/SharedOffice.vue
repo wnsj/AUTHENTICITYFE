@@ -394,6 +394,16 @@
                     return
                 }
 
+                if(this.headImgList.length == 0){
+                    alert('请选择头图')
+                    return
+                }
+
+                if(this.buildRealImgList.length == 0){
+                    alert('请选择图片')
+                    return
+                }
+
                 this.isDisable = true
                 setTimeout(() => {
                     this.isDisable = false

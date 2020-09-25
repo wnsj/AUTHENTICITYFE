@@ -124,7 +124,7 @@
                                style="padding:0;line-height:34px;">单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.unitPrice"
-                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">万元</span>
+                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">元</span>
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.totalPrice"
-                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">万元</span>
+                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">元</span>
                         </div>
                     </div>
 
@@ -164,7 +164,7 @@
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">咨询师</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">经纪人</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <Counselor @couChange='fatherCouReceive' ref="couRef"></Counselor>
                         </div>
@@ -754,7 +754,7 @@
                 }
 
                 if (this.isBlank(this.addParam.couId)) {
-                    alert('咨询师必选')
+                    alert('经纪人必选')
                     return
                 }
 

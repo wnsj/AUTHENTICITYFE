@@ -2,14 +2,14 @@
 <template>
     <div class="modal-content">
         <div class="modal-header">
-            <h4 id="myModalLabel" class="modal-title">{{title}}咨询师</h4>
+            <h4 id="myModalLabel" class="modal-title">{{title}}经纪人</h4>
         </div>
         <div class="modal-body  pos_r">
             <div class="tab-pane fade in active martop" id="basic">
                 <div class="dialogInutBox clearfix">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">咨询师</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">经纪人</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addCou.couName"/>
                         </div>
@@ -191,7 +191,7 @@
 
             certainAction() {
                if (this.isBlank(this.addCou.couName)) {
-                   alert('咨询师名字必填')
+                   alert('经纪人名字必填')
                    return
                }
 

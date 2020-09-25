@@ -135,7 +135,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 form-group clearfix">
+          <div class="col-md-12 form-group clearfix">
             <label
               class="col-md-3 control-label text-right nopad end-aline"
               style="padding:0;line-height:34px;"
@@ -162,7 +162,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 form-group clearfix">
+          <div class="col-md-12 form-group clearfix">
             <label
               class="col-md-3 control-label text-right nopad end-aline"
               style="padding:0;line-height:34px;"
@@ -184,7 +184,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 form-group clearfix">
+          <div class="col-md-12 form-group clearfix">
             <label
               class="col-md-3 control-label text-right nopad end-aline"
               style="padding:0;line-height:34px;"
@@ -560,6 +560,7 @@ export default {
     },
 
     certainAction() {
+
         if (this.isBlank(this.roomParam.earliestRent)) {
             alert('最早可租必填')
             return
@@ -574,19 +575,19 @@ export default {
             alert('最小工位必填，且只能填正数，最多保留2位小数')
             return
         } else {
-            if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.roomParam.minStationNum)) {
-                alert('最小工位必填，且只能填正数，最多保留2位小数')
-                return;
-            }
+            if (!(/^([0-9]*$)$/).test(this.addParam.maxStationNum)) {
+                        alert('最小工位必填，且只能填正数')
+                        return;
+                    }
         }
         if (this.isBlank(this.roomParam.maxStationNum) || this.roomParam.maxStationNum == 0) {
             alert('最大工位必填，且只能填正数，最多保留2位小数')
             return
         } else {
-            if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.roomParam.maxStationNum)) {
-                alert('最大工位必填，且只能填正数，最多保留2位小数')
-                return;
-            }
+            if (!(/^([0-9]*$)$/).test(this.addParam.maxStationNum)) {
+                        alert('最大工位必填，且只能填正数')
+                        return;
+                    }
         }
         if (parseFloat(this.roomParam.minStationNum) > parseFloat(this.roomParam.maxStationNum)) {
             alert('最大工位不能小于最小工位')
@@ -611,6 +612,16 @@ export default {
         if (this.isBlank(this.roomParam.buildIntroduce)) {
             alert('楼盘介绍必填')
             return
+        }
+
+        if(this.headImgList.length == 0){
+          alert('请选择头图')
+           return
+        }
+
+        if(this.buildRealImgList.length == 0){
+          alert('请选择图片')
+           return
         }
 
      /* if (
