@@ -3,7 +3,7 @@
 <!--        <option value="">&#45;&#45;未选择&#45;&#45;</option>-->
 <!--        <option v-for="(item,index) in buildList" :key="index" v-bind:value="item.buildId">{{item.htName}}</option>-->
 <!--    </select>-->
-        <el-select size="medium" v-model="buildId" v-on:change="buildChange()" clearable filterable placeholder="--未选择--">
+        <el-select size="medium" v-model="buildId" v-on:change="buildChange()" clearable filterable placeholder="--未选择--" :disabled="this.buildType==3?true:false">
             <el-option
                 v-for="item in buildList"
                 :key="item.buildId"
@@ -46,13 +46,14 @@
                 // this.buildList = []
                 this.buildId = ''
                 this.buildList = []
+                this.buildType = 0
                 // this.queryData()
 			},
 
             setBuildType(type) {
-                if(type == 3){
-                    type = 1
-                }
+                // if(type == 3){
+                //     type = 1
+                // }
                 this.buildType = type
                 this.queryData()
             },

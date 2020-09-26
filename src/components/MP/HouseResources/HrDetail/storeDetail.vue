@@ -9,6 +9,14 @@
                 <div class="dialogInutBox clearfix" style="padding-top:15px">
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">项目名称</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" v-model="storeParam.projectName"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">业态</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <Commercial @comChange="comRe" ref="comRef"></Commercial>
@@ -219,6 +227,9 @@
                 storeParam: {
                     // 共享房源详情ID
                     storeId: '',
+
+                    //项目名称
+                    projectName: '',
 
                     //网点介绍
                     produce: '',
@@ -450,6 +461,9 @@
                 this.storeParam = {
                     // 共享房源详情ID
                     storeId: '',
+
+                    //项目名称
+                    projectName: '',
 
                     //网点介绍
                     produce: '',
