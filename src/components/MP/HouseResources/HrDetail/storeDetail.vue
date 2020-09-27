@@ -177,16 +177,16 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12 form-group clearfix">
-                        <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline"
-                                   style="padding:0;line-height:34px;">网点介绍</label><span class="sign-left">:</span>
-                        </div>
-                        <div class="col-md-12">
-                            <textarea class="form-control wdType03" v-model="storeParam.produce"
-                                      placeholder="网点介绍"></textarea>
-                        </div>
-                    </div>
+<!--                    <div class="col-md-12 form-group clearfix">-->
+<!--                        <div class="col-md-6  clearfix" style="padding: 0;">-->
+<!--                            <label class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                                   style="padding:0;line-height:34px;">网点介绍</label><span class="sign-left">:</span>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-12">-->
+<!--                            <textarea class="form-control wdType03" v-model="storeParam.produce"-->
+<!--                                      placeholder="网点介绍"></textarea>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                 </div>
                 <div class="dialogBtnBox form-group clearfix">
@@ -632,10 +632,10 @@
                     return
                 }
 
-                if (this.isBlank(this.storeParam.produce)) {
-                    alert('网点介绍必填')
-                    return
-                }
+                // if (this.isBlank(this.storeParam.produce)) {
+                //     alert('网点介绍必填')
+                //     return
+                // }
 
                 if(this.headImgList.length == 0){
                     alert('请选择头图')
@@ -645,7 +645,7 @@
                 if(this.buildRealImgList.length == 0){
                     alert('请选择图片')
                     return
-                }   
+                }
 
                 this.loading = true
                 this.btnName = '提交中...'
