@@ -51,7 +51,7 @@
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="picture" @change="pictureChange" accept="image/*" />
-							<p class="redtips">*注意：宽82px*高82px</p>
+							<p class="redtips">*注意：宽60px*高60px</p>
                             <div id="pictureOutDiv">
                                 <div v-for="(item,index) of picture" :key="index"
                                      v-show="picture.length!==0">
