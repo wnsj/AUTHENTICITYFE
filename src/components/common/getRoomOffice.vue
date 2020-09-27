@@ -1,12 +1,20 @@
 
 
 <template>
-    <div>
-        <select class="form-control" v-model="roomId" v-on:change="roomIdChange()">
-            <option value="" >--未选择--</option>
-            <option v-for="(item,index) in ldtList" :key="index" v-bind:value="item.id">{{item.room}}</option>
-        </select>
-    </div>
+<!--    <div>-->
+<!--        <select class="form-control" v-model="roomId" v-on:change="roomIdChange()">-->
+<!--            <option value="" >&#45;&#45;未选择&#45;&#45;</option>-->
+<!--            <option v-for="(item,index) in ldtList" :key="index" v-bind:value="item.id">{{item.room}}</option>-->
+<!--        </select>-->
+<!--    </div>-->
+    <el-select size="medium" v-model="roomId" v-on:change="roomIdChange()" clearable filterable placeholder="--未选择--">
+        <el-option
+            v-for="item in ldtList"
+            :key="item.id"
+            :label="item.room"
+            :value="item.id">
+        </el-option>
+    </el-select>
 </template>
 
 <script>
