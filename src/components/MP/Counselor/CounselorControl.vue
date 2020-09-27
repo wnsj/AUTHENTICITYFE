@@ -10,7 +10,8 @@
                     <p class="end-aline col-md-12 col-lg-12" style="padding-right:5px; padding-left:20px;">经纪人：</p>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <cou @couChange="fatherCou" ref="couRef"></cou>
+<!--                    <cou @couChange="fatherCou" ref="couRef"></cou>-->
+                    <input  class="form-control" v-model="couName"/>
                 </div>
             </div>
              <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
@@ -90,6 +91,7 @@
         data() {
             return {
                 couId:'',
+                couName: '',
                 charaName:'',
                 couData:[],
                 //分页需要的数据
@@ -128,7 +130,7 @@
                     },
                     data: {
                         couId: this.couId,
-                        charaName: this.charaName,
+                        couName: this.couName,
                         current: page,
                         pageSize: this.pageSize
                     },

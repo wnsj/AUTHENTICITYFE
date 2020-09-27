@@ -33,7 +33,7 @@
             setBuId: function(buId) {
                 this.id = buId
                 this.buList = []
-                // this.queryData()
+                this.queryData()
             },
             setLdId: function(ldId) {
                 if(ldId == null){

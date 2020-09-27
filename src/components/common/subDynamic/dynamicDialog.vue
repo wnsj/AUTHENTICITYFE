@@ -33,7 +33,6 @@
 
                             <div id="picOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
-                                    <div @click="fileDel(index,5,item)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -189,13 +188,17 @@
                     alert('资讯描述必填')
                     return
                 }
-                
+
                 this.addParam.bdContent = this.$refs.sn.getData()
                 if (this.isBlank(this.addParam.bdContent)) {
                     alert('资讯内容必填')
                     return
                 }
 
+                if (null == this.headImgList || this.headImgList.length === 0) {
+                    alert('请选择图片')
+                    return
+                }
                 // this.addParam.bdContent = this.$refs.rn.getData()
 //                 const fd = new FormData();
 //                 fd.append("param", JSON.stringify(this.addParam));
