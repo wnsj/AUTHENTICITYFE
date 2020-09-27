@@ -50,7 +50,7 @@
                                style="padding:0;line-height:34px;">照片</label><span
                         class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="file" id="picture" @change="pictureChange" accept="image/*" />
+                            <input type="file" id="couPic" @change="pictureChange" accept="image/*" />
 							<p class="redtips">*注意：宽60px*高60px</p>
                             <div id="pictureOutDiv">
                                 <div v-for="(item,index) of picture" :key="index"
@@ -149,7 +149,7 @@
                 this.picture = []
                 this.pictureFile = []
 
-                $("#picture").val("");
+                $("#couPic").val("");
 
                 $('#couDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
@@ -200,7 +200,7 @@
                // }
 
                 if (!this.isBlank(this.addCou.tel)) {
-                    if (!(/^1[3456789]\d{9}$/).test(this.addCou.tel)) {
+                    if (!((/^((1[345678]\d{9})|(\d{2,3}\d{7,8})|(\d{2,3}-\d{7,8}))$/).test(this.addCou.tel))) {
                         alert('请输入正确的联系方式')
                         return;
                     }
@@ -277,7 +277,7 @@
             //预览图
             pictureChange() {
 
-                var files = $("#picture")[0].files; //获取file对象
+                var files = $("#couPic")[0].files; //获取file对象
 
                 if (null != files) {
                     this.picture = []

@@ -220,8 +220,8 @@
                 this.ltSon = []
                 if (null !== data) {
                     this.ltSon.push(data)
+                    this.$refs.buRef.setLdId(data)
                 }
-
             },
             fatherBuReceive(data) {
                 this.businessId = ''
@@ -359,6 +359,7 @@
         mounted() {
             // this.$refs.unRef.setType(1)
             // this.$refs.toRef.setType(1)
+            this.$refs.buRef.setLdId('')
             this.$refs.arRef.setType(1)
             this.$refs.btRef.setType(1)
         },

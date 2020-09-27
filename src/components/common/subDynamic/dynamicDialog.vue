@@ -29,7 +29,7 @@
                                style="padding:0;line-height:34px;">图片</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="pic" @change="headImgChange" accept="image/*"/>
-                            <p class="redtips">*注意：宽378px*高228px</p>
+                            <p class="redtips">*注意：宽380px*高180px</p>
 
                             <div id="picOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">

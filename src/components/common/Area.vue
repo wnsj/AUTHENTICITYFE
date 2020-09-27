@@ -1,7 +1,7 @@
 <template>
     <select class="form-control" v-model="areaId" v-on:change="areaChange()">
         <option value="0">--未选择--</option>
-        <option v-for="(item,index) in areaList" :key="index" v-bind:value="item.arId" style="text-align:center">{{item.begArea}}-{{item.endArea}}</option>
+        <option v-for="(item,index) in areaList" :key="index" v-bind:value="item.arId" style="text-align:center">{{item.begArea}}-{{item.endArea}}㎡</option>
     </select>
 </template>
 

@@ -39,7 +39,7 @@
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="picture" @change="pictureChange" accept="image/*" />
-							<p class="redtips">*注意：宽82px*高82px</p>
+							<p class="redtips">*注意：宽280px*高350px</p>
                             <div id="pictureOutDiv">
                                 <div v-for="(item,index) of buPath" :key="index"
                                      v-show="buPath.length!==0">
@@ -98,7 +98,7 @@
                    buPath:'',  //图片路径
                    buLabel:'', //商圈描述
                    ldId:'',
-                   isHot:'',
+                   isHot:'3',
 
                 },
                 buPath: [],
@@ -150,7 +150,7 @@
                         buName:'', //商圈名字
                         buLabel:'', //商圈描述
                         ldId:'',
-                        isHot:'',
+                        isHot:'3',
                     }
                 } else if (param === 'modify') {
                     console.log('Initialization evaluation’s content, which modifies evaluation')

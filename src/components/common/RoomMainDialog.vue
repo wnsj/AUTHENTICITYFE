@@ -88,7 +88,6 @@
                                style="padding:0;line-height:34px;">是否可注册</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <select class="form-control" v-model="addParam.isRegister">
-                                <option value=0>--未选择--</option>
                                 <option value=2>--是--</option>
                                 <option value=3>--否--</option>
                             </select>
@@ -112,7 +111,6 @@
                                style="padding:0;line-height:34px;">是否热销</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <select class="form-control" v-model="addParam.isHot">
-                                <option value=0>--未选择--</option>
                                 <option value=2>--是--</option>
                                 <option value=3>--否--</option>
                             </select>
@@ -273,7 +271,6 @@
                                style="padding:0;line-height:34px;">是否在租</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <select class="form-control" v-model="addParam.isRent">
-                                <option value=0>--未选择--</option>
                                 <option value=2>--是--</option>
                                 <option value=3>--否--</option>
                             </select>
@@ -410,13 +407,13 @@
                     rentFreeTime: '',
 
                      // 是否注册
-                    isRegister: '',
+                    isRegister: 2,
 
                      // 是否首页目前用于共享办公
                     isHome: '',
 
                     // 是否热销
-                    isHot: '',
+                    isHot: 3,
 
                      // 单价
                     unitPrice: '',
@@ -464,13 +461,13 @@
                     payType: '',
 
                     // 是否在租
-                    isRent: '',
+                    isRent: 2,
 
                     // 网点介绍
                     produce: '',
 
                     // 特点list集合
-                    chaList: '',
+                    chaList: [],
 
                 },
                 title: '',
@@ -555,13 +552,13 @@
                     rentFreeTime: '',
 
                      // 是否注册
-                    isRegister: '',
+                    isRegister: 2,
 
                      // 是否首页目前用于共享办公
                     isHome: '',
 
                     // 是否热销
-                    isHot: '',
+                    isHot: 3,
 
                      // 单价
                     unitPrice: '',
@@ -609,13 +606,13 @@
                     payType: '',
 
                     // 是否在租
-                    isRent: '',
+                    isRent: 2,
 
                     // 网点介绍
                     produce: '',
 
                     // 特点list集合
-                    chaList: '',
+                    chaList: [],
                     }
                 } else if (param === 'modify') {
                     // if (this.isBlank(addParam.videoPath)) {
@@ -678,11 +675,11 @@
                     return
                 }
 
+
                 if (this.isBlank(this.addParam.btId)) {
                     alert('类型必选')
                     return
                 }
-
                 if (this.isBlank(this.addParam.ldId)) {
                     alert('区域必选')
                     return
@@ -698,20 +695,20 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.isRegister)) {
-                    alert('是否可注册必选')
-                    return
-                }
+                // if (this.isBlank(this.addParam.isRegister)) {
+                //     alert('是否可注册必选')
+                //     return
+                // }
 
                 // if (this.isBlank(this.addParam.isHome)) {
                 //     alert('是否首页共享必选')
                 //     return
                 // }
 
-                if (this.isBlank(this.addParam.isHot)) {
-                    alert('是否热销必选')
-                    return
-                }
+                // if (this.isBlank(this.addParam.isHot)) {
+                //     alert('是否热销必选')
+                //     return
+                // }
 
 
                 if (this.isBlank(this.addParam.unitPrice) || this.addParam.unitPrice == 0) {
@@ -803,10 +800,10 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.isRent)) {
-                    alert('是否在租必选')
-                    return
-                }
+                // if (this.isBlank(this.addParam.isRent)) {
+                //     alert('是否在租必选')
+                //     return
+                // }
 
                 if (this.isBlank(this.addParam.produce)) {
                     alert('网点介绍必填')
@@ -1005,6 +1002,8 @@
                 }
                 this.$refs.buRef.setLdId(data)
                 this.$refs.buildCompentRef.setLdId(data)
+                this.addParam.businessId = ''
+                this.addParam.buildId = ''
             },
             fatherBuReceive(data) {
                 this.addParam.businessId = ''
@@ -1012,7 +1011,7 @@
                     this.addParam.businessId = data
                 }
                 this.$refs.buildCompentRef.setBussId(data)
-
+                this.addParam.buildId = ''
             },
             // fatherMetrosReceive(data) {
             //     this.addParam.metroIdList = []
@@ -1187,8 +1186,11 @@
 				if (this.roomType != null) {
                     this.addParam.roomType = this.roomType
                     this.$refs.btRef.setType(this.roomType)
+                    this.addParam.btId = ''
                     this.$refs.buildCompentRef.setBuildType(this.roomType)
+                    this.addParam.businessId = ''
                     this.$refs.baseServiceCompentRef.setBaseServiceList(this.chaList)
+                    this.addParam.chaList = []
                     // this.$refs.stRef.setType(this.roomType)
 				}
 
