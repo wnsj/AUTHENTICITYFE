@@ -51,11 +51,10 @@
                         class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="picture" @change="pictureChange" accept="image/*" />
-							<p class="redtips">*注意：宽82px*高82px</p>
+							<p class="redtips">*注意：宽60px*高60px</p>
                             <div id="pictureOutDiv">
                                 <div v-for="(item,index) of picture" :key="index"
                                      v-show="picture.length!==0">
-                                    <div @click="fileDel(index)">x</div>
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
@@ -215,6 +214,11 @@
                     return
                 }
 
+                if (null == this.picture || this.picture.length === 0) {
+                    alert('请选择照片')
+                    return
+                }
+
                 this.isDisable = true
                 setTimeout(() => {
                     this.isDisable = false
@@ -251,7 +255,7 @@
                     const res = response.data
                     if (res.retCode === '0000') {
                         alert(res.retMsg)
-                        this.$parent.$refs.couRef.queryData()
+                        // this.$parent.$refs.couRef.queryData()
                         this.$emit('certainAction')
                     }
                 }).catch((error) => {
