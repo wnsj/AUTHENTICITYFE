@@ -49,13 +49,13 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">省份</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <pro @proChange="fatherProReceive" ref="proRef"></pro>
-                        </div>
-                    </div>
+<!--                    <div class="col-md-6 form-group clearfix">-->
+<!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                               style="padding:0;line-height:34px;">省份</label><span class="sign-left">:</span>-->
+<!--                        <div class="col-md-8">-->
+<!--                            <pro @proChange="fatherProReceive" ref="proRef"></pro>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -114,9 +114,8 @@
                                style="padding:0;line-height:34px;">推荐楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <select class="form-control" v-model="addParam.recommend">
-                                <option value=0>--未选择--</option>
-                                <option value=2>--是--</option>
-                                <option value=3>--否--</option>
+                                <option value="2">--是--</option>
+                                <option value="3">--否--</option>
                             </select>
                         </div>
                     </div>
@@ -462,8 +461,8 @@
                     // 热销值
                     sellWell: 1,
 
-                    // 是否推荐户型（1：是；2：否）
-                    recommend: '',
+                    // 是否推荐户型（2：是；3：否）
+                    recommend: '3',
 
                     // 是否是优选楼盘（1：是；2：否）
                     optimization: '',
@@ -595,7 +594,7 @@
                     // this.$refs.devRef.setDevId(addParam.devId)
                     this.$refs.charsRef.setCharaList([])
                     // this.$refs.bhtsRef.setBhtIdList([])
-                    this.$refs.proRef.setProId('2')
+                    // this.$refs.proRef.setProId('2')
                     // this.$refs.regionRef.setRegionId('0')
                     // this.$refs.metrosRef.setMetroIdList([])
                     this.addParam = {
@@ -654,7 +653,7 @@
                         sellWell: 1,
 
                         // 是否推荐户型（1：是；2：否）
-                        recommend: '',
+                        recommend: '3',
 
                         // 是否是优选楼盘（1：是；2：否）
                         optimization: '',
@@ -787,7 +786,7 @@
                     }
 
                     // this.$refs.bhtsRef.setBhtIdList(addParam.bhtIdList)
-                    this.$refs.proRef.setProId(addParam.proId)
+                    // this.$refs.proRef.setProId(addParam.proId)
                     this.$refs.couRef.setCouId(addParam.couId)
                     this.$refs.buRef.setBuId(addParam.businessId)
                     // this.$refs.regionRef.setRegionId(addParam.regionId)
@@ -838,10 +837,10 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.proId)) {
-                    alert('省份必选')
-                    return
-                }
+                // if (this.isBlank(this.addParam.proId)) {
+                //     alert('省份必选')
+                //     return
+                // }
 
                 if (this.isBlank(this.addParam.ldId)) {
                     alert('区域必选')
@@ -866,11 +865,6 @@
                         alert('人气值只能是整数')
                         return;
                     }
-                }
-
-                if (this.isBlank(this.addParam.recommend)) {
-                    alert('推荐楼盘必选')
-                    return
                 }
 
                 if (this.isBlank(this.addParam.enterprises)) {
@@ -1193,13 +1187,13 @@
                 this.addParam.regionId = ''
                 this.addParam.regionId = data
             },
-            fatherProReceive(data) {
-                this.addParam.proId = ''
-                if (null != data) {
-                    this.addParam.proId = data
-                }
-                this.$refs.ldtRef.setProId(data)
-            },
+            // fatherProReceive(data) {
+            //     this.addParam.proId = ''
+            //     if (null != data) {
+            //         this.addParam.proId = data
+            //     }
+            //     this.$refs.ldtRef.setProId(data)
+            // },
             //预览图
             effectImgChange() {
 
