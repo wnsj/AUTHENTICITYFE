@@ -5,14 +5,7 @@
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
 
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
-                    <p class="end-aline col-md-12 col-lg-12 textcenter" >写字楼：</p>
-                </div>
-                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
-                    <input type="text" v-model="obName" class="form-control" />
-                </div>
-            </div>
+            
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0;line-height: 30px;">
                     <p class="end-aline col-md-12 col-lg-12 textcenter" >区域：</p>
@@ -29,7 +22,14 @@
                     <Business @buChange='fatherBuReceive' ref="buRef"></Business>
                 </div>
             </div>
-
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0; line-height: 30px;">
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" >写字楼：</p>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
+                    <input type="text" v-model="obName" class="form-control" />
+                </div>
+            </div>
             <button type="button" class="btn btn-primary pull-left m_r_10" style="margin-left:1.5%;height:30px; line-height:18px"
                     data-toggle="modal"
                     v-on:click="couQueryData(1)">查询
