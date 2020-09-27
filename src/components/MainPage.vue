@@ -103,7 +103,7 @@
 								</i>
 							</dt>
 							<dd @click="addCheck('ArticleControl')" v-bind:class="{'li-active':onString=='ArticleControl'}">
-								<router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">其他模块</i></router-link>
+								<router-link to="/MP/ArticleControl/ArticleControl"><i class="fa" aria-hidden="true">企业信息</i></router-link>
 							</dd>
 						</dl>
 
@@ -245,7 +245,7 @@
                     return false;
                 }
                 if (string == 'ArticleControl') {
-                    this.titleNow = '其他模块';
+                    this.titleNow = '企业信息';
                     return false;
                 }
                 if (string == 'BuildingDynamic') {
