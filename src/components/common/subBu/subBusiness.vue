@@ -36,10 +36,10 @@
             },
             setLdId: function(ldId) {
                 this.id = '0'
-                if(ldId == null){
-                    this.buList = []
-                    return
-                }
+                // if(ldId == null){
+                //     this.buList = []
+                //     return
+                // }
                 this.ldId = ldId
                 this.queryData()
             },
