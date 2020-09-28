@@ -26,12 +26,13 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">房源类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()" :disabled="this.typeFlag == 2 ? true : false">
-                    		<option value="0">--未选择--</option>
-                    		<option value="1">--写字楼--</option>
-                    		<option value="2">--共享办公--</option>
-                    		<option value="3">--商铺--</option>
-                    	</select>
+                            <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()"
+                                    :disabled="this.typeFlag == 2 ? true : false">
+                                <option value="0">--未选择--</option>
+                                <option value="1">--写字楼--</option>
+                                <option value="2">--共享办公--</option>
+                                <option value="3">--商铺--</option>
+                            </select>
                         </div>
                     </div>
 
@@ -39,7 +40,8 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <bt @btChange='fatherBtReceive' ref="btRef" :disabled="this.roomType == 2 ? true : false"></bt>
+                            <bt @btChange='fatherBtReceive' ref="btRef"
+                                :disabled="this.roomType == 2 ? true : false"></bt>
                         </div>
                     </div>
 
@@ -250,7 +252,7 @@
                         </div>
                     </div>
 
-                     <div class="col-md-6 form-group clearfix">
+                    <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">转让费</label><span class="sign-left">:</span>
                         <div class="col-md-8">
@@ -281,17 +283,20 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">基础服务</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <baseService @baseServiceChange='baseServiceCompentReceive' ref="baseServiceCompentRef"></baseService>
+                            <baseService @baseServiceChange='baseServiceCompentReceive'
+                                         ref="baseServiceCompentRef"></baseService>
                         </div>
                     </div>
 
-                     <div class="col-md-12 form-group clearfix">
-                         <label class="col-md-2 control-label text-right nopad end-aline"
-                                style="padding:0;line-height:34px;width: 12%;">网点介绍</label><span class="sign-left">:</span>
-                         <div class="col-md-10">
-                             <textarea type="text" class="form-control" style="width: 100%;min-height: 100px;" v-model="addParam.produce"></textarea>
-                         </div>
-                     </div>
+                    <div class="col-md-12 form-group clearfix">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;width: 12%;">网点介绍</label><span
+                        class="sign-left">:</span>
+                        <div class="col-md-10">
+                            <textarea type="text" class="form-control" style="width: 100%;min-height: 100px;"
+                                      v-model="addParam.produce"></textarea>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -385,7 +390,7 @@
                     // 区域ID
                     ldId: '',
 
-                     // 商圈id
+                    // 商圈id
                     businessId: '',
 
                     // 楼盘id
@@ -400,46 +405,46 @@
                     // 咨询师id
                     couId: '',
 
-                     // 看房时间
+                    // 看房时间
                     watchHouseTime: '',
 
-                     // 免租时间
+                    // 免租时间
                     rentFreeTime: '',
 
-                     // 是否注册
+                    // 是否注册
                     isRegister: 2,
 
-                     // 是否首页目前用于共享办公
+                    // 是否首页目前用于共享办公
                     isHome: '',
 
                     // 是否热销
                     isHot: 3,
 
-                     // 单价
+                    // 单价
                     unitPrice: '',
 
                     // 总价
                     totalPrice: '',
 
-                     // 建筑面积
+                    // 建筑面积
                     buildArea: '',
 
-                     // 详细地址
+                    // 详细地址
                     detailedAddress: '',
 
-                     // 地铁地址
+                    // 地铁地址
                     stationAddress: '',
 
-                      // 类型id对应buildtype表
+                    // 类型id对应buildtype表
                     btId: '',
 
-                      // 装修情况
+                    // 装修情况
                     renovationCondition: '',
 
-                      // 距地铁
+                    // 距地铁
                     surround: '',
 
-                     // 标签list
+                    // 标签list
                     labelList: '',
 
                     // 1,写字楼，2，共享，3商铺
@@ -522,98 +527,98 @@
 
                     // this.$refs.proRef.setProId('0')
                     this.addParam = {
-                    // 房源名称
-                    room: '',
+                        // 房源名称
+                        room: '',
 
-                     // 房源编号
-                    roomCode: '',
+                        // 房源编号
+                        roomCode: '',
 
-                    // 区域ID
-                    ldId: '',
+                        // 区域ID
+                        ldId: '',
 
-                     // 商圈id
-                    businessId: '',
+                        // 商圈id
+                        businessId: '',
 
-                    // 楼盘id
-                    buildId: '',
+                        // 楼盘id
+                        buildId: '',
 
-                    // 经度
-                    longitude: '',
+                        // 经度
+                        longitude: '',
 
-                    // 纬度
-                    latitude: '',
+                        // 纬度
+                        latitude: '',
 
-                    // 咨询师id
-                    couId: '',
+                        // 咨询师id
+                        couId: '',
 
-                     // 看房时间
-                    watchHouseTime: '',
+                        // 看房时间
+                        watchHouseTime: '',
 
-                     // 免租时间
-                    rentFreeTime: '',
+                        // 免租时间
+                        rentFreeTime: '',
 
-                     // 是否注册
-                    isRegister: 2,
+                        // 是否注册
+                        isRegister: 2,
 
-                     // 是否首页目前用于共享办公
-                    isHome: '',
+                        // 是否首页目前用于共享办公
+                        isHome: '',
 
-                    // 是否热销
-                    isHot: 3,
+                        // 是否热销
+                        isHot: 3,
 
-                     // 单价
-                    unitPrice: '',
+                        // 单价
+                        unitPrice: '',
 
-                    // 总价
-                    totalPrice: '',
+                        // 总价
+                        totalPrice: '',
 
-                     // 建筑面积
-                    buildArea: '',
+                        // 建筑面积
+                        buildArea: '',
 
-                     // 详细地址
-                    detailedAddress: '',
+                        // 详细地址
+                        detailedAddress: '',
 
-                     // 地铁地址
-                    stationAddress: '',
+                        // 地铁地址
+                        stationAddress: '',
 
-                      // 类型id对应buildtype表
-                    btId: '',
+                        // 类型id对应buildtype表
+                        btId: '',
 
-                      // 装修情况
-                    renovationCondition: '',
+                        // 装修情况
+                        renovationCondition: '',
 
-                      // 距地铁
-                    surround: '',
+                        // 距地铁
+                        surround: '',
 
-                     // 标签list
-                    labelList: '',
+                        // 标签list
+                        labelList: '',
 
-                    // 1,写字楼，2，共享，3商铺
-                    roomType: '',
+                        // 1,写字楼，2，共享，3商铺
+                        roomType: '',
 
-                    // 面积信息
-                    areaInfo: '',
+                        // 面积信息
+                        areaInfo: '',
 
-                    // 商铺类别
-                    stId: '',
+                        // 商铺类别
+                        stId: '',
 
-                    // 业态
-                    caId: '',
+                        // 业态
+                        caId: '',
 
-                    // 转让费
-                    transferFee: '',
+                        // 转让费
+                        transferFee: '',
 
-                    // 支付方式
-                    payType: '',
+                        // 支付方式
+                        payType: '',
 
-                    // 是否在租
-                    isRent: 2,
+                        // 是否在租
+                        isRent: 2,
 
-                    // 网点介绍
-                    produce: '',
+                        // 网点介绍
+                        produce: '',
 
-                    // 特点list集合
-                    chaList: [],
+                        // 特点list集合
+                        chaList: [],
                     }
                 } else if (param === 'modify') {
                     // if (this.isBlank(addParam.videoPath)) {
@@ -623,26 +628,6 @@
                     //     this.videoName = addParam.videoName
                     // }
                     this.title = '修改'
-
-                    this.$ajax({
-                    method: 'POST',
-                    url: this.url + '/roomMainBean/findHaveDetail',
-                    headers: {
-                        'Content-Type': this.contentType,
-                        'Access-Token': this.accessToken
-                    },
-                    data: this.addParam,
-                    dataType: 'json',
-                }).then((response) => {
-                    const res = response.data
-                    if (res.retCode === '0000') {
-                        this.typeFlag == res.retData
-                    } else {
-                        alert(res.retMsg)
-                    }
-                }).catch((error) => {
-                    console.log(error);
-                });
 
                     this.$refs.buRef.setBuId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
@@ -665,12 +650,33 @@
 
                     // this.$refs.proRef.setProId(addParam.proId)
                     this.$refs.couRef.setCouId(addParam.couId)
-
+                    this.findHaveDetail(addParam)
                     Object.assign(this.addParam, addParam)
                 }
             },
 
+            findHaveDetail(addParam) {
+                this.$ajax({
+                    method: 'POST',
+                    url: this.url + '/roomMainBean/findHaveDetail',
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: addParam,
+                    dataType: 'json',
+                }).then((response) => {
+                    const res = response.data
+                    if (res.retCode === '0000') {
 
+                        this.typeFlag = res.retData
+                    } else {
+                        alert(res.retMsg)
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                });
+            },
             certainAction() {
 
                 if (this.isBlank(this.addParam.room)) {
@@ -994,12 +1000,12 @@
             //     this.addParam.isSale = data
             // },
 
-            fatherbuildCompentReceive(data){
-				this.addParam.buildId = ''
-				if(data != null){
-					this.addParam.buildId = data
-				}
-			},
+            fatherbuildCompentReceive(data) {
+                this.addParam.buildId = ''
+                if (data != null) {
+                    this.addParam.buildId = data
+                }
+            },
 
             fatherLdtReceive(data) {
 
@@ -1134,20 +1140,20 @@
                     var dataUrl = reader.result;
 
                     file.src = this.result;
-                     if (pictureType === 3) {
+                    if (pictureType === 3) {
                         that.buildRealImgFileList.push(file)
                         that.buildRealImgList.push(dataUrl)
-                    }else if (pictureType === 5) {
+                    } else if (pictureType === 5) {
                         that.headImgFileList.push(file)
                         that.headImgList.push(dataUrl)
                     }
 
-                        // if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
-                        //     "<div id='matchingRealImgInnDiv_" + i + "' >" +
-                        //     "<img id='matchingRealImg_" + i + "' src='#' style='width: 100%' />" +
-                        //     "</div>"
-                        // );
-                        // $("#matchingRealImg_" + i).attr("src", dataUrl);
+                    // if ($("#matchingRealImgInnDiv_" + i).length <= 0) $("#matchingRealImgOutDiv").append(
+                    //     "<div id='matchingRealImgInnDiv_" + i + "' >" +
+                    //     "<img id='matchingRealImg_" + i + "' src='#' style='width: 100%' />" +
+                    //     "</div>"
+                    // );
+                    // $("#matchingRealImg_" + i).attr("src", dataUrl);
 
 
                 }
@@ -1190,8 +1196,8 @@
             formatResultToAbs(input) {
                 return Math.abs(input);
             },
-            roomTypeChange: function() {
-				if (this.roomType != null) {
+            roomTypeChange: function () {
+                if (this.roomType != null) {
                     this.addParam.roomType = this.roomType
                     this.$refs.btRef.setType(this.roomType)
                     this.$refs.btRef.setFlag(this.roomType)
@@ -1200,9 +1206,12 @@
                     this.$refs.baseServiceCompentRef.setBaseServiceList(this.chaList)
                     this.addParam.chaList = []
                     // this.$refs.stRef.setType(this.roomType)
-				}
+                }
 
             },
+
+        },
+        mounted() {
 
         },
         computed: {
