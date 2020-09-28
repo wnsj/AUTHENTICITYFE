@@ -11,7 +11,7 @@
             return {
                 btId: '0',
                 buildTypeList: [],
-                type: '',
+                type: ''
             };
         },
         methods: {

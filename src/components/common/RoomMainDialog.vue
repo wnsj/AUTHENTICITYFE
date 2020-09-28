@@ -39,7 +39,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <bt @btChange='fatherBtReceive' ref="btRef"></bt>
+                            <bt @btChange='fatherBtReceive' ref="btRef" :disabled="this.roomType == 2 ? true : false"></bt>
                         </div>
                     </div>
 
@@ -1194,6 +1194,7 @@
 				if (this.roomType != null) {
                     this.addParam.roomType = this.roomType
                     this.$refs.btRef.setType(this.roomType)
+                    this.$refs.btRef.setFlag(this.roomType)
                     this.addParam.btId = ''
                     this.$refs.buildCompentRef.setBuildType(this.roomType)
                     this.$refs.baseServiceCompentRef.setBaseServiceList(this.chaList)
