@@ -26,7 +26,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">房源类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()">
+                            <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()" :disabled="this.typeFlag == 2 ? true : false">
                     		<option value="0">--未选择--</option>
                     		<option value="1">--写字楼--</option>
                     		<option value="2">--共享办公--</option>
@@ -485,6 +485,7 @@
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
                 },
                 playAvOutDivFlag: true,
+                typeFlag: 3,
                 videoName: '',
                 loading: false,
                 btnName: '确认',
@@ -623,19 +624,26 @@
                     // }
                     this.title = '修改'
 
-                    // if (null !== addParam.picturePath) {
-                    //     var buildRea = []
-                    //     for (var i = 0; i < addParam.picturePath.length; i++) {
-                    //         buildRea.push(this.url + addParam.picturePath[i])
-                    //     }
-                    //     this.buildRealImgList = buildRea
-                    // }
+                    this.$ajax({
+                    method: 'POST',
+                    url: this.url + '/roomMainBean/findHaveDetail',
+                    headers: {
+                        'Content-Type': this.contentType,
+                        'Access-Token': this.accessToken
+                    },
+                    data: this.addParam,
+                    dataType: 'json',
+                }).then((response) => {
+                    const res = response.data
+                    if (res.retCode === '0000') {
+                        this.typeFlag == res.retData
+                    } else {
+                        alert(res.retMsg)
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                });
 
-                    // if (null != addParam && null != addParam.headPath) {
-                    //     var img = []
-                    //     img.push(this.url + addParam.headPath)
-                    //     this.headImgList = img
-                    // }
                     this.$refs.buRef.setBuId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
                     this.roomType = addParam.roomType
