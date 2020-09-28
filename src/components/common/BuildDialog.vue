@@ -77,7 +77,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <bt @btChange='fatherBtReceive' ref="btRef"></bt>
+                            <bt @bstChange='fatherBtReceive' ref="btRef"></bt>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -360,7 +360,7 @@
 
 <script>
     import datePicker from 'vue2-datepicker'
-    import bt from '../common/BildType.vue'
+    import bt from "./BuildShareType";
     import BuildHorseTypes from '../common/BuildHorseTypes.vue'
     import isSale from '../common/IsSale.vue'
 
@@ -501,7 +501,7 @@
                     businessId: '',
 
                     // 楼盘类型
-                    buildType: '',
+                    buildTypeList: [],
 
                     // 周边
                     periphery: '',
@@ -513,7 +513,7 @@
                     minStationNum: '',
 
                     // 最大工位数
-                    maxStationNum: ''
+                    maxStationNum: '',
                 },
                 title: '',
                 // effectImgList:
@@ -555,6 +555,7 @@
             initData(param, addParam) {
                 this.btnName = '确认'
                 this.loading = false
+                this.$refs.btRef.queryData()
                 // this.effectImgList = []
                 //
                 // this.enPlanImgList = []
@@ -582,12 +583,11 @@
                 // $("#regionImg").val("");
                 $("#headImg").val("");
                 $("#video").val("");
-                this.$refs.btRef.setType(1)
                 $('#buildDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     this.title = '新增'
                     this.$refs.ldtRef.setLdtId('0')
-                    this.$refs.btRef.setBtId('0')
+                    this.$refs.btRef.setBstIdList([])
                     this.$refs.couRef.setCouId('0')
                     this.$refs.buRef.setBuId('0')
                     // this.$refs.saleRef.setIsSale('0')
@@ -692,7 +692,7 @@
                         businessId: '',
 
                         // 楼盘类型
-                        buildType: '',
+                        buildTypeList: [],
 
                         // 周边
                         periphery: '',
@@ -778,7 +778,9 @@
 
                     // console.log(JSON.stringify(addParam))
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
-                    this.$refs.btRef.setBtId(addParam.buildType)
+                    if (addParam.buildTypeList) {
+                        this.$refs.btRef.setBstIdList(addParam.buildTypeList)
+                    }
                     // this.$refs.saleRef.setIsSale(addParam.isSale)
                     // this.$refs.devRef.setDevId(addParam.devId)
                     if (addParam.chaIdList) {
@@ -849,6 +851,11 @@
 
                 if (this.isBlank(this.addParam.businessId)) {
                     alert('商圈必选')
+                    return
+                }
+
+                if (this.addParam.buildTypeList === null || this.addParam.buildTypeList === []) {
+                    alert('类型必选')
                     return
                 }
 
@@ -1142,8 +1149,11 @@
             //     this.addParam.bhtIdList = data
             // },
             fatherBtReceive(data) {
-                this.addParam.buildType = ''
-                this.addParam.buildType = data
+                this.addParam.buildTypeList = []
+                if (null != data) {
+                    this.addParam.buildTypeList = data
+                }
+
             },
 
             fatherCouReceive(data) {
