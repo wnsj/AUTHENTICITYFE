@@ -575,7 +575,7 @@ export default {
             alert('最小工位必填，且只能填整数')
             return
         } else {
-            if (!(/^([0-9]*$)$/).test(this.roomParam.maxStationNum)) {
+            if (!(/^([0-9]*$)$/).test(this.roomParam.minStationNum)) {
                         alert('最小工位必填，且只能填整数')
                         return;
                     }
