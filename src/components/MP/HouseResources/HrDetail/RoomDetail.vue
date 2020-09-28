@@ -575,7 +575,7 @@ export default {
             alert('最小工位必填，且只能填正数')
             return
         } else {
-            if (!(/^([0-9]*$)$/).test(this.addParam.maxStationNum)) {
+            if (!(/^([0-9]*$)$/).test(this.roomParam.maxStationNum)) {
                         alert('最小工位必填，且只能填正数')
                         return;
                     }
@@ -584,7 +584,7 @@ export default {
             alert('最大工位必填，且只能填正数')
             return
         } else {
-            if (!(/^([0-9]*$)$/).test(this.addParam.maxStationNum)) {
+            if (!(/^([0-9]*$)$/).test(this.roomParam.maxStationNum)) {
                         alert('最大工位必填，且只能填正数')
                         return;
                     }

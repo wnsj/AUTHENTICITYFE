@@ -404,6 +404,11 @@
                     flag = 3
                 }
 
+                if (flag === 1 && item.isHaveDetail === 3) {
+                    alert(item.room + "编辑详情后才可上架！")
+                    return;
+                }
+
                 if (flag === 2) {
                     if (!confirm("确定下架" + item.room + "?")) {
                         return;
