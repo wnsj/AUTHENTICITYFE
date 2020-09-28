@@ -589,7 +589,7 @@ export default {
                         return;
                     }
         }
-        if (parseFloat(this.roomParam.minStationNum) > parseFloat(this.roomParam.maxStationNum)) {
+        if (parseInt(this.roomParam.minStationNum) > parseInt(this.roomParam.maxStationNum)) {
             alert('最大工位不能小于最小工位')
             return;
         }
