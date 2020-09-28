@@ -668,7 +668,7 @@
                 }).then((response) => {
                     const res = response.data
                     if (res.retCode === '0000') {
-
+                        alert(res.retMsg)
                         this.typeFlag = res.retData
                     } else {
                         alert(res.retMsg)
