@@ -516,7 +516,7 @@
                     this.$refs.btRef.setBtId('0')
                     this.$refs.buRef.setBuId('0')
                     this.roomType = '0'
-                    this.$refs.buildCompentRef.setBuildingList('')
+                    this.$refs.buildCompentRef.setBuildingId('')
                     this.$refs.baseServiceCompentRef.setBaseServiceList([])
 
                     // this.$refs.proRef.setProId('0')
@@ -930,10 +930,10 @@
                         //         this.$emit('certainAction')
                         //     }, 2000)
                         // }
-
+                        this.$emit('certainAction')
                     } else {
                         alert(res.retMsg)
-                        this.$emit('certainAction')
+                        // this.$emit('certainAction')
                     }
                 }).catch((error) => {
                     console.log(error);

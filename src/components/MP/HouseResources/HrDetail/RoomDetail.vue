@@ -572,7 +572,7 @@ export default {
         }
 
         if (this.isBlank(this.roomParam.minStationNum) || this.roomParam.minStationNum == 0) {
-            alert('最小工位必填，且只能填正数，最多保留2位小数')
+            alert('最小工位必填，且只能填正数')
             return
         } else {
             if (!(/^([0-9]*$)$/).test(this.addParam.maxStationNum)) {
@@ -581,7 +581,7 @@ export default {
                     }
         }
         if (this.isBlank(this.roomParam.maxStationNum) || this.roomParam.maxStationNum == 0) {
-            alert('最大工位必填，且只能填正数，最多保留2位小数')
+            alert('最大工位必填，且只能填正数')
             return
         } else {
             if (!(/^([0-9]*$)$/).test(this.addParam.maxStationNum)) {
@@ -600,11 +600,11 @@ export default {
         }
 
         if (this.isBlank(this.roomParam.usageRate) || this.roomParam.usageRate == 0) {
-            alert('使用率必填，且只能填正数，最多保留2位小数')
+            alert('使用率必填，最多保留2位小数')
             return
         } else {
             if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.roomParam.usageRate)) {
-                alert('使用率必填，且只能填正数，最多保留2位小数')
+                alert('使用率必填，最多保留2位小数')
                 return;
             }
         }
