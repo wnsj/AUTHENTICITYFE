@@ -13,23 +13,7 @@
                     <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                 </div>
             </div>
-            <!-- <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
-                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">单价：</p>
-                </div>
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
-                    <un @unitChange = 'fatherUnReceive' ref="unRef"></un>
-                </div>
-            </div> -->
-            <!-- <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
-                    <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">总价：</p>
-                </div>
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
-                    <to @totalChange = 'fatherToReceive' ref="toRef"></to>
-                </div>
-            </div> -->
-
+            
 
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">

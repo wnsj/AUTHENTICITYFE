@@ -127,29 +127,7 @@
                                       v-model="addParam.enterprises"/>
                         </div>
                     </div>
-                    <!--                    <div class="col-md-6 form-group clearfix">-->
-                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
-                    <!--                               style="padding:0;line-height:34px;">优选楼盘</label><span class="sign-left">:</span>-->
-                    <!--                        <div class="col-md-8">-->
-                    <!--                            <select class="form-control" v-model="addParam.optimization">-->
-                    <!--                                <option value=0>&#45;&#45;未选择&#45;&#45;</option>-->
-                    <!--                                <option value=1>&#45;&#45;是&#45;&#45;</option>-->
-                    <!--                                <option value=2>&#45;&#45;否&#45;&#45;</option>-->
-                    <!--                            </select>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-                    <!--                    <div class="col-md-6 form-group clearfix">-->
-                    <!--                        <label class="col-md-3 control-label text-right nopad end-aline"-->
-                    <!--                               style="padding:0;line-height:34px;">品质楼盘</label><span class="sign-left">:</span>-->
-                    <!--                        <div class="col-md-8">-->
-                    <!--                            <select class="form-control" v-model="addParam.quality">-->
-                    <!--                                <option value=0>&#45;&#45;未选择&#45;&#45;</option>-->
-                    <!--                                <option value=1>&#45;&#45;是&#45;&#45;</option>-->
-                    <!--                                <option value=2>&#45;&#45;否&#45;&#45;</option>-->
-                    <!--                            </select>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
+                 
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -261,15 +239,7 @@
                             <input class="form-control " v-model="addParam.elevatorNum" placeholder=""/>
                         </div>
                     </div>
-                    <!-- <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">联系方式</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <label>
-                                <input type="text" class="form-control" v-model="addParam.tel" placeholder="填写规范的联系方式"/>
-                            </label>
-                        </div>
-                    </div> -->
+                   
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">经纪人</label><span class="sign-left">:</span>
@@ -277,7 +247,7 @@
                             <Counselor @couChange='fatherCouReceive' ref="couRef"></Counselor>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group clearfix">
+                    <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">图片</label><span
                         class="sign-left">:</span>
@@ -294,7 +264,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group clearfix">
+                    <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
@@ -309,7 +279,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group clearfix">
+                    <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">视频</label><span
                         class="sign-left">:</span>
