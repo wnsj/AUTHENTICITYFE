@@ -31,10 +31,10 @@
             },
             setBtId: function (btId) {
                 this.btId = btId
-                this.buildTypeList = []
-                // this.queryData()
+                this.queryData()
             },
             setType: function (type) {
+                this.btId = '0'
                 this.type = type
                 this.queryData()
             },

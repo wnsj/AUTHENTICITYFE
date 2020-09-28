@@ -40,7 +40,8 @@
                 }
             },
 			setBuildingId: function(buildId) {
-			    this.buildId = buildId
+                this.buildId = buildId
+                this.queryData()
             },
             setBuildingList: function(buildList) {
                 // this.buildList = []
@@ -54,16 +55,19 @@
                 // if(type == 3){
                 //     type = 1
                 // }
+                this.buildId = ''
                 this.buildType = type
                 this.queryData()
             },
 
             setLdId: function(ldId) {
+                this.buildId = ''
                 this.ldId = ldId
                 this.queryData()
             },
 
             setBussId: function(bussId) {
+                this.buildId = ''
                 this.bussId = bussId
                 this.queryData()
             },

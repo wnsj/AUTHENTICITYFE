@@ -32,10 +32,10 @@
             },
             setBuId: function(buId) {
                 this.id = buId
-                this.buList = []
                 this.queryData()
             },
             setLdId: function(ldId) {
+                this.id = '0'
                 if(ldId == null){
                     this.buList = []
                     return
