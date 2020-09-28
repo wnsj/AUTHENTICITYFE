@@ -930,10 +930,10 @@
                         //         this.$emit('certainAction')
                         //     }, 2000)
                         // }
-
+                        this.$emit('certainAction')
                     } else {
                         alert(res.retMsg)
-                        this.$emit('certainAction')
+                        // this.$emit('certainAction')
                     }
                 }).catch((error) => {
                     console.log(error);
