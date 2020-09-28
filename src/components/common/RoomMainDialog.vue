@@ -1001,8 +1001,8 @@
 
                 }
                 this.$refs.buRef.setLdId(data)
-                this.$refs.buildCompentRef.setLdId(data)
                 this.addParam.businessId = ''
+                this.$refs.buildCompentRef.setLdId(data)
                 this.addParam.buildId = ''
             },
             fatherBuReceive(data) {
@@ -1188,7 +1188,6 @@
                     this.$refs.btRef.setType(this.roomType)
                     this.addParam.btId = ''
                     this.$refs.buildCompentRef.setBuildType(this.roomType)
-                    this.addParam.businessId = ''
                     this.$refs.baseServiceCompentRef.setBaseServiceList(this.chaList)
                     this.addParam.chaList = []
                     // this.$refs.stRef.setType(this.roomType)
