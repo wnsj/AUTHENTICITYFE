@@ -13,7 +13,7 @@
                     <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                 </div>
             </div>
-            
+
 
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
@@ -205,6 +205,8 @@
                 if (null !== data) {
                     this.ltSon.push(data)
                     this.$refs.buRef.setLdId(data)
+                } else {
+                    this.$refs.buRef.setLdId('0')
                 }
             },
             fatherBuReceive(data) {
