@@ -78,56 +78,56 @@
                             <Property ref="proRef" @proChange="proRe"></Property>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">地铁信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="storeParam.stationInfo"/>
                         </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
+                    </div> -->
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">公交信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="storeParam.transitInfo"/>
                         </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
+                    </div> -->
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">周边小区</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="storeParam.surroundingCommunity"/>
                         </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
+                    </div> -->
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">银行信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="storeParam.bankInfo"/>
                         </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
+                    </div> -->
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">学校信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="storeParam.schoolInfo"/>
                         </div>
-                    </div>
-                    <div class="col-md-6 form-group clearfix">
+                    </div> -->
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">医院信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="storeParam.hospitalInfo"/>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">商场信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="storeParam.storeInfo"/>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-12 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">视频</label><span
@@ -151,12 +151,12 @@
                         <div class="col-md-8">
                             <input type="file" id="storePicture" @change="buildRealImgChange" accept="image/*"
                                    multiple="multiple"/>
-                            <p class="redtips">*注意：宽620px*高380px</p>
+                            <p class="redtips">*注意：宽710px*高400px</p>
                             <div id="buildRealImgOutDiv">
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
                                     <div @click="fileDel(index,3,item)">x</div>
-                                    <img :src="item" style="width: 100%">
+                                    <img :src="item" style="width: 100%" width="710px" height="400px">
                                 </div>
                             </div>
                         </div>
@@ -166,12 +166,12 @@
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="storeImg" @change="headImgChange" accept="image/*"/>
-                            <p class="redtips">*注意：宽378px*高228px</p>
+                            <p class="redtips">*注意：宽290px*高217px</p>
 
                             <div id="headImgOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <!-- <div @click="fileDel(index,5,item)">x</div> -->
-                                    <img :src="item" style="width: 100%">
+                                    <img :src="item" style="width: 100%" width="290px" height="217px">
                                 </div>
                             </div>
                         </div>

@@ -149,7 +149,7 @@
                 accept="image/*"
                 multiple="multiple"
               />
-              <p class="redtips">*注意：宽620px*高380px</p>
+              <p class="redtips">*注意：宽710px*高400px</p>
               <div id="buildRealImgOutDiv">
                 <div
                   v-for="(item,index) of buildRealImgList"
@@ -157,7 +157,7 @@
                   v-show="buildRealImgList.length!==0"
                 >
                   <div @click="fileDel(index,3,item)">x</div>
-                  <img :src="item" style="width: 100%" />
+                  <img :src="item" style="width: 100%" width="710px" height="400px"/>
                 </div>
               </div>
             </div>
@@ -170,7 +170,7 @@
             <span class="sign-left">:</span>
             <div class="col-md-8">
               <input type="file" id="roomImg" @change="headImgChange" accept="image/*" />
-              <p class="redtips">*注意：宽378px*高228px</p>
+              <p class="redtips">*注意：宽246px*高178px</p>
 
               <div id="headImgOutDiv">
                 <div
@@ -179,7 +179,7 @@
                   v-show="headImgList.length!==0"
                 >
                   <!-- <div @click="fileDel(index,5,item)">x</div> -->
-                  <img :src="item" style="width: 100%" />
+                  <img :src="item" style="width: 100%" width="246px" height="178px"/>
                 </div>
               </div>
             </div>

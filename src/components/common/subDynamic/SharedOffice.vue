@@ -99,7 +99,7 @@
                             <div id="headImgOutDiv">
                                  <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <!-- <div @click="fileDel(index,5,item)">x</div> -->
-                                    <img :src="item" style="width: 100%">
+                                    <img :src="item" style="width: 100%" width="265px" height="200px">
                                 </div>
                             </div>
                         </div>
@@ -124,12 +124,12 @@
                         <div class="col-md-9" style="padding:0">
                             <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
                                    multiple="multiple"/>
-                            <p class="redtips">*注意：宽620px*高380px</p>
+                            <p class="redtips">*注意：宽710px*高400px</p>
                             <div id="buildRealImgOutDiv">
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
                                     <div @click="fileDel(index,3,item)">x</div>
-                                    <img :src="item" style="width: 100%" width="390px" height="220px"> 
+                                    <img :src="item" style="width: 100%" width="710px" height="400px"> 
                                 </div>
                             </div>
                         </div>
@@ -464,7 +464,7 @@
                 });
             },
             closeCurrentPage() {
-                this.$emit('certainAction');
+                $("#dyDialog").modal("hide")
             },
 
             formatFileSize: function (fileSize, idx) {
