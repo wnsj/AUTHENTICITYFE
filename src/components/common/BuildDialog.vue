@@ -127,7 +127,7 @@
                                       v-model="addParam.enterprises"/>
                         </div>
                     </div>
-                 
+
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
@@ -239,12 +239,27 @@
                             <input class="form-control " v-model="addParam.elevatorNum" placeholder=""/>
                         </div>
                     </div>
-                   
+
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">经纪人</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <Counselor @couChange='fatherCouReceive' ref="couRef"></Counselor>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
+                            <p class="redtips">*注意：宽280px*高215px</p>
+
+                            <div id="headImgOutDiv">
+                                <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
+                                    <div @click="fileDel(index,5,item)">x</div>
+                                    <img :src="item" style="width: 100%">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -264,21 +279,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
-                            <p class="redtips">*注意：宽280px*高215px</p>
 
-                            <div id="headImgOutDiv">
-                                <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
-                                    <div @click="fileDel(index,5,item)">x</div>
-                                    <img :src="item" style="width: 100%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">视频</label><span

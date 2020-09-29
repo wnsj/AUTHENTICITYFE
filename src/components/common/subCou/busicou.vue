@@ -126,11 +126,11 @@
                 }
             },
              fatherLdtReceive(data) {
-                this.ldId = ''
+                this.addCou.ldId = ''
                 if (null != data) {
                     this.addCou.ldId = data
                 }
-                this.$refs.ldtRef.setLdtId(data)
+                // this.$refs.ldtRef.setLdtId(data)
             },
 
             initData(param, addCou) {
