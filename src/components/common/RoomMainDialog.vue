@@ -516,6 +516,7 @@
 
                 $('#roomMainDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.btnName = '保存并添加详情'
                     this.typeFlag = 3
                     this.title = '新增'
                     this.$refs.ldtRef.setLdtId('0')

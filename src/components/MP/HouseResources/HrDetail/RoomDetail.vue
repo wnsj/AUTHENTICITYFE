@@ -229,7 +229,7 @@
               style="margin-right:1.5%;"
               data-toggle="modal"
               v-on:click="certainAction()"
-            >添加详情确认</button>
+            >确认</button>
           </div>
         </div>
       </div>
