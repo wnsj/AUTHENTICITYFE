@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:30px;">匹配楼盘</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:30px;">匹配房源</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                            <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
                         </div>

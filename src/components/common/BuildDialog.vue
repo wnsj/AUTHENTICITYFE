@@ -526,6 +526,116 @@
             initData(param, addParam) {
                 this.btnName = '确认'
                 this.loading = false
+                this.addParam = {
+                    // 楼盘名称
+                    htName: '',
+
+                    // 省份ID
+                    proId: '',
+
+                    // 区域ID
+                    ldId: '',
+
+                    // 最小面积
+                    minArea: '',
+
+                    // 最大面积
+                    maxArea: '',
+
+                    // 最大单价
+                    maxUnitPrice: '',
+
+                    // 最小单价
+                    minUnitPrice: '',
+
+                    // 最大总价
+                    maxTitlePrice: '',
+
+                    // 最小总价
+                    minTitlePrice: '',
+
+                    // 楼盘地址
+                    adress: '',
+
+                    // 开发商id
+                    devId: '',
+
+                    // 建筑面积
+                    floorage: '',
+
+                    // 物业公司
+                    propertyCompany: '',
+
+                    // 项目介绍
+                    projectIntroduction: '',
+
+                    // 人气值
+                    popularity: 1,
+
+                    // 热搜值
+                    hotSearch: '',
+
+                    // 特价值
+                    specialOffer: '',
+
+                    // 热销值
+                    sellWell: 1,
+
+                    // 是否推荐户型（1：是；2：否）
+                    recommend: '3',
+
+                    // 是否是优选楼盘（1：是；2：否）
+                    optimization: '',
+
+                    // 是否是品质楼盘（1：是；2：否）
+                    quality: '',
+
+                    // 联系方式
+                    tel: '',
+
+                    // 经度
+                    longitude: '',
+
+                    // 纬度
+                    latitude: '',
+
+                    // 排序权重
+                    sort: '',
+
+                    // 楼层
+                    floor: '',
+
+                    // 客梯数
+                    elevatorNum: '',
+
+                    // 标准层高
+                    floorHeight: '',
+
+                    // 入住企业
+                    enterprises: '',
+
+                    // 咨询师id
+                    couId: '',
+
+                    // 商圈id
+                    businessId: '',
+
+                    // 楼盘类型
+                    buildTypeList: [],
+
+                    // 周边
+                    periphery: '',
+
+                    // 特色
+                    chaIdList: [],
+
+                    // 最小工位数
+                    minStationNum: '',
+
+                    // 最大工位数
+                    maxStationNum: ''
+
+                }
                 this.$refs.btRef.queryData()
                 // this.effectImgList = []
                 //
@@ -568,116 +678,7 @@
                     // this.$refs.proRef.setProId('2')
                     // this.$refs.regionRef.setRegionId('0')
                     // this.$refs.metrosRef.setMetroIdList([])
-                    this.addParam = {
-                        // 楼盘名称
-                        htName: '',
 
-                        // 省份ID
-                        proId: '',
-
-                        // 区域ID
-                        ldId: '',
-
-                        // 最小面积
-                        minArea: '',
-
-                        // 最大面积
-                        maxArea: '',
-
-                        // 最大单价
-                        maxUnitPrice: '',
-
-                        // 最小单价
-                        minUnitPrice: '',
-
-                        // 最大总价
-                        maxTitlePrice: '',
-
-                        // 最小总价
-                        minTitlePrice: '',
-
-                        // 楼盘地址
-                        adress: '',
-
-                        // 开发商id
-                        devId: '',
-
-                        // 建筑面积
-                        floorage: '',
-
-                        // 物业公司
-                        propertyCompany: '',
-
-                        // 项目介绍
-                        projectIntroduction: '',
-
-                        // 人气值
-                        popularity: 1,
-
-                        // 热搜值
-                        hotSearch: '',
-
-                        // 特价值
-                        specialOffer: '',
-
-                        // 热销值
-                        sellWell: 1,
-
-                        // 是否推荐户型（1：是；2：否）
-                        recommend: '3',
-
-                        // 是否是优选楼盘（1：是；2：否）
-                        optimization: '',
-
-                        // 是否是品质楼盘（1：是；2：否）
-                        quality: '',
-
-                        // 联系方式
-                        tel: '',
-
-                        // 经度
-                        longitude: '',
-
-                        // 纬度
-                        latitude: '',
-
-                        // 排序权重
-                        sort: '',
-
-                        // 楼层
-                        floor: '',
-
-                        // 客梯数
-                        elevatorNum: '',
-
-                        // 标准层高
-                        floorHeight: '',
-
-                        // 入住企业
-                        enterprises: '',
-
-                        // 咨询师id
-                        couId: '',
-
-                        // 商圈id
-                        businessId: '',
-
-                        // 楼盘类型
-                        buildTypeList: [],
-
-                        // 周边
-                        periphery: '',
-
-                        // 特色
-                        chaIdList: [],
-
-                        // 最小工位数
-                        minStationNum: '',
-
-                        // 最大工位数
-                        maxStationNum: ''
-
-                    }
                 } else if (param === 'modify') {
                     // if (this.isBlank(addParam.videoPath)) {
                     //     this.playAvOutDivFlag = false
@@ -1144,7 +1145,6 @@
                     this.addParam.ldId = data
                 }
                 this.addParam.businessId = ''
-
                 this.$refs.buRef.setLdId(data)
             },
             fatherBuReceive(data) {

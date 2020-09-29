@@ -37,10 +37,6 @@
             setLdId: function(ldId) {
                 this.id = '0'
                 this.ldId = ldId
-                if(ldId == null){
-                    this.queryData()
-                    return
-                }
                 this.queryData()
             },
             async queryData() {
