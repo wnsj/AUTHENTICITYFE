@@ -64,13 +64,13 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">面积信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input class="form-control" v-model="storeParam.area"/>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">物业信息</label><span class="sign-left">:</span>
@@ -198,7 +198,7 @@
                         <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10"
                                 style="margin-right:1.5%;"
                                 data-toggle="modal"
-                                v-on:click="certainAction()">确认
+                                v-on:click="certainAction()">添加详情确认
                         </button>
                     </div>
                 </div>
