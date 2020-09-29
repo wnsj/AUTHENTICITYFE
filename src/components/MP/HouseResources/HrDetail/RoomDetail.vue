@@ -229,7 +229,7 @@
               style="margin-right:1.5%;"
               data-toggle="modal"
               v-on:click="certainAction()"
-            >添加详情确认</button>
+            >确认</button>
           </div>
         </div>
       </div>
@@ -391,6 +391,10 @@ export default {
 
     fileDel(index, type, item) {
       if (this.title == "修改") {
+        if(buildRealImgList.length == 1){
+          alert('最后一张图片不可删除')
+          return;
+        }
         if (!confirm("确定删除该图片？")) {
           return;
         }
