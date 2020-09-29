@@ -689,7 +689,7 @@
                 }
 
 
-                if (this.isBlank(this.addParam.btId)) {
+                if (this.isBlank(this.addParam.btId) && this.addParam.roomType != 2) {
                     alert('类型必选')
                     return
                 }
