@@ -516,7 +516,7 @@
             },
             fileDel(index, type, item) {
                 if (this.title == '修改') {
-                    if(buildRealImgList.length == 1){
+                    if(this.buildRealImgList.length == 1){
                          alert('最后一张图片不可删除')
                          return;
                     }
