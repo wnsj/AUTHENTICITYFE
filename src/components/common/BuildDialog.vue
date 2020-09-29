@@ -922,20 +922,20 @@
                 }
 
                 if (this.isBlank(this.addParam.minStationNum) || this.addParam.minStationNum == 0) {
-                    alert('最小工位必填，且只能填正数')
+                    alert('最小工位必填，且只能填正整数')
                     return
                 } else {
                     if (!(/^([0-9]*$)$/).test(this.addParam.minStationNum)) {
-                        alert('最小工位必填，且只能填正数')
+                        alert('最小工位必填，且只能填正整数')
                         return;
                     }
                 }
                 if (this.isBlank(this.addParam.maxStationNum) || this.addParam.maxStationNum == 0) {
-                    alert('最大工位必填，且只能填正数')
+                    alert('最大工位必填，且只能填正整数')
                     return
                 } else {
                     if (!(/^([0-9]*$)$/).test(this.addParam.maxStationNum)) {
-                        alert('最大工位必填，且只能填正数')
+                        alert('最大工位必填，且只能填正整数')
                         return;
                     }
                 }
