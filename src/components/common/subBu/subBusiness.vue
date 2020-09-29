@@ -32,6 +32,7 @@
             },
             setBuId: function(buId) {
                 this.id = buId
+                this.ldId = null
                 this.queryData()
             },
             setLdId: function(ldId) {
