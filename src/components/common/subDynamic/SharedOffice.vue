@@ -464,7 +464,7 @@
                 });
             },
             closeCurrentPage() {
-                $("#dyDialog").modal("hide")
+                this.$emit('certainAction');
             },
 
             formatFileSize: function (fileSize, idx) {
