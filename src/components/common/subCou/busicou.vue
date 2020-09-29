@@ -54,7 +54,7 @@
                                style="line-height:30px;padding:0;text-align: left;
  text-align-last: left; padding:0;letter-spacing:3px">商圈描述：</label>
                         <div class="col-md-10" style="padding:0">
-                            <textarea type="text" class="form-control" v-model="addCou.buLabel" style="height:150px"></textarea>
+                            <textarea type="text" maxlength="100" class="form-control" aria-placeholder="限制在100字以内" v-model="addCou.buLabel" style="height:150px"></textarea>
                         </div>
                     </div>
 
