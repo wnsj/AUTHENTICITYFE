@@ -98,7 +98,7 @@
 
                             <div id="headImgOutDiv">
                                  <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
-                                    <div @click="fileDel(index,5,item)">x</div>
+                                    <!-- <div @click="fileDel(index,5,item)">x</div> -->
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>

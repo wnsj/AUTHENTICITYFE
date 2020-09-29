@@ -43,7 +43,7 @@
                             <div id="pictureOutDiv">
                                 <div v-for="(item,index) of buPath" :key="index"
                                      v-show="buPath.length!==0">
-                                    <div @click="fileDel(index)">x</div>
+                                    <!-- <div @click="fileDel(index)">x</div> -->
                                     <img :src="item" style="width: 100%">
                                 </div>
                             </div>
