@@ -1145,6 +1145,7 @@
                     this.addParam.ldId = data
                 }
                 this.addParam.businessId = ''
+
                 this.$refs.buRef.setLdId(data)
             },
             fatherBuReceive(data) {
