@@ -136,7 +136,7 @@
                             <td class="text-center" style="line-height:33px;">
                                 <button :disabled="item.roomType == 2 ? true : false" type="button"
                                         class="btn btn-primary m_r_10" style="margin-right:1.5%;" data-toggle="modal"
-                                        v-on:click="addDetail(item)">编辑详情
+                                        v-on:click="addDetail(item)">添加详情
                                 </button>
 
                                 <button type="button" class="btn btn-danger pull-right m_r_10"

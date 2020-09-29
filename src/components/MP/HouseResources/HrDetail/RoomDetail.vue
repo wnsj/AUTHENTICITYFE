@@ -229,7 +229,7 @@
               style="margin-right:1.5%;"
               data-toggle="modal"
               v-on:click="certainAction()"
-            >确认</button>
+            >添加详情确认</button>
           </div>
         </div>
       </div>
@@ -420,7 +420,9 @@ export default {
         data: { imgId: id },
         dataType: "json",
       })
-        .then((response) => {})
+        .then((response) => {
+          this.getRoomDetails(this.roomParam.roomId);
+        })
         .catch((error) => {
           console.log("楼盘信息提交失败");
         });
