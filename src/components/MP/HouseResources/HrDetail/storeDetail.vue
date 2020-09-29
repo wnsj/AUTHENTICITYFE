@@ -592,6 +592,10 @@
                 });
             },
             certainAction() {
+                if (this.isBlank(this.storeParam.projectName)) {
+                    alert('项目名称必填')
+                    return
+                }
                 if (this.storeParam.suitable.length == 0) {
                     alert('业态必选')
                     return
