@@ -68,7 +68,7 @@
                             <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">自我介绍</label><span class="sign-left">:</span>
                          </div>
                         <div class="col-md-12">
-                            <textarea class="form-control wdType03" maxlength="25" v-model="addCou.introduce"  placeholder="限制25个汉字以内"></textarea>
+                            <textarea type="text" class="form-control wdType03" maxlength="25" v-model="addCou.introduce"  placeholder="限制25个汉字以内"></textarea>
                         </div>
                     </div>
 
