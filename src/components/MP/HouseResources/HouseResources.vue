@@ -319,7 +319,9 @@
                     this.ltSon.push(data)
                 }
                 this.$refs.subBu.setLdId(data)
+                this.subBuSon = []
                 this.$refs.buildCompent.setLdId(data)
+                this.buildCompentSon = []
 
             },
             fathersubBuReceive(data) {
@@ -328,6 +330,7 @@
                     this.subBuSon.push(data)
                 }
                 this.$refs.buildCompent.setBussId(data)
+                this.buildCompentSon = []
             },
             fatherbuildCompentReceive(data) {
                 this.buildCompentSon = []
@@ -532,7 +535,10 @@
             //     list.join('\')
             // }
         },
-
+        mounted() {
+            this.$refs.subBu.setLdId(null)
+            this.$refs.buildCompent.setLdId(null)
+        },
         created: function () {
             this.queryData()
         }
