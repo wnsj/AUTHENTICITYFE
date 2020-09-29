@@ -414,6 +414,10 @@
 
             fileDel(index, type, item) {
                 if (this.title == '修改') {
+                    if(buildRealImgList.length == 1){
+                        alert('最后一张图片不可删除')
+                        return;
+                    }
                     if (!confirm("确定删除该图片？")) {
                         return;
                     }
