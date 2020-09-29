@@ -516,6 +516,7 @@
 
                 $('#roomMainDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
+                    this.typeFlag = 3
                     this.title = '新增'
                     this.$refs.ldtRef.setLdtId('0')
                     this.$refs.couRef.setCouId('0')
