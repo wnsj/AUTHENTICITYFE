@@ -516,6 +516,7 @@ export default {
               this.title = "修改";
               if (res.retData.picture.length != 0) {
                 var buildRea = [];
+                this.buildRealImgIdList = []
                 for (var i = 0; i < res.retData.picture.length; i++) {
                   buildRea.push(
                     this.url +
@@ -527,6 +528,7 @@ export default {
                 this.buildRealImgList = buildRea;
               }
               if (res.retData.head.length != 0) {
+                this.headImgIdList = []
                 var img = [];
                 img.push(
                   this.url +
