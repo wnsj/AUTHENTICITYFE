@@ -825,7 +825,7 @@
                     return
                 }
 
-                if (this.addParam.buildTypeList === null || this.addParam.buildTypeList === []) {
+                if (this.addParam.buildTypeList == null || this.addParam.buildTypeList.length === 0 || this.addParam.buildTypeList === []) {
                     alert('类型必选')
                     return
                 }
@@ -1143,6 +1143,8 @@
                 if (null != data) {
                     this.addParam.ldId = data
                 }
+                this.addParam.businessId = ''
+
                 this.$refs.buRef.setLdId(data)
             },
             fatherBuReceive(data) {
