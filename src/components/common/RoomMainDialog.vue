@@ -29,8 +29,8 @@
                             <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()"
                                     :disabled="this.typeFlag == 2 ? true : false">
                                 <option value="0">--未选择--</option>
-                                <option value="1">--写字楼--</option>
-                                <option value="2">--共享办公--</option>
+                                <option value="1">--普通办公--</option>
+<!--                                <option value="2">&#45;&#45;共享办公&#45;&#45;</option>-->
                                 <option value="3">--商铺--</option>
                             </select>
                         </div>
@@ -40,8 +40,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <bt @btChange='fatherBtReceive' ref="btRef"
-                                :disabled="this.roomType == 2 ? true : false"></bt>
+                            <bt @btChange='fatherBtReceive' ref="btRef"></bt>
                         </div>
                     </div>
 
@@ -279,25 +278,6 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">基础服务</label><span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <baseService @baseServiceChange='baseServiceCompentReceive'
-                                         ref="baseServiceCompentRef"></baseService>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 form-group clearfix">
-                        <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;width: 12%;">网点介绍</label><span
-                        class="sign-left">:</span>
-                        <div class="col-md-10">
-                            <textarea type="text" class="form-control" style="width: 100%;min-height: 100px;"
-                                      v-model="addParam.produce"></textarea>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="dialogBtnBox form-group clearfix">
@@ -341,7 +321,7 @@
     import buildCompent from "../common/Building";
     import storeType from "../common/StoreType";
     import comActive from "../common/ComActive";
-    import baseService from "../common/BaseService"
+
 
     var that = null
     // $(function () {
@@ -361,7 +341,6 @@
             datePicker,
             storeType,
             comActive,
-            baseService,
             bt,
             // BuildHorseTypes,
             // isSale,
@@ -525,7 +504,7 @@
                     this.$refs.buRef.setBuId('0')
                     this.roomType = '0'
                     this.$refs.buildCompentRef.setBuildingId('')
-                    this.$refs.baseServiceCompentRef.setBaseServiceList([])
+
 
                     // this.$refs.proRef.setProId('0')
                     this.addParam = {
@@ -616,11 +595,7 @@
                         // 是否在租
                         isRent: 2,
 
-                        // 网点介绍
-                        produce: '',
 
-                        // 特点list集合
-                        chaList: [],
                     }
                 } else if (param === 'modify') {
                     // if (this.isBlank(addParam.videoPath)) {
@@ -638,7 +613,7 @@
                     // this.$refs.stRef.setStId(addParam.stId)
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     this.$refs.btRef.setBtId(addParam.btId)
-                    this.$refs.baseServiceCompentRef.setBaseServiceList(addParam.chaList)
+
 
 
                     // console.log('cacacacacacaca',this.addParam.caId)
@@ -991,12 +966,7 @@
                 }
             },
 
-            baseServiceCompentReceive(data) {
-                this.addParam.chaList = []
-                if (null != data) {
-                    this.addParam.chaList = data
-                }
-            },
+
             // fatherIsSaleReceive(data) {
             //     this.addParam.isSale = ''
             //     this.addParam.isSale = data
@@ -1205,7 +1175,6 @@
                     this.$refs.btRef.setFlag(this.roomType)
                     this.addParam.btId = ''
                     this.$refs.buildCompentRef.setBuildType(this.roomType)
-                    this.$refs.baseServiceCompentRef.setBaseServiceList(this.chaList)
                     this.addParam.chaList = []
                     // this.$refs.stRef.setType(this.roomType)
                 }

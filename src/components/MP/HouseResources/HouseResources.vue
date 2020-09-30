@@ -13,7 +13,7 @@
                     <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()">
                         <option value="0">--未选择--</option>
                         <option value="1">写字楼</option>
-                        <option value="2">共享办公</option>
+<!--                        <option value="2">共享办公</option>-->
                         <option value="3">商铺</option>
                     </select>
                 </div>

@@ -50,7 +50,12 @@
                 }).then((response) => {
                     var res = response.data
                     if (res.retCode === '0000') {
-                        this.buildTypeList = res.retData
+                        if (res.retData) {
+                            this.buildTypeList = res.retData.filter(item => item.btName !== '共享办公')
+                        } else {
+                            this.buildTypeList = null;
+                        }
+
                     } else {
                         alert(res.retMsg)
                     }

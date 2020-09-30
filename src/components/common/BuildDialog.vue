@@ -249,6 +249,14 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">基础服务</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <baseService @baseServiceChange='baseServiceCompentReceive'
+                                         ref="baseServiceCompentRef"></baseService>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
@@ -292,6 +300,17 @@
                                 <label class="col-md-3 control-label text-right nopad end-aline"
                                        style="padding:0;line-height:34px;">{{this.videoName}}</label>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 form-group clearfix">
+                        <div class="col-md-6  clearfix" style="padding: 0;">
+                            <label class="col-md-3 control-label text-right nopad end-aline"
+                                   style="padding:0;line-height:34px;">网点介绍</label><span class="sign-left">:</span>
+                        </div>
+                        <div class="col-md-12 ">
+                            <textarea class="form-control wdType03" v-model="addParam.produce"
+                                      placeholder="网点介绍"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12 form-group clearfix">
@@ -344,7 +363,7 @@
     import Metros from '../common/Metros.vue'
     import PlayAV from '../common/PlayAV.vue'
     import Business from "./subBu/subBusiness";
-
+    import baseService from "../common/BaseService"
     var that = null
     // $(function () {
     //     function testFun() {
@@ -373,7 +392,8 @@
             pro,
             // Region,
             // Metros,
-            PlayAV
+            PlayAV,
+            baseService
         },
         data() {
             return {
@@ -485,6 +505,12 @@
 
                     // 最大工位数
                     maxStationNum: '',
+
+                    // 网点介绍
+                    produce: '',
+
+                    // 特点list集合
+                    chaList: [],
                 },
                 title: '',
                 // effectImgList:
@@ -524,6 +550,7 @@
         methods: {
             // Initialization projcet’s content
             initData(param, addParam) {
+
                 this.btnName = '确认'
                 this.loading = false
                 this.addParam = {
@@ -633,7 +660,13 @@
                     minStationNum: '',
 
                     // 最大工位数
-                    maxStationNum: ''
+                    maxStationNum: '',
+
+                    // 网点介绍
+                    produce: '',
+
+                    // 特点list集合
+                    chaList: [],
 
                 }
                 this.$refs.btRef.queryData()
@@ -674,45 +707,15 @@
                     // this.$refs.saleRef.setIsSale('0')
                     // this.$refs.devRef.setDevId(addParam.devId)
                     this.$refs.charsRef.setCharaList([])
+                    this.$refs.baseServiceCompentRef.setBaseServiceList([])
                     // this.$refs.bhtsRef.setBhtIdList([])
                     // this.$refs.proRef.setProId('2')
                     // this.$refs.regionRef.setRegionId('0')
                     // this.$refs.metrosRef.setMetroIdList([])
 
                 } else if (param === 'modify') {
-                    // if (this.isBlank(addParam.videoPath)) {
-                    //     this.playAvOutDivFlag = false
-                    //     $("#playAvOutDiv").modal("hide")
-                    // } else {
                     this.videoName = addParam.videoName
-                    // this.$refs.playRef.initData(this.url + addParam.videoPath)
-                    // }
-                    // console.log('Initialization evaluation’s content, which modifies evaluation')
                     this.title = '修改'
-
-                    // this.param.buildId = addParam.buildId;
-                    // this.param.sort = addParam.sort;
-                    // this.param.isMobile = addParam.isMobile
-                    // this.param.mobileHead = addParam.mobileHead;
-                    // this.param.mobileIntroduction = addParam.mobileIntroduction;
-                    //
-                    // if (null !== addParam.effectPathList) {
-                    //     var en = []
-                    //     for (var i = 0; i < addParam.effectPathList.length; i++) {
-                    //         en.push(this.url + addParam.effectPathList[i])
-                    //     }
-                    //     this.effectImgList = en
-                    // }
-                    //
-                    //
-                    // if (null !== addParam.enPlanPathList) {
-                    //     var enPlan = []
-                    //     for (var i = 0; i < addParam.enPlanPathList.length; i++) {
-                    //         enPlan.push(this.url + addParam.enPlanPathList[i])
-                    //     }
-                    //     this.enPlanImgList = enPlan
-                    // }
-
 
                     if (null !== addParam.picturePath) {
                         var buildRea = []
@@ -722,49 +725,26 @@
                         this.buildRealImgList = buildRea
                     }
 
-
-                    // if (null !== addParam.matchingRealPathList) {
-                    //     var matching = []
-                    //     for (var i = 0; i < addParam.matchingRealPathList.length; i++) {
-                    //         matching.push(this.url + addParam.matchingRealPathList[i])
-                    //     }
-                    //     this.matchingRealImgList = matching
-                    // }
-
-
-                    // if (null !== addParam.regionPathList) {
-                    //     var region = []
-                    //     for (var i = 0; i < addParam.regionPathList.length; i++) {
-                    //         region.push(this.url + addParam.regionPathList[i])
-                    //     }
-                    //     this.regionImgList = region
-                    // }
-
-                    //
                     if (null != addParam && null != addParam.headPath) {
                         var img = []
                         img.push(this.url + addParam.headPath)
                         this.headImgList = img
                     }
 
-
-                    // console.log(JSON.stringify(addParam))
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
                     if (addParam.buildTypeList) {
                         this.$refs.btRef.setBstIdList(addParam.buildTypeList)
                     }
-                    // this.$refs.saleRef.setIsSale(addParam.isSale)
-                    // this.$refs.devRef.setDevId(addParam.devId)
+
                     if (addParam.chaIdList) {
                         this.$refs.charsRef.setCharaList(addParam.chaIdList)
                     }
+                    if (addParam.chaList) {
+                        this.$refs.baseServiceCompentRef.setBaseServiceList(addParam.chaList)
+                    }
 
-                    // this.$refs.bhtsRef.setBhtIdList(addParam.bhtIdList)
-                    // this.$refs.proRef.setProId(addParam.proId)
                     this.$refs.couRef.setCouId(addParam.couId)
                     this.$refs.buRef.setBuId(addParam.businessId)
-                    // this.$refs.regionRef.setRegionId(addParam.regionId)
-                    // this.$refs.metrosRef.setMetroIdList(addParam.metroIdList)
                     Object.assign(this.addParam, addParam)
                 }
             },
@@ -1132,6 +1112,12 @@
                 this.addParam.couId = ''
                 if (null != data) {
                     this.addParam.couId = data
+                }
+            },
+            baseServiceCompentReceive(data) {
+                this.addParam.chaList = []
+                if (null != data) {
+                    this.addParam.chaList = data
                 }
             },
             // fatherIsSaleReceive(data) {

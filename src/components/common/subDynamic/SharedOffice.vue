@@ -21,9 +21,9 @@
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:30px;">匹配房源</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:30px;">匹配楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                           <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
+                           <Building @buildChange='buildReceive' ref="buildRef"></Building>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -129,7 +129,7 @@
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
                                     <div @click="fileDel(index,3,item)">x</div>
-                                    <img :src="item" style="width: 100%" width="390px" height="220px"> 
+                                    <img :src="item" style="width: 100%" width="390px" height="220px">
                                 </div>
                             </div>
                         </div>
@@ -159,7 +159,7 @@
     import datePicker from 'vue2-datepicker'
     import Building from '../Building.vue'
     import SummerNote from '../subArticle/SummerNote.vue'
-    import rmt from '../../common/getRoomOffice.vue'
+
     import BuildType from "../BildType";
     var that = null
     export default {
@@ -167,7 +167,6 @@
             datePicker,
             Building,
             SummerNote,
-            rmt,
             BuildType
 
         },
@@ -206,14 +205,11 @@
         },
         methods: {
 
-            fatherrmtReceive(data) {
-              console.log(data)
+            buildReceive(data) {
                 this.addParam.roomId = ''
                 if (null != data) {
                     this.addParam.roomId = data;
-
                 }
-               // this.$refs.rmtRef.setroomId(data)
             },
 
             btRe(data) {
@@ -230,15 +226,15 @@
                 this.buildRealImgList = []
                 this.buildRealImgFileList = []
                 this.$refs.btRef.setType(2)
+                this.$refs.buildRef.setBuildType(2)
                 this.$refs.btRef.setBtId('0')
-                this.$refs.rmtRef.setroomId('')
                 // $("#headImg").val("");
                 // ("#buildRealImg").val("");
                 // $("#video").val("");
                 $('#dyDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.rn.setData('')
-                   // this.$refs.buildRef.setBuildingId("")
+                   this.$refs.buildRef.setBuildingId("")
 
                     this.title = '新增'
                     this.addParam = {
@@ -293,7 +289,6 @@
                         }
                         this.buildRealImgList = buildRea
                     }
-                     this.$refs.rmtRef.setroomId(addParam.roomId)
                     this.$refs.btRef.setBtId(addParam.officeType)
                     Object.assign(this.addParam, addParam)
 
@@ -317,7 +312,6 @@
 
             headImgChange() {
                 var files = $("#headImg")[0].files; //获取file对象
-                debugger
                 if (null != files) {
                     this.headImgList = []
                 }

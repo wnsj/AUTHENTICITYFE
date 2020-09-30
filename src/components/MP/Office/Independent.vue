@@ -38,7 +38,7 @@
                         <thead class="datathead">
                         <tr>
                             <th class="text-center">工位类型</th>
-                            <th class="text-center">房源名称</th>
+                            <th class="text-center">楼盘名称</th>
                             <th class="text-center">工位个数</th>
                             <th class="text-center">价格</th>
                         </tr>
