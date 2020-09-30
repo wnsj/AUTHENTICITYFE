@@ -179,7 +179,7 @@
                   v-show="headImgList.length!==0"
                 >
                   <!-- <div @click="fileDel(index,5,item)">x</div> -->
-                  <img :src="item" style="width: 100%" width="246px" height="178px"/>
+                  <img :src="item" style="width: 100%"/>
                 </div>
               </div>
             </div>

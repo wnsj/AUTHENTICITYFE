@@ -282,7 +282,7 @@
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
                                     <div @click="fileDel(index,3,item)">x</div>
-                                    <img :src="item" style="width: 100%" width="768px" height="440px">
+                                    <img :src="item" style="width: 100%">
                                 </div>
                             </div>
                         </div>
