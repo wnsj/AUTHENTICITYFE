@@ -260,12 +260,12 @@
                                style="padding:0;line-height:34px;">头图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
-                            <p class="redtips">*注意：宽280px*高215px</p>
+                            <p class="redtips">*注意：宽280px*高210px</p>
 
                             <div id="headImgOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <!-- <div @click="fileDel(index,5,item)">x</div> -->
-                                    <img :src="item" style="width: 100%">
+                                    <img :src="item" style="width: 100%" width="280px" height="210px">
                                 </div>
                             </div>
                         </div>
@@ -277,12 +277,12 @@
                         <div class="col-md-8">
                             <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
                                    multiple="multiple"/>
-                            <p class="redtips">*注意：宽780px*高450px</p>
+                            <p class="redtips">*注意：宽768px*高440px</p>
                             <div id="buildRealImgOutDiv">
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
                                     <div @click="fileDel(index,3,item)">x</div>
-                                    <img :src="item" style="width: 100%">
+                                    <img :src="item" style="width: 100%" width="768px" height="440px">
                                 </div>
                             </div>
                         </div>

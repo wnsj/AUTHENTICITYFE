@@ -124,7 +124,7 @@
                         <div class="col-md-9" style="padding:0">
                             <input type="file" id="buildRealImg" @change="buildRealImgChange" accept="image/*"
                                    multiple="multiple"/>
-                            <p class="redtips">*注意：宽620px*高380px</p>
+                            <p class="redtips">*注意：宽710px*高400px</p>
                             <div id="buildRealImgOutDiv">
                                 <div v-for="(item,index) of buildRealImgList" :key="index"
                                      v-show="buildRealImgList.length!==0">
