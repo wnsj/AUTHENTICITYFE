@@ -795,10 +795,10 @@
                 //     return
                 // }
 
-                if (this.isBlank(this.addParam.produce)) {
-                    alert('网点介绍必填')
-                    return
-                }
+                // if (this.isBlank(this.addParam.produce)) {
+                //     alert('网点介绍必填')
+                //     return
+                // }
 
 
                 /*if (this.isBlank(this.addParam.longitude)) {
@@ -1172,10 +1172,9 @@
                 if (this.roomType != null) {
                     this.addParam.roomType = this.roomType
                     this.$refs.btRef.setType(this.roomType)
-                    this.$refs.btRef.setFlag(this.roomType)
+                    // this.$refs.btRef.setFlag(this.roomType)
                     this.addParam.btId = ''
                     this.$refs.buildCompentRef.setBuildType(this.roomType)
-                    this.addParam.chaList = []
                     // this.$refs.stRef.setType(this.roomType)
                 }
 

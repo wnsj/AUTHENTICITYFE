@@ -12,7 +12,7 @@
                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding:0">
                     <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()">
                         <option value="0">--未选择--</option>
-                        <option value="1">写字楼</option>
+                        <option value="1">普通办公</option>
 <!--                        <option value="2">共享办公</option>-->
                         <option value="3">商铺</option>
                     </select>
@@ -124,7 +124,7 @@
                             <!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
                             <td class="text-center" style="line-height:33px;">{{item.bussinessName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.buildName}}</td>
-                            <td class="text-center" style="line-height:33px;" v-if="item.roomType==1">写字楼</td>
+                            <td class="text-center" style="line-height:33px;" v-if="item.roomType==1">普通办公</td>
                             <td class="text-center" style="line-height:33px;" v-if="item.roomType==2">共享办公</td>
                             <td class="text-center" style="line-height:33px;" v-if="item.roomType==3">商铺</td>
                             <td class="text-center" style="line-height:33px;" v-if="item.roomType==null"></td>
