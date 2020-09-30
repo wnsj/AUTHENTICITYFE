@@ -16,10 +16,10 @@
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 30px;">
-                    <p class="end-aline col-md-12 col-lg-12 textcenter" >房源名称：</p>
+                    <p class="end-aline col-md-12 col-lg-12 textcenter" >楼盘名称：</p>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="padding:0">
-                    <rmt @roomIdChange='fatherrmtReceive' ref="rmtRef"></rmt>
+                    <Building @buildChange='buildReceive' ref="buildRef"></Building>
                 </div>
             </div>
 
@@ -75,7 +75,7 @@
     import dynamicDialog from '../../common/subDynamic/SharedOffice.vue'
     import paging from '../../common/Paging.vue'
     import Building from '../../common/Building.vue'
-   import rmt from '../../common/getRoomOffice.vue'
+
 
     import BuildType from "../../common/BildType";
     var that = null
@@ -84,7 +84,6 @@
             paging,
             Building,
             dynamicDialog,
-            rmt,
             BuildType
 
         },
@@ -104,13 +103,11 @@
         },
         methods:{
 
-          fatherrmtReceive(data) {
-              console.log(data)
+            buildReceive(data) {
                 this.roomId = ''
                 if (null != data) {
-                    this.roomId = data
+                    this.roomId = data;
                 }
-                //this.$refs.rmtRef.setroomId(data)
             },
             //子级传值到父级上来的动态拿去
             pageChange: function(page) {
@@ -172,6 +169,7 @@
         },
         mounted() {
             this.$refs.btRef.setType(2)
+            this.$refs.buildRef.setBuildType(2)
         },
         created: function () {
 

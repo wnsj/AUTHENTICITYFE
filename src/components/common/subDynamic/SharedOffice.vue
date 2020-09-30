@@ -11,10 +11,10 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">工位类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-<!--                           <select name="" id="" class="form-control " v-model="addParam.officeType" >-->
-<!--                                <option value="3">独立办公室</option>-->
-<!--                                <option value="2">开放工位</option>-->
-<!--                            </select>-->
+                            <!--                           <select name="" id="" class="form-control " v-model="addParam.officeType" >-->
+                            <!--                                <option value="3">独立办公室</option>-->
+                            <!--                                <option value="2">开放工位</option>-->
+                            <!--                            </select>-->
 
                             <BuildType @btChange="btRe" ref="btRef"></BuildType>
                         </div>
@@ -23,7 +23,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">匹配楼盘</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                           <Building @buildChange='buildReceive' ref="buildRef"></Building>
+                            <Building @buildChange='buildReceive' ref="buildRef"></Building>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -37,45 +37,65 @@
 
 
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">工位个数</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">工位个数</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.stationNum" placeholder="必填"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">剩余工位</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">剩余工位</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.surpluseNum" placeholder="必填"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">原价</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">原价</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.sorcePrice" placeholder="必填"/>
                         </div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">现价</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">现价</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.nowPrice" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
-                        <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:30px;">房型</label><span class="sign-left">:</span>
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">房型</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.houseType" placeholder="必填"/>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">免租时间</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.freeRentTime" placeholder="必填"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">看房时间</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.watchHouseTime" placeholder="必填"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">是否靠墙</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                           <select name=""  class="form-control" v-model="addParam.isWall">
-                                <option value="3">否</option>
-                                <option value="2">是</option>
+                            <select name="" class="form-control" v-model="addParam.isWall">
+                                <option value=2>是</option>
+                                <option value=3>否</option>
                             </select>
                         </div>
                     </div>
@@ -83,9 +103,26 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">是否带窗</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                           <select name="" class="form-control " v-model="addParam.isWindow">
-                                <option value="3">否</option>
-                                <option value="2">是</option>
+                            <select name="" class="form-control " v-model="addParam.isWindow">
+                                <option value=2>是</option>
+                                <option value=3>否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">支付方式</label><span class="sign-left">:</span>
+                        <div class="col-md-8 form-group clearfix">
+                            <input type="text" class="form-control " v-model="addParam.payType" placeholder="必填"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:30px;">是否可注册</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select name="" class="form-control " v-model="addParam.isRegister">
+                                <option value=2>是</option>
+                                <option value=3>否</option>
                             </select>
                         </div>
                     </div>
@@ -97,7 +134,7 @@
                             <p class="redtips">*注意：宽378px*高228px</p>
 
                             <div id="headImgOutDiv">
-                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
+                                <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
                                     <!-- <div @click="fileDel(index,5,item)">x</div> -->
                                     <img :src="item" style="width: 100%">
                                 </div>
@@ -141,7 +178,8 @@
                                 data-toggle="modal"
                                 v-on:click="closeCurrentPage()">返回
                         </button>
-                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
+                        <button type="button" :disabled="this.isDisable" class="btn btn-primary pull-right m_r_10"
+                                style="margin-right:1.5%;"
                                 data-toggle="modal"
                                 v-on:click="certainAction()">确认
                         </button>
@@ -161,6 +199,7 @@
     import SummerNote from '../subArticle/SummerNote.vue'
 
     import BuildType from "../BildType";
+
     var that = null
     export default {
         components: {
@@ -173,23 +212,31 @@
         data() {
             return {
                 addParam: {
-                   sorcePrice:'',  //原价
-                   nowPrice:'',    //现价
-                   stationNum:'',  //工位数
-                   surpluseNum:'',  //剩余工位
-                   officeType:'',   //工位类型
-                   area:'',         //面积
-                   houseType:'',    //房型
-                   isWall:3,       //是否靠墙
-                   isWindow:3,     //是否带窗
-                   roomId:'',      //房源ID
+                    sorcePrice: '',  //原价
+                    nowPrice: '',    //现价
+                    stationNum: '',  //工位数
+                    surpluseNum: '',  //剩余工位
+                    officeType: '',   //工位类型
+                    area: '',         //面积
+                    houseType: '',    //房型
+                    isWall: 3,       //是否靠墙
+                    isWindow: 3,     //是否带窗
+                    roomId: '',      //楼盘ID
+                    // 是否可注册
+                    isRegister: 2,
+                    // 免租时间
+                    freeRentTime: '',
+                    // 看房时间
+                    watchHouseTime: '',
+                    // 支付方式
+                    payType: ''
                 },
-                imgName:'',
-                 headImg:'',    //头图
-                 picture:[],   //图片
-                 video:'',      //视频
-                  headImgList:[],
-                 headImgFileList:[],
+                imgName: '',
+                headImg: '',    //头图
+                picture: [],   //图片
+                video: '',      //视频
+                headImgList: [],
+                headImgFileList: [],
                 playAvOutDivFlag: true,
                 buildRealImgList:
                     [],
@@ -197,7 +244,7 @@
                     [],
                 videoName: '',
                 title: '',
-                isDisable:false,
+                isDisable: false,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
                 }
@@ -227,6 +274,7 @@
                 this.buildRealImgFileList = []
                 this.$refs.btRef.setType(2)
                 this.$refs.buildRef.setBuildType(2)
+
                 this.$refs.btRef.setBtId('0')
                 // $("#headImg").val("");
                 // ("#buildRealImg").val("");
@@ -234,28 +282,35 @@
                 $('#dyDialog').modal({backdrop: 'static', keyboard: false});
                 if (param === 'add') {
                     // this.$refs.rn.setData('')
-                   this.$refs.buildRef.setBuildingId("")
+                    this.$refs.buildRef.setBuildingId("")
 
                     this.title = '新增'
                     this.addParam = {
-                         sorcePrice:'',  //原价
-                            nowPrice:'',    //现价
-                            stationNum:'',  //工位数
-                            surpluseNum:'',  //剩余工位
-                            officeType:'',   //工位类型
-                            area:'',         //面积
-                            houseType:'',    //房型
-                            isWall:3,       //是否靠墙
-                            isWindow:3,     //是否带窗
-                            roomId:'',      //房源ID
-
+                        sorcePrice: '',  //原价
+                        nowPrice: '',    //现价
+                        stationNum: '',  //工位数
+                        surpluseNum: '',  //剩余工位
+                        officeType: '',   //工位类型
+                        area: '',         //面积
+                        houseType: '',    //房型
+                        isWall: 3,       //是否靠墙
+                        isWindow: 3,     //是否带窗
+                        roomId: '',      //楼盘ID
+                        // 是否可注册
+                        isRegister: 2,
+                        // 免租时间
+                        freeRentTime: '',
+                        // 看房时间
+                        watchHouseTime: '',
+                        // 支付方式
+                        payType: ''
                     };
 
 
                 } else if (param === 'modify') {
 
                     console.log('Initialization evaluation’s content, which modifies evaluation')
-                     if (null != addParam && null != addParam.bdPath) {
+                    if (null != addParam && null != addParam.bdPath) {
                         var en = []
                         en.push(this.url + addParam.bdPath)
                         this.headImgList = en
@@ -272,17 +327,13 @@
 
 
                     //头图
-
-                    this.title = '修改';
-
-
                     if (null != addParam && null != addParam.imgName) {
                         var img = []
-                        img.push(this.url+addParam.imgName)
+                        img.push(this.url + addParam.imgName)
                         this.headImgList = img
                     }
                     //多图列表
-                     if (null !== addParam.pictureList) {
+                    if (null !== addParam.pictureList) {
                         var buildRea = []
                         for (var i = 0; i < addParam.pictureList.length; i++) {
                             buildRea.push(this.url + addParam.pictureList[i])
@@ -290,8 +341,8 @@
                         this.buildRealImgList = buildRea
                     }
                     this.$refs.btRef.setBtId(addParam.officeType)
+                    this.$refs.buildRef.setBuildingId(addParam.roomId)
                     Object.assign(this.addParam, addParam)
-
                 }
             },
 
@@ -383,17 +434,32 @@
                     }
                 }
 
-                if (this.isBlank(this.addParam.houseType)) {
-                    alert('房型必填')
+                if (this.addParam.officeType == 7 && this.isBlank(this.addParam.houseType)) {
+                    alert('独立办公室房型必填')
                     return
                 }
 
-                if(this.headImgList.length == 0){
+                if (this.isBlank(this.addParam.freeRentTime)) {
+                    alert('免租时间必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.watchHouseTime)) {
+                    alert('看房时间必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.payType)) {
+                    alert('支付方式必填')
+                    return
+                }
+
+                if (this.headImgList.length == 0) {
                     alert('请选择头图')
                     return
                 }
 
-                if(this.buildRealImgList.length == 0){
+                if (this.buildRealImgList.length == 0) {
                     alert('请选择图片')
                     return
                 }
@@ -411,7 +477,7 @@
                 }
                 fd.append("addParam", JSON.stringify(this.addParam));
 
-            for (let i = 0; i < this.buildRealImgFileList.length; i++) {
+                for (let i = 0; i < this.buildRealImgFileList.length; i++) {
                     fd.append("picture", this.buildRealImgFileList[i]);
                 }
                 var videoFile = $("#video")[0].files[0]
@@ -424,7 +490,7 @@
                         return
                     }
                 }
-                console.log( this.buildRealImgList.length)
+                console.log(this.buildRealImgList.length)
                 switch (this.title) {
                     case '新增':
                         var url = this.url + '/officeBean/addOffice'
@@ -448,9 +514,8 @@
                     if (res.retCode === '0000') {
                         alert(res.retMsg)
                         this.$emit('certainAction');
-                   // console.log( this.buildRealImgList.length)
-                    }
-                    else{
+                        // console.log( this.buildRealImgList.length)
+                    } else {
                         alert(res.retMsg)
                     }
                 }).catch((error) => {
@@ -470,7 +535,7 @@
                 return this.formatFileSize(fileSize / 1024, ++idx);
             },
 
-             videoChange() {
+            videoChange() {
                 var files = $("#video")[0].files;
                 if (null != files) {
                     this.videoName = ''
@@ -497,11 +562,11 @@
                 // 监听reader对象的onload事件，当图片加载完成时，把base64编码賦值给预览图片
                 reader.onload = function () {
                     var dataUrl = reader.result;
-                   file.src = this.result;
-                     if (pictureType === 3) {
+                    file.src = this.result;
+                    if (pictureType === 3) {
                         that.buildRealImgFileList.push(file)
                         that.buildRealImgList.push(dataUrl)
-                    }else if (pictureType === 5) {
+                    } else if (pictureType === 5) {
                         that.headImgFileList.push(file)
                         that.headImgList.push(dataUrl)
                     }
@@ -510,9 +575,9 @@
             },
             fileDel(index, type, item) {
                 if (this.title == '修改') {
-                    if(this.buildRealImgList.length == 1){
-                         alert('最后一张图片不可删除')
-                         return;
+                    if (this.buildRealImgList.length == 1) {
+                        alert('最后一张图片不可删除')
+                        return;
                     }
                     if (!confirm("确定删除该图片？")) {
                         return;
@@ -520,13 +585,13 @@
                 }
 
                 if (type === 3) {
-                        this.buildRealImgList.splice(index, 1)
-                        this.buildRealImgFileList.splice(index, 1)
-                    } else if (type === 5) {
-                        this.headImgList.splice(index, 1)
-                        this.headImgFileList.splice(index, 1)
-                    }
-                 if (this.title == '新增') return;
+                    this.buildRealImgList.splice(index, 1)
+                    this.buildRealImgFileList.splice(index, 1)
+                } else if (type === 5) {
+                    this.headImgList.splice(index, 1)
+                    this.headImgFileList.splice(index, 1)
+                }
+                if (this.title == '新增') return;
                 if (this.isBlank(item)) return;
                 var index = item.lastIndexOf('=');
                 var str = item.substring(index + 1, item.length)
@@ -553,7 +618,7 @@
                 });
 
 
-            if (type === 3) {
+                if (type === 3) {
                     this.buildRealImgList.splice(index, 1)
                     this.buildRealImgFileList.splice(index, 1)
                 } else if (type === 5) {
