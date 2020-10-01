@@ -813,7 +813,7 @@
 
                 if (this.addParam.sellWell != null && this.addParam.sellWell !== '' && parseInt(this.addParam.sellWell) !== 0) {
                     if (!(/^([0-9]*$)$/).test(this.addParam.sellWell)) {
-                        alert('热销值只能是整数')
+                        alert('热销值只能是正整数')
                         return;
                     }
                 }
