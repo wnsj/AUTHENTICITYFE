@@ -134,7 +134,7 @@
                                style="padding:0;line-height:34px;">最低单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.minUnitPrice"
-                                   placeholder=""/>
+                                   placeholder=""/><span class="pos-ab pos-tr">/m²⋅天</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -142,7 +142,7 @@
                                style="padding:0;line-height:34px;">最高单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.maxUnitPrice"
-                                   placeholder=""/>
+                                   placeholder=""/><span class="pos-ab pos-tr">/m²⋅天</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -150,7 +150,7 @@
                                style="padding:0;line-height:34px;">最低总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.minTitlePrice"
-                                   placeholder=""/>
+                                   placeholder=""/><span class="pos-ab pos-tr">万元/月</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -158,7 +158,7 @@
                                style="padding:0;line-height:34px;">最高总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.maxTitlePrice"
-                                   placeholder=""/>
+                                   placeholder=""/><span class="pos-ab pos-tr">万元/月</span>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
