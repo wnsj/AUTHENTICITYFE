@@ -31,10 +31,10 @@
                     </div>
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
-                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">反馈</label><span class="sign-left">:</span>
+                            <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">备注</label><span class="sign-left">:</span>
                          </div>
                         <div class="col-md-12">
-                            <textarea  class="form-control wdType03" v-model="addParam.form" placeholder="反馈"></textarea>
+                            <textarea  class="form-control wdType03" v-model="addParam.form" placeholder="备注"></textarea>
                         </div>
                     </div>
 

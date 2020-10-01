@@ -24,17 +24,19 @@
             </div>
 
 
-             <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
+             <!-- <button type="button" class="btn btn-warning pull-right m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                     v-on:click="selectRule('1')">添加</button>
             <button type="button" class="btn btn-primary pull-right m_r_10" style="margin-right:1.5%;"
                     data-toggle="modal"
                     v-on:click="queryData(1)">查询
-            </button>
+            </button> -->
         </div>
 
 
         <div class="" style="padding-top: 30px;">
+            
             <div class="col-md-12 col-lg-12">
+                
                 <div class="table-responsive  table-bg">
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
@@ -67,6 +69,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12 col-lg-12 posAb">
+                    <p class="tips">* 双击单行，可对当前数据进行修改</p>
+            </div>
                 <!--分页插件-->
                 <div class="page">
                     <!--这里时通过props传值到子级，并有一个回调change的函数，来获取自己传值到父级的值-->

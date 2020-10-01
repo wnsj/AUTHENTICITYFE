@@ -11,7 +11,7 @@
                         <label class="col-md-2 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;width: 12%;">标题</label><span class="sign-left">:</span>
                         <div class="col-md-10" style="padding-right:6px">
-                            <input type="text" class="form-control" v-model="addParam.bdName">
+                            <input type="text" class="form-control" v-model="addParam.bdName" maxlength="30">
                             <!-- <textarea type="text" class="form-control" v-model="addParam.bdName" style="height:100px"></textarea> -->
                         </div>
                     </div>
@@ -26,7 +26,7 @@
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;">图片</label><span class="sign-left">:</span>
+                               style="padding:0;line-height:34px;">缩略图</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="file" id="pic" @change="headImgChange" accept="image/*"/>
                             <p class="redtips">*注意：宽380px*高180px</p>
@@ -43,7 +43,7 @@
                             <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">资讯描述</label><span class="sign-left">:</span>
                          </div>
                         <div class="col-md-12 form-group clearfix" style="padding-left: 0;">
-                            <textarea class="form-control wdType03" v-model="addParam.bdLabel" placeholder="资讯描述" style="padding-right:0"></textarea>
+                            <textarea class="form-control wdType03" v-model="addParam.bdLabel" placeholder="资讯描述" style="padding-right:0"  maxlength="120"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12 form-group clearfix">
@@ -175,9 +175,13 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
-
+                   
+                if(this.addParam.bdName.length>30){
+                        alert('标题必填，并且不超过30字')
+                    return 
+                }
                 if (this.isBlank(this.addParam.bdName)) {
-                    alert('标题必填')
+                    alert('标题必填，并且不超过30字')
                     return
                 }
                 if (this.isBlank(this.addParam.buildId)) {
@@ -185,10 +189,13 @@
                     return
                 }
                 if (this.isBlank(this.addParam.bdLabel)) {
-                    alert('资讯描述必填')
+                    alert('资讯描述必填，并且不超过120字')
                     return
                 }
-
+                if(this.addParam.bdLabel.length>120){
+                        alert('资讯描述必填，并且不超过120字')
+                    return 
+                }
                 this.addParam.bdContent = this.$refs.sn.getData()
                 if (this.isBlank(this.addParam.bdContent)) {
                     alert('资讯内容必填')

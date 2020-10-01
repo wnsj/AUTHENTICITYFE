@@ -50,22 +50,25 @@
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.surpluseNum" placeholder="必填"/>
                         </div>
+                       
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">原价</label><span class="sign-left">:</span>
-                        <div class="col-md-8 form-group clearfix">
+                        <div class="col-md-7 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.sorcePrice" placeholder="必填"/>
                         </div>
+                         <div style="padding:0;line-height:30px;">元/月</div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">现价</label><span class="sign-left">:</span>
-                        <div class="col-md-8 form-group clearfix">
+                        <div class="col-md-7 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.nowPrice" placeholder="必填"/>
                         </div>
+                         <div style="padding:0;line-height:30px;">元/月</div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"

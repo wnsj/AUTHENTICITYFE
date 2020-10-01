@@ -18,7 +18,7 @@
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="padding: 0; line-height: 30px;">
                     <p class="end-aline col-md-12 col-lg-12 textcenter" >楼盘名称：</p>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="padding:0">
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="padding:0; line-height:30px; height:30px">
                     <Building @buildChange='buildReceive' ref="buildRef"></Building>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                             <th class="text-center">工位类型</th>
                             <th class="text-center">楼盘名称</th>
                             <th class="text-center">工位个数</th>
-                            <th class="text-center">价格</th>
+                            <th class="text-center">现价</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -60,6 +60,11 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-12 col-lg-12 posAb">
+                    <p class="tips">* 双击单行，可对当前数据进行修改</p>
+                </div>
+
                 <!--分页插件-->
                 <div class="page">
                     <!--这里时通过props传值到子级，并有一个回调change的函数，来获取自己传值到父级的值-->

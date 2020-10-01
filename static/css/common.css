@@ -148,7 +148,7 @@ body{
     text-align:left;
     color:red;
     font-size:12px;
-    margin-top:15px;
+   
 }
 .wraper{
     position:relative;
@@ -160,7 +160,7 @@ body{
 }
 .posAb{
     position:absolute;
-    bottom:20px;
+    bottom:30px;
     left:0;
 }
 .pos-tr{
