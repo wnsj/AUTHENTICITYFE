@@ -27,7 +27,7 @@
                                style="padding:0;line-height:34px;">房源类型</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <select class="form-control" v-model="roomType" v-on:change="roomTypeChange()"
-                                    :disabled="this.typeFlag == 2 ? true : false">
+                                    >
                                 <option value="0">--未选择--</option>
                                 <option value="1">--普通办公--</option>
 <!--                                <option value="2">&#45;&#45;共享办公&#45;&#45;</option>-->
@@ -1176,6 +1176,10 @@
                     this.addParam.btId = ''
                     this.$refs.buildCompentRef.setBuildType(this.roomType)
                     // this.$refs.stRef.setType(this.roomType)
+                    if (this.roomType == 1) {
+                        this.$refs.btRef.setBtId(1)
+                        this.addParam.btId = 1
+                    }
                 }
 
             },
