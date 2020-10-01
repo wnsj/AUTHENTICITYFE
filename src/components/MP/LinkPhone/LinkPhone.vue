@@ -4,7 +4,7 @@
             <h1 class="titleCss">电话回拨管理</h1>
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
- 
+
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding-right:0">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0; line-height: 30px;">
                     <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; padding-left:20px;">联系电话：</p>
@@ -24,7 +24,7 @@
                     <table class="table table-bordered table-hover" id="datatable">
                         <thead class="datathead">
                         <tr>
-                            
+
                             <th class="text-center">联系方式</th>
                             <th class="text-center">来源</th>
                             <th class="text-center">创建时间</th>
@@ -34,7 +34,7 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in couData" :key="index" v-on:dblclick="selectRule(item)">
-                            
+
                             <td class="text-center" style="line-height:33px;">{{item.phone}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.moLabel}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-12 posAb">
-                    <p class="tips">* 双击单行，可对当前数据进行修改</p>
+                    <p class="tips">* 双击当条添加反馈</p>
                 </div>
                 <!--分页插件-->
                 <div class="page">
@@ -85,7 +85,7 @@
         name: 'LinkPhone',
         data() {
             return {
-                
+
                 // 联系人的姓名
                 phone: '',
                 lpId: '',

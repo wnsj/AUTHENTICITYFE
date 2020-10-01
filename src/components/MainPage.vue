@@ -82,7 +82,7 @@
 								<router-link to="/MP/LinkPhone/LinkPhone"><i class="fa" aria-hidden="true">委托找房</i></router-link>
 							</dd>
 							<dd @click="addCheck('LinkRenting')" v-bind:class="{'li-active':onString=='LinkRenting'}">
-								<router-link to="/MP/LinkPhone/LinkRenting"><i class="fa" aria-hidden="true">委托好租</i></router-link>
+								<router-link to="/MP/LinkPhone/LinkRenting"><i class="fa" aria-hidden="true">委托租房</i></router-link>
 							</dd>
 						</dl>
 						<dl v-bind:class="{h1:bool7}">
@@ -257,7 +257,7 @@
                     return false;
 				}
 				 if (string == 'LinkRenting') {
-                    this.titleNow = '委托好租';
+                    this.titleNow = '委托租房';
                     return false;
                 }
 				if (string == 'HouseResources') {

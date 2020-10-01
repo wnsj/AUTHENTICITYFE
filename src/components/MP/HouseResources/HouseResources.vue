@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            
+
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding: 0; line-height: 30px;">
                     <p class="end-aline col-md-12 col-lg-12 textcenter">时间：</p>
@@ -439,6 +439,7 @@
                     data: {
                         id: item.id,
                         roomType: item.roomType,
+                        buildId: item.buildId,
                         flag: flag
                     },
                     dataType: 'json',
