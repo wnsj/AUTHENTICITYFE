@@ -392,7 +392,7 @@ export default {
     fileDel(index, type, item) {
       if (this.title == "修改") {
         if(this.buildRealImgList.length == 1){
-          alert('最后一张图片不可删除')
+          alert('最后一张图片不可删除,您至少保留一张图片')
           return;
         }
         if (!confirm("确定删除该图片？")) {

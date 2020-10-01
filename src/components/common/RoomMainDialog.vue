@@ -11,7 +11,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">房源名称</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.room" placeholder="房源名称必填">
+                            <input type="text" class="form-control" v-model="addParam.room" placeholder="必填">
                         </div>
                     </div>
 
@@ -19,7 +19,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">房源编号</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.roomCode" placeholder="房源编号必填">
+                            <input type="text" class="form-control" v-model="addParam.roomCode" placeholder="必填">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -123,7 +123,7 @@
                                style="padding:0;line-height:34px;">单价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.unitPrice"
-                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">元</span>
+                                   placeholder="必填"><span class="pos-ab pos-tr">元/天</span>
                         </div>
                     </div>
 
@@ -132,7 +132,7 @@
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.totalPrice"
-                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">元</span>
+                                   placeholder="必填"><span class="pos-ab pos-tr">元/月</span>
                         </div>
                     </div>
 
@@ -141,7 +141,7 @@
                                style="padding:0;line-height:34px;">建筑面积</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control " v-model="addParam.buildArea"
-                                   placeholder="数值,可填:1"><span class="pos-ab pos-tr">㎡</span>
+                                   placeholder="必填"><span class="pos-ab pos-tr">㎡</span>
                         </div>
                     </div>
 
@@ -149,7 +149,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">详细地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.detailedAddress">
+                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.detailedAddress">
                         </div>
                     </div>
 
@@ -157,7 +157,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">地铁地址</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.stationAddress">
+                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.stationAddress">
                         </div>
                     </div>
 
@@ -173,7 +173,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">装修情况</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.renovationCondition">
+                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.renovationCondition">
                         </div>
                     </div>
 
@@ -181,7 +181,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">距地铁</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.surround">
+                            <input type="text" placeholder="距2号线前门站580米(必填)" class="form-control" v-model="addParam.surround">
                         </div>
                     </div>
 
@@ -247,7 +247,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">面积信息</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.areaInfo">
+                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.areaInfo">
                         </div>
                     </div>
 
@@ -264,7 +264,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">支付方式</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.payType">
+                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.payType">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
