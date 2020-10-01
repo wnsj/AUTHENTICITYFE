@@ -10,7 +10,7 @@
                     <p class="end-aline col-md-12 col-lg-12 textcenter" style="padding-right:5px; ">类型：</p>
                 </div>
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding:0">
-                    <bt @btChange='fatherBtReceive' ref="btRef"></bt>
+                    <bt @bstChange='fatherBtReceive' ref="btRef"></bt>
                 </div>
             </div>
 
@@ -63,6 +63,7 @@
                             <th class="text-center">区域</th>
                              <th class="text-center">商圈</th>
                             <th class="text-center">类型</th>
+                            <th class="text-center">建筑面积</th>
                             <th class="text-center">面积</th>
                             <th class="text-center">经纪人</th>
                         </tr>
@@ -76,10 +77,14 @@
                             <td class="text-center">{{item.btName}}</td>
 <!--                            <td class="text-center">{{item.chaName}}</td>-->
                             <td class="text-center">{{item.floorage}}</td>
+                            <td class="text-center">{{item.minArea}}-{{item.maxArea}}</td>
                             <td class="text-center">{{item.counselorBean==null ?"-":item.counselorBean.couName }}</td>
                         </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="col-md-12 col-lg-12 posAb">
+                    <p class="tips">* 双击单行，可对当前数据进行修改</p>
                 </div>
                 <div class="row row_edit">
                     <div class="modal fade" id="buildDialog" >
@@ -105,7 +110,8 @@
 
 <script>
     import datePicker from 'vue2-datepicker'
-    import bt from '../../common/BildType.vue'
+    // import bt from '../../common/BildType.vue'
+    import bt from '../../common/BuildShareType'
     import bht from '../../common/BuildHorseType.vue'
     import isSale from '../../common/IsSale.vue'
     import MobileDialog from '../../common/MobileDialog.vue'
@@ -182,9 +188,9 @@
                 }
             },
             fatherBtReceive(data) {
-                this.buildType = ''
+                this.buildTypeList = []
                 if (null !== data) {
-                    this.buildType = data
+                    this.buildTypeList = data
                 }
             },
             fatherIsSaleReceive(data) {
@@ -294,6 +300,7 @@
                         regionId:this.regionId,
                         metroId:this.metroId,
                         businessId: this.businessId,
+                        buildTypeList: this.buildTypeList,
                         current: page,
                         pageSize: this.pageSize
                     },
@@ -345,9 +352,9 @@
         mounted() {
             // this.$refs.unRef.setType(1)
             // this.$refs.toRef.setType(1)
+            this.$refs.btRef.queryData()
             this.$refs.buRef.setLdId('')
             this.$refs.arRef.setType(1)
-            this.$refs.btRef.setType(1)
         },
         created: function () {
             this.queryData()

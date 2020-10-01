@@ -5,7 +5,7 @@
         </div> -->
         <div class="row newRow" style="margin-top: 1%">
 
-            
+
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding: 0;line-height: 30px;">
                     <p class="end-aline col-md-12 col-lg-12 textcenter" >区域：</p>
@@ -49,7 +49,7 @@
                             <th class="text-center">商圈</th>
                             <th class="text-center">写字楼</th>
                             <th class="text-center">创建时间</th>
-                            <th class="text-center">备注</th>
+                            <th class="text-center">反馈</th>
                             <th class="text-center">是否回拨</th>
                         </tr>
                         </thead>
@@ -73,6 +73,9 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="col-md-12 col-lg-12 posAb">
+                    <p class="tips">* 双击当条添加反馈</p>
                 </div>
                 <div class="row row_edit">
                     <div class="modal fade" id="phoneDialog">
@@ -228,6 +231,9 @@
                     console.log('数据请求失败处理')
                 });
             }
+        },
+        mounted() {
+            this.$refs.buRef.setLdId(null)
         },
         created: function () {
             this.couQueryData()

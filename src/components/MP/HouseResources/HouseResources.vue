@@ -153,6 +153,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="col-md-12 col-lg-12 posAb">
+                    <p class="tips">* 双击单行，可对当前数据进行修改</p>
+                </div>
                 <div class="row row_edit">
                     <div class="modal fade" id="roomMainDialog">
                         <div class="modal-dialog">
