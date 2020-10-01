@@ -702,31 +702,31 @@
 
 
                 if (this.isBlank(this.addParam.unitPrice) || this.addParam.unitPrice == 0) {
-                    alert('单价必填，最多保留2位小数')
+                    alert('单价必填，且只能填正数，最多保留2位小数')
                     return
                 } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.unitPrice)) {
-                        alert('单价必填，最多保留2位小数')
+                        alert('单价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
 
                 if (this.isBlank(this.addParam.totalPrice) || this.addParam.totalPrice == 0) {
-                    alert('总价必填，最多保留2位小数')
+                    alert('总价必填，且只能填正数，最多保留2位小数')
                     return
                 } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.totalPrice)) {
-                        alert('总价必填，最多保留2位小数')
+                        alert('总价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
 
                 if (this.isBlank(this.addParam.buildArea) || this.addParam.buildArea == 0) {
-                    alert('建筑面积必填，最多保留2位小数')
+                    alert('建筑面积必填，且只能填正数，最多保留2位小数')
                     return
                 } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.buildArea)) {
-                        alert('建筑面积必填，最多保留2位小数')
+                        alert('建筑面积必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }

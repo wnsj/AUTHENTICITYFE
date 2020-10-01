@@ -622,7 +622,7 @@
 
                 if (this.storeParam.highLevel != null && this.storeParam.highLevel !== '' && parseInt(this.storeParam.highLevel) !== 0) {
                     if (!(/^([0-9]*$)$/).test(this.storeParam.highLevel)) {
-                        alert('层高只能是整数')
+                        alert('层高只能是正整数')
                         return;
                     }
                 }

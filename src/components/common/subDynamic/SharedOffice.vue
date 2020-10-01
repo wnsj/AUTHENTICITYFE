@@ -385,51 +385,51 @@
                 }
 
                 if (this.isBlank(this.addParam.area) || this.addParam.area == 0) {
-                    alert('面积必填，最多保留2位小数')
+                    alert('面积必填，且只能填正数，最多保留2位小数')
                     return
                 } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.area)) {
-                        alert('面积必填，最多保留2位小数')
+                        alert('面积必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
 
                 if (this.isBlank(this.addParam.stationNum) || this.addParam.stationNum == 0) {
-                    alert('工位个数必填，且只能填整数')
+                    alert('工位个数必填，且只能填正整数')
                     return
                 } else {
                     if (!(/^([0-9]*$)$/).test(this.addParam.stationNum)) {
-                        alert('工位个数必填，且只能填整数')
+                        alert('工位个数必填，且只能填正整数')
                         return;
                     }
                 }
 
                 if (this.isBlank(this.addParam.surpluseNum) || this.addParam.surpluseNum == 0) {
-                    alert('剩余工位必填，且只能填整数')
+                    alert('剩余工位必填，且只能填正整数')
                     return
                 } else {
                     if (!(/^([0-9]*$)$/).test(this.addParam.surpluseNum)) {
-                        alert('剩余工位必填，且只能填整数')
+                        alert('剩余工位必填，且只能填正整数')
                         return;
                     }
                 }
 
                 if (this.isBlank(this.addParam.sorcePrice) || this.addParam.sorcePrice == 0) {
-                    alert('原价必填，最多保留2位小数')
+                    alert('原价必填，且只能填正数，最多保留2位小数')
                     return
                 } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.sorcePrice)) {
-                        alert('原价必填，最多保留2位小数')
+                        alert('原价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
 
                 if (this.isBlank(this.addParam.nowPrice) || this.addParam.nowPrice == 0) {
-                    alert('现价必填，最多保留2位小数')
+                    alert('现价必填，且只能填正数，最多保留2位小数')
                     return
                 } else {
                     if (!(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.nowPrice)) {
-                        alert('现价必填，最多保留2位小数')
+                        alert('现价必填，且只能填正数，最多保留2位小数')
                         return;
                     }
                 }
