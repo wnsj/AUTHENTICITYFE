@@ -19,7 +19,7 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">房源编号</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.roomCode" placeholder="必填">
+                            <input type="text" class="form-control" v-model="addParam.roomCode">
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
