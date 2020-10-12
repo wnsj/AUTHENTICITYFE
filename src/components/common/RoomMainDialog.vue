@@ -72,7 +72,11 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">看房时间</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.watchHouseTime">
+<!--                            <input type="text" class="form-control" v-model="addParam.watchHouseTime">-->
+                            <select class="form-control" v-model="addParam.watchHouseTime">
+                                <option value="">--未选择--</option>
+                                <option v-for="(item,index) in watchHouse" :key="index" v-bind:value="item.watchName">{{item.watchName}}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -189,7 +193,8 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">标签集合</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" placeholder="必填(以|分隔每个标签)" class="form-control" v-model="addParam.labelList">
+<!--                            <input type="text" placeholder="必填(以|分隔每个标签)" class="form-control" v-model="addParam.labelList">-->
+                            <roomLabelList @labelChange="roomLabelRe" ref="rlRef"></roomLabelList>
                         </div>
                     </div>
 
@@ -278,6 +283,30 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">是否可分割</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <select class="form-control" v-model="addParam.isDivision">
+                                <option value=2>--是--</option>
+                                <option value=3>--否--</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">座</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+                                <el-select v-model="select" slot="append" placeholder="请选择">
+                                    <el-option label="餐厅名" value="1"></el-option>
+                                    <el-option label="订单号" value="2"></el-option>
+                                    <el-option label="用户电话" value="3"></el-option>
+                                </el-select>
+                            </el-input>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="dialogBtnBox form-group clearfix">
@@ -321,7 +350,7 @@
     import buildCompent from "../common/Building";
     import storeType from "../common/StoreType";
     import comActive from "../common/ComActive";
-
+    import roomLabelList from "./roomLabelList";
 
     var that = null
     // $(function () {
@@ -355,7 +384,7 @@
             // Region,
             // Metros,
             PlayAV,
-
+            roomLabelList
         },
         data() {
             return {
@@ -424,7 +453,7 @@
                     surround: '',
 
                     // 标签list
-                    labelList: '',
+                    labels: [],
 
                     // 1,写字楼，2，共享，3商铺
                     roomType: '',
@@ -447,11 +476,15 @@
                     // 是否在租
                     isRent: 2,
 
+                    // 是否可分割（2:可分割；3：不可分割）
+                    isDivision: 3,
+
                     // 网点介绍
                     produce: '',
 
                     // 特点list集合
                     chaList: [],
+
 
                 },
                 title: '',
@@ -474,8 +507,11 @@
                 loading: false,
                 btnName: '确认',
                 roomType: '0',
+                watchHouse: [
+                    {id:1,watchName:'随时看房'},
+                    {id:2,watchName:'提前预约'},
+                ]
             }
-                ;
         },
         methods: {
             // Initialization projcet’s content
@@ -502,6 +538,7 @@
                     this.$refs.couRef.setCouId('0')
                     this.$refs.btRef.setBtId('0')
                     this.$refs.buRef.setBuId('0')
+                    this.$refs.rlRef.setLabelList([])
                     this.roomType = '0'
                     this.$refs.buildCompentRef.setBuildingId('')
 
@@ -572,7 +609,7 @@
                         surround: '',
 
                         // 标签list
-                        labelList: '',
+                        labels: [],
 
                         // 1,写字楼，2，共享，3商铺
                         roomType: '',
@@ -595,7 +632,8 @@
                         // 是否在租
                         isRent: 2,
 
-
+                        // 是否可分割（2:可分割；3：不可分割）
+                        isDivision: 3
                     }
                 } else if (param === 'modify') {
                     // if (this.isBlank(addParam.videoPath)) {
@@ -609,6 +647,7 @@
                     this.$refs.buRef.setBuId(addParam.businessId)
                     this.$refs.buildCompentRef.setBussId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
+                    this.$refs.rlRef.setLabelList(addParam.labels)
                     this.roomType = addParam.roomType
 
                     // this.$refs.stRef.setStId(addParam.stId)
@@ -630,6 +669,13 @@
                     this.$refs.couRef.setCouId(addParam.couId)
                     this.findHaveDetail(addParam)
                     Object.assign(this.addParam, addParam)
+                }
+            },
+
+            roomLabelRe(data) {
+                this.addParam.labels = []
+                if (null != data) {
+                    this.addParam.labels = data
                 }
             },
 
@@ -756,7 +802,7 @@
                     return
                 }
 
-                if (this.isBlank(this.addParam.labelList)) {
+                if (this.addParam.labels == null || this.addParam.labels.length === 0 || this.addParam.labels === []) {
                     alert('标签集合必填')
                     return
                 }
