@@ -607,6 +607,7 @@
                     this.title = '修改'
 
                     this.$refs.buRef.setBuId(addParam.businessId)
+                    this.$refs.buildCompentRef.setBussId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
                     this.roomType = addParam.roomType
 
@@ -1174,7 +1175,7 @@
                     this.$refs.btRef.setType(this.roomType)
                     // this.$refs.btRef.setFlag(this.roomType)
                     this.addParam.btId = ''
-                    this.$refs.buildCompentRef.setBuildType(this.roomType)
+                    // this.$refs.buildCompentRef.setBuildType(this.roomType)
                     // this.$refs.stRef.setType(this.roomType)
                     if (this.roomType == 1) {
                         this.$refs.btRef.setBtId(1)
