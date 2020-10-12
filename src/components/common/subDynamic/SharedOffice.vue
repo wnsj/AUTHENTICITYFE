@@ -50,7 +50,7 @@
                         <div class="col-md-8 form-group clearfix">
                             <input type="text" class="form-control " v-model="addParam.surpluseNum" placeholder="必填"/>
                         </div>
-                       
+
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
@@ -88,7 +88,11 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">看房时间</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
-                            <input type="text" class="form-control " v-model="addParam.watchHouseTime" placeholder="必填"/>
+<!--                            <input type="text" class="form-control " v-model="addParam.watchHouseTime" placeholder="必填"/>-->
+                            <select class="form-control" v-model="addParam.watchHouseTime">
+                                <option value="">--未选择--</option>
+                                <option v-for="(item,index) in watchHouse" :key="index" v-bind:value="item.watchName">{{item.watchName}}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -250,7 +254,11 @@
                 isDisable: false,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
-                }
+                },
+                watchHouse: [
+                    {id:1,watchName:'随时看房'},
+                    {id:2,watchName:'提前预约'},
+                ]
             };
         },
         methods: {
@@ -457,15 +465,15 @@
                     return
                 }
 
-                if (this.headImgList.length == 0) {
-                    alert('请选择头图')
-                    return
-                }
-
-                if (this.buildRealImgList.length == 0) {
-                    alert('请选择图片')
-                    return
-                }
+                // if (this.headImgList.length == 0) {
+                //     alert('请选择头图')
+                //     return
+                // }
+                //
+                // if (this.buildRealImgList.length == 0) {
+                //     alert('请选择图片')
+                //     return
+                // }
 
                 this.isDisable = true
                 setTimeout(() => {
@@ -578,10 +586,10 @@
             },
             fileDel(index, type, item) {
                 if (this.title == '修改') {
-                    if (this.buildRealImgList.length == 1) {
-                        alert('最后一张图片不可删除')
-                        return;
-                    }
+                    // if (this.buildRealImgList.length == 1) {
+                    //     alert('最后一张图片不可删除')
+                    //     return;
+                    // }
                     if (!confirm("确定删除该图片？")) {
                         return;
                     }
