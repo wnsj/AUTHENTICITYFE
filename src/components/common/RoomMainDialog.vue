@@ -607,6 +607,7 @@
                     this.title = '修改'
 
                     this.$refs.buRef.setBuId(addParam.businessId)
+                    this.$refs.buildCompentRef.setBussId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
                     this.roomType = addParam.roomType
 
