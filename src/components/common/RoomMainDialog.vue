@@ -177,7 +177,11 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">装修情况</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.renovationCondition">
+                            <!-- <input type="text" placeholder="必填" class="form-control" v-model="addParam.renovationCondition"> -->
+                            <select class="form-control" v-model="addParam.renovationCondition">
+                                <option value="">--未选择--</option>
+                                <option v-for="(item,index) in renovationConditionList" :key="index" v-bind:value="item.termName">{{item.termName}}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -261,7 +265,7 @@
                                style="padding:0;line-height:34px;">转让费</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.transferFee"
-                                   placeholder="数值,可填:30.02"><span class="pos-ab pos-tr">万元</span>
+                                   placeholder="数值,可填:30.02" :disabled="transferFeeFlag == 2?true:false"><span class="pos-ab pos-tr">万元</span>
                         </div>
                     </div>
 
@@ -269,7 +273,11 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">支付方式</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.payType">
+                            <!-- <input type="text" placeholder="必填" class="form-control" v-model="addParam.payType"> -->
+                            <select class="form-control" v-model="addParam.payType">
+                                <option value="">--未选择--</option>
+                                <option v-for="(item,index) in payTypeList" :key="index" v-bind="item.termName">{{item.termName}}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -510,7 +518,19 @@
                 watchHouse: [
                     {id:1,watchName:'随时看房'},
                     {id:2,watchName:'提前预约'},
-                ]
+                ],
+                renovationConditionList: [
+                    {id:1,termName:'毛坯'},
+                    {id:2,termName:'简装'},
+                    {id:3,termName:'精装修'},
+                    {id:3,termName:'豪华装修'}
+                ],
+                payTypeList: [
+                    {id:1,termName:'季度'},
+                    {id:2,termName:'半年'},
+                    {id:3,termName:'年付'}
+                ],
+                transferFeeFlag:2
             }
         },
         methods: {
@@ -1226,6 +1246,11 @@
                     if (this.roomType == 1) {
                         this.$refs.btRef.setBtId(1)
                         this.addParam.btId = 1
+                    }
+                    if (this.roomType == 3){
+                        this.transferFeeFlag = 3
+                    }else{
+                        this.transferFeeFlag = 2
                     }
                 }
 
