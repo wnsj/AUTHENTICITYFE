@@ -60,7 +60,11 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">最短租期</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input class="form-control" v-model="storeParam.minLeaseTerm"/>
+<!--                            <input class="form-control" v-model="storeParam.minLeaseTerm"/>-->
+                            <select class="form-control" v-model="storeParam.minLeaseTerm">
+                                <option value="">--未选择--</option>
+                                <option v-for="(item,index) in minLeaseTermList" :key="index" v-bind:value="item.termName">{{item.termName}}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -314,6 +318,11 @@
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
                 },
+                minLeaseTermList: [
+                    {id:1,termName:'3个月'},
+                    {id:2,termName:'6个月'},
+                    {id:3,termName:'12个月'}
+                ],
                 reStore: {}
             };
         },
