@@ -72,7 +72,11 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">看房时间</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="addParam.watchHouseTime">
+<!--                            <input type="text" class="form-control" v-model="addParam.watchHouseTime">-->
+                            <select class="form-control" v-model="addParam.watchHouseTime">
+                                <option value="">--未选择--</option>
+                                <option v-for="(item,index) in watchHouse" :key="index" v-bind:value="item.watchName">{{item.watchName}}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -293,15 +297,15 @@
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">座</label><span class="sign-left">:</span>
-<!--                        <div class="col-md-8">-->
-<!--                            <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">-->
-<!--                                <el-select v-model="select" slot="append" placeholder="请选择">-->
-<!--                                    <el-option label="餐厅名" value="1"></el-option>-->
-<!--                                    <el-option label="订单号" value="2"></el-option>-->
-<!--                                    <el-option label="用户电话" value="3"></el-option>-->
-<!--                                </el-select>-->
-<!--                            </el-input>-->
-<!--                        </div>-->
+                        <div class="col-md-8">
+                            <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+                                <el-select v-model="select" slot="append" placeholder="请选择">
+                                    <el-option label="餐厅名" value="1"></el-option>
+                                    <el-option label="订单号" value="2"></el-option>
+                                    <el-option label="用户电话" value="3"></el-option>
+                                </el-select>
+                            </el-input>
+                        </div>
                     </div>
                 </div>
 
@@ -502,7 +506,11 @@
                 videoName: '',
                 loading: false,
                 btnName: '确认',
-                roomType: '0'
+                roomType: '0',
+                watchHouse: [
+                    {id:1,watchName:'随时看房'},
+                    {id:2,watchName:'提前预约'},
+                ]
             }
         },
         methods: {
