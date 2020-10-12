@@ -1174,7 +1174,7 @@
                     this.$refs.btRef.setType(this.roomType)
                     // this.$refs.btRef.setFlag(this.roomType)
                     this.addParam.btId = ''
-                    this.$refs.buildCompentRef.setBuildType(this.roomType)
+                    // this.$refs.buildCompentRef.setBuildType(this.roomType)
                     // this.$refs.stRef.setType(this.roomType)
                     if (this.roomType == 1) {
                         this.$refs.btRef.setBtId(1)
