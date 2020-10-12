@@ -136,7 +136,7 @@
                                style="padding:0;line-height:34px;">总价</label><span class="sign-left">:</span>
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="addParam.totalPrice"
-                                   placeholder="必填"><span class="pos-ab pos-tr">万元/月</span>
+                                   placeholder="必填"><span class="pos-ab pos-tr">元/月</span>
                         </div>
                     </div>
 

@@ -44,27 +44,27 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
-                        <label
-                            class="col-md-3 control-label text-right nopad end-aline"
-                            style="padding:0;line-height:34px;"
-                        >最小工位数</label>
-                        <span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="roomParam.minStationNum"/>
-                        </div>
-                    </div>
+<!--                    <div class="col-md-6 form-group clearfix">-->
+<!--                        <label-->
+<!--                            class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                            style="padding:0;line-height:34px;"-->
+<!--                        >最小工位数</label>-->
+<!--                        <span class="sign-left">:</span>-->
+<!--                        <div class="col-md-8">-->
+<!--                            <input type="text" class="form-control" v-model="roomParam.minStationNum"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                    <div class="col-md-6 form-group clearfix">
-                        <label
-                            class="col-md-3 control-label text-right nopad end-aline"
-                            style="padding:0;line-height:34px;"
-                        >最大工位数</label>
-                        <span class="sign-left">:</span>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" v-model="roomParam.maxStationNum"/>
-                        </div>
-                    </div>
+<!--                    <div class="col-md-6 form-group clearfix">-->
+<!--                        <label-->
+<!--                            class="col-md-3 control-label text-right nopad end-aline"-->
+<!--                            style="padding:0;line-height:34px;"-->
+<!--                        >最大工位数</label>-->
+<!--                        <span class="sign-left">:</span>-->
+<!--                        <div class="col-md-8">-->
+<!--                            <input type="text" class="form-control" v-model="roomParam.maxStationNum"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <div class="col-md-6 form-group clearfix">
                         <label
@@ -412,10 +412,10 @@
 
             fileDel(index, type, item) {
                 if (this.title == "修改") {
-                    if (this.buildRealImgList.length == 1) {
-                        alert('最后一张图片不可删除,您至少保留一张图片')
-                        return;
-                    }
+                    // if (this.buildRealImgList.length == 1) {
+                    //     alert('最后一张图片不可删除,您至少保留一张图片')
+                    //     return;
+                    // }
                     if (!confirm("确定删除该图片？")) {
                         return;
                     }
@@ -600,28 +600,28 @@
                     return
                 }
 
-                if (this.isBlank(this.roomParam.minStationNum) || this.roomParam.minStationNum == 0) {
-                    alert('最小工位必填，且只能填正整数')
-                    return
-                } else {
-                    if (!(/^([0-9]*$)$/).test(this.roomParam.minStationNum)) {
-                        alert('最小工位必填，且只能填正整数')
-                        return;
-                    }
-                }
-                if (this.isBlank(this.roomParam.maxStationNum) || this.roomParam.maxStationNum == 0) {
-                    alert('最大工位必填，且只能填正整数')
-                    return
-                } else {
-                    if (!(/^([0-9]*$)$/).test(this.roomParam.maxStationNum)) {
-                        alert('最大工位必填，且只能填正整数')
-                        return;
-                    }
-                }
-                if (parseInt(this.roomParam.minStationNum) > parseInt(this.roomParam.maxStationNum)) {
-                    alert('最大工位不能小于最小工位')
-                    return;
-                }
+                // if (this.isBlank(this.roomParam.minStationNum) || this.roomParam.minStationNum == 0) {
+                //     alert('最小工位必填，且只能填正整数')
+                //     return
+                // } else {
+                //     if (!(/^([0-9]*$)$/).test(this.roomParam.minStationNum)) {
+                //         alert('最小工位必填，且只能填正整数')
+                //         return;
+                //     }
+                // }
+                // if (this.isBlank(this.roomParam.maxStationNum) || this.roomParam.maxStationNum == 0) {
+                //     alert('最大工位必填，且只能填正整数')
+                //     return
+                // } else {
+                //     if (!(/^([0-9]*$)$/).test(this.roomParam.maxStationNum)) {
+                //         alert('最大工位必填，且只能填正整数')
+                //         return;
+                //     }
+                // }
+                // if (parseInt(this.roomParam.minStationNum) > parseInt(this.roomParam.maxStationNum)) {
+                //     alert('最大工位不能小于最小工位')
+                //     return;
+                // }
 
                 if (this.isBlank(this.roomParam.renovationLabel)) {
                     alert('装修描述必填')
@@ -643,15 +643,15 @@
                     return
                 }
 
-                if (this.headImgList.length == 0) {
-                    alert('请选择头图')
-                    return
-                }
-
-                if (this.buildRealImgList.length == 0) {
-                    alert('请选择图片')
-                    return
-                }
+                // if (this.headImgList.length == 0) {
+                //     alert('请选择头图')
+                //     return
+                // }
+                //
+                // if (this.buildRealImgList.length == 0) {
+                //     alert('请选择图片')
+                //     return
+                // }
 
                 /* if (
                    this.roomParam.minStationNum != null &&
