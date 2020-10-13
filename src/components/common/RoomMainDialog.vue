@@ -1,6 +1,6 @@
 <!-- add and modify position -->
 <template>
-    <div class="modal-content bigWidthModal" id="build">
+    <div class="modal-content bigWidthModal2" id="build">
         <div class="modal-header">
             <h4 id="myModalLabel" class="modal-title">{{title}}房源</h4>
         </div>
@@ -302,12 +302,12 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix" style="padding-right:0">
-                        <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;width: 12%;">座</label><span class="sign-left">:</span>
-                        <div class="col-md-10" style="padding-right:6px">
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">座</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
 
-                          <el-input placeholder="请输入内容" v-model="seatInput" class="input-with-select" size="small"> 
+                          <el-input placeholder="请输入内容" v-model="seatInput" class="input-with-select" size="small">
                             <el-select v-model="seatSelect" slot="append" placeholder="请选择"  style="width:90px;">
                               <el-option label="号楼" value="号楼"></el-option>
                               <el-option label="栋" value="栋"></el-option>
@@ -319,12 +319,11 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix" style="padding-right:0">
-                        <label class="col-md-2 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:34px;width: 12%;">单元</label><span class="sign-left">:</span>
-                        <div class="col-md-10" style="padding-right:6px">
-
-                          <el-input placeholder="请输入内容" v-model="unitInput" class="input-with-select" size="small"> 
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">单元</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                          <el-input placeholder="请输入内容" v-model="unitInput" class="input-with-select" size="small">
                             <el-select v-model="unitSelect" slot="append" placeholder="请选择"  style="width:90px;">
                               <el-option label="单元" value="单元"></el-option>
                               <el-option label="门" value="门"></el-option>
@@ -972,7 +971,7 @@
                     return
                 }
 
-                this.addParam.seat = this.seatInput + '|' + this.seatSelect 
+                this.addParam.seat = this.seatInput + '|' + this.seatSelect
 
                 if (this.isBlank(this.unitInput)) {
                     alert('单元信息必填')
@@ -984,7 +983,7 @@
                     return
                 }
 
-                this.addParam.unit = this.unitInput + '|' + this.unitSelect 
+                this.addParam.unit = this.unitInput + '|' + this.unitSelect
 
                 if (this.isBlank(this.addParam.floor)) {
                     alert('楼层必填')

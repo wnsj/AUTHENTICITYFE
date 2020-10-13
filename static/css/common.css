@@ -148,7 +148,7 @@ body{
     text-align:left;
     color:red;
     font-size:12px;
-   
+
 }
 .wraper{
     position:relative;
@@ -185,6 +185,7 @@ body{
 #basic textarea.wdType02{height: 80px;width:100%;}
 #basic textarea.wdType03{min-height: 100px;}
 #basic .el-select__tags{top: 200%;max-width: fit-content !important;}
+.bigWidthModal2{width: 770px;}
 .bigWidthModal{width: 700px;}
 .bigWidthModal #basic textarea.wdType03{height: 300px;}
 /* .bigWidthModal #basic textarea{height: 300px!important;width: 500px!important;box-sizing: border-box;padding: 10px;border-radius: 11px;outline: none;} */

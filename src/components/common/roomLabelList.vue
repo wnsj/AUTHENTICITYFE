@@ -1,5 +1,5 @@
 <template>
-    <el-select v-model="labelList" multiple
+    <el-select v-model="labelList" multiple size="mini"
                collapse-tags style="height: 9px" v-on:change="labelChange()" placeholder="--未选择--">
         <el-option v-for="item in labels"
                    :key="item.id"
