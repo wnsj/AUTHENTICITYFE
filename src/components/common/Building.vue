@@ -3,7 +3,7 @@
 <!--        <option value="">&#45;&#45;未选择&#45;&#45;</option>-->
 <!--        <option v-for="(item,index) in buildList" :key="index" v-bind:value="item.buildId">{{item.htName}}</option>-->
 <!--    </select>-->
-        <el-select size="medium" v-model="buildId" v-on:change="buildChange()" clearable filterable placeholder="--未选择--" :disabled="this.buildType==3?true:false">
+        <el-select size="medium" v-model="buildId" v-on:change="buildChange()" clearable filterable placeholder="--未选择--">
             <el-option
                 v-for="item in buildList"
                 :key="item.buildId"
@@ -71,7 +71,7 @@
                 this.bussId = bussId
                 this.queryData()
             },
-            
+
             async queryData() {
                 var url = this.url + '/buildingBean/getAllBuild'
                 this.$ajax({
