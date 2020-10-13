@@ -276,7 +276,7 @@
                             <!-- <input type="text" placeholder="必填" class="form-control" v-model="addParam.payType"> -->
                             <select class="form-control" v-model="addParam.payType">
                                 <option value="">--未选择--</option>
-                                <option v-for="(item,index) in payTypeList" :key="index" v-bind="item.termName">{{item.termName}}</option>
+                                <option v-for="(item,index) in payTypeList" :key="index" v-bind:value="item.termName">{{item.termName}}</option>
                             </select>
                         </div>
                     </div>
@@ -299,6 +299,54 @@
                                 <option value=2>--是--</option>
                                 <option value=3>--否--</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix" style="padding-right:0">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;width: 12%;">座</label><span class="sign-left">:</span>
+                        <div class="col-md-10" style="padding-right:6px">
+
+                          <el-input placeholder="请输入内容" v-model="seatInput" class="input-with-select" size="small"> 
+                            <el-select v-model="seatSelect" slot="append" placeholder="请选择"  style="width:90px;">
+                              <el-option label="号楼" value="号楼"></el-option>
+                              <el-option label="栋" value="栋"></el-option>
+                              <el-option label="座" value="座"></el-option>
+                              <el-option label="幢" value="幢"></el-option>
+                            </el-select>
+                          </el-input>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix" style="padding-right:0">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;width: 12%;">单元</label><span class="sign-left">:</span>
+                        <div class="col-md-10" style="padding-right:6px">
+
+                          <el-input placeholder="请输入内容" v-model="unitInput" class="input-with-select" size="small"> 
+                            <el-select v-model="unitSelect" slot="append" placeholder="请选择"  style="width:90px;">
+                              <el-option label="单元" value="单元"></el-option>
+                              <el-option label="门" value="门"></el-option>
+                            </el-select>
+                          </el-input>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">楼层</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.floor">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group clearfix">
+                        <label class="col-md-3 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;">门牌号</label><span class="sign-left">:</span>
+                        <div class="col-md-8">
+                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.houseNumber">
                         </div>
                     </div>
 
@@ -493,7 +541,17 @@
                     // 特点list集合
                     chaList: [],
 
+                    // 座
+                    seat: '',
 
+                    //单元
+                    unit: '',
+
+                    //楼层
+                    floor: '',
+
+                    //门牌号
+                    houseNumber: ''
                 },
                 title: '',
                 buildRealImgList:
@@ -530,7 +588,11 @@
                     {id:2,termName:'半年'},
                     {id:3,termName:'年付'}
                 ],
-                transferFeeFlag:2
+                transferFeeFlag:2,
+                seatInput:'',
+                seatSelect:'',
+                unitInput:'',
+                unitSelect:''
             }
         },
         methods: {
@@ -561,7 +623,10 @@
                     this.$refs.rlRef.setLabelList([])
                     this.roomType = '0'
                     this.$refs.buildCompentRef.setBuildingId('')
-
+                    this.seatSelect = ''
+                    this.seatInput = ''
+                    this.unitInput = ''
+                    this.unitSelect = ''
 
                     // this.$refs.proRef.setProId('0')
                     this.addParam = {
@@ -653,7 +718,31 @@
                         isRent: 2,
 
                         // 是否可分割（2:可分割；3：不可分割）
-                        isDivision: 3
+                        isDivision: 3,
+
+                        // 座
+                        seat: '',
+
+                        //单元
+                        unit: '',
+
+                        //楼层
+                        floor: '',
+
+                        //门牌号
+                        houseNumber: '',
+
+                        // 座
+                        seat: '',
+
+                        //单元
+                        unit: '',
+
+                        //楼层
+                        floor: '',
+
+                        //门牌号
+                        houseNumber: ''
                     }
                 } else if (param === 'modify') {
                     // if (this.isBlank(addParam.videoPath)) {
@@ -663,7 +752,23 @@
                     //     this.videoName = addParam.videoName
                     // }
                     this.title = '修改'
+                    if(addParam.seat != null){
+                        var s = addParam.seat.split('|')
+                        this.seatInput = s[0]
+                        this.seatSelect = s[1]
+                    }else{
+                        this.seatInput = ''
+                        this.seatSelect = ''
+                    }
 
+                    if(addParam.unit != null){
+                        var s = addParam.unit.split('|')
+                        this.unitInput = s[0]
+                        this.unitSelect = s[1]
+                    }else{
+                        this.unitInput = ''
+                        this.unitSelect = ''
+                    }
                     this.$refs.buRef.setBuId(addParam.businessId)
                     this.$refs.buildCompentRef.setBussId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
@@ -857,6 +962,40 @@
                     return
                 }
 
+                if (this.isBlank(this.seatInput)) {
+                    alert('座信息必填')
+                    return
+                }
+
+                if (this.isBlank(this.seatSelect)) {
+                    alert('座信息单位必填')
+                    return
+                }
+
+                this.addParam.seat = this.seatInput + '|' + this.seatSelect 
+
+                if (this.isBlank(this.unitInput)) {
+                    alert('单元信息必填')
+                    return
+                }
+
+                if (this.isBlank(this.unitSelect)) {
+                    alert('单元信息单位必填')
+                    return
+                }
+
+                this.addParam.unit = this.unitInput + '|' + this.unitSelect 
+
+                if (this.isBlank(this.addParam.floor)) {
+                    alert('楼层必填')
+                    return
+                }
+
+                if (this.isBlank(this.addParam.houseNumber)) {
+                    alert('门牌号必填')
+                    return
+                }
+
                 // if (this.isBlank(this.addParam.isRent)) {
                 //     alert('是否在租必选')
                 //     return
@@ -949,6 +1088,7 @@
                 //     }
                 // }
                 // fd.append("addParam", JSON.stringify(this.addParam));
+
                 switch (this.title) {
                     case '新增':
                         var url = this.url + '/roomMainBean/addRoomMain'
