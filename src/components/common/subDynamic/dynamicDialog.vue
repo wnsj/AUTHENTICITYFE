@@ -38,6 +38,26 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="col-md-6 form-group clearfix" style="padding-right:0">
+                        <label class="col-md-2 control-label text-right nopad end-aline"
+                               style="padding:0;line-height:34px;width: 12%;">标题</label><span class="sign-left">:</span>
+                        <div class="col-md-10" style="padding-right:6px">
+
+                          <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+                            <el-select v-model="select3" slot="append" placeholder="请选择"  style="width:90px;">
+                              <el-option label="元" value="1"></el-option>
+                              <el-option label="万元" value="2"></el-option>
+                            </el-select>
+                          </el-input>
+
+                        </div>
+                    </div>
+
+
+
+
                     <div class="col-md-12 form-group clearfix">
                         <div class="col-md-6  clearfix" style="padding: 0;">
                             <label class="col-md-3 control-label text-right nopad end-aline" style="padding:0;line-height:34px;">资讯描述</label><span class="sign-left">:</span>
@@ -104,7 +124,10 @@
                 isDisable:false,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
-                }
+                },
+                input3:'',
+                select3:''
+
             };
         },
         methods: {
@@ -175,10 +198,10 @@
                 setTimeout(() => {
                     this.isDisable = false
                 }, 1000)
-                   
+
                 if(this.addParam.bdName.length>30){
                         alert('标题必填，并且不超过30字')
-                    return 
+                    return
                 }
                 if (this.isBlank(this.addParam.bdName)) {
                     alert('标题必填，并且不超过30字')
@@ -194,7 +217,7 @@
                 }
                 if(this.addParam.bdLabel.length>120){
                         alert('资讯描述必填，并且不超过120字')
-                    return 
+                    return
                 }
                 this.addParam.bdContent = this.$refs.sn.getData()
                 if (this.isBlank(this.addParam.bdContent)) {
@@ -314,5 +337,5 @@
 </script>
 
 <style>
-    
+
 </style>
