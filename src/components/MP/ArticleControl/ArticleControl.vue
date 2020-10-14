@@ -111,7 +111,7 @@
                 this.queryData(page)
             },
             openArticle(item) {
-                window.open('http://www.baidu.com?article=' + item.articleType);
+                window.open('http://www.zhizhenzhaofang.com/about/article.html?article=' + item.articleType);
             },
             async queryData(page) {
                 var url = this.url + '/articleBean/getArticleByPage'
