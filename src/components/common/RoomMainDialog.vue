@@ -618,7 +618,7 @@
                     this.$refs.ldtRef.setLdtId('0')
                     this.$refs.couRef.setCouId('0')
                     this.$refs.btRef.setBtId('0')
-                    this.$refs.buRef.setBuId('0')
+                    this.$refs.buRef.setLdId('')
                     this.$refs.rlRef.setLabelList([])
                     this.roomType = '0'
                     this.$refs.buildCompentRef.setBuildingId('')
@@ -768,7 +768,13 @@
                         this.unitInput = ''
                         this.unitSelect = ''
                     }
+                    console.log('roomType',addParam.roomType)
+                    this.transferFeeFlag = 2
+                    if(addParam.roomType == 3){
+                        this.transferFeeFlag = 3
+                    }
                     this.$refs.buRef.setBuId(addParam.businessId)
+                    this.$refs.buRef.setLdIds(addParam.ldId)
                     this.$refs.buildCompentRef.setBussId(addParam.businessId)
                     this.$refs.buildCompentRef.setBuildingId(addParam.buildId)
                     this.$refs.rlRef.setLabelList(addParam.labels)

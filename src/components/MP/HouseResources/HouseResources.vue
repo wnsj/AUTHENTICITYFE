@@ -109,6 +109,10 @@
                             <th class="text-center">区域</th>
                             <th class="text-center">商圈</th>
                             <th class="text-center">楼盘</th>
+                            <th class="text-center">座</th>
+                            <th class="text-center">单元</th>
+                            <th class="text-center">楼层</th>
+                            <th class="text-center">门牌号</th>
                             <th class="text-center">类型</th>
                             <th class="text-center">面积</th>
                             <th class="text-center">单价</th>
@@ -124,6 +128,12 @@
                             <!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
                             <td class="text-center" style="line-height:33px;">{{item.bussinessName}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.buildName}}</td>
+                            <td class="text-center" style="line-height:33px;" v-if="item.seat!=null">{{item.seat.split('|')[0]}}</td>
+                            <td class="text-center" style="line-height:33px;" v-if="item.seat==null"></td>
+                            <td class="text-center" style="line-height:33px;" v-if="item.unit!=null">{{item.unit.split('|')[0]}}</td>
+                            <td class="text-center" style="line-height:33px;" v-if="item.unit==null"></td>
+                            <td class="text-center" style="line-height:33px;">{{item.floor}}</td>
+                            <td class="text-center" style="line-height:33px;">{{item.houseNumber}}</td>
                             <td class="text-center" style="line-height:33px;" v-if="item.roomType==1">普通办公</td>
                             <td class="text-center" style="line-height:33px;" v-if="item.roomType==2">共享办公</td>
                             <td class="text-center" style="line-height:33px;" v-if="item.roomType==3">商铺</td>
