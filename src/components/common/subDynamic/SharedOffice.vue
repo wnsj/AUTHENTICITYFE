@@ -120,7 +120,11 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:30px;">支付方式</label><span class="sign-left">:</span>
                         <div class="col-md-8 form-group clearfix">
-                            <input type="text" class="form-control " v-model="addParam.payType" placeholder="必填"/>
+<!--                            <input type="text" class="form-control " v-model="addParam.payType" placeholder="必填"/>-->
+                            <select class="form-control" v-model="addParam.payType">
+                                <option value="">--未选择--</option>
+                                <option v-for="(item,index) in payTypeList" :key="index" v-bind:value="item.termName">{{item.termName}}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6 form-group clearfix">
@@ -258,6 +262,11 @@
                 watchHouse: [
                     {id:1,watchName:'随时看房'},
                     {id:2,watchName:'提前预约'},
+                ],
+                payTypeList: [
+                    {id:1,termName:'季度'},
+                    {id:2,termName:'半年'},
+                    {id:3,termName:'年付'}
                 ]
             };
         },
