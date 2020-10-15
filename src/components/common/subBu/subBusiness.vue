@@ -33,7 +33,7 @@
             setBuId: function(buId) {
                 this.id = buId
                 this.ldId = null
-                // this.queryData()
+                this.queryData()
             },
             setLdId: function(ldId) {
                 this.id = '0'
@@ -42,7 +42,9 @@
             },
             setLdIds: function(ldId) {
                 this.ldId = ldId
-                this.queryData()
+                setTimeout(res => {
+                    this.queryData()
+                })
             },
             async queryData() {
                 var url = this.url + '/businessDistrictBean/getBusinessDistrict'

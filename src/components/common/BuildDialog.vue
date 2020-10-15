@@ -732,6 +732,7 @@
                     }
 
                     this.$refs.ldtRef.setLdtId(addParam.ldId)
+
                     if (addParam.buildTypeList) {
                         this.$refs.btRef.setBstIdList(addParam.buildTypeList)
                     }
@@ -744,7 +745,9 @@
                     }
 
                     this.$refs.couRef.setCouId(addParam.couId)
+
                     this.$refs.buRef.setBuId(addParam.businessId)
+                    this.$refs.buRef.setLdIds(addParam.ldId)
                     Object.assign(this.addParam, addParam)
                 }
             },
