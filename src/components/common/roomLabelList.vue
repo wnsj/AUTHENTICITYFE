@@ -20,6 +20,11 @@
         methods: {
 
             labelChange: function () {
+                if (null != this.labelList && this.labelList.length > 3) {
+                    alert("标签数目不可超过3个！")
+                    this.labelList.splice(this.labelList.length - 1,1)
+                    return;
+                }
                 for (var i = 0; i < this.labels.length; i++) {
                     if (this.labelList === []) {
                         this.$emit('labelChange', null);
