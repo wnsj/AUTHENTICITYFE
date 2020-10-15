@@ -76,7 +76,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label
                             class="col-md-3 control-label text-right nopad end-aline"
                             style="padding:0;line-height:34px;"
@@ -85,9 +85,9 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="roomParam.horseLabel"/>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label
                             class="col-md-3 control-label text-right nopad end-aline"
                             style="padding:0;line-height:34px;"
@@ -96,7 +96,7 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="roomParam.traffic"/>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="col-md-6 form-group clearfix">
                         <label
@@ -109,7 +109,7 @@
                         </div>
                     </div> -->
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label
                             class="col-md-3 control-label text-right nopad end-aline"
                             style="padding:0;line-height:34px;"
@@ -118,7 +118,7 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="roomParam.renovationLabel"/>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-6 form-group clearfix">
                         <label
@@ -213,7 +213,7 @@
                     <div class="col-md-12 form-group clearfix">
                         <label
                             class="col-md-2 control-label text-right nopad end-aline"
-                            style="padding:0;line-height:34px;width: 12%;">楼盘介绍</label>
+                            style="padding:0;line-height:34px;width: 12%;">房源介绍</label>
                         <span class="sign-left">:</span>
                         <div class="col-md-10">
                             <textarea class="form-control" v-model="roomParam.buildIntroduce"

@@ -123,14 +123,14 @@
                         </thead>
                         <tbody>
                         <tr v-for="(item,index) in tableData" :key="index" v-on:dblclick="selectRule('3',item)">
-                            <td class="text-left" style="line-height:33px;">{{item.room}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.ldName}}</td>
+                            <td class="text-left" style="line-height:33px; width:23%">{{item.room}}</td>
+                            <td class="text-center" style="line-height:33px;width:4%">{{item.ldName}}</td>
                             <!-- <td class="text-center" style="line-height:33px;">{{item.adress}}</td> -->
                             <td class="text-center" style="line-height:33px;">{{item.bussinessName}}</td>
-                            <td class="text-center" style="line-height:33px;">{{item.buildName}}</td>
-                            <td class="text-center" style="line-height:33px;" v-if="item.seat!=null">{{item.seat.split('|')[0]}}</td>
-                            <td class="text-center" style="line-height:33px;" v-if="item.seat==null"></td>
-                            <td class="text-center" style="line-height:33px;" v-if="item.unit!=null">{{item.unit.split('|')[0]}}</td>
+                            <td class="text-center" style="line-height:33px;width:8%">{{item.buildName}}</td>
+                            <td class="text-center" style="line-height:33px;width:3%" v-if="item.seat!=null">{{item.seat.split('|')[0]}}</td>
+                            <td class="text-center" style="line-height:33px;width:3%" v-if="item.seat==null"></td>
+                            <td class="text-center" style="line-height:33px;width:3%" v-if="item.unit!=null">{{item.unit.split('|')[0]}}</td>
                             <td class="text-center" style="line-height:33px;" v-if="item.unit==null"></td>
                             <td class="text-center" style="line-height:33px;">{{item.floor}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.houseNumber}}</td>
@@ -143,7 +143,7 @@
                             <td class="text-center" style="line-height:33px;">{{item.unitPrice}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.totalPrice}}</td>
                             <td class="text-center" style="line-height:33px;">{{item.createTime}}</td>
-                            <td class="text-center" style="line-height:33px;">
+                            <td class="text-center" style="line-height:33px;width:18%">
                                 <button :disabled="item.roomType == 2 ? true : false" type="button"
                                         class="btn btn-primary m_r_10" style="margin-right:1.5%;" data-toggle="modal"
                                         v-on:click="addDetail(item)">添加详情
