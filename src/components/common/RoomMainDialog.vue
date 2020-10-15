@@ -979,17 +979,19 @@
 
                 this.addParam.seat = this.seatInput + '|' + this.seatSelect
 
-                if (this.isBlank(this.unitInput)) {
-                    alert('单元信息必填')
+                if(!this.isBlank(this.unitInput) && this.isBlank(this.unitSelect)){
+                    alert('填写单元值后请选择对应单位')
                     return
                 }
 
-                if (this.isBlank(this.unitSelect)) {
-                    alert('单元信息单位必填')
+                if(this.isBlank(this.unitInput) && !this.isBlank(this.unitSelect)){
+                    alert('选择单元单位后请填写对应值')
                     return
                 }
 
-                this.addParam.unit = this.unitInput + '|' + this.unitSelect
+                if (!this.isBlank(this.unitInput) && !this.isBlank(this.unitSelect)) {
+                    this.addParam.unit = this.unitInput + '|' + this.unitSelect
+                }
 
                 if (this.isBlank(this.addParam.floor)) {
                     alert('楼层必填')

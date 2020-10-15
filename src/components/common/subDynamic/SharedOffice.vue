@@ -138,7 +138,7 @@
                                style="padding-left:0;line-height:30px; width:15.5%">头图：</label>
                         <div class="col-md-9" style="padding:0">
                             <input type="file" id="headImg" @change="headImgChange" accept="image/*"/>
-                            <p class="redtips">*注意：宽378px*高228px</p>
+                            <p class="redtips">*注意：宽900px*高540px</p>
 
                             <div id="headImgOutDiv">
                                 <div v-for="(item,index) of headImgList" :key="index" v-show="headImgList.length!==0">
