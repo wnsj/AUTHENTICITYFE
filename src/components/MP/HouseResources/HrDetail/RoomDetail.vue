@@ -574,10 +574,10 @@
                 //     alert('最大工位不能小于最小工位')
                 //     return;
                 // }
-                if (this.isBlank(this.roomParam.renovationLabel)) {
-                    alert('装修描述必填')
-                    return
-                }
+                // if (this.isBlank(this.roomParam.renovationLabel)) {
+                //     alert('装修描述必填')
+                //     return
+                // }
                 if (this.isBlank(this.roomParam.usageRate) || this.roomParam.usageRate == 0) {
                     alert('使用率必填，且只能为正数，最多保留2位小数')
                     return
@@ -588,7 +588,7 @@
                     }
                 }
                 if (this.isBlank(this.roomParam.buildIntroduce)) {
-                    alert('楼盘介绍必填')
+                    alert('房源介绍必填')
                     return
                 }
                 // if (this.headImgList.length == 0) {
