@@ -984,13 +984,10 @@
                     return
                 }
 
-                if(this.isBlank(this.unitInput) && !this.isBlank(this.unitSelect)){
-                    alert('选择单元单位后请填写对应值')
-                    return
-                }
-
                 if (!this.isBlank(this.unitInput) && !this.isBlank(this.unitSelect)) {
                     this.addParam.unit = this.unitInput + '|' + this.unitSelect
+                }else{
+                    this.addParam.unit = ''
                 }
 
                 if (this.isBlank(this.addParam.floor)) {
