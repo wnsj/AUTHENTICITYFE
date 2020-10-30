@@ -46,11 +46,11 @@
 
                     <div class="col-md-6 form-group clearfix">
                         <label class="col-md-3 control-label text-right nopad end-aline"
-                               style="padding:0;line-height:30px;">剩余工位</label><span class="sign-left">:</span>
-                        <div class="col-md-8 form-group clearfix">
+                               style="padding:0;line-height:30px;">剩余</label><span class="sign-left">:</span>
+                        <div class="col-md-6 form-group clearfix" style="padding-right:0;">
                             <input type="text" class="form-control " v-model="addParam.surpluseNum" placeholder="必填"/>
                         </div>
-
+                         <div style="padding:0;line-height:30px;">工位/间</div>
                     </div>
 
                     <div class="col-md-6 form-group clearfix">
