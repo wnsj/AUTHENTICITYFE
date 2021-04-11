@@ -65,7 +65,7 @@
 <!--                        </div>-->
 <!--                    </div>-->
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label
                             class="col-md-3 control-label text-right nopad end-aline"
                             style="padding:0;line-height:34px;"
@@ -74,9 +74,9 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="roomParam.floor"/>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label
                             class="col-md-3 control-label text-right nopad end-aline"
                             style="padding:0;line-height:34px;"
@@ -85,9 +85,9 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="roomParam.horseLabel"/>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label
                             class="col-md-3 control-label text-right nopad end-aline"
                             style="padding:0;line-height:34px;"
@@ -96,7 +96,7 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="roomParam.traffic"/>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="col-md-6 form-group clearfix">
                         <label
@@ -109,7 +109,7 @@
                         </div>
                     </div> -->
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label
                             class="col-md-3 control-label text-right nopad end-aline"
                             style="padding:0;line-height:34px;"
@@ -118,7 +118,7 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="roomParam.renovationLabel"/>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-6 form-group clearfix">
                         <label
@@ -131,7 +131,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 form-group clearfix">
+                    <!-- <div class="col-md-6 form-group clearfix">
                         <label
                             class="col-md-3 control-label text-right nopad end-aline"
                             style="padding:0;line-height:34px;"
@@ -140,7 +140,7 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" v-model="roomParam.rimMating"/>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-12 form-group clearfix">
                         <label
@@ -213,7 +213,7 @@
                     <div class="col-md-12 form-group clearfix">
                         <label
                             class="col-md-2 control-label text-right nopad end-aline"
-                            style="padding:0;line-height:34px;width: 12%;">楼盘介绍</label>
+                            style="padding:0;line-height:34px;width: 12%;">房源介绍</label>
                         <span class="sign-left">:</span>
                         <div class="col-md-10">
                             <textarea class="form-control" v-model="roomParam.buildIntroduce"
@@ -574,10 +574,10 @@
                 //     alert('最大工位不能小于最小工位')
                 //     return;
                 // }
-                if (this.isBlank(this.roomParam.renovationLabel)) {
-                    alert('装修描述必填')
-                    return
-                }
+                // if (this.isBlank(this.roomParam.renovationLabel)) {
+                //     alert('装修描述必填')
+                //     return
+                // }
                 if (this.isBlank(this.roomParam.usageRate) || this.roomParam.usageRate == 0) {
                     alert('使用率必填，且只能为正数，最多保留2位小数')
                     return
@@ -588,7 +588,7 @@
                     }
                 }
                 if (this.isBlank(this.roomParam.buildIntroduce)) {
-                    alert('楼盘介绍必填')
+                    alert('房源介绍必填')
                     return
                 }
                 // if (this.headImgList.length == 0) {
