@@ -337,7 +337,13 @@
                         <label class="col-md-3 control-label text-right nopad end-aline"
                                style="padding:0;line-height:34px;">楼层</label><span class="sign-left">:</span>
                         <div class="col-md-8">
-                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.floor">
+<!--                            <input type="text" placeholder="必填" class="form-control" v-model="addParam.floor">-->
+                            <select class="form-control" v-model="addParam.floor">
+                                <option value="">--未选择--</option>
+                                <option value="低层">低层</option>
+                                <option value="中层">中层</option>
+                                <option value="高层">高层</option>
+                            </select>
                         </div>
                     </div>
 
@@ -736,9 +742,6 @@
 
                         //单元
                         unit: '',
-
-                        //楼层
-                        floor: '',
 
                         //门牌号
                         houseNumber: ''

@@ -914,6 +914,8 @@
                         return;
                     }
                 }
+
+
                 if (this.isBlank(this.addParam.maxStationNum) || this.addParam.maxStationNum == 0) {
                     alert('最大工位必填，且只能填正整数')
                     return
@@ -928,11 +930,20 @@
                     return;
                 }
 
+                if (!this.isBlank(this.addParam.floorHeight) && !(/^(([0-9]*$)|([0-9]+(.[0-9]{1,2})?))$/).test(this.addParam.floorHeight)) {
+                    alert('层高只能填正数，最多保留2位小数')
+                    return;
+                }
+
                 if (this.isBlank(this.addParam.devId)) {
                     alert('开发商必填')
                     return
                 }
 
+                if (!this.isBlank(this.addParam.elevatorNum) && !(/^([0-9]*$)$/).test(this.addParam.elevatorNum)) {
+                    alert('客梯数只能填正整数')
+                    return;
+                }
                 if (this.isBlank(this.addParam.adress)) {
                     alert('楼盘地址必填')
                     return
